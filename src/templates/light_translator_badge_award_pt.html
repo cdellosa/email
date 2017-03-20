@@ -1,0 +1,44 @@
+{% include "includes/macros_notifications.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis_2 = true %}
+
+{# COPY #}
+{% set copy = {
+  "subject_line" : "Congratulations! You've been awarded our Translator badge",
+  "alt_logo" : "Twitter",
+  "headline" : "You've been awarded our Translator badge.",
+  "body" : [
+    "Thanks for being a part of the community that makes Twitter available in many different languages. We couldn't do it without you! Because of your excellent work, you have now been awarded the Translator badge which will be featured in your Twitter profile for as long as you maintain that level of participation. Keep up the great work!",
+    "Want to take a peek at how the badge looks?"
+    ],
+  "cta" : "Check out the badge",
+  "footer" : ["Settings", "Help", "Unsubscribe", "Not my account"],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "cta" : "https://twitter.com/{{#recipient}}{{screen_name}}{{/recipient}}"
+} %}
+
+Subject: {{ i10n(copy.subject_line) }}
+
+Twitter {{ "<" + track(link.logo,1) + ">" }}
+
+=
+  
+{{ i10n(copy.headline) }}
+
+=
+
+{{ i10n(copy.body[0]) }}
+
+{{ i10n(copy.body[1]) }}
+
+{{ i10n(copy.cta) }} {{ "<" + track(link.cta,2) + ">" }}
+
+=
+
+{{ copy.address }}

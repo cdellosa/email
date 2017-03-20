@@ -1,0 +1,43 @@
+<!--{{image_load_scribe}}-->
+<table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+  {{#first_social_proof.isDefined}}
+  {{^social_context.get.action_type_replied}}
+  {{^social_context.get.action_type_followed}}
+  <tr>
+    <td class="tweet_social_proof">
+      {{#social_context.get.action_type_favorited}}
+      <img alt="like" src="https://ea.twimg.com/email/self_serve/media/heart-icon-buffer-1475270599240.png" height="14" class="inline_img" style="vertical-align:middle;">
+      {{/social_context.get.action_type_favorited}}
+      {{#social_context.get.action_type_retweeted}}
+      <img alt="retweet" src="https://ea.twimg.com/email/self_serve/media/darker-retweet-1463676568959.png" height="14" class="inline_img" style="vertical-align:middle;">
+      {{/social_context.get.action_type_retweeted}}
+      &thinsp;
+      {{#social_context.get.action_type_favorited}}
+        {{_i}}Liked by{{/i}}
+      {{/social_context.get.action_type_favorited}}
+      {{#social_context.get.action_type_retweeted}}
+        {{_i}}Retweeted by{{/i}}
+      {{/social_context.get.action_type_retweeted}}
+      {{#has_other_social_proof}}
+        {{_i}}{{#first_social_proof}}{{user.name}}{{/first_social_proof}} and {{other_social_proof_count}} others{{/i}}
+      {{/has_other_social_proof}}
+      {{^has_other_social_proof}}
+        {{#first_social_proof}}{{user.name}}{{/first_social_proof}}
+      {{/has_other_social_proof}}
+    </td>
+  </tr>
+  <tr><td height="6" style="height:6px;"></td></tr>
+  {{/social_context.get.action_type_followed}}
+  {{/social_context.get.action_type_replied}}
+  {{/first_social_proof.isDefined}}
+  {{#userItem}}
+  <tr><td class="quote_tweet_identity_truncate">
+    <a class="quote_tweet_name" href="{{force_screen_name_link}}">{{name}}</a>
+    <a class="quote_tweet_handle" href="{{force_screen_name_link}}">@{{screen_name}}</a>
+  </td></tr>
+  {{/userItem}}
+  <tr><td height="6" style="height:6px;"></td></tr>
+  <tr><td class="quote_tweet_text">
+    {{{linkified_text}}}
+  </td></tr>
+</table>

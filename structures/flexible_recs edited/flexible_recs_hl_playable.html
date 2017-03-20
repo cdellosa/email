@@ -1,0 +1,59 @@
+<!--{{image_load_scribe}}-->
+<table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+  <tr><td>
+    <a href="{{text_tweet_link}}">
+      <table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+        <tr><td class="full_tweet_text">
+    {{#is_native_media}}
+      {{{no_pic_linkified_text}}}
+    {{/is_native_media}}
+    {{^is_native_media}}
+      {{{no_card_url_no_pic_linkified_text}}}
+    {{/is_native_media}}
+        </td></tr>
+      </table>
+    </a>
+  </td></tr>
+  <tr><td height="14" style="height:14px;"></td></tr>
+  {{#large_uncropped_image}}
+  <tr>
+    <td background="{{url}}" class="playable">
+      <!--[if gte mso 9]>
+        <v:rect  xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:400px;height:{{height_normalized_to_400}}px;">
+        <v:fill type="tile" src="{{url}}" color="#8899a6" href="#" size="300pt,{{height_normalized_to_300}}pt" />
+          <v:textbox inset="0,0,0,0">
+      <![endif]-->
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td>
+            <!-- permalink (and in MSO above) -->
+            <a href="{{image_tweet_link}}"><img src=
+                  {{#aspect_ratio_100}}
+                    {{^is_gif}}
+                      "https://ea.twimg.com/email/self_serve/media/play-400x400-1422042481486.png"
+                    {{/is_gif}}
+                    {{#is_gif}}
+                      "https://ea.twimg.com/email/self_serve/media/gif-play-btn-400x400v2-1422496020076.png"
+                    {{/is_gif}}
+                  {{/aspect_ratio_100}}
+                  {{#aspect_ratio_133}}
+                    "https://ea.twimg.com/email/self_serve/media/play-400x300-1422042481458.png"
+                  {{/aspect_ratio_133}}
+                  {{#aspect_ratio_136}}
+                    "https://ea.twimg.com/email/self_serve/media/play-400x294-1422042481470.png"
+                  {{/aspect_ratio_136}}
+                  {{#aspect_ratio_177}}
+                    "https://ea.twimg.com/email/self_serve/media/play-400x225-1422042481471.png"
+                  {{/aspect_ratio_177}}
+            class="player" width="400" /></a>
+          </td>
+        </tr>
+      </table>
+      <!--[if gte mso 9]>
+          </v:textbox>
+        </v:rect>
+      <![endif]-->
+    </td>
+  </tr>
+  {{/large_uncropped_image}}
+</table>

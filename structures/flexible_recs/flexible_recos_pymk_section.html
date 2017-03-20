@@ -1,0 +1,111 @@
+<!--///////////////////// wtf /////////////////////////-->
+<table class="collapse" align="center" width="500" style="width:500px;background-color:#ffffff;" cellpadding="0" cellspacing="0" border="0">
+ 
+  <!--[if !mso]><!-->
+                <tr><td><a href="{{force_screen_name_link}}" style="width:100%; height:100%; display:block;" height="100%" width="100%">
+                <div>
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <!--<![endif]-->
+<tr>
+  <td width="50" style="width:50px;" class="margins"></td>
+<td align="center">
+  <a href="#" taget="blank">
+  </a>
+<table width="100%" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}} cellpadding="0" cellspacing="0" border="0" class="collapse">
+  <tr>
+    <td height="25" style="height:25px;"></td>
+  </tr>
+<tr>
+<td width="100%">
+<table cellpadding="0" cellspacing="0" border="0" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+<tr>
+  <td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}} width="96" style="width:96px;">
+    <!-- pymk 2 avatar -->
+    <a href="{{force_screen_name_link}}" target="blank"><img src="{{profile_image_src}}" class="avatar-96" width="96" height="96"></a>
+  </td>
+  <td width="15"></td>
+<td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}} valign="middle">
+<table align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}} cellpadding="0" cellspacing="0" border="0" style="padding:0px; margin:0px;">
+  <tr>
+    <td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+      <table align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}} cellpadding="0" cellspacing="0" border="0" style="padding:0px; margin:0px;">
+        <tr>
+          <td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+            <!-- pymk 2 user name and @handle -->
+            <span class="full_name_truncate" style="display:block;"><strong><a href="{{force_screen_name_link}}" class="full_name">{{user.name}}</a></strong>&nbsp;{{#user.isVerified}}<img src="https://ea.twimg.com/email/self_serve/media/ico_verified-1407009642236.png" width="16" height="16" style="width:15px;height:15px;display:inline;" class="inline-image">{{/user.isVerified}}&nbsp;<a href="{{force_screen_name_link}}" class="user_name">@{{user.screenName}}</a></span>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td height="5"></td>
+  </tr>
+<tr>
+<td class="social-proof" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+  <!-- social proof -->
+{{#first_mutual_follower}}
+{{#mutualFollowerSample.tail.headOption.isDefined}}
+{{_i}}Followed by {{first_mutual_follower.name}} and {{mutualFollowerSample.tail.head.name}}.{{/i}}
+{{/mutualFollowerSample.tail.headOption.isDefined}}
+
+{{#mutualFollowerSample.tail.headOption.isEmpty}}
+{{_i}}Followed by {{first_mutual_follower.name}}{{/i}}
+{{/mutualFollowerSample.tail.headOption.isEmpty}}
+{{/first_mutual_follower}}
+</td>
+</tr>
+  <tr>
+    <td height="10"></td>
+  </tr>
+  <tr>
+    <!--*********** button ************-->
+     <td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
+     <table border="0" cellspacing="0" cellpadding="0">
+       <tr>
+         <td>
+           <!-- Tap, click, press, push the button -->
+           <table width="100%" border="0" cellspacing="0" cellpadding="0">
+             <tr>
+               <td>
+                 <table border="0" cellspacing="0" cellpadding="0">
+                   <tr>
+                     <td align="center" class="bulletproof-btn-1" bgcolor="#ffffff" {{#is_rtl}}dir="rtl"{{/is_rtl}}><a href="{{follow_button_link}}" target="_blank" class="view-btn-2">
+                       <!--[if gte mso 11]>&nbsp; &nbsp;<![endif]-->
+                         <img src="https://ea.twimg.com/email/self_serve/media/icn_follow@3x-1418089049664.png" width="18" class="inline-image" valign="middle" />&nbsp; {{_i}}Follow{{/i}}
+                       <!--[if gte mso 11]>&nbsp; &nbsp;<![endif]-->
+                     </a></td>
+                   </tr>
+                 </table>
+               </td>
+             </tr>
+           </table>
+         </td>
+       </tr>
+     </table>
+     </td>
+    <!--*********** end button ************-->
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+  <td width="50" style="width:50px;" class="margins"></td>
+</tr>
+  <tr>
+    <td class="border-space" height="25" style="height:25px;"></td>
+  </tr>
+
+<!--[if !mso]><!-->
+                </table></div>
+                </a></td></tr>
+                <!--<![endif]-->
+
+</table>
+<!--{{image_load_scribe}}-->
+
+<!--///////////////////// end wtf /////////////////////////-->

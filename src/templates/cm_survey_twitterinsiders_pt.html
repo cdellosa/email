@@ -1,0 +1,52 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "cta" : "https://www2.brandinvitation.com/wix/p2096203.aspx?said=B8936GA&pcid=CLCS&aud=25&cid=187&asid=485&enpt=lp&lang=9&l=9&csid={{uid_encrypted}}",
+  "text" : "https://www2.brandinvitation.com/wix/p2096203.aspx?said=B8936GA&pcid=CLCS&aud=25&cid=187&asid=485&enpt=lp&lang=9&l=9&csid={{uid_encrypted}}",
+  "settings" : "https://twitter.com/settings/notifications",
+  "help" : "https://support.twitter.com/",
+  "not_my_account" : "{{not_my_account}}"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "preheader" : "We need your help to shape the future of Twitter",
+  "subject_line" : "@{{screen_name}}, have what it takes to be a Twitter Insider?",
+  "alt_logo" : "Twitter",
+  "body" : [
+    "You Tweet, we listen, and we’re impressed. Below is your exclusive invitation to join our online community of Twitter Insiders to get the inside scoop and advise on what comes next.",
+    "Start participating in discussions and activities in the community where you have the chance to impact our platform and win fun prizes.",
+    "The Twitter Insiders Team"
+    ],
+  "cta" : "Sign up here",
+  "footer" : ["Settings", "Help", "Unsubscribe"],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103",
+  "address_2" : "Twitter International Company, The Academy, 42 Pearse Street, Dublin 2, Ireland."
+} %}
+
+Subject: {{ i10n(copy.subject_line) }}
+
+Twitter {{ "<" + trackm(link.logo,1) + ">" }}
+
+=
+
+{{ i10n(pt(copy.body[0])) }}
+
+{{ i10n(copy.cta) }} {{ "<" + track(link.cta,2) + ">" }}
+
+{{ i10n(pt(copy.body[1])) }}
+
+=
+
+{{ i10n(copy.footer[0]) }} {{ "<" + track(link.settings,3) + ">" }}
+
+{{ i10n(copy.footer[1]) }} {{ "<" + track(link.help,4) + ">" }}
+
+{{ i10n(copy.footer[2]) }} {{ "<{{ unsubscribe }}>" }}
+
+{{ mustache("{{#region_us}}") }}{{ copy.address }}{{ mustache("{{/region_us}}{{^region_us}}") }}{{ copy.address_2 }}{{ mustache("{{/region_us}}") }}

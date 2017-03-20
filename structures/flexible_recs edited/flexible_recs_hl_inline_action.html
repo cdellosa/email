@@ -1,0 +1,40 @@
+<!--{{image_load_scribe}}-->
+<table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;" align="left" dir="ltr"><tr>
+  <td valign="middle">
+    <table cellpadding="0" cellspacing="0" border="0" align="left" dir="ltr">
+      <tr>
+        <td><a href="{{tweet_details_tweet_link}}"><img alt="reply" src="https://ea.twimg.com/email/self_serve/media/darker-reply-1463676567523.png" height="16" style="height:16px;"></a></td>
+        <td width="70" style="width:70px;" {{#truncate_inline_action}}class="inline_action_space"{{/truncate_inline_action}}></td>
+        <td valign="middle" class="social_count">
+          <table cellpadding="0" cellspacing="0" border="0"><tr>
+            <td><a href="{{retweet_link}}"><img alt="retweet" src="https://ea.twimg.com/email/self_serve/media/darker-retweet-1463676568959.png" height="16" style="height:16px;"></a></td>
+          </tr></table>
+        </td>
+        <td width="70" style="width:70px;" {{#truncate_inline_action}}class="inline_action_space"{{/truncate_inline_action}}>
+          {{#compact_retweet_count.isDefined}} 
+            <span class="social_count">&nbsp;{{compact_retweet_count}}</span>
+          {{/compact_retweet_count.isDefined}}
+        </td>
+        <td valign="middle" class="social_count">
+          <table cellpadding="0" cellspacing="0" border="0"><tr>
+            <td><a href="{{favorite_link}}"><img alt="favorite" src="https://ea.twimg.com/email/self_serve/media/darker-like-1463676566450.png" height="16" style="height:16px;"></a></td>
+          </tr></table>
+        </td>
+        <td width="70" style="width:70px;" {{#truncate_inline_action}}class="inline_action_space"{{/truncate_inline_action}}>
+          {{#compact_favorite_count.isDefined}}
+            <span class="social_count">&nbsp;{{compact_favorite_count}}</span>
+          {{/compact_favorite_count.isDefined}}
+        </td>
+      </tr>
+    </table>
+  </td>
+  {{#truncate_inline_action}}
+  <td align="right">
+    <!-- CTA button start -->
+    <a href="{{tweet_details_tweet_link}}">
+      {{>flexible_recs_hl_cta_button.html}}
+    </a>
+    <!-- CTA button end -->
+  </td>
+  {{/truncate_inline_action}}
+</tr></table>

@@ -1,0 +1,307 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# COPY #}
+{% set copy = {
+  "subject_line" : "{{#lang_en}}@{{screen_name}}, watch the 2017 Inauguration LIVE on Twitter{{/lang_en}}{{^lang_en}}@handle, watch the 2017 U.S. Presidential Inauguration LIVE on Twitter{{/lang_en}}",
+  "preheader" : "{{#lang_en}}#DayOne is Here. See What's Happening{{/lang_en}}{{^lang_en}}#DayOne for Donald J. Trump is Here. See What's Happening{{/lang_en}}",
+  "alt_hero" : "#DayOne | Streaming LIVE on Twitter | Friday, January 20 | 11am ET | @NewsHour | inauguration.twitter.com | #inauguration",
+  "headline_1" : "PBS NewsHour and Twitter present the",
+  "headline_2" : "Inauguration of Donald J. Trump",
+  "body" : "#DayOne for Donald J. Trump, the 45th president of the United States. Join PBS NewsHour, in partnership with Twitter, for special live-stream coverage of Inauguration Day 2017, anchored by managing editor Judy Woodruff, with NewsHour correspondents John Yang and Lisa Desjardins. Witness the swearing-in of President-elect Trump. Participate in the inaugural address, the parade, and the arrival of the first family at the White House with Twitter, the most immediate news source in the world.",
+  "body_uk" : [
+    "#DayOne for Donald J. Trump, the 45th president of the United States. Join PBS NewsHour, in partnership with Twitter, for special live-stream coverage of Inauguration Day 2017.",
+    "Witness the swearing-in of President-elect Trump. Participate in the inaugural address, the parade, and the arrival of the first family at the White House with Twitter, the most immediate news source in the world."
+  ],
+  "cta" : "Watch LIVE on",
+  "sub_1" : "Inauguration of Donald J. Trump",
+  "sub_2" : "Friday, January 20  |  11am ET",
+  "sub_3" : "Follow @NewsHour",
+  "sub_4" : "inauguration.twitter.com",
+  "alt_pbs" : "PBS Newshour",
+  "footer" : ["About", "Help", "Unsubscribe", "Download app"],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# COLOR LOGIC #}
+{% set color_hex = colors[color].hex %}
+{% set color_css = colors[color].css %}
+{% set color_icon = colors[color].icons[icon_type] %}
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "logo_twitter" : prefix_img + "logo-1475170569504.png",
+  "icon_camera_video" : prefix_img + "icon_camera_video-1481157796076.png",
+  "hero" : prefix_img + "cm_20170120_inauguration_hero_v2-1484681507965.jpg",
+  "spacer" : prefix_img + "spacer_650x265-1481056487262.png",
+  "spacer_1" : prefix_img + "spacer_650x1-1481059174655.png",
+  "logo_pbs" : prefix_img + "cm_20170120_inauguration_logo_pbs-1484079935666.png"
+} %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/live/807346862592139264?ref_src=twsrc%5Eemail%7Ctwcamp%5EInauguration",
+  "cta" : "https://twitter.com/i/live/807346862592139264?ref_src=twsrc%5Eemail%7Ctwcamp%5EInauguration",
+  "text" : "https://twitter.com/newshour",
+  "text_2" : "https://twitter.com/i/live/807346862592139264?ref_src=twsrc%5Eemail%7Ctwcamp%5EInauguration",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# CSS #}
+{% block style %}
+    .h3 {
+      font-size: 22px;
+      line-height: 26px;
+    }
+
+    td.button {
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      line-height: 18px;
+    }
+
+    a.button {
+      font-size: 16px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 11px 30px; 
+      border: 1px solid #1DA1F2;
+      display: inline-block; 
+      font-weight:normal; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .button img {
+      display: inline;
+      vertical-align: top;
+    }
+
+    .body {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 16px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 22px;
+    }
+{% endblock %}
+
+{% block media_query %}
+        .iosBlue a {
+          text-decoration: underline;
+          } 
+
+        .width_full {
+          width: 100% !important;
+        }
+
+        #hero {
+          background-image: url({{ img.hero }}) !important;
+          background-size: cover !important; 
+        }
+
+        .height_30 {
+          height: 30px !important;
+        }
+{% endblock %}
+
+{% block body %}
+  <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full" dir="{{ dir('ltr') }}">
+    <tr>
+      <td class="empty image">
+        <a href="{{ track(link.hero,1) }}">
+          <img src="{{ img.hero }}" width="640" class="width_full" title="{{ i10n(copy.alt_hero) }}" />
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td class="empty">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full">
+          <tr>
+            <td class="empty width_20" width="90">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table cellpadding="0" cellspacing="0" border="0" align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="h4 deep_grey center nowrap" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.headline_1) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="h3 deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.headline_2) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+                {{ mustache("{{#lang_en}}") }}
+                <tr>
+                  <td class="body deep_grey" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body) }}
+                  </td>
+                </tr>
+                {{ mustache("{{/lang_en}}") }}
+                {{ mustache("{{^lang_en}}") }}
+                <tr>
+                  <td class="body deep_grey" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body_uk[0]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body_uk[1]) }}
+                  </td>
+                </tr>
+                {{ mustache("{{/lang_en}}") }}
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" align="center">
+                    <table border="0" cellspacing="0" cellpadding="0" align="center">
+                      <tr>
+                        <td align="center" class="button center" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
+                          <a href="{{ track(link.cta,2) }}" target="_blank" class="button">
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                            {{ i10n(copy.cta) }}&nbsp;<img src="{{ img.logo_twitter }}" height="16" />
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty image" align="center">
+                    <img src="{{ img.logo_pbs }}" width="183" alt="{{ copy.alt_pbs }}" title="{{ copy.alt_pbs }}"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="16">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty">
+                    <table align="center" width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td class="h4 blue center" align="center" dir="{{ dir('ltr') }}">
+                          {{ i10n(copy.sub_1) }}<br>
+                          <span class="iosBlue">{{ i10n(copy.sub_2) }}</span><br>
+                          <a href="{{ track(link.text,3) }}" class="blue">{{ i10n(copy.sub_3) }}</a><br>
+                          <a href="{{ track(link.text_2,4) }}" class="blue">{{ i10n(copy.sub_4) }}</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="90">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#f5f8fa" width="640" class="width_full">
+          <!--[if gte mso 9]>
+          <tr>
+            <td colspan="3" align="center">
+              <img src="{{ img.spacer_1 }}" width="640" />
+            </td>
+          </tr>
+          <![endif]-->
+          <tr>
+            <td class="empty width_20" width="90">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer strong deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    <a href="{{ track(link.about,5) }}" class="blue">
+                      {{ i10n(copy.footer[0]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ track(link.help,6) }}" class="blue">
+                      {{ i10n(copy.footer[1]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ '{{ unsubscribe }}' }}" class="blue">
+                      {{ i10n(copy.footer[2]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ track(link.download,7) }}" class="blue">
+                      {{ i10n(copy.footer[3]) }}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer deep_grey center" align="center">
+                    <span class="addressLink">{{ fixAddress(copy.address) }}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="90">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+{% endblock %}

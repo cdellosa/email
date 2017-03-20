@@ -1,0 +1,53 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# COPY #}
+{% set copy = {
+  "subject_line" : "Hi @{{screen_name}}, we'd like to get your thoughts!",
+  "alt_logo" : "Twitter",
+  "headline" : "We’d like to hear your thoughts",
+  "body" : [
+    "Thank you for being part of Twitter! You've been selected to take part in a short research study about how you use Twitter and everyday life. It should take about 10 minutes to complete.",
+    "Your opinions help us make Twitter better for everyone. Thanks for your time."
+    ],
+  "cta" : "Take part",
+  "footer" : ["Settings", "Help", "Unsubscribe"],
+  "address" : "Twitter International Company, The Academy, 42 Pearse Street, Dublin 2, Ireland."
+} %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "cta" : "https://v2.decipherinc.com/survey/selfserve/1bde/twt17002?list=1&userID={{uid_encrypted}}&co=uk",
+  "settings" : "https://twitter.com/settings/notifications",
+  "help" : "https://support.twitter.com/",
+  "not_my_account" : "{{not_my_account}}"
+} %}
+
+Subject: {{ i10n(copy.subject_line) }}
+
+Twitter {{ "<" + track(link.logo,1) + ">" }}
+
+=
+   
+{{ i10n(copy.headline) }}
+
+=
+
+{{ i10n(copy.body[0]) }}
+
+{{ i10n(copy.cta) }} {{ "<" + track(link.cta,2) + ">" }}
+
+{{ i10n(copy.body[1]) }}
+
+=
+
+{{ i10n(copy.footer[0]) }} {{ "<" + track(link.settings,3) + ">" }}
+
+{{ i10n(copy.footer[1]) }} {{ "<" + track(link.help,4) + ">" }}
+
+{{ i10n(copy.footer[2]) }} {{ "<{{ unsubscribe }}>" }}
+
+{{ copy.address }}

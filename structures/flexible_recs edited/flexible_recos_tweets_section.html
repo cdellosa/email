@@ -1,0 +1,505 @@
+{{#is_story_with_large_image}}
+<!--///////////////////// tweet /////////////////////////-->
+<table class="collapse" align="center" width="500" style="width:500px;background-color:#ffffff;" cellpadding="0" cellspacing="0" border="0">
+  <!--[if !mso]><!-->
+                <tr><td><a href="{{tweet_details_tweet_link}}" style="width:100%; height:100%; display:block;" height="100%" width="100%">
+                <div>
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <!--<![endif]-->
+  
+  <tr>
+    <td width="50" style="width:50px;" class="margins"></td>
+    <td align="center">
+      <table width="100%" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}} cellpadding="0" cellspacing="0" border="0" class="collapse">       
+        <tr>
+          <td height="30" style="height:30px;"></td>
+        </tr>
+        {{#site_user_2.isDefined}}
+          <tr>
+            <td class="story-attribution" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+                <strong>{{_i}}Via {{site_user_name}}{{/i}}</strong>
+            </td>
+          </tr>
+          <tr>
+            <td height="10" style="height:10px;"></td>
+          </tr>
+        {{/site_user_2.isDefined}}
+        <tr>
+          <td class="article-headline" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+            <a href="{{tweet_details_tweet_link}}" class="article-headline">{{{story_title}}}</a>
+          </td>
+        </tr>
+
+        {{#large_uncropped_image}}
+        <!-- media -->
+        <tr>
+          <td colspan="2" height="20" style="height:20px;" class="spacer"></td>
+        </tr>
+        <tr>
+            <td>
+              <a href="{{tweet_details_tweet_link}}">
+                <img src="{{url}}" width="400" class="media" />
+              </a>
+            </td>
+        </tr>
+        <!-- media -->
+        {{/large_uncropped_image}}
+        <tr>
+          <td height="20"></td>
+        </tr>
+        <tr>
+          <td>
+              <table border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                      <td class="context" valign="middle" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+                          {{_i}}{{user.name}} is tweeting about this.{{/i}}
+                      </td>
+                  </tr>
+              </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="18"></td>
+        </tr>
+        <tr>
+          <td>
+            <table border="0" cellspacing="0" cellpadding="0" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+              <tr>
+                <td align="center" class="bulletproof-btn-1" bgcolor="#ffffff"><a href="{{tweet_details_tweet_link}}" target="_blank" class="view-cta" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+                  <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                  <strong>{{_i}}Read more{{/i}}</strong>
+                  <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                  </a></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td width="50" style="width:50px;" class="margins"></td>
+  </tr>
+  <tr>
+    <td class="border-space" height="50" style="height:50px;"></td>
+  </tr>
+                  
+  <!--[if !mso]><!-->
+                </table></div>
+                </a></td></tr>
+                <!--<![endif]-->
+</table>
+<!--///////////////////// end tweet /////////////////////////-->
+
+<!--////////////////////border//////////////////////////-->
+
+<table class="collapse" align="center" width="500" style="width:500px;background-color:#ffffff;" cellpadding="0" cellspacing="0" border="0">
+  <tbody><tr id="border">
+    <td colspan="2" height="1" style="line-height:1px;display:block;height:1px;background-color:#e1e8ed;"></td>
+  </tr>
+  </tbody>
+</table>
+{{/is_story_with_large_image}}
+
+{{^is_story_with_large_image}}
+<!--///////////////////// stand alone tweet /////////////////////////-->
+<table class="collapse" align="center" width="500" style="width:500px;background-color:#ffffff;" cellpadding="0" cellspacing="0" border="0">
+
+  <!--[if !mso]><!-->
+                <tr><td><a href="{{tweet_details_tweet_link}}" style="width:100%; height:100%; display:block;" height="100%" width="100%">
+                <div>
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <!--<![endif]-->
+<tr>
+<td width="50" style="width:50px;" class="margins"></td>
+<td align="center">
+<table width="100%" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}} cellpadding="0" cellspacing="0" border="0" class="collapse">
+<tr>
+  <td height="30" style="height:30px;"></td>
+</tr>
+
+{{#contentRecModule.socialProofOverride}}
+    <!-- **CONTEXT** -->
+  <tr>
+    <td class="context">
+      <table border="0" cellspacing="0" cellpadding="0" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+        <tr align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+          <td valign="top" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+               {{#social_context_item}}
+                {{#action_type_followed}}
+                  <img src="https://ea.twimg.com/email/self_serve/media/contextual-follow-icon-1424824174643.png" width="13" />
+                {{/action_type_followed}}
+                {{#action_type_favorited}}
+                  {{#show_like_tweet_action}}
+                    <img src="https://ea.twimg.com/email/self_serve/media/like-social-proof-1441820605481.png" width="12" />
+                  {{/show_like_tweet_action}}
+            	  {{^show_like_tweet_action}}
+                    <img src="https://ea.twimg.com/email/self_serve/media/contextual-fav-icon-1424824173627.png" width="12" />
+                  {{/show_like_tweet_action}}
+                {{/action_type_favorited}}
+                {{#action_type_retweeted}}
+                  <img src="https://ea.twimg.com/email/self_serve/media/rt-icon-1425421462615.png" width="14" />
+                {{/action_type_retweeted}}
+            
+            	{{^action_type_followed}}
+            	{{^action_type_favorited}}
+                {{^action_type_retweeted}}
+                    <img src="https://ea.twimg.com/email/self_serve/media/twitter-bird-1437172656266.png" width="15" />
+                {{/action_type_retweeted}}
+            	{{/action_type_favorited}}
+               	{{/action_type_followed}}
+              {{/social_context_item}}
+              {{^social_context_item}}
+                   <img src="https://ea.twimg.com/email/self_serve/media/twitter-bird-1437172656266.png" width="15" />
+			  {{/social_context_item}}
+          </td>
+          <td width="5" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}></td>
+          <td class="context" valign="middle" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+              {{contentRecModule.socialProofOverride}}
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td height="15" style="height:15px;"></td>
+  </tr>
+  <!-- **END CONTEXT** -->
+{{/contentRecModule.socialProofOverride}}
+  
+{{^contentRecModule.socialProofOverride}}
+{{#social_context_is_not_empty}}
+  <!-- **CONTEXT** -->
+  <tr>
+    <td class="context">
+      <table border="0" cellspacing="0" cellpadding="0" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+        <tr align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+          <td valign="top" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+              {{#social_context_item}}
+                {{#action_type_followed}}
+                  <img src="https://ea.twimg.com/email/self_serve/media/contextual-follow-icon-1424824174643.png" width="13" />
+                {{/action_type_followed}}
+                {{#action_type_favorited}}
+            	  {{#show_like_tweet_action}}
+                    <img src="https://ea.twimg.com/email/self_serve/media/like-social-proof-1441820605481.png" width="12" />
+                  {{/show_like_tweet_action}}
+            	  {{^show_like_tweet_action}}
+                    <img src="https://ea.twimg.com/email/self_serve/media/contextual-fav-icon-1424824173627.png" width="12" />
+                  {{/show_like_tweet_action}}
+            	{{/action_type_favorited}}
+                {{#action_type_retweeted}}
+                  <img src="https://ea.twimg.com/email/self_serve/media/rt-icon-1425421462615.png" width="14" />
+                {{/action_type_retweeted}}
+            	{{#action_type_similar_to}}
+             		<img src="https://ea.twimg.com/email/self_serve/media/twitter-bird-1437172656266.png" width="15" />
+            	{{/action_type_similar_to}}
+            	{{#action_type_rare_tweet}}
+             		<img src="https://ea.twimg.com/email/self_serve/media/twitter-bird-1437172656266.png" width="15" />
+            	{{/action_type_rare_tweet}}
+              {{/social_context_item}}
+          </td>
+          <td width="5" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}></td>
+          <td class="context" valign="middle" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+              {{#social_context_item}}
+                {{#action_type_followed}}
+                            {{#social_context_has_over_2_items}}
+                            {{_i}}Followed by {{#first_social_context_item}}{{name}}{{/first_social_context_item}}, {{#second_social_context_item}}{{name}}{{/second_social_context_item}} and {{#third_social_context_item}}{{name}}{{/third_social_context_item}}.{{/i}}
+                            {{/social_context_has_over_2_items}}
+                            {{#social_context_has_2_items}}
+                            {{_i}}Followed by {{#first_social_context_item}}{{name}}{{/first_social_context_item}} and {{#second_social_context_item}}{{name}}{{/second_social_context_item}}.{{/i}}
+                            {{/social_context_has_2_items}}
+                            {{#social_context_has_1_item}}
+                            {{_i}}Followed by {{#first_social_context_item}}{{name}}{{/first_social_context_item}}.{{/i}}
+                            {{/social_context_has_1_item}}
+            	{{/action_type_followed}}
+                {{#action_type_favorited}}
+            	  {{#show_like_tweet_action}}
+                  	{{_i}}Liked by {{top_social_context_authors}}{{/i}}
+                  {{/show_like_tweet_action}}
+            	  {{^show_like_tweet_action}}
+                  	{{_i}}Favorited by {{top_social_context_authors}}{{/i}}
+                  {{/show_like_tweet_action}}
+                {{/action_type_favorited}}
+                {{#action_type_retweeted}}
+                  {{_i}}Retweeted by {{top_social_context_authors}}{{/i}}
+                {{/action_type_retweeted}}
+            	{{#action_type_similar_to}}
+             		{{_i}}Similar to {{top_social_context_authors}}{{/i}}
+            	{{/action_type_similar_to}}
+            	{{#action_type_rare_tweet}}
+             		{{_i}}{{top_social_context_authors}}'s first Tweet in a while{{/i}}
+            	{{/action_type_rare_tweet}}
+              {{/social_context_item}}
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td height="15" style="height:15px;"></td>
+  </tr>
+  <!-- **END CONTEXT** -->
+{{/social_context_is_not_empty}}
+{{/contentRecModule.socialProofOverride}}
+
+<!-- User Identity -->
+{{#userItem}}
+  <tr>
+    <td width="80%">
+      <table cellpadding="0" cellspacing="0" border="0" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+        <tr>
+          <td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}} width="32" style="width:32px;">
+            <!-- avatar -->
+            <a href="{{force_screen_name_link}}" target="blank"><img src="{{profile_image_src}}" class="avatar_med" width="32" height="32"></a>
+          </td>
+          <td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}} width="10"></td>
+          <td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+            <table align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}} cellpadding="0" cellspacing="0" border="0" style="padding:0px; margin:0px;">
+              <tr>
+                <td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+                  <table align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}} cellpadding="0" cellspacing="0" border="0" style="padding:0px; margin:0px;">
+                    <tr>
+                      <td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+                        <!-- user name and @handle -->
+                          <span class="full_name_truncate" style="display:block;"><strong><a href="{{force_screen_name_link}}" class="full_name">{{name}}</a></strong>&nbsp;{{#user.isVerified}}<img src="https://ea.twimg.com/email/self_serve/media/ico_verified-1407009642236.png" width="16" height="16" style="width:15px;height:15px;display:inline;" class="inline-image">&nbsp;{{/user.isVerified}}<a href="{{force_screen_name_link}}" class="user_name">@{{screen_name}}</a>
+                          </span>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}} height="12" style="height:12px;">&nbsp;</td>
+  </tr>
+
+{{/userItem}}
+<!-- End user identity -->
+
+<!-- Tweet -->
+<tr>
+  <td colspan="2" class="tweet_detail" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+    <!-- tweet text -->
+    {{#is_native_media}}
+      {{#has_good_large_image}}
+        {{{no_pic_linkified_text}}}
+      {{/has_good_large_image}}
+      {{^has_good_large_image}}
+        {{{linkified_text}}}
+      {{/has_good_large_image}}
+    {{/is_native_media}}
+    {{^is_native_media}}
+      {{#is_good_video_with_site_user}}
+        {{{no_card_url_no_pic_linkified_text}}}
+      {{/is_good_video_with_site_user}}
+      {{^is_good_video_with_site_user}}
+        {{^quotedTweet.isDefined}}
+          {{{linkified_text}}}
+        {{/quotedTweet.isDefined}}
+        {{#quotedTweet.isDefined}}
+          {{^email_support_quote_tweets_4485}}
+              {{{linkified_text}}}
+          {{/email_support_quote_tweets_4485}}
+          {{#email_support_quote_tweets_4485}}
+            {{#control}}
+              {{{linkified_text}}}
+            {{/control}}
+            {{#control2}}
+              {{{linkified_text}}}
+            {{/control2}}
+            {{#rich_quote_tweets}}
+              {{{no_quoted_tweet_linkified_text}}}
+              {{#quotedTweet}}
+                {{>flexible_recos_quoted_tweet.html}}
+              {{/quotedTweet}}
+            {{/rich_quote_tweets}}
+            {{#rich_quote_tweets2}}
+              {{{no_quoted_tweet_linkified_text}}}
+              {{#quotedTweet}}
+                {{>flexible_recos_quoted_tweet.html}}
+              {{/quotedTweet}}
+            {{/rich_quote_tweets2}}
+          {{/email_support_quote_tweets_4485}}
+        {{/quotedTweet.isDefined}}
+      {{/is_good_video_with_site_user}}
+    {{/is_native_media}}
+  </td>
+</tr>
+
+{{#has_good_large_image}}
+  {{#large_uncropped_image}}
+    {{#is_playable_with_good_still}}
+      <!-- IF VIDEO/GIF -->
+      <!-- media -->
+      <tr>
+        <td colspan="2" height="20" style="height:20px;" class="spacer"></td>
+      </tr>
+      {{#site_user_2.isDefined}}
+        <tr>
+          <td>
+            <table border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td class="context">
+                  {{site_user_name}}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" height="15" style="height:15px;" class="spacer"></td>
+        </tr>
+      {{/site_user_2.isDefined}}
+      <tr>
+
+        <!-- video/gif still -->
+        <td background="{{url}}" class="video">
+
+          <!--[if gte mso 9]>
+          <v:rect  xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:400px;height:{{height_normalized_to_400}}px;">
+            <v:fill type="tile" src="{{url}}" color="#8899a6" href="#" size="300pt,{{height_normalized_to_300}}pt" />
+            <v:textbox inset="0,0,0,0">
+          <![endif]-->
+
+          <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>
+                <!-- permalink (and in MSO above) -->
+                <a href="{{image_tweet_link}}"><img src=
+                  {{#aspect_ratio_100}}
+                    {{^is_gif}}
+                    "https://ea.twimg.com/email/self_serve/media/play-400x400-1422042481486.png"
+                    {{/is_gif}}
+                    {{#is_gif}}
+                      "https://ea.twimg.com/email/self_serve/media/gif-play-btn-400x400v2-1422496020076.png"
+                    {{/is_gif}}
+                  {{/aspect_ratio_100}}
+                  {{#aspect_ratio_133}}
+                    "https://ea.twimg.com/email/self_serve/media/play-400x300-1422042481458.png"
+                  {{/aspect_ratio_133}}
+                  {{#aspect_ratio_136}}
+                    "https://ea.twimg.com/email/self_serve/media/play-400x294-1422042481470.png"
+                  {{/aspect_ratio_136}}
+                  {{#aspect_ratio_177}}
+                    "https://ea.twimg.com/email/self_serve/media/play-400x225-1422042481471.png"
+                  {{/aspect_ratio_177}}
+                  class="player" width="400" /></a>
+              </td>
+            </tr>
+          </table>
+
+          <!--[if gte mso 9]>
+          </v:textbox>
+          </v:rect>
+          <![endif]-->
+
+        </td>
+
+      </tr>
+      <!-- media -->
+      <tr>
+        <td height="28"></td>
+      </tr>
+      <!-- END VIDEO/GIF -->
+    {{/is_playable_with_good_still}}
+      {{^is_playable_with_good_still}}
+        {{^is_video}}
+            <!-- IF PHOTO -->
+            <!-- media -->
+            <tr>
+              <td colspan="2" height="22" style="height:22px;" class="spacer"></td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <!-- Photo and link -->
+                <a href="{{image_tweet_link}}"><img src="{{url}}" width="400" class="media"/></a>
+              </td>
+            </tr>
+            <!-- media -->
+            <!-- END PHOTO -->
+        {{/is_video}}
+            <tr>
+              <td height="28"></td>
+            </tr>  		
+      {{/is_playable_with_good_still}}
+  {{/large_uncropped_image}}
+{{/has_good_large_image}}
+{{^has_good_large_image}}
+<!-- IF TEXT-ONLY bottom padding -->
+<tr>
+  <td height="28"></td>
+</tr>
+<!-- end bottom padding for a text-only tweet-->
+{{/has_good_large_image}}
+
+
+
+{{#is_native_image}}
+  <!-- IF USER DOES NOT FOLLOW ACCOUNT and PHOTO TWEET -->
+  <tr>
+    <td colspan="2">
+      <table border="0" cellspacing="0" cellpadding="0" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+        <tr>
+          <td align="center" class="bulletproof-btn-1" bgcolor="#ffffff"><a href="{{tweet_details_tweet_link}}" target="_blank" class="view-cta" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+            <strong>{{_i}}View on Twitter{{/i}}</strong>
+            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+            </a></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <!-- END IF PHOTO TWEET and DOES NOT FOLLOW ACCOUNT -->
+{{/is_native_image}}
+
+{{^is_native_image}}
+  <!-- IF USER DOES NOT FOLLOW ACCOUNT else -->
+  <tr>
+    <td colspan="2">
+      
+      <table border="0" cellspacing="0" cellpadding="0" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+        <tr>
+          <td align="center" class="bulletproof-btn-1" bgcolor="#ffffff"><a href="{{tweet_details_tweet_link}}" target="_blank" class="view-cta" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+            <strong>{{_i}}View on Twitter{{/i}}</strong>
+            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+            </a></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <!-- End USER DOES NOT FOLLOW ACCOUNT else -->
+{{/is_native_image}}
+
+</table>
+</td>
+<td width="50" style="width:50px;" class="margins"></td>
+</tr>
+<tr>
+  <td class="border-space" height="50" style="height:50px;"></td>
+</tr>
+  
+<!--[if !mso]><!-->
+                </table></div>
+                </a></td></tr>
+                <!--<![endif]-->
+</table>
+<!--///////////////////// end tweet /////////////////////////-->
+
+<!--////////////////////border//////////////////////////-->
+
+<table class="collapse" align="center" width="500" style="width:500px;background-color:#ffffff;" cellpadding="0" cellspacing="0" border="0">
+  <tbody><tr id="border">
+    <td colspan="2" height="1" style="line-height:1px;display:block;height:1px;background-color:#e1e8ed;"></td>
+  </tr>
+  </tbody>
+</table>
+{{/is_story_with_large_image}}
+<!--{{image_load_scribe}}-->

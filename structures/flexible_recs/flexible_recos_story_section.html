@@ -1,0 +1,98 @@
+<!--/////////////////////story module/////////////////////////-->
+
+          <table align="center" width="500" style="background-color:#ffffff;" class="collapse" cellpadding="0" cellspacing="0" border="0">
+            <!-- Full bleed header image -->
+            <tbody>
+            <tr>
+              {{#large_uncropped_image}}
+                <td colspan="3">
+                  <table cellpadding="0" cellspacing="0" border="0" background="{{url}}" class="hero-banner" width="100%">
+                    <tr><td>
+                  <!--[if gte mso 9]>
+                  <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:500px;height:247px;">
+                    <v:fill type="tile" src="{{url}}" />
+                    <v:textbox inset="0,0,0,0">
+                  <![endif]-->
+                  <div>
+					<a href="{{tweet_details_tweet_link}}"><img src="https://ea.twimg.com/email/self_serve/media/hero-spacer-1425083182116.png" class="hero-spacer"></a>
+			  	  </div>
+                  <!--[if gte mso 9]>
+                  </v:textbox>
+                  </v:rect>
+                  <![endif]-->
+                      </td></tr></table>
+                </td>
+              {{/large_uncropped_image}}
+            </tr>
+            
+			<!--[if !mso]><!-->
+                <tr><td colspan="3"><a href="{{tweet_details_tweet_link}}" style="width:100%; height:100%; display:block;" height="100%" width="100%">
+                <div>
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <!--<![endif]-->
+                  
+            <tr>
+              <td width="50" style="width:50px;" class="margins"></td>
+              <td align="center">
+                <table width="100%" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}} cellpadding="0" cellspacing="0" border="0" class="collapse">
+                  <tr>
+                    <td height="40" style="height:40px;"></td>
+                  </tr>
+                  {{#site_user_2}}
+                  <tr align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+                    <td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}} class="story-attribution">
+                      <!-- source / attribution -->
+                      <strong>{{_i}}Via {{site_user_name}}{{/i}}</strong>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="10" style="height:10px;"></td>
+                  </tr>
+                  {{/site_user_2}}
+                  <tr>
+                    <td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+                      <!-- article headline -->
+                      <a href="{{tweet_details_tweet_link}}" taget="blank" class="article-headline" align="left">{{{story_title}}}</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="10" style="height:10px;"></td>
+                  </tr>
+                  <tr>
+                    <td class="context">
+                      <table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <!-- context -->
+                          <td class="context" valign="middle" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+                            {{_i}}{{user.name}} is tweeting about this.{{/i}}
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td width="50" style="width:50px;" class="margins"></td>
+            </tr>
+            <tr>
+              <td colspan="3" class="border-space" height="32" style="height:32px;"></td>
+            </tr>
+                  
+            <!--[if !mso]><!-->
+            </table></div>
+            </a></td></tr>
+            <!--<![endif]-->
+            </tbody>
+          </table>
+
+          <!--/////////////////////end story module/////////////////////////-->
+
+        <!--////////////////////border//////////////////////////-->
+
+        <table class="collapse" align="center" width="500" style="width:500px;background-color:#ffffff;" cellpadding="0" cellspacing="0" border="0">
+          <tbody><tr id="border">
+            <td colspan="2" height="1" style="line-height:1px;display:block;height:1px;background-color:#e1e8ed;"></td>
+          </tr>
+          </tbody>
+        </table>
+<!--{{image_load_scribe}}-->

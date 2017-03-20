@@ -1,0 +1,109 @@
+{#- SET DEFAULTS -#}
+{%- if bgcolor_main in [null, false, ""] -%}
+  {%- set bgcolor_main = "#ffffff" -%}
+{%- endif -%}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:v="urn:schemas-microsoft-com:vml"
+ xmlns:o="urn:schemas-microsoft-com:office:office">
+  <meta http-equiv="Content-Type" content="text/
+  html; charset=utf-8"> 
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"> 
+  <meta name="apple-mobile-web-app-capable" content="yes"> 
+  <head>
+    <!--[if gte mso 9]><xml>
+     <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+     </o:OfficeDocumentSettings>
+    </xml><![endif]-->
+    {% block style_custom %}{% endblock %}  
+    <style type="text/css">
+      {% include "includes/styles.html" %}
+      {% block style %}{% endblock %}
+    </style>
+    <style type="text/css" inline="false">
+      /* Windows 10 Mail Fix */
+      a { text-decoration: none; }
+      /* a:visited { color: #8899A6; text-decoration:none; } */
+      .addressLink a { color: #8899A6 !important; text-decoration: none !important; }
+      /* Windows 10 Mail Fix End */
+
+      @media only screen and (max-width: 500px) {
+        .width_full {
+          width: 100% !important;
+        }
+        .width_20 {
+          width: 20px !important;
+        }
+        .width_24 {
+          width: 24px !important;
+        }
+        #hide {
+          display: none !important;
+        }
+        {% block media_query %}{% endblock %}
+      }
+    </style>
+  </head>
+  <body>
+    <style inline="false">
+      .ios_blue a {
+        color: #1DA1F2 !important; 
+        text-decoration: none;
+      }
+    </style>
+    {%- if copy.preheader != null -%}
+      <div class="preheader">
+        {%- if ibis_2 == true -%}
+          {{ "{{#i}}" + copy.preheader + "{{/i}}" }}
+        {%- elif ibis == true -%}
+          {{ "{{_i}}" + copy.preheader + "{{/i}}" }}
+        {%- else -%}
+          {{ copy.preheader }}
+        {%- endif -%}
+      </div>
+    {%- endif %}
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="{{ bgcolor_main }}" class="wrapper">
+      <tr> 
+        <td class="empty" width="100%" align="center">
+          <!-- BODY START -->
+          {% block body %}{% endblock %}
+          <!-- BODY END -->
+        </td>
+      </tr>
+    {%- if mobile_fix_remove != true -%}
+      <tr>
+        <td class="fix_gmail_ios" id="hide" align="center">
+          &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
+        </td>
+      </tr>
+      <tr>
+        <td class="fix_gmail_android" id="hide" align="center">
+          <table align="center">
+            <tr>
+              <td width="130" height="1">
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="130"/>
+              </td>
+              <td width="130" height="1">
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="130"/>
+              </td>
+              <td width="130" height="1">
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="130"/>
+              </td>
+              <td width="130" height="1">
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="130"/>
+              </td>
+              <td width="130" height="1">
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="130"/>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    {%- endif %}
+    </table>
+    <img width="1" height="1" src="{{ '{{image_load_scribe}}' }}"/>
+  </body>
+</html>

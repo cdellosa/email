@@ -1,0 +1,48 @@
+<!--{{image_load_scribe}}-->
+{{#userItem}}
+<table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+  <tr>
+    <td width="32"><a href="{{force_screen_name_link}}"><img alt="avatar" src="{{profile_image_src}}" width="32" height="32" class="user_avatar_img"></a></td>
+    <td width="10" style="width:10px;"></td>
+    <td>
+      <table cellpadding="0" cellspacing="0" border="0" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+        <tr><td>
+          <a class="{{#truncate_user_name}}user_name_truncate{{/truncate_user_name}}{{^truncate_user_name}}user_name{{/truncate_user_name}}" href="{{force_screen_name_link}}">
+            {{name}}{{#user.isVerified}} <img class="inline_img" src="https://ea.twimg.com/email/self_serve/media/ico_verified-1407009642236.png" width="14" height="14" style="width:14px;height:14px;vertical-align:top;">{{/user.isVerified}}
+          </a>
+        </td></tr>
+        <tr><td><a class="{{#truncate_user_name}}user_handle_truncate{{/truncate_user_name}}{{^truncate_user_name}}user_handle{{/truncate_user_name}}" href="{{force_screen_name_link}}">@{{screen_name}}</a></td></tr>
+      </table>
+    </td>
+    {{#truncate_user_name}}
+    <td align="{{#is_rtl}}left{{/is_rtl}}{{^is_rtl}}right{{/is_rtl}}">
+      <!-- CTA button start -->
+      {{#module_cta_content_key_view_profile}}
+      <a href="{{_tl29}}https://twitter.com/{{screen_name}}{{/tl29}}">
+        {{>manhattan:static:flexible_recs_hl_cta_button/html_content}}
+      </a>
+      {{/module_cta_content_key_view_profile}}
+      
+      {{#module_cta_content_key_view_profile_fill}}
+      <a href="{{_tl29}}https://twitter.com/{{screen_name}}{{/tl29}}">
+        {{>manhattan:static:flexible_recs_hl_cta_button/html_content}}
+      </a>
+      {{/module_cta_content_key_view_profile_fill}}
+
+      {{#module_cta_content_key_follow}}
+      <a href="{{follow_button_link}}">
+        {{>manhattan:static:flexible_recs_hl_cta_button/html_content}}
+      </a>
+      {{/module_cta_content_key_follow}}
+      
+      {{#module_cta_content_key_follow_fill}}
+      <a href="{{follow_button_link}}">
+        {{>manhattan:static:flexible_recs_hl_cta_button/html_content}}
+      </a>
+      {{/module_cta_content_key_follow_fill}}
+      <!-- CTA button end -->
+    </td>
+    {{/truncate_user_name}}
+  </tr>
+</table> 
+{{/userItem}}

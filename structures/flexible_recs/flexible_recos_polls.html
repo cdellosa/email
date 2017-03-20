@@ -1,0 +1,150 @@
+<!--///////////////////// poll /////////////////////////-->
+<table class="collapse" align="center" width="500" style="width:500px;background-color:#ffffff;" cellpadding="0" cellspacing="0" border="0">
+   <!--[if !mso]><!-->
+                <tr><td><a href="{{tweet_details_tweet_link}}" style="width:100%; height:100%; display:block;" height="100%" width="100%">
+                <div>
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <!--<![endif]-->
+   <tr>
+      <td width="50" style="width:50px;" class="margins"></td>
+      <td align="center">
+         <table width="100%" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" cellpadding="0" cellspacing="0" border="0" class="collapse">
+            <tr>
+               <td height="30" style="height:30px;"></td>
+            </tr>
+            <!-- User Identity -->
+         {{#userItem}}
+            <tr>
+               <td width="80%">
+                  <table cellpadding="0" cellspacing="0" border="0" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+            <tr>
+               <td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" width="32" style="width:32px;">
+                  <a href="{{force_screen_name_link}}" target="blank">
+                  <img src="{{profile_image_src}}" class="avatar_med" width="32" height="32">
+                  </a>
+               </td>
+               <td width="10"></td>
+               <td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
+                  <table align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" cellpadding="0" cellspacing="0" border="0" style="padding:0px; margin:0px;">
+                     <tr>
+                        <td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
+                           <table align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" cellpadding="0" cellspacing="0" border="0" style="padding:0px; margin:0px;">
+                              <tr>
+                                 <td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
+                                    <span class="full_name_truncate" {{#is_rtl}}dir="rtl"{{/is_rtl}}><strong><a href="{{force_screen_name_link}}"class="full_name" {{#is_rtl}}dir="rtl"{{/is_rtl}}>{{name}}</a></strong> </span>
+                                    <span class="avatar_line_text" {{#is_rtl}}dir="rtl"{{/is_rtl}}>{{_i}}created a poll and asked:{{/i}}</span>
+                                 </td>
+                              </tr>
+                           </table>
+                        </td>
+                     </tr>
+                  </table>
+               </td>
+            </tr>
+         </table>
+      </td>
+   </tr>
+   <tr>
+      <td colspan="2" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" height="10" style="height:10px;"> </td>
+   </tr>
+   {{/userItem}}
+   <!-- End user identity -->        
+   <tr>
+      <td colspan="2" class="tweet_detail" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+         {{{linkified_text}}}
+      </td>
+   </tr>
+   <tr>
+      <td height="12"></td>
+   </tr>
+
+   {{#pollView}}
+   <!--*********** poll options box ************-->
+   <tr align="center">
+      <td align="center">
+         <table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" class="poll_box">
+            <!--*********** poll options box top spacing ************-->
+            <tr>
+               <td height="12"></td>
+            </tr>
+            {{#pollButtons}}
+            <!--*********** poll option button ************-->
+            <tr>
+               <td align="center" bgcolor="#ffffff" class="poll_option">
+                  <table  width = "100%" align="center" cellpadding="0" cellspacing="0" border="0">
+                     <tr>
+                        <td>
+                           <!--[if mso]>
+                           <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{pollButtons.pollButtonUrl}}" style="height:28px;v-text-anchor:middle;width:376px;" arcsize="14%" strokecolor="#55acee" fillcolor="#ffffff">
+                              <w:anchorlock/>
+                              <center style="color:#55acee;font-family:sans-serif;font-size:14px;">{{pollButtons.pollButtonLabel}}</center>
+                           </v:roundrect>
+                           <![endif]-->
+                           <a href="{{pollButtons.pollButtonUrl}}"
+                              style="background-color:#ffffff;border:1px solid #55acee !important;border-radius:4px !important;color:#55acee;display:inline-block;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:28px;text-align:center;text-decoration:none;width:376px;-webkit-text-size-adjust:none;mso-hide:all;" class="collapse">
+                              {{pollButtons.pollButtonLabel}}
+                           </a>
+                        </td>
+                     </tr>
+                  </table>
+               </td>
+            </tr>
+            <!--*********** end poll option button ************--> 
+            
+            <!--*********** poll box inter-button spacing ************-->
+            <tr>
+               <td height="4"></td>
+            </tr>
+            {{/pollButtons}}
+            <!--*********** poll options box bottom spacing ************-->
+            <tr>
+               <td height="8"></td>
+            </tr>
+         </table>
+      </td>
+   </tr>
+   <!--*********** end poll options box ************-->
+   <!--*********** social proof box ************-->
+   <tr align="center">
+      <td align="center">
+         <table width="100%" align="center" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+               <td class="poll_social_proof_box" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+               <span>
+               <a href="{{tweet_details_tweet_link}}" class="polls_social_proof" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+               {{_i}}{{numberOfVotes}} people voted in this poll{{/i}}
+               </a>
+               </span>
+               <span class = "polls_social_proof" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+               &middot;    
+               </span>
+               <span>   
+               <a href="{{tweet_details_tweet_link}}" class="polls_social_proof" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+               {{_i}}View on Twitter{{/i}}
+               </a>
+               </span>
+               </td>
+            </tr>
+         </table>
+      </td>
+   </tr>
+   <!--*********** end social proof box ************-->
+   {{/pollView}}        
+</table>
+</td>
+<td width="50" style="width:50px;" class="margins"></td>
+</tr>
+<tr>
+   <td class="border-space" height="50" style="height:30px;"></td>
+</tr>
+</table>
+
+<!--////////////////////border//////////////////////////-->
+<table class="collapse" align="center" width="500" style="width:500px;background-color:#ffffff;" cellpadding="0" cellspacing="0" border="0">
+  <tbody><tr id="border">
+    <td colspan="2" height="1" style="line-height:1px;display:block;height:1px;background-color:#e1e8ed;"></td>
+  </tr>
+  </tbody>
+</table>
+<!--///////////////////// end poll /////////////////////////-->
+<!--{{image_load_scribe}}-->

@@ -1,0 +1,9 @@
+<!--{{image_load_scribe}}-->
+{{#contentRecsView}}
+  {{#content_recs_email_design_key_highlights_as_email}}
+    {{>manhattan:static:flexible_recs_highlights/html_content}}
+  {{/content_recs_email_design_key_highlights_as_email}}
+  {{^content_recs_email_design_key_highlights_as_email}}
+    {{>manhattan:static:flexible_recs_default/html_content}}
+  {{/content_recs_email_design_key_highlights_as_email}}
+{{/contentRecsView}}

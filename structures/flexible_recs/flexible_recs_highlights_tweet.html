@@ -1,0 +1,210 @@
+<!--{{image_load_scribe}}-->
+{{#tweetView}}
+<table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;">
+  <tr><td class="full_tweet_box">
+    <a href="{{tweet_details_tweet_link}}">
+    <table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;">
+      {{^module_design_key_reserved4}}
+      {{#first_social_proof.isDefined}}
+      {{^social_context.get.action_type_replied}}
+      {{^social_context.get.action_type_followed}}
+      <tr><td><a href="{{social_context_tweet_link}}">
+        <!-- social proof header start -->
+        <table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;border-bottom:1px solid #E1E8ED;">
+          <tr><td height="12" style="height:12px;"></td></tr>
+          <tr><td>
+            <table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;">
+              <tr>
+                <td width="24" class="social_proof_margin_lr"></td>
+                <td>
+                  <table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+                    <tr><td class="social_proof_title">
+                      {{#social_context.get.action_type_favorited}}
+                        {{_i}}Liked by{{/i}}
+                      {{/social_context.get.action_type_favorited}}
+                      {{#social_context.get.action_type_retweeted}}
+                        {{_i}}Retweeted by{{/i}}
+                      {{/social_context.get.action_type_retweeted}}
+                    </td></tr>
+                    {{#module_design_key_reserved5}}
+                      <tr><td height="4" style="height:4px;"></td></tr>
+                      <tr><td>
+                        <table cellpadding="0" cellspacing="0" border="0" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+                          <tr>
+                            {{#top_social_context_items}}
+                            <td width="24">
+                              <a href="{{url}}"><img width="24" style="border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px;" src="{{user.profileImageUrls.reasonablySmall.httpsUrl}}" /></a>
+                            </td>
+                            <td width="2" style="width:2px;"></td>
+                            {{/top_social_context_items}}
+                          </tr>
+                        </table>
+                      </td></tr>
+                      <tr><td height="4" style="height:4px;"></td></tr>
+                      <tr><td class="social_proof_detail">
+                        {{#has_other_social_proof}}
+                          {{_i}}{{#first_social_proof}}{{user.name}}{{/first_social_proof}} and {{other_social_proof_count}} others{{/i}}
+                        {{/has_other_social_proof}}
+                        {{^has_other_social_proof}}
+                          {{#first_social_proof}}{{user.name}}{{/first_social_proof}}
+                        {{/has_other_social_proof}}
+                      </td></tr>
+                    {{/module_design_key_reserved5}}
+                    {{^module_design_key_reserved5}}
+                      {{#module_design_key_reserved6}}
+                        <tr><td height="4" style="height:4px;"></td></tr>
+                        <tr><td>
+                          <table cellpadding="0" cellspacing="0" border="0" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+                            <tr>
+                              {{#top_social_context_items}}
+                              <td width="24">
+                                <a href="{{url}}"><img width="24" style="border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px;" src="{{user.profileImageUrls.reasonablySmall.httpsUrl}}" /></a>
+                              </td>
+                              <td width="2" style="width:2px;"></td>
+                              {{/top_social_context_items}}
+                            </tr>
+                          </table>
+                        </td></tr>
+                      {{/module_design_key_reserved6}}
+                      {{^module_design_key_reserved6}}
+                        <tr><td class="social_proof_detail">
+                          {{#has_other_social_proof}}
+                            {{_i}}{{#first_social_proof}}{{user.name}}{{/first_social_proof}} and {{other_social_proof_count}} others{{/i}}
+                          {{/has_other_social_proof}}
+                          {{^has_other_social_proof}}
+                            {{#first_social_proof}}{{user.name}}{{/first_social_proof}}
+                          {{/has_other_social_proof}}
+                        </td></tr>
+                      {{/module_design_key_reserved6}}
+                    {{/module_design_key_reserved5}}
+                  </table>
+                </td>
+                <td width="24" class="social_proof_margin_lr"></td>
+              </tr>
+            </table>
+          </td></tr>
+          <tr><td height="12" style="height:12px;"></td></tr>
+        </table>
+        <!-- social proof header end -->
+      </a></td></tr>
+      {{/social_context.get.action_type_followed}}
+      {{/social_context.get.action_type_replied}}
+      {{/first_social_proof.isDefined}}
+      {{/module_design_key_reserved4}}
+      <tr><td height="24" class="full_tweet_margin_tb"></td></tr> <!-- top margin -->
+      <tr><td>
+        <table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;"><tr>
+          <td width="24" class="full_tweet_margin_lr"></td> <!-- left margin -->
+          <td>
+            <table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+            {{#module_design_key_reserved4}}
+              {{#first_social_proof.isDefined}}
+              {{#social_context}}
+              {{^action_type_replied}}
+              {{^action_type_followed}}
+              <tr><td>
+                <table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+                  <tr>
+                    <td width="32" align="{{#is_rtl}}left{{/is_rtl}}{{^is_rtl}}right{{/is_rtl}}">
+                      {{#action_type_favorited}}
+                      <img alt="like" src="https://ea.twimg.com/email/self_serve/media/heart-icon-buffer-1475270599240.png" height="14" class="inline_img" style="vertical-align:middle;">
+                      {{/action_type_favorited}}
+                      {{#action_type_retweeted}}
+                      <img alt="retweet" src="https://ea.twimg.com/email/self_serve/media/darker-retweet-1463676568959.png" height="14" class="inline_img" style="vertical-align:middle;">
+                      {{/action_type_retweeted}}
+                    </td>
+                    <td width="10" style="width:10px;"></td>
+                    <td class="tweet_social_proof">
+                      {{#action_type_favorited}}
+                        {{#has_other_social_proof}}
+                          {{#first_social_proof}}<a href="{{url}}">{{user.name}}</a>{{/first_social_proof}} and {{other_social_proof_count}} others liked this
+                        {{/has_other_social_proof}}
+                        {{^has_other_social_proof}}
+                          {{#first_social_proof}}<a href="{{url}}">{{user.name}}</a>{{/first_social_proof}} liked this
+                        {{/has_other_social_proof}}
+                      {{/action_type_favorited}}
+                      {{#action_type_retweeted}}
+                        {{#has_other_social_proof}}
+                          {{#first_social_proof}}<a href="{{url}}">{{user.name}}</a>{{/first_social_proof}} and {{other_social_proof_count}} others Retweeted
+                        {{/has_other_social_proof}}
+                        {{^has_other_social_proof}}
+                          {{#first_social_proof}}<a href="{{url}}">{{user.name}}</a>{{/first_social_proof}} Retweeted
+                        {{/has_other_social_proof}}
+                      {{/action_type_retweeted}}
+                    </td>
+                  </tr>
+                </table>
+              </td></tr>
+              <tr><td height="6" style="height:6px;"></td></tr>
+              {{/action_type_followed}}
+              {{/action_type_replied}}
+              {{/social_context}}
+              {{/first_social_proof.isDefined}}
+            {{/module_design_key_reserved4}}
+              <tr><td>
+                <!-- user identity start -->
+                {{>manhattan:static:flexible_recs_hl_user_item/html_content}}
+                <!-- user identity end -->
+              </td></tr>
+              <tr><td height="14" style="height:14px;"></td></tr>
+              <tr><td>
+                <!-- tweet content start -->
+                {{#is_native_image}}
+                  {{>manhattan:static:flexible_recs_hl_native_img/html_content}}
+                {{/is_native_image}}
+                {{^is_native_image}}
+                  {{#is_playable_with_good_still}}
+                    {{>manhattan:static:flexible_recs_hl_playable/html_content}}
+                  {{/is_playable_with_good_still}}
+                  {{^is_playable_with_good_still}}
+                    {{#storyInfo.isDefined}}
+                      {{>manhattan:static:flexible_recs_hl_story_card/html_content}}
+                    {{/storyInfo.isDefined}}
+                    {{^storyInfo.isDefined}}
+                      {{#pollView.isDefined}}
+                        {{>manhattan:static:flexible_recs_hl_poll_tweet/html_content}}
+                      {{/pollView.isDefined}}
+                      {{^pollView.isDefined}}
+
+                        {{^module_design_key_show_quoted_tweet_and_moment_card}}
+                          {{>manhattan:static:flexible_recs_hl_text_tweet/html_content}}
+                        {{/module_design_key_show_quoted_tweet_and_moment_card}}
+
+                        {{#module_design_key_show_quoted_tweet_and_moment_card}}
+                          {{#quotedTweet.isDefined}}
+                            {{>manhattan:static:flexible_recs_hl_quote_tweet/html_content}}
+                          {{/quotedTweet.isDefined}}
+                          {{^quotedTweet.isDefined}}
+                            {{#momentView.isDefined}}
+                              {{>manhattan:static:flexible_recs_hl_moment_tweet/html_content}}
+                            {{/momentView.isDefined}}
+                            {{^momentView.isDefined}}
+                              {{>manhattan:static:flexible_recs_hl_text_tweet/html_content}}
+                            {{/momentView.isDefined}}
+                          {{/quotedTweet.isDefined}}
+                        {{/module_design_key_show_quoted_tweet_and_moment_card}}
+
+                      {{/pollView.isDefined}}
+                    {{/storyInfo.isDefined}}
+                  {{/is_playable_with_good_still}}
+                {{/is_native_image}}
+                <!-- tweet content end -->
+              </td></tr>
+              <tr><td height="14" style="height:14px;"></td></tr>
+              <tr><td dir="ltr">
+                <!-- inline action start -->
+                {{>manhattan:static:flexible_recs_hl_inline_action/html_content}}
+                <!-- inline action end -->
+              </td></tr>
+            </table>
+          </td>
+          <td width="24" class="full_tweet_margin_lr"></td> <!-- right margin -->
+        </tr></table>
+      </td></tr>
+      <tr><td height="24" class="full_tweet_margin_tb"></td></tr> <!-- bottom margin -->
+    </table>
+    </a>
+  </td></tr>
+  <tr><td height="20" class="module_space"></td></tr>
+</table>
+{{/tweetView}}

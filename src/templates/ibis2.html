@@ -1,0 +1,211 @@
+<html>
+  <head>
+    <title>
+      Ibis 2 Command Links
+    </title>
+    <style>
+      body {
+        font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust:none;
+        font-size: 14px;
+        padding: 0px;
+        margin: 0px;
+        font-weight: bold;
+        line-height: 18px;
+        background-color: #000000;
+      }
+
+      .pink {
+        background-color: #E0245E;
+      }
+
+      .orange {
+        background-color: #F45D22;
+      }
+
+      .yellow {
+        background-color: #FFAD1F;
+      }
+
+      .green {
+        background-color: #17BF63;
+      }
+
+      .blue {
+        background-color: #1DA1F2;
+      }
+
+      .purple {
+        background-color: #794BC4;
+      }
+
+      a {
+        text-decoration: none;
+        color: #000000;
+      }
+
+      div {
+        padding: 20px;
+        z-index: 1000;
+      }
+
+      h1 {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: none;
+        font-size: 42px;
+        padding: 0px;
+        margin-left: 40px;
+        font-weight: bold;
+        line-height: 42px;
+        color: #ffffff;
+      }
+
+      ul {
+        list-style-type: none;
+      }
+
+      li {
+        border: 1px solid #222222;
+        padding: 0px;
+      }
+
+      li:nth-of-type(odd) {
+        background-color: #333333;
+      }
+
+      li > a {
+        display: inline-block;
+        padding: 10px 10px;
+        background-color: #FFFFFF;
+        margin-bottom: 2px;
+        border-radius: 4px;
+      }
+
+      li > a:hover {
+        color: #ffffff;
+        background-color: #E0245E;
+      }    
+
+      li > .names {
+        display: inline-block;
+        width: 400px;
+        color: #ffffff;
+        background-color: transparent;
+      }
+
+      img#clouds {
+        position: fixed;
+        bottom: -150px;
+        left: 0px;
+        z-index: 2;
+      }
+
+      img#bird {
+        position: fixed;
+        bottom: 170px;
+        right: 130px;
+        z-index: 1;
+      }
+
+      input {
+        width: 10px;
+        background-color: transparent;
+        color: transparent;
+        opacity: 0;
+      }
+
+      button {
+        padding: 5px 10px;
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 4px;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Ibis2 Commands</h1>
+      <ul id="links"></ul>
+    </div>
+    <script type="text/javascript">
+      (function() {
+
+        'use strict';
+
+        // click events
+        document.body.addEventListener('click', copy, true);
+
+        // event handler
+        function copy(e) {
+
+          // find target element
+          var
+            t = e.target,
+            c = t.dataset.copytarget,
+            inp = (c ? document.querySelector(c) : null);
+
+          // is element selectable?
+          if (inp && inp.select) {
+
+            // select text
+            inp.select();
+
+            try {
+              // copy text
+              document.execCommand('copy');
+              inp.blur();
+            }
+            catch (err) {
+              alert('please press Ctrl/Cmd+C to copy');
+            }
+
+          }
+
+        }
+
+      })();
+
+      function readTextFile(file, callback) {
+          var rawFile = new XMLHttpRequest();
+          rawFile.overrideMimeType("application/json");
+          rawFile.open("GET", file, true);
+          rawFile.onreadystatechange = function() {
+              if (rawFile.readyState === 4 && rawFile.status == "200") {
+                  callback(rawFile.responseText);
+              }
+          }
+          rawFile.send(null);
+      }
+
+      JSONdata = {};
+
+      //usage:
+      readTextFile("../../../urls.json", function(text){
+          var data = JSON.parse(text);
+          JSONdata = data;
+          console.log(JSONdata);
+          var newLinks = "";
+          var counter = "0"
+          for (var key in JSONdata) {
+            if (key.includes("_pt") && (key.includes("light_") || key.includes("color_"))) {
+              var key_name = key.replace('.html','').replace('_pt','');
+              var key_ibis = key.replace('.html','').replace('_pt','').replace('self_serv_','').replace('light_','').replace('color_','');
+              var comDir = "cd " + key_ibis;
+              var comCreate = "idt model-create -f " + key_ibis + ".json -t templates/";
+              var comUpdate = "idt model-update -f " + key_ibis + ".json -t templates/";
+              var comTestEmail = "idt model-test --model=" + key_ibis + " --recipient=788063885026656256 --fetch_payload --verbose --email_override=twitter.test.sf@gmail.com";
+              var comTestLitmus = "idt model-test --model=" + key_ibis + " --recipient=788063885026656256 --fetch_payload --verbose --email_override=jagattest@litmustest.com";
+              var newNewLinks = "<li><input type=\"text\" id=\"website_" + counter +"\" value=\"" + key_ibis +"\" /><button class=\"names\" data-copytarget=\"#website_" + counter +"\">" + key_ibis + "</button><input type=\"text\" id=\"website_a_" + counter +"\" value=\"" + comDir +"\" /><button data-copytarget=\"#website_a_" + counter +"\" class=\"blue\">DIR</button><input type=\"text\" id=\"website_b_" + counter +"\" value=\"" + comCreate +"\" /><button data-copytarget=\"#website_b_" + counter +"\"  class=\"green\">CREATE</button><input type=\"text\" id=\"website_c_" + counter +"\" value=\"" + comUpdate +"\" /><button data-copytarget=\"#website_c_" + counter +"\"  class=\"yellow\">UPDATE</button><input type=\"text\" id=\"website_d_" + counter +"\" value=\"" + comTestEmail +"\" /><button data-copytarget=\"#website_d_" + counter +"\"  class=\"pink\">EMAIL</button><input type=\"text\" id=\"website_e_" + counter +"\" value=\"" + comTestLitmus +"\" /><button data-copytarget=\"#website_e_" + counter +"\"  class=\"purple\">LITMUS</button></li>";
+              newLinks = newLinks + newNewLinks;
+            }
+            counter = counter + 1;
+          }
+          document.getElementById("links").innerHTML = newLinks;
+      });
+    </script>
+  </body>
+</html>

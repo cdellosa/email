@@ -1,0 +1,45 @@
+{% include "includes/macros_notifications.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis_2 = true %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "cta" : "https://translate.twitter.com/dashboard",
+  "translation_center_forum_link" : "https://translate.twitter.com/forum"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject_line" : "We miss you at the Translation center. Come back and don't lose your badge",
+  "alt_logo" : "Twitter",
+  "headline" : "We've missed you at the Translation Center.",
+  "body" : [
+    "We've noticed you haven't been active at the Translation Center recently and as a result of this, your badge may be removed. We know you're a great translator, and we want you to maintain your Translator badge. You can improve your standing by submitting translations and voting for high-quality strings that get approved by our moderators at the Translation Center.",
+    "Have questions about specific strings or want to learn more from other language translators? Visit your language's <a href=\"" + track(link.translation_center_forum_link,2) +"\" class=\"link\">forum</a> for answers."
+    ],
+  "cta" : "Check out the Translation Center",
+  "footer" : ["Settings", "Help", "Unsubscribe", "Not my account"],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+Subject: {{ i10n(copy.subject_line) }}
+
+Twitter {{ "<" + track(link.logo,1) + ">" }}
+
+=
+  
+{{ i10n(copy.headline) }}
+
+=
+
+{{ i10n(copy.body[0]) }}
+
+{{ i10n(copy.body[1]) }}
+
+{{ i10n(copy.cta) }} {{ "<" + track(link.cta,3) + ">" }}
+
+=
+
+{{ copy.address }}

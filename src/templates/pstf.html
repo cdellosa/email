@@ -1,0 +1,351 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros.html" %}
+
+{# BGCOLOR MAIN #}
+{% set bgcolor_main = "#f5f8fa" %}
+
+{# IBIS SWITCH #}
+{% set ibis = false %}
+
+{# COPY #}
+{% set copy = {
+  "preheader" : "You have a new follower on Twitter.",
+  "logo" : "Twitter",
+	"title" : "Add some new voices to your timeline",
+  "similar" : "Similar to <span class='pink'><strong>" + mustache("{{screen_name}}","@allidryer") +"</strong></span>",
+  "cta" : "Follow",
+	"footer" : ["About", "Help", "Unsubscribe", "Download app"],
+  "disclaimer" : "This email was generated for @" + signal("screen_name","Somebody") + ".",
+	"address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# COLOR SWITCH #}
+{% set color = "pink" %}
+{% set icon_type = "follow" %}
+
+{# ICONS #}
+{% set icon = {
+  "icon_dm_blue" : "icon_dm_blue-1478031931388.png",
+  "icon_dm_green" : "icon_dm_green-1478031931386.png",
+  "icon_dm_orange" : "icon_dm_orange-1478031931388.png",
+  "icon_dm_pink" : "icon_dm_pink-1478031931388.png",
+  "icon_dm_purple" : "icon_dm_purple-1478031931388.png",
+  "icon_dm_yellow" : "icon_dm_yellow-1478031931386.png",
+
+  "icon_follow_blue" : "icon_follow_blue-1478031931767.png",
+  "icon_follow_green" : "icon_follow_green-1478031931778.png",
+  "icon_follow_orange" : "icon_follow_orange-1478031931773.png",
+  "icon_follow_pink" : "icon_follow_pink-1478031931776.png",
+  "icon_follow_purple" : "icon_follow_purple-1478031931790.png",
+  "icon_follow_yellow" : "icon_follow_yellow-1478031931790.png",
+
+  "icon_like_blue" : "icon_like_blue-1478031931851.png",
+  "icon_like_green" : "icon_like_green-1478031931857.png",
+  "icon_like_orange" : "icon_like_orange-1478031931857.png",
+  "icon_like_pink" : "icon_like_pink-1478031931859.png",
+  "icon_like_purple" : "icon_like_purple-1478031931857.png",
+  "icon_like_yellow" : "icon_like_yellow-1478031931936.png",
+
+  "icon_reply_blue" : "icon_reply_blue-1478031931936.png",
+  "icon_reply_green" : "icon_reply_green-1478031931939.png",
+  "icon_reply_orange" : "icon_reply_orange-1478031931937.png",
+  "icon_reply_pink" : "icon_reply_pink-1478031931956.png",
+  "icon_reply_purple" : "icon_reply_purple-1478031931952.png",
+  "icon_reply_yellow" : "icon_reply_yellow-1478031931994.png",
+
+  "icon_retweet_blue" : "icon_retweet_blue-1478031931994.png",
+  "icon_retweet_green" : "icon_retweet_green-1478031931996.png",
+  "icon_retweet_orange" : "icon_retweet_orange-1478031932001.png",
+  "icon_retweet_pink" : "icon_retweet_pink-1478031932038.png",
+  "icon_retweet_purple" : "icon_retweet_purple-1478031932041.png",
+  "icon_retweet_yellow" : "icon_retweet_yellow-1478031932079.png"
+} %}
+
+{# BGCOLORS, LINKS, & ICON COLORS #}
+{% set colors = {
+  "pink" : {
+    "hex" : "#E0245E",
+    "css" : "pink",
+    "icons" : {
+      "dm" : "icon_dm_pink",
+      "follow" : "icon_follow_pink",
+      "like" : "icon_like_pink",
+      "reply" : "icon_reply_pink",
+      "retweet" : "icon_retweet_pink"
+    }
+  },
+  "orange" : {
+    "hex" : "{{ color_hex }}",
+    "css" : "orange",
+    "icons" : {
+      "dm" : "icon_dm_orange",
+      "follow" : "icon_follow_orange",
+      "like" : "icon_like_orange",
+      "reply" : "icon_reply_orange",
+      "retweet" : "icon_retweet_orange"
+    }
+  },
+  "yellow" : {
+    "hex" : "#FFAD1F",
+    "css" : "yellow",
+    "icons" : {
+      "dm" : "icon_dm_yellow",
+      "follow" : "icon_follow_yellow",
+      "like" : "icon_like_yellow",
+      "reply" : "icon_reply_yellow",
+      "retweet" : "icon_retweet_yellow"
+    }
+  },
+  "green" : {
+    "hex" : "#17BF63",
+    "css" : "green",
+    "icons" : {
+      "dm" : "icon_dm_green",
+      "follow" : "icon_follow_green",
+      "like" : "icon_like_green",
+      "reply" : "icon_reply_green",
+      "retweet" : "icon_retweet_green"
+    }
+  },
+  "blue" : {
+    "hex" : "#1DA1F2",
+    "css" : "blue",
+    "icons" : {
+      "dm" : "icon_dm_blue",
+      "follow" : "icon_follow_blue",
+      "like" : "icon_like_blue",
+      "reply" : "icon_reply_blue",
+      "retweet" : "icon_retweet_blue"
+    }
+  },
+  "purple" : {
+    "hex" : "#794BC4",
+    "css" : "purple",
+    "icons" : {
+      "dm" : "icon_dm_purple",
+      "follow" : "icon_follow_purple",
+      "like" : "icon_like_purple",
+      "reply" : "icon_reply_purple",
+      "retweet" : "icon_retweet_purple"
+    }
+  }
+} %}
+
+{# COLOR LOGIC #}
+{% set color_hex = colors[color].hex %}
+{% set color_css = colors[color].css %}
+{% set color_icon = colors[color].icons[icon_type] %}
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "spacer_3_1" : prefix_img + "spacer_3_x_1-1480718996570.png",
+  "logo" : prefix_img + "logo-1475170569504.png",
+  "icon" : prefix_img + "dm-1476834756055.png",
+  "icon_color" : prefix_img + icon[color_icon],
+  "canopy" : mustache(
+    "{{{reasonably_small_profile_img}}}",
+    "https://pbs.twimg.com/profile_banners/20086442/1439585971/1500x500"
+  ),
+  "profile" : mustache(
+    "{{{reasonably_small_profile_img}}}",
+    "https://pbs.twimg.com/profile_images/790512706742808576/zk6zBkiC.jpg"
+  )
+} %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "icon" : "https://twitter.com",
+  "cta_1" : mustache(
+    "{{#follows.recipientIsFollowingSender}}{{{userWrapper.profileUrl.get}}}{{/follows.recipientIsFollowingSender}}",
+    "https://twitter.com"
+    ),
+  "profile" : mustache(
+    "{{{userWrapper.profileUrl.get}}}",
+    "https://twitter.com/jqiu"
+    ),
+  "profile_img" : mustache(
+    "{{{userWrapper.profileUrl.get}}}",
+    "https://twitter.com/jqiu"
+    ),
+  "cta_2" : mustache(
+    "{{{sender.follow_autoaction_url}}}",
+    "https://twitter.com"
+    ),
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# CSS #}
+{% block style %}
+    .wrapper {
+      min-width: 400px;
+    }
+
+    td.button {
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      line-height: 18px;
+    }
+
+    a.button_white {
+      font-size: 14px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: {{ color_hex }}; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 5px 20px; 
+      border: 1px solid #ffffff;
+      display: inline-block; 
+      font-weight:bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a.button_white_2 {
+      font-size: 14px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: {{ color_hex }}; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 5px 20px; 
+      border: 1px solid {{ color_hex }};
+      display: inline-block; 
+      font-weight:bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a.button {
+      font-size: 16px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 11px 30px; 
+      border: 1px solid #E0245E;
+      display: inline-block; 
+      font-weight:bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+{% endblock %}
+
+{% block body %}
+  {{ header_begin(color_hex) }}
+  {{ header_spacer(24) }}
+  {{ header_icon(img.logo, track(link.logo,1), 32, align("right")) }}
+  {{ header_spacer(32) }}
+  {{ header_title(copy.title, align("left")) }}
+  {{ header_spacer(32) }}
+  {{ header_end() }}
+  <table cellpadding="0" cellspacing="0" border="0" width="560" align="center" class="width_full">
+    <tr>
+      <td class="empty width_20" width="48">&nbsp;</td>
+      <td class="empty">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
+          <tr>
+            <td class="empty" height="32">
+              &nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td class="body deep_grey" align="{{ align('left') }}">
+              {{ i10n(copy.similar) }}
+            </td>
+          </tr>
+          <tr>
+            <td class="empty" height="12">
+              &nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td class="empty">
+              <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="464" class="width_full rounded">
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty">
+                    <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
+                      <tr>
+                        <td width="25">
+                          &nbsp;
+                        </td>
+                        <td class="empty">
+                          <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                            <tr>
+                              <td class="empty image" width="75">
+                                <img src="{{ img.profile }}" width="75" class="rounded"/>
+                              </td>
+                              <td class="empty" width="12">
+                                &nbsp;
+                              </td>
+                              <td class="empty" valign="middle">
+                                <table cellpadding="0" cellspacing="0" border="0" align="left">
+                                  <tr>
+                                    <td class="h3 text_black" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                                      sana rao
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td class="body deep_grey" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                                      @sanarao
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                              <td class="empty" valign="middle" width="100">
+                                <table border="0" cellspacing="0" cellpadding="0" align="right">
+                                  <!--[if gte mso 9]>
+                                  <tr>
+                                    <td height="10">
+                                      &nbsp;
+                                    </td>
+                                  </tr>
+                                  <![endif]-->                                      
+                                  <tr>
+                                    <td align="center" class="button" bgcolor="#ffffff" valign="middle">
+                                      <a href="{{ track(link.cta_2,4) }}" target="_blank" class="button_white_2 nowrap">
+                                        <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                        <img src="{{ img.icon_color }}" class="inline valign" height="14"/>&nbsp;&nbsp;{{ i10n(copy.cta) }}
+                                        <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                      </a>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td width="25">
+                          &nbsp;
+                        </td>
+                      </tr>
+                    </table>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td class="empty width_20" width="48">&nbsp;</td>
+    </tr>
+  </table>
+  {{ footer([copy.footer[0], copy.footer[1], copy.footer[2], copy.address, copy.footer[3]], [track(link.about,6), track(link.help,7), "{{ unsubscribe }}", track(link.download,8) ], color_css) }}
+{% endblock %}

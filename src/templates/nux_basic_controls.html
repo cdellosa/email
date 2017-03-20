@@ -1,0 +1,93 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# COPY #}
+{% set copy = {
+	"title" : "Hi @" + signal("screen_name","Somebody"),
+	"alt_hero" : "Hamster eating carrots",
+	"headline_1" : "Get into the action",
+	"copy_1" : "Twitter is a great place to get involved in conversations about topics you love. See an interesting Tweet? Quickly add your thoughts in just a few taps with Like, Retweet, and Reply.",
+	"headline_2" : "Like",
+	"subheadline_2" : "Say a lot with a little",
+	"copy_2" : "When you see a Tweet you love, tap the heart. That way the person who wrote it knows you shared the love.",
+	"headline_3" : "Retweet",
+	"subheadline_3" : "Spread the word",
+	"copy_3" : "The fastest way to share someone else's Tweet with your followers is with a Retweet. Tap the icon to send it instantly.",
+	"headline_4" : "Reply",
+	"subheadline_4" : "Join the conversation",
+	"copy_4" : "You can add your thoughts about any Tweet with a Reply. Find a topic you're passionate about, and jump right in.",
+	"recap" : "Take a look at some of the best videos on Twitter right now to get into the action.",
+	"cta" : ["Watch now", "Try it now"],
+	"footer" : ["Settings", "Help", "Unsubscribe"],
+  "disclaimer" : "This email was generated for @" + signal("screen_name","Somebody") + ".",
+	"address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "logo" : prefix_img + "nux_basic_controls_logo_twitter-1476902212889.png",
+  "hero" : prefix_img + "nux_basic_controls_hero-1478817403566.gif",
+  "icon_like" : prefix_img + "nux_basic_controls_icon_heart-1476902212834.png",
+  "icon_retweet" : prefix_img + "icon_retweet_green-1478031931996.png",
+  "icon_reply" : prefix_img + "icon_reply_blue-1478031931936.png"
+} %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com?refsrc=email",
+  "hero" : "https://twitter.com/twitter/timelines/741313691052736513?refsrc=email",
+  "cta_1" : "https://twitter.com/twitter/timelines/741313691052736513?refsrc=email",
+  "cta_2" : "https://twitter.com?refsrc=email",
+  "settings" : "https://twitter.com/settings/notifications",
+  "help" : "https://support.twitter.com/"
+} %}
+
+{# CSS #}
+{% block style %}
+    td.button {
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      line-height: 18px;
+    }
+
+    a.button {
+      font-size: 16px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 11px 30px; 
+      border: 1px solid #E0245E;
+      display: inline-block; 
+      font-weight:bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+{% endblock %}
+
+{% block body %}
+  {{ header(img.logo,track(link.logo,1), copy.title, "#e0245e") }}
+  {{ hero(img.hero,track(link.hero,2), copy.alt_hero) }}
+  {{ card_begin() }}
+  {{ card_spacer(48) }}
+  {{ card_intro(copy.headline_1, copy.copy_1) }}
+  {{ card_icon(copy.headline_2, copy.subheadline_2, copy.copy_2, img.icon_like, "custom_red") }}
+  {{ card_icon(copy.headline_3, copy.subheadline_3, copy.copy_3, img.icon_retweet, "green") }}
+  {{ card_icon(copy.headline_4, copy.subheadline_4, copy.copy_4, img.icon_reply, "blue") }}
+  {{ card_recap(copy.recap) }}
+  {{ signal("#lang_en", default="") }}
+    {{ card_cta(copy.cta[0], track(link.cta_1,3), "#E0245E") }}
+  {{ signal("/lang_en", default="") }}
+  {{ signal("^lang_en", default="") }}
+    {{ card_cta(copy.cta[1], track(link.cta_2,3), "#E0245E") }}
+  {{ signal("/lang_en", default="") }}
+  {{ card_spacer(48) }}
+  {{ card_end() }}
+  {{ footer([copy.footer[0], copy.footer[1], copy.footer[2], copy.address], [track(link.settings,4), track(link.help,5), "{{ unsubscribe }}" ], "pink") }}
+{% endblock %}

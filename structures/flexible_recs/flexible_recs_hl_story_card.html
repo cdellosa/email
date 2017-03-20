@@ -1,0 +1,39 @@
+<!--{{image_load_scribe}}-->
+<table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+  <tr><td>
+    <a href="{{text_tweet_link}}">
+      <table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+        <tr><td class="full_tweet_text">
+          {{{no_card_url_no_pic_linkified_text}}}
+        </td></tr>
+      </table>
+    </a>
+  </td></tr>
+  <tr><td height="14" style="height:14px;"></td></tr>
+  <tr><td><a href="{{tweet_details_tweet_link}}">
+    <table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;" align="center" class="card_box">
+      <tr>
+        <td width="16" style="width:16px;"></td> <!--left margin-->
+        <td>
+          {{#storyInfo}}
+          <table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+            <tr><td height="16" style="height:16px;"></td></tr> <!--top margin-->
+            <tr><td class="link_card_title">{{title}}</td></tr>
+            <tr><td height="6" style="height:6px;"></td></tr>
+            <tr><td class="link_card_description">
+              {{shortDescription}}
+              {{#is_story_description_truncated}}
+                <a href="{{story_link}}">{{_i}}more{{/i}}</a>
+              {{/is_story_description_truncated}}
+            </td></tr>
+            <tr><td height="6" style="height:6px;"></td></tr>
+            <tr><td class="link_card_source">{{#domain}}{{domain}}{{/domain}}</td></tr>
+            <tr><td height="16" style="height:16px;"></td></tr> <!--bottom margin-->
+          </table>
+          {{/storyInfo}}
+        </td>
+        <td width="16" style="width:16px;"></td> <!--right margin-->
+      </tr>
+    </table>
+  </a></td></tr>
+</table>

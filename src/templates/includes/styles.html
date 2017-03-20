@@ -1,0 +1,278 @@
+{%- if bgcolor_main in [null, false, ""] -%}
+  {%- set bgcolor_main = "#ffffff" -%}
+{%- endif -%}
+    body {
+      margin: 0px auto;
+      padding: 0px;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+
+    table {
+      padding: 0px;
+      margin: 0px auto;
+      line-height: 1px;
+      font-size: 1px;
+    }
+
+    td {
+      padding: 0px;
+      margin: 0px auto;
+      line-height: 1px;
+      font-size: 1px;
+    }
+
+    img {
+      margin: 0px;
+      padding: 0px;
+      display: inline-block;
+      -ms-interpolation-mode: bicubic;
+      border: none;
+      outline: none;
+    }
+
+    a {
+      text-decoration: none;
+      border-style: none;
+      border: 0px;
+      padding: 0px;
+      margin: 0px;
+    }
+
+    .empty {
+      font-size: 0px;
+      line-height: 1px;
+      padding: 0px;
+    }
+
+    .image {
+      font-size: 0px;
+      line-height: 100%; 
+      padding: 0px;
+      mso-line-height-rule: exactly;
+    }
+
+    .preheader {
+      display: none;
+      font-size: 1px;
+      color: #333333;
+      line-height: 1px;
+      max-height: 0px;
+      max-width: 0px;
+      opacity: 0;
+      overflow: hidden;
+    }
+
+    .fix_gmail_ios {
+      color: {{ bgcolor_main }};
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    .no_wrap {
+      white-space: nowrap;
+    }
+
+    .white {
+      color: #ffffff;
+    }
+
+    .pink {
+      color: #E0245E;
+    }
+
+    .orange {
+      color: #F45D22;
+    }
+
+    .yellow {
+      color: #FFAD1F;
+    }
+
+    .green {
+      color: #17BF63;
+    }
+
+    .blue {
+      color: #1DA1F2;
+    }
+
+    .purple {
+      color: #794BC4;
+    }
+
+    .text_black {
+      color: #292F33;
+    }
+
+    .deep_grey {
+      color: #8899A6;
+    }
+
+    .medium_grey {
+      color: #AAB8C2;
+    }
+
+    .light_grey {
+      color: #CCD6DD;
+    }
+
+    .faded_grey {
+      color: #E1E8ED;
+    }
+
+    .faint_grey {
+      color: #F5F8FA;
+    }
+
+    .custom_red {
+      color: #be1931;
+    }
+
+    .custom_green {
+      color: #01cf84;
+    }
+
+    .custom_blue {
+      color: #55acee;
+    }
+
+    .custom_grey {
+      color: #657786;
+    }
+
+    .h1 {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: none;
+      font-size: 32px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: bold;
+      line-height: 36px;
+    }
+
+    .h2 {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: none;
+      font-size: 24px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: bold;
+      line-height: 32px;
+    }
+
+    .h3 {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: none;
+      font-size: 18px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: bold;
+      line-height: 18px;
+    }
+
+    .h4 {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: none;
+      font-size: 16px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: bold;
+      line-height: 20px;
+    }
+
+    .rounded {
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+    }
+
+    .rounded_top {
+      -webkit-border-radius: 4px 4px 0px 0px; 
+      -moz-border-radius: 4px 4px 0px 0px; 
+      border-radius: 4px 4px 0px 0px; 
+    }
+
+    .border_grey {
+      border: 1px solid #e1e8ed;
+    }
+
+    .width_560 {
+      width: 560px;
+    }
+
+    .body {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 16px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 20px;
+    }
+
+    .body_2 {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 14px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 18px;
+    }
+
+    .supporting {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: none;
+      font-size: 14px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: bold;
+      line-height: 16px;
+    }
+
+    .footer {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 12px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 16px;
+    }
+
+    .inline {
+      display: inline;
+    }
+
+    .valign {
+      vertical-align: middle;
+    }
+
+    .nowrap {
+      white-space: nowrap;
+    }
+
+    .normal {
+      font-weight: normal;
+    }
+
+    .strong {
+      font-weight: bold;
+    }
+
+    .underline {
+      text-decoration: underline;
+    }
+
+    .center {
+      text-align: center;
+    }

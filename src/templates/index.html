@@ -1,0 +1,141 @@
+<html>
+  <head>
+    <title>
+      Twitter Email Templates
+    </title>
+    <style>
+      body {
+        font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust:none;
+        font-size: 14px;
+        padding: 0px;
+        margin: 0px;
+        font-weight: bold;
+        line-height: 18px;
+        background-color: #1da4bb;
+      }
+
+      a {
+        text-decoration: none;
+        color: #1DA1F2;
+      }
+
+      #templates {
+        position: relative;
+        padding: 0px;
+        z-index: 1000;
+        width: 25%;
+        float: left;
+        min-width: 400px;
+      }
+
+      #preview {
+        position: relative;
+        padding: 0px;
+        z-index: 1000;
+        width: 25%;
+        float: left;
+      }
+
+      #iframe {
+        position: fixed;
+        width: 75%;
+        height: 100%;
+        border: 0px;
+      }
+
+      h1 {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: none;
+        font-size: 42px;
+        padding: 0px;
+        margin-left: 40px;
+        font-weight: bold;
+        line-height: 42px;
+        color: #ffffff;
+      }
+
+      ul {
+        list-style-type: none;
+      }
+
+      li > a {
+        display: inline-block;
+        padding: 10px 10px;
+        background-color: #FFFFFF;
+        margin-bottom: 2px;
+        border-radius: 4px;
+      }
+
+      li > a:hover {
+        color: #ffffff;
+        background-color: #E0245E;
+      }    
+
+      img#clouds {
+        position: fixed;
+        bottom: -150px;
+        left: 0px;
+        z-index: 2;
+      }
+
+      img#bird {
+        position: fixed;
+        bottom: 170px;
+        right: 130px;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="templates">
+      <h1>Email Templates</h1>
+      <ul id="links"></ul>
+    </div>
+    <div id="preview">
+      <iframe id="iframe" name="iframe"></iframe>
+    </div>
+    <img id="clouds" src="https://auth.local.twitter.com/images/clouds.png" />
+    <img id="bird" src="https://auth.local.twitter.com/images/bird_path.png" />
+    <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+      function readTextFile(file, callback) {
+          var rawFile = new XMLHttpRequest();
+          rawFile.overrideMimeType("application/json");
+          rawFile.open("GET", file, true);
+          rawFile.onreadystatechange = function() {
+              if (rawFile.readyState === 4 && rawFile.status == "200") {
+                  callback(rawFile.responseText);
+              }
+          }
+          rawFile.send(null);
+      }
+
+      JSONdata = {};
+
+      //usage:
+      readTextFile("../../../urls.json", function(text){
+          var data = JSON.parse(text);
+          JSONdata = data;
+          console.log(JSONdata);
+          var newLinks = "";
+          var counter = 0;
+          for (var key in JSONdata) {
+            if (key.includes("_pt")) {
+            } else {
+            var newNewLinks = "<li><a href='" + key + "' class='button_" + counter + "' target='iframe'>" + key + "</a></li>";
+            newLinks = newLinks + newNewLinks;
+            counter = counter + 1;
+            }
+          }
+          document.getElementById("links").innerHTML = newLinks;
+      });
+    </script>
+  </body>
+</html>

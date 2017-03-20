@@ -1,0 +1,32 @@
+{% include "includes/macros_notifications.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis_2 = true %}
+
+{# COPY #}
+{% set copy = {
+  "subject_line" : "Your Twitter account has been reactivated!",
+  "alt_logo" : "Twitter",
+  "body" : "Your Twitter account has been reactivated. You can now log in with your current account password.",
+  "body_2" : "The Twitter Team",
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com"
+} %}
+
+Subject: {{ i10n(copy.subject_line) }}
+
+Twitter {{ "<" + trackm(link.logo,1) + ">" }}
+
+=
+
+{{ i10n(copy.body) }}
+
+{{ i10n(copy.body_2) }}
+
+=
+
+{{ copy.address }}

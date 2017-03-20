@@ -1,0 +1,19 @@
+1. Clone the prod model
+	idt model-clone -m follower --prod --name my_follower
+
+2. Unzip the model files
+	unzip my_follower.zip -d my_follower; cd my_follower
+
+3. Make necessary changes in templates/email
+
+4. Create model in your namespace 
+	idt model-create -f my_follower.json -t templates/
+
+5. Get the model name from the last line of the output, say 788063885026656256:my_follower
+
+6. Send test instance to your email 
+	idt model-test --email_override jagattest@litmustest.com --sender=12 --recipient=788063885026656256 -m 788063885026656256:my_follower
+	idt model-test --email_override twitter.test.sf@gmail.com --sender=12 --recipient=788063885026656256 -m 788063885026656256:my_follower
+
+7. Update your templates in Ibis2
+	idt model-update -f my_follower.json -t templates/

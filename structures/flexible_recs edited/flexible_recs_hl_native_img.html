@@ -1,0 +1,116 @@
+<!--{{image_load_scribe}}-->
+<table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+  <tr><td>
+    <a href="{{text_tweet_link}}">
+      <table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+        <tr><td class="full_tweet_text">
+          {{{no_pic_linkified_text}}}
+        </td></tr>
+      </table>
+    </a>
+  </td></tr>
+  <tr><td height="14" style="height:14px;"></td></tr>
+  {{#has_one_mosaic_image}}
+  {{#mosaic_images.head}}
+  <tr><td>
+    <!--[if mso]> <a href="{{image_tweet_link}}"><img width="400" src="{{url}}"></a> <![endif]-->
+    <a href="{{image_tweet_link}}" style="mso-hide:all;"><img style="width:100%" src="{{url}}"></a>
+  </td></tr>
+  {{/mosaic_images.head}}
+  {{/has_one_mosaic_image}}
+  
+  {{#has_two_mosaic_image}}
+  <tr><td>
+    <table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;">
+      <tr>
+        {{#mosaic_images.head}}
+        <td>
+          <!--[if mso]> <a href="{{image_tweet_link}}"><img width="197" src="{{url}}"></a> <![endif]-->
+          <a href="{{image_tweet_link}}" style="mso-hide:all;"><img style="width:100%;" src="{{url}}"></a>
+        </td>
+        {{/mosaic_images.head}}
+        <td width="2" style="width:2px;"></td>
+        {{#mosaic_images.tail}}
+        <td>
+          <!--[if mso]> <a href="{{image_tweet_link}}"><img width="197" src="{{url}}"></a> <![endif]-->
+          <a href="{{image_tweet_link}}" style="mso-hide:all;"><img style="width:100%;" src="{{url}}"></a>
+        </td>
+        {{/mosaic_images.tail}}
+      </tr>
+    </table>
+  </td></tr>
+  {{/has_two_mosaic_image}}
+  
+  {{#has_three_mosaic_image}}
+  <tr><td>
+    <table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;">
+      <tr>
+        {{#mosaic_images.head}}
+        <td>
+          <!--[if mso]> <a href="{{image_tweet_link}}"><img width="264" src="{{url}}"></a> <![endif]-->
+          <a href="{{image_tweet_link}}" style="mso-hide:all;"><img style="width:100%;" src="{{url}}"></a>
+        </td>
+        {{/mosaic_images.head}}
+        <td width="2" style="width:2px;"></td>
+        <td style="width:33%;">
+          <table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;">
+            {{#mosaic_images.tail.head}}
+            <tr><td>
+              <!--[if mso]> <a href="{{image_tweet_link}}"><img width="131" src="{{url}}"></a> <![endif]-->
+              <a href="{{image_tweet_link}}" style="mso-hide:all;"><img style="width:100%;" src="{{url}}"></a>
+            </td></tr>
+            {{/mosaic_images.tail.head}}
+            <tr><td height="2" style="height:2px;"></td></tr>
+            {{#mosaic_images.tail.tail}}
+            <tr><td>
+              <!--[if mso]> <a href="{{image_tweet_link}}"><img width="131" src="{{url}}"></a> <![endif]-->
+              <a href="{{image_tweet_link}}" style="mso-hide:all;"><img style="width:100%;" src="{{url}}"></a>
+            </td></tr>
+            {{/mosaic_images.tail.tail}}
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td></tr>
+  {{/has_three_mosaic_image}}
+  
+  {{#has_four_mosaic_image}}
+  <tr><td>
+    <table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;">
+      {{#mosaic_images.head}}
+      <tr><td>
+        <!--[if mso]> <a href="{{image_tweet_link}}"><img width="400" src="{{url}}"></a> <![endif]-->
+        <a href="{{image_tweet_link}}" style="mso-hide:all;"><img style="width:100%" src="{{url}}"></a>
+      </td></tr>
+      {{/mosaic_images.head}}
+      <tr><td height="2" style="height:2px;"></td></tr>
+      <tr><td>
+        <table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;">
+          <tr>
+            {{#mosaic_images.tail.head}}
+            <td>
+              <!--[if mso]> <a href="{{image_tweet_link}}"><img width="132" src="{{url}}"></a> <![endif]-->
+              <a href="{{image_tweet_link}}" style="mso-hide:all;"><img style="width:100%;" src="{{url}}"></a>
+            </td>
+            {{/mosaic_images.tail.head}}
+            <td width="2" style="width:2px;"></td>
+            {{#mosaic_images.tail.tail.head}}
+            <td>
+              <!--[if mso]> <a href="{{image_tweet_link}}"><img width="132" src="{{url}}"></a> <![endif]-->
+              <a href="{{image_tweet_link}}" style="mso-hide:all;"><img style="width:100%;" src="{{url}}"></a>
+            </td>
+            {{/mosaic_images.tail.tail.head}}
+            <td width="2" style="width:2px;"></td>
+            {{#mosaic_images.tail.tail.tail}}
+            <td>
+              <!--[if mso]> <a href="{{image_tweet_link}}"><img width="132" src="{{url}}"></a> <![endif]-->
+              <a href="{{image_tweet_link}}" style="mso-hide:all;"><img style="width:100%;" src="{{url}}"></a>
+            </td>
+            {{/mosaic_images.tail.tail.tail}}
+          </tr>
+        </table>
+      </td></tr>
+    </table>
+  </td></tr>
+  {{/has_four_mosaic_image}}
+</table>

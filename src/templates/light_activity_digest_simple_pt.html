@@ -1,0 +1,46 @@
+{% include "includes/macros_notifications.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis_2 = true %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "cta" : "https://twitter.com",
+  "help" : "https://twitter.com",
+  "settings" : "https://twitter.com/settings",
+  "unsubscribe" : "{{unsubscribe}}"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject" : "@{{#recipient}}{{screen_name}}{{/recipient}}, check out the notification you have on Twitter",
+  "subject_p" : "@{{#recipient}}{{screen_name}}{{/recipient}}, check out the notifications you have on Twitter",
+  "alt_logo" : "Twitter",
+  "title" : "See the 1 notification ready and waiting just for you",
+  "title_p" : "See the {{total_count}} notifications ready and waiting just for you",
+  "cta" : "Take a look",
+  "footer" : ["Help", "Settings", "Unsubscribe"],
+  "disclaimer" : "This email was generated for @" + mustache("{{#recipient}}{{screen_name}}{{/recipient}}","Somebody") + ".",
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+Subject: 
+{{ mustache("{{#count_one}}") }}{{ i10n(copy.subject) }}{{ mustache("{{/count_one}}") }}{{ mustache("{{^count_one}}") }}{{ mustache(i10n(copy.subject_p)) }}{{ mustache("{{/count_one}}") }}
+ 
+Twitter {{ "<" + trackm(link.logo,1) + ">" }}
+
+{{ mustache("{{#count_one}}") }}{{ i10n(pt(copy.title)) }}{{ mustache("{{/count_one}}") }}{{ mustache("{{^count_one}}") }}{{ mustache(i10n(pt(copy.title_p))) }}{{ mustache("{{/count_one}}") }}
+  
+{{ i10n(pt(copy.cta)) }} {{ "<" + track(link.cta,1) + ">" }}
+
+=
+
+{{ i10n(pt(copy.footer[0])) }} {{ "<" + trackm(link.help,2) + ">" }}
+
+{{ i10n(pt(copy.footer[1])) }} {{ "<" + trackm(link.settings,3) + ">" }}
+
+{{ i10n(pt(copy.footer[2])) }} {{ "<" + track(link.unsubscribe,2) + ">" }}
+
+{{ i10n(pt(copy.disclaimer)) }}
+
+{{ copy.address }}

@@ -1,0 +1,829 @@
+<html><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <style type="text/css">
+
+
+    body{
+    margin:0;
+    padding:0;
+    -webkit-text-size-adjust:100%;
+    -ms-text-size-adjust:100%;
+
+    }
+
+    table {
+
+    padding:0;
+    margin:0;
+    line-height:1px;
+    font-size:1px;
+
+    }
+
+    td{
+
+    padding:0;
+    margin:0;
+    line-height:1px;
+    font-size:1px;
+
+    }
+
+    img {
+        margin: 0;
+    padding: 0;
+    display:block;
+    -ms-interpolation-mode: bicubic;
+    border:none;
+    outline:none;
+
+        }
+
+    a {
+        text-decoration: none;
+        padding:0;
+        margin:0;
+
+    }
+
+    .tweet_detail a {
+        color: #2b7bb9;
+
+    }
+
+    .polls_social_proof {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust:none;
+        font-size: 14px;
+        color:#aab8c2;
+        padding: 0px;
+        margin: 0px;
+        line-height:18px;
+        text-align: {{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}};
+    }
+
+    .set-tweet-detail a {
+        color: #2b7bb9;
+
+    }
+
+    .story-media {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .story-attribution {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust:none;
+        color: #292f33;
+        font-size:16px;
+        padding: 0px;
+        margin: 0px;
+        line-height:100%;
+    }
+
+    .context {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust:none;
+        color: #aab8c2;
+        font-size:13px;
+        padding: 0px;
+        margin: 0px;
+        font-weight:400;
+        line-height:16px;
+        text-align:{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}};
+    }
+
+    .full_name_truncate {
+        font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust:none;
+        font-size: 16px;
+        text-align: {{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}};
+        color:#8899a6;
+        padding: 0px;
+        margin: 0px;
+        line-height: 20px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 289px;
+    }
+
+    .video {
+        padding: 0px;
+        margin: 0px;
+        border-radius:4px;
+       -moz-border-radius:4px;
+       -mwebkit-border-radius:4px;
+       background-color:#ffffff;
+       background-repeat: no-repeat;
+       background-size: 100%;
+    }
+
+    .avatar-96 {
+        border-radius:4px;
+        -moz-border-radius:4px;
+        -webkit-border-radius:4px;
+        height: 96px;
+        width: 96px;
+     }
+
+    .avatar_med{
+        padding: 0px;
+        margin: 0px;
+        border-radius:5px;
+        -moz-border-radius:5px;
+        -webkit-border-radius:5px;
+        width:32;
+        height:32;
+    }
+
+    .media {
+        padding: 0px;
+        margin: 0px;
+        border-radius:4px;
+        -moz-border-radius:4px;
+        -mwebkit-border-radius:4px;
+        background-color:#8899a6;
+    }
+
+    .footer_link {
+        font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust:none;
+        color: #55acee;
+        font-size:12px;
+        padding: 0px;
+        margin: 0px;
+        font-weight:600;
+        line-height:12px;
+
+    }
+
+    .preheader {
+        font-size: 1px;
+        color: #e1e8ed;
+    }
+
+    .preheader a {
+        font-size: 1px;
+        color: #e1e8ed;
+        opacity: 0.0;
+    }
+
+    .address a {
+        font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        color: #8899a6;
+        font-size:12px;
+        padding: 0px;
+        margin: 0px;
+        font-weight:normal;
+        line-height:12px;
+        cursor: default;
+    }
+
+
+
+     .footer_type {
+        font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        color: #8899a6;
+        font-size:12px;
+        padding: 0px;
+        margin: 0px;
+        font-weight:normal;
+        line-height:12px;
+    }
+
+
+    .article-headline {
+        font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust:none;
+        color: #2b7bb9;
+        font-size:24px;
+        padding: 0px;
+        margin: 0px;
+        font-weight:300;
+        line-height:30px;
+        text-align:{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}};
+    }
+
+    .full_name{
+        font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust:none;
+        font-size: 16px;
+        text-align: {{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}};
+        color:#292f33;
+        padding: 0px;
+        margin: 0px;
+        line-height: 16px;
+
+    }
+
+    .user_name{
+        font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust:none;
+        text-align: {{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}};
+        color:#8899a6;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .tweet_detail{
+        font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust:none;
+        font-size: 20px;
+        text-align: {{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}};
+        color:#292f33;
+        padding: 0px;
+        margin: 0px;
+        font-weight:300;
+        line-height:26px;
+    }
+
+    .set-tweet-detail{
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust:none;
+        font-size: 16px;
+        text-align: {{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}};
+        color:#292f33;
+        padding: 0px;
+        margin: 0px;
+        font-weight:400;
+        line-height:22px;
+    }
+
+    .avatar_line_text{
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust:none;
+        font-size: 16px;
+        text-align: {{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}};
+        color:#292f33;
+        padding: 0px;
+        margin: 0px;
+        font-weight:400;
+        line-height:19px;
+    }
+
+    .action {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust:none;
+        color: #2b7bb9;
+        font-size:13px;
+        padding: 0px;
+        margin: 0px;
+        font-weight:400;
+        line-height:100%;
+    }
+
+    .title {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust:none;
+        color: #66757f;
+        font-size:16px;
+        padding: 0px;
+        margin: 0px;
+        font-weight:400;
+        line-height:100%;
+        text-align:{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}};
+
+    }
+
+    .set-headline {
+        font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust:none;
+        color: #292f33;
+        font-size:24px;
+        padding: 0px;
+        margin: 0px;
+        font-weight:300;
+        line-height:30px;
+        text-align:{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}};
+    }
+
+    .hero-banner {
+        padding: 0px;
+        margin: 0px;
+        background-color:#FFFFFF;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .bulletproof-btn-1 {
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        line-height: 18px;
+    }
+
+    .bulletproof-btn-2 {
+        font-size: 16px;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        color: #ffffff;
+        text-decoration: none;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        padding: 11px 30px;
+        border: 1px solid #55acee;
+        display: inline-block;
+        font-weight:bold;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .view-btn-2 {
+        font-size: 13px;
+        line-height: 14px;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        color: #55acee;
+        text-decoration: none;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        padding: 7px 14px 7px 14px;
+        border: 1px solid #55acee;
+        display: inline-block;
+        font-weight: bold;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .social-proof {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust:none;
+        color: #aab8c2;
+        font-size:12px;
+        padding: 0px;
+        margin: 0px;
+        font-weight:400;
+        line-height:16px;
+        text-align:{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}};
+    }
+
+    .inline-image {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .view-cta {
+        font-size: 12px;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        color: #55acee;
+        text-decoration: none;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        padding: 6px 19px;
+        border: 1px solid #55acee;
+        display: inline-block;
+        font-weight:bold;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .poll_box {
+        background-color: #ffffff;
+        border: 1px solid #e1e8ed;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+    }
+
+    .poll_option {
+        background-color: #ffffff;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .poll_social_proof_box {
+        background-color: #ffffff;
+        border-left: 1px solid #e1e8ed;
+        border-right: 1px solid #e1e8ed;
+        border-bottom: 1px solid #e1e8ed;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        padding: 12px;
+    }
+
+    .quoted-name-truncate {
+		font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+	    -webkit-font-smoothing: antialiased;
+	    -webkit-text-size-adjust:none;
+	    font-size: 14px;
+	    color:#292f33;
+	    padding: 0px;
+	    margin: 0px;
+	    line-height: 16px;
+	    white-space: nowrap;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    width: 260px;
+	}
+
+	.quoted-name {
+		font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+	    -webkit-font-smoothing: antialiased;
+	    -webkit-text-size-adjust:none;
+	    font-size: 14px;
+	    color:#292f33;
+	    padding: 0px;
+	    margin: 0px;
+	    line-height: 16px;
+	}
+
+	.quoted-handle {
+		font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+	    -webkit-font-smoothing: antialiased;
+	    -webkit-text-size-adjust:none;
+	    font-size: 13px;
+	    color:#8899a6;
+	    padding: 0px;
+	    margin: 0px;
+	    line-height:15px;
+	}
+
+    .quoted-text {
+		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		font-weight: 400;
+		font-size: 14px;
+		color: #292F33;
+		line-height: 18px;
+	}
+
+    .quoted-text a {
+		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		font-weight: 400;
+		font-size: 14px;
+		color: #292F33;
+		line-height: 18px;
+	}
+
+    .quote-tweet {
+		border: 1px solid #E1E8ED;
+		width: 400px;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		border-radius: 4px;
+	}
+  </style>
+
+  <style type="text/css" inline="false">
+
+  @media only screen and (max-width: 420px) {
+        a[class="article-headline"] {
+            font-size:22px !important;
+            line-height:28px !important;
+        }
+        a[class="collapse"] {
+            width:100% !important;
+        }
+        td[class="story-attribution"]{
+            font-size: 13px !important;
+        }
+        td[class="context"]{
+            -webkit-text-size-adjust:none !important;
+            font-size: 12px !important;
+        }
+        a[class="action"]{
+            -webkit-text-size-adjust:none !important;
+            font-size: 12px !important;
+        }
+        td[class="margins"]{
+            width:15px !important;
+        }
+
+        td[class="border-space"]{
+            height:25px !important;
+        }
+        td[class="tweet_detail"]{
+            font-size:16px !important;
+            line-height:23px !important;
+        }
+
+        td[class="spacer"]{
+            font-size:4px !important;
+        }
+
+        span[class="address"] a {
+            line-height:18px !important;
+        }
+
+        a[class="cut"]{
+            display:none !important;
+        }
+
+    }
+
+
+    @media only screen and (max-width: 480px) {
+        a[class="collapse"] {
+            width:100% !important;
+        }
+
+        table[class="collapse"]{
+            width:100% !important;
+        }
+
+        table[class="quote-tweet"]{
+			width:100% !important;
+		}
+
+        div[class="collapse"]{
+            width:100% !important;
+        }
+
+        td[class="logo_space"]{
+            height:12px !important;
+        }
+
+        span[class="address"]{
+            display:block !important;
+            width:240px !important;
+        }
+        td[class="cut"]{
+            display:none !important;
+        }
+
+        td[class="logo"]{
+            width:40px !important;
+        }
+
+        td[class="logo"] img {
+            width:24px !important;
+        }
+
+        td[class="margins"]{
+            width:15px !important;
+        }
+
+        img[class="media"]{
+            width:100% !important;
+        }
+
+        img[class="story-media"]{
+            width:100% !important;
+        }
+        span[class="full_name_truncate"]{
+            width: 190px !important;
+        }
+        span[class="quoted-name-truncate"]{
+	  		width: 190px !important;
+	  	}
+        img[class="player"]{
+            width: 100% !important;
+        }
+        img[class="hero-spacer"]{
+            width: 100% !important;
+        }
+
+    }
+
+    @media only screen and (max-width: 320px) {
+        a[class="collapse"] {
+            width:100% !important;
+        }
+        span[class="full_name_truncate"]{
+            width: 175px !important;
+        }
+        span[class="quoted-name-truncate"]{
+	  		width: 190px !important;
+	  	}
+    }
+</style>
+
+</head>
+<body bgcolor="#e1e8ed">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#e1e8ed" style="background-color:#e1e8ed;" class="body_wrapper">
+
+    <tr>
+        <td align="center">
+
+            <table class="collapse" id="header" align="center" width="500" style="width: 500px;" bgcolor="#e1e8ed" cellpadding="0" cellspacing="0" border="0">
+                <!--Preheader-->
+                <tr>
+                    <td class="preheader">
+                      <a href="#">
+
+                      </a>
+                    </td>
+                </tr>
+                <!-- end preheader-->
+
+                <tr>
+                    <td style="min-width: 500px;" class="cut">
+                        <img src="https://ea.twimg.com/email/self_serve/media/spacer-1402696023930.png" style="min-width: 500px;height:1px;">
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+
+
+            <!--///////////////////header///////////////////////////-->
+
+            <table class="collapse" id="header" align="center" width="500" style="width:500px;background-color:#ffffff;" bgcolor="#ffffff" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td height="15" style="height:15px;" class="logo_space">
+                        &nbsp;
+                    </td>
+
+                </tr>
+                <tr align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+                    <td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+                        <table cellpadding="0" cellspacing="0" border="0" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
+                            <tr align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+                                <td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}} width="15" style="width:15px;"></td>
+                                <td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}} width="28">
+                                    <a href="{{_tl1}}https://twitter.com/{{/tl1}}"><img align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" width="28" src="https://ea.twimg.com/email/self_serve/media/logo-1400528502322.png" style="width:28px;padding-bottom:2px;"></a>
+                                </td>
+                                <td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}} width="10" style="width:10px;"></td>
+                                <td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}} class="title">
+                                    {{#headline}}{{headline}}{{/headline}}
+                                    {{^headline}}
+                                        {{#contentRecsView}}
+                                          {{#contentRecCollectionViews.head}}
+                                            {{^collection_type_users_1}}
+                                                {{_i}}Popular in your network{{/i}}
+                                            {{/collection_type_users_1}}
+
+                                            {{#collection_type_users_1}}
+                                                {{_i}}Hey {{user_name}},{{/i}}
+                                            {{/collection_type_users_1}}
+                                          {{/contentRecCollectionViews.head}}
+                                        {{/contentRecsView}}
+                                    {{/headline}}
+                                </td>
+                                <td width="50" style="width:50px;" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="14" style="height:14px;" class="logo_space">
+                        <img width="1" height="1" style="display: block;" src="{{image_load_scribe}}">
+                    </td>
+
+                </tr>
+
+            </table>
+
+            <!--////////////////////border//////////////////////////-->
+
+            <table class="collapse" align="center" width="500" style="width:500px;background-color:#ffffff;" cellpadding="0" cellspacing="0" border="0">
+                <tr id="border">
+                    <td colspan="2" height="1" style="line-height:1px;display:block;height:1px;background-color:#e1e8ed;"></td>
+                </tr>
+            </table>
+
+
+        {{#contentRecCollectionViews}}
+            {{#collection_type_tweets_1}}
+              <!--///////////////////// tweets /////////////////////////-->
+              {{#contentRecModuleViews.head}}
+                {{#tweetView}}
+                    {{#is_story_with_large_image}}
+                      {{>manhattan:static:flexible_recos_story_section/html_content}}
+                    {{/is_story_with_large_image}}
+                    {{^is_story_with_large_image}}
+                      {{#pollView}}
+                        {{>manhattan:static:flexible_recos_polls/html_content}}
+                      {{/pollView}}
+                      {{^pollView}}
+                        {{>manhattan:static:flexible_recos_tweets_section/html_content}}
+                      {{/pollView}}
+                    {{/is_story_with_large_image}}
+                 {{/tweetView}}
+              {{/contentRecModuleViews.head}}
+
+              {{#contentRecModuleViews.tail}}
+                {{#tweetView}}
+                    {{#pollView}}
+                      {{>manhattan:static:flexible_recos_polls/html_content}}
+                    {{/pollView}}
+                    {{^pollView}}
+                      {{>manhattan:static:flexible_recos_tweets_section/html_content}}
+                    {{/pollView}}
+                {{/tweetView}}
+              {{/contentRecModuleViews.tail}}
+            {{/collection_type_tweets_1}}
+
+            {{#collection_type_users_1}}
+                <!--///////////////////// wtf /////////////////////////-->
+                <table class="collapse" align="center" width="500" style="width:500px;background-color:#ffffff;" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td width="50" style="width:50px;" class="margins"></td>
+                    <td height="30" style="height:30px;"></td>
+                    <td width="50" style="width:50px;" class="margins"></td>
+                  </tr>
+                  <tr>
+                    <td width="50" style="width:50px;" class="margins"></td>
+                    <td align="center" class="set-headline" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+                      {{#collectionHeadline}}
+                        {{collectionHeadline}}
+                      {{/collectionHeadline}}
+                      {{^collectionHeadline}}
+                        {{_i}}Here are some people we think you might like to follow:{{/i}}
+                      {{/collectionHeadline}}
+                    </td>
+                    <td width="50" style="width:50px;" class="margins"></td>
+                  </tr>
+                </table>
+
+              {{#contentRecModuleViews.head}}
+                {{#userView}}
+                    {{>manhattan:static:flexible_recos_pymk_section/html_content}}
+                {{/userView}}
+              {{/contentRecModuleViews.head}}
+
+              {{#contentRecModuleViews.tail}}
+                <!--////////////////////set border//////////////////////////-->
+
+                <table class="collapse" align="center" width="500" style="width:500px;background-color:#ffffff;" cellpadding="0" cellspacing="0" border="0">
+                  <tr id="border">
+                    <td width="50" style="width:50px;" class="margins"></td>
+                    <td colspan="2" height="1" style="line-height:1px;display:block;height:1px;background-color:#e1e8ed;"></td>
+                    <td width="50" style="width:50px;" class="margins"></td>
+                  </tr>
+                </table>
+                {{#userView}}
+                    {{>manhattan:static:flexible_recos_pymk_section/html_content}}
+                {{/userView}}
+              {{/contentRecModuleViews.tail}}
+            {{/collection_type_users_1}}
+
+            {{#collection_type_trend_1}}
+                {{>manhattan:static:flex_recs_trend/html_content}}
+            {{/collection_type_trend_1}}
+     {{/contentRecCollectionViews}}
+
+        <!--//////////////////// footer //////////////////////////-->
+
+        <table class="collapse" id="footer" align="center" width="500" style="width:500px;background-color:#ffffff;" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td height="1" style="line-height:1px;display:block;height:1px;background-color:#e1e8ed;"></td>
+          </tr>
+
+          <tr>
+            <td height="20" style="height:20;"></td>
+          </tr>
+
+          <tr>
+            <td align="center">
+                        <span class="footer_type" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+              <a href="{{_tl8}}https://twitter.com/settings/notifications{{/tl8}}" class="footer_link">{{_i}}Settings{{/i}}</a> &nbsp;&#124;&nbsp; <a href="{{_tl9}}https://support.twitter.com/{{/tl9}}" class="footer_link">{{_i}}Help{{/i}}</a> &nbsp;&#124;&nbsp; <a href="{{unsubscribe}}" class="footer_link">{{_i}}Unsubscribe{{/i}}</a>
+               {{#isEmailStateUnconfirmed}}&emsp;&#124;&emsp;<a href="{{not_my_account}}" class="footer_link">{{_i}}Not my account{{/i}}</a>{{/isEmailStateUnconfirmed}}
+                        </span>
+            </td>
+          </tr>
+
+          <tr>
+            <td height="10" style="height:10px;line-height:1px;font-size:1px;"></td>
+          </tr>
+
+           <tr>
+          <td align="center" class="footer_type" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+              {{_i}}This email was generated for @{{screen_name}}.{{/i}}
+          </td>
+        </tr>
+
+        <tr>
+          <td height="7" style="height:7px;line-height:1px;font-size:1px;"></td>
+        </tr>
+
+          <tr>
+            <td align="center">
+                        <span class="address">
+                          <a href="#">Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103</a>
+                        </span>
+            </td>
+          </tr>
+
+          <tr>
+            <td height="26" style="height:26;"></td>
+          </tr>
+        </table>
+
+        <!--//////////////////////////////////////////////-->
+        </td>
+    </tr>
+</table>
+</body>
+</html>

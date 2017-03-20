@@ -1,0 +1,74 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Twitter <{{#tl1}}https://twitter.com{{/tl1}}>
+
+{{#i}}@{{screen_name}}{{#lang_ja}} さん{{/lang_ja}}{{#lang_ko}} 님{{/lang_ko}}, meet your new follower{{/i}}
+  
+{{#i}}View profile{{/i}} <{{#tl2}}{{#follows.recipientIsFollowingSender}}{{{userWrapper.profileUrl.get}}}{{/follows.recipientIsFollowingSender}}{{/tl2}}>
+
+=
+
+{{#i}}{{{full_name}}}{{/i}}
+{{#i}}@{{screen_name}} {{#lang_ja}} さん{{/lang_ja}}{{#lang_ko}} 님{{/lang_ko}}{{/i}}
+
+{{^follows.recipientIsFollowingSender}}{{#i}}Follow{{/i}} <{{#tl3}}{{{sender.follow_autoaction_url}}}{{/tl3}}>{{/follows.recipientIsFollowingSender}}
+
+{{#userWrapper}}{{#bio.isDefined}}{{#i}}{{{bio.get}}}{{/i}} - {{location.get}}{{/bio.isDefined}}{{/userWrapper}}
+
+{{ following_count }} {{#i}}Following{{/i}}
+{{ followers_count }} {{#i}}Followers{{/i}}
+
+=
+
+{{#i}}About{{/i}} <{{#tl5}}https://about.twitter.com{{/tl5}}>
+
+{{#i}}Help{{/i}} <{{#tl6}}https://support.twitter.com/{{/tl6}}>
+
+{{#i}}Unsubscribe{{/i}} <{{ unsubscribe }}>
+
+Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103

@@ -1,0 +1,59 @@
+<!-- {{image_load_scribe}} -->
+<!--///////////////////// quoted tweet /////////////////////////-->
+<table cellpadding="0" cellspacing="0" border="0" align="center" class="collapse" width="100%">
+  <tr><td height="12" style="height:12px;"></td></tr> <!--top margin-->
+  <!--/////////////////////quoted tweet box /////////////////////////-->
+  <tr>
+    <td><a href="{{quoted_tweet_link}}"><table cellpadding="0" cellspacing="0" border="0" align="center" class="quote-tweet" width="100%">
+      <tr>
+        <td width="14" style="width:14px;"></td> <!--left margin-->
+        <td>
+          <table cellpadding="0" cellspacing="0" border="0" class="collapse" width="100%" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+            <tr><td height="10" style="height:10px;"></td></tr> <!--top margin-->
+            <!-- User Identity -->
+            {{#userItem}}
+            <tr><td>
+              <span class="quoted-name-truncate" style="display:block;">
+                <strong><a href="{{force_screen_name_link}}" class="quoted-name">{{name}}</a>
+                </strong>
+                &nbsp;
+                <a href="{{force_screen_name_link}}" class="quoted-handle">@{{screen_name}}</a>
+              </span>
+            </td></tr>
+            {{/userItem}}
+            <!-- End user identity -->
+            <tr><td height="8" style="height:8px;"></td></tr>
+            <tr><td>
+              <table cellpadding="0" cellspacing="0" border="0" class="collapse" width="100%" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+                <tr>
+                  {{#small_cropped_image}}
+                  <!-- img/video preview -->
+                  <td width="82" style="width:82px;" valign="top">
+                    <a href="{{quoted_tweet_link}}"><img width="82" style="width:82px;" src="{{url}}"/></a>
+                  </td>
+                  <td width="12" style="width:12px;"></td>
+                  <!-- img/video preview end -->
+                  {{/small_cropped_image}}
+                  <td class="quoted-text" valign="top">
+                    <a href="{{quoted_tweet_link}}">
+                      {{#small_cropped_image.isDefined}}
+                      {{{no_card_url_no_pic_linkified_text}}}
+                      {{/small_cropped_image.isDefined}}
+                      {{^small_cropped_image.isDefined}}
+                      {{{linkified_text}}}
+                      {{/small_cropped_image.isDefined}}
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td></tr>
+            <tr><td height="10" style="height:10px;"></td></tr> <!--bottom margin-->
+          </table>
+        </td>
+        <td width="14" style="width:14px;"></td> <!--right margin-->
+      </tr>
+    </table></a></td>
+  </tr>
+  <!--/////////////////////quoted tweet box /////////////////////////-->
+</table>
+<!--///////////////////// end quoted tweet /////////////////////////-->

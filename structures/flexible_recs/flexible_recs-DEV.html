@@ -1,0 +1,144 @@
+<!-- FILES USED -->
+flexible_recs-DEV
+flexible_recs_highlights
+flexible_recs_highlights_tweet
+flexible_recs_hl_user_item
+flexible_recs_hl_cta_button
+flexible_recs_hl_native_img
+flexible_recs_hl_playable
+flexible_recs_hl_story_card
+flexible_recs_hl_poll_tweet
+flexible_recs_hl_quote_tweet
+flexible_recs_hl_moment_tweet
+flexible_recs_hl_text_tweet
+flexible_recs_hl_inline_action
+flexible_recs_highlights_url
+flexible_recs_hl_ref_tweet
+flexible_recs_highlights_topic
+flexible_recs_highlightsmoment
+flexible_recs_default
+flexible_recos_story_section
+flexible_recos_polls
+flexible_recos_tweets_section
+flexible_recos_pymk_section
+flex_recs_trend
+flexible_recos_tweets_section
+
+<!-- TEMPLATE TREE -->
+flexible_recs-DEV
+  ⌊
+  <if content_recs_email_design_key_highlights_as_email>
+    flexible_recs_highlights ✓
+      ⌊
+      <if module_type_tweet>
+        flexible_recs_highlights_tweet ✓
+          ⌊
+          flexible_recs_hl_user_item ✓
+            ⌊
+            <if module_cta_content_key_view_profile>
+              flexible_recs_hl_cta_button ✓
+            <elseif module_cta_content_key_view_profile_fill>
+              flexible_recs_hl_cta_button ✓
+            <elseif module_cta_content_key_follow>
+              flexible_recs_hl_cta_button ✓
+            <elseif module_cta_content_key_follow_fill>
+              flexible_recs_hl_cta_button ✓
+            </if>
+          <if is_native_image>
+            flexible_recs_hl_native_img ✓
+          <elseif module_type_url>
+            <if is_playable_with_good_still>
+              flexible_recs_hl_playable ✓
+            <else>
+              <if storyInfo.isDefined>
+                flexible_recs_hl_story_card ✓
+              <else>
+                <if pollView.isDefined>
+                  flexible_recs_hl_poll_tweet ✓
+                <else>
+                  <if module_design_key_show_quoted_tweet_and_moment_card>
+                    <if quotedTweet.isDefined>
+                      flexible_recs_hl_quote_tweet ✓
+                    <else>
+                      <if momentView.isDefined>
+                        flexible_recs_hl_moment_tweet ✓
+                      <else>
+                        flexible_recs_hl_text_tweet ✓
+                      </if>
+                    </if>
+                  <else>
+                    flexible_recs_hl_inline_action ✓
+                      ⌊
+                      flexible_recs_hl_cta_button ✓
+                  </if>
+                </if>
+              </if>
+            </if>
+          </if>
+          flexible_recs_hl_inline_action ✓
+            ⌊
+            flexible_recs_hl_cta_button ✓
+      <elseif module_type_url>
+        flexible_recs_highlights_url ✓
+          ⌊
+          <if is_native_image>
+            flexible_recs_hl_ref_tweet ✓
+          </if>
+      <elseif module_type_topic>
+        flexible_recs_highlights_topic
+          ⌊
+          <if is_native_image>
+            flexible_recs_hl_native_img ✓
+          <else>
+            <if is_playable_with_good_still>
+              flexible_recs_hl_playable ✓
+            <else>
+              <if storyInfo.isDefined>
+                flexible_recs_hl_story_card ✓
+              <else>
+                <if pollView.isDefined>
+                  flexible_recs_hl_poll_tweet ✓
+                <else>
+                  <if quotedTweet.isDefined>
+                    flexible_recs_hl_quote_tweet ✓
+                  <else>
+                    flexible_recs_hl_text_tweet ✓
+                  </if>
+                </if>
+              </if>
+            </if>
+          </if>
+      <elseif module_type_moment>
+        flexible_recs_highlightsmoment ✓
+      </if>
+  <else>
+    flexible_recs_default ✓
+      ⌊
+      <if is_story_with_large_image>
+        flexible_recos_story_section ✓
+      <else>
+        <if pollView>
+          flexible_recos_polls ✓
+        <else>
+          flexible_recos_tweets_section ✓
+        </if>
+      </if>
+      <if pollView>
+        flexible_recos_polls ✓
+      <else>
+        flexible_recos_tweets_section ✓
+      </if>
+      <if contentRecModuleViews>
+        flexible_recos_pymk_section ✓
+      </if>
+      <if userView>
+        flexible_recos_pymk_section ✓
+      </if>
+      <if collection_type_trend_1>
+        flex_recs_trend ✓
+          ⌊
+          <if tweetView>
+            flexible_recos_tweets_section ✓
+          </if>
+      </if>
+  </if>

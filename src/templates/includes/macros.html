@@ -1,0 +1,721 @@
+{# IBIS MACROS #}
+{# INTERNATIONALIZATION MACRO #}
+{% macro i10n(copy) -%}
+  {% if ibis_2 == true -%}
+    {{ "{{#i}}" + copy + "{{/i}}" }}
+  {%- elif ibis == true -%}
+    {{ "{{_i}}" + copy + "{{/i}}" }}
+  {%- else -%}
+    {{ copy }}
+  {%- endif %}
+{%- endmacro %}
+
+{# LINK TRACK MACRO #}
+{% macro track(url,number) -%}
+  {% if ibis_2 == true -%}
+    {{ "{{#tl" + number + "}}" + url + "{{/tl" + number + "}}" }}
+  {%- elif ibis == true -%}
+    {{ "{{_tl" + number + "}}" + url + "{{/tl" + number + "}}" }}
+  {%- else -%}
+    {{ url }}
+  {%- endif %}
+{%- endmacro %}
+
+{# LINK TRACK MACRO #}
+{% macro trackm(url,number) -%}
+  {% if ibis_2 == true -%}
+    {{ "{{#tlm" + number + "}}" + url + "{{/tlm" + number + "}}" }}
+  {%- elif ibis == true -%}
+    {{ "{{_tlm" + number + "}}" + url + "{{/tlm" + number + "}}" }}
+  {%- else -%}
+    {{ url }}
+  {%- endif %}
+{%- endmacro %}
+
+{# IBIS SIGNAL MACRO #}
+{% macro signal(signal, default="") -%}
+  {% if ibis == true -%}
+    {{ "{{" + signal + "}}" }}
+  {%- else -%}
+    {{ default }}
+  {%- endif %}
+{%- endmacro %}
+
+{% macro mustache(mustache, default="") -%}
+  {% if ibis == true -%}
+    {{ mustache }}
+  {%- else -%}
+    {{ default }}
+  {%- endif %}
+{%- endmacro %}
+
+{# WIDOW REMOVAL MACRO #}
+{%- macro noWidow(sentence) -%}
+  {%- set newWord = "" -%}
+  {%- set newSentence = [] -%}
+  {%- set word = "" -%}
+  {%- set counter = 0 -%}
+  {%- for char in sentence -%}
+    {%- if char == " " -%}
+      {%- set newSentence = (newSentence.push(newWord),newSentence) -%}
+      {%- set newWord = "" -%}
+    {%- elif loop.last -%}
+      {%- set newWord = newWord + char -%}
+      {%- set newSentence = (newSentence.push(newWord),newSentence) -%}
+    {%- else -%}
+      {%- set newWord = newWord + char -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {% for word in newSentence -%}
+    {%- if (newSentence|length - counter) == 2 -%}
+      {{ word + "&nbsp;" }}
+    {%- elif loop.last -%}
+      {{ word }}
+    {%- else -%}
+      {{ word + " " }}
+    {%- endif -%}
+    {%- set counter = counter + 1 -%}
+  {%- endfor -%}{{ word }}
+{%- endmacro -%}
+
+{# ADDRESS FIX for iOS and GMAIL MACRO #}
+{%- macro fixAddress(sentence, default=5) -%}
+  {%- set newWord = "" -%}
+  {%- set newSentence = [] -%}
+  {%- set word = "" -%}
+  {%- set counter = 0 -%}
+  {%- for char in sentence -%}
+    {%- if char == " " -%}
+      {%- set newSentence = (newSentence.push(newWord),newSentence) -%}
+      {%- set newWord = "" -%}
+    {%- elif loop.last -%}
+      {%- set newWord = newWord + char -%}
+      {%- set newSentence = (newSentence.push(newWord),newSentence) -%}
+    {%- else -%}
+      {%- set newWord = newWord + char -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {% for word in newSentence -%}
+    {%- if loop.last -%}
+      {{ word }}
+    {%- elif (newSentence|length - counter) < default -%}
+      {{ word + "&nbsp;" }}
+    {%- else -%}
+      {%- if (newSentence|length - counter) < (default + 1) -%}
+        {{ word + " " }}
+      {%- else -%}
+        {{ word + " &#65279;" }}
+      {%- endif -%}
+    {%- endif -%}
+    {%- set counter = counter + 1 -%}
+  {%- endfor -%}{{ word }}
+{%- endmacro -%}
+
+{# IBIS ALIGN / RTL MUSTACHE #}
+{%- macro align(direction) -%}
+  {#- IBIS RTL MUSTACHE -#}
+  {%- set ibis_rtl = "{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" -%}
+  {%- set ibis_rtl_switch = "{{^is_rtl}}right{{/is_rtl}}{{#is_rtl}}left{{/is_rtl}}" -%}
+  {%- set align_left = mustache(ibis_rtl,'left') -%}
+  {%- set align_right = mustache(ibis_rtl_switch,'right') -%}
+  {% if direction == "left" -%}
+    {{ align_left }}
+  {%- else -%}
+    {{ align_right }}
+  {%- endif %}
+{%- endmacro -%}
+
+{%- macro dir(direction) -%}
+  {#- IBIS RTL MUSTACHE -#}
+  {%- set ibis_rtl = "{{^is_rtl}}ltr{{/is_rtl}}{{#is_rtl}}rtl{{/is_rtl}}" -%}
+  {%- set ibis_rtl_switch = "{{^is_rtl}}rtl{{/is_rtl}}{{#is_rtl}}ltr{{/is_rtl}}" -%}
+  {%- set dir_left = mustache(ibis_rtl,'ltr') -%}
+  {%- set dir_right = mustache(ibis_rtl_switch,'rtl') -%}
+  {% if direction == "ltr" -%}
+    {{ dir_left }}
+  {%- else -%}
+    {{ dir_right }}
+  {%- endif %}
+{%- endmacro -%}
+
+
+{# CURLY APPOSTROPHE REMOVER REMOVER MACRO #}
+{% macro pt(copy) -%}
+  {{ copy|replace("‘","'")|replace("’","'")|replace("“","''")|replace("”","''")|replace("&mdash;","--") }}
+{%- endmacro %}
+
+{%- macro i10nOverride(lang_default, lang_override, string_default, string_override) -%}
+  {% if ibis == true -%}
+    {% for lang in lang_default -%}
+      {{ "{{#" + lang + "}}{{_i}}" + string_default + "{{/i}}{{/" + lang + "}}" }}
+    {%- endfor -%}
+    {%- for lang in lang_override -%}
+      {{ "{{#" + lang + "}}" + string_override[loop.index0] + "{{/" + lang + "}}" }}
+    {%- endfor %}
+  {%- else -%}
+    {{ string_default }}
+  {%- endif %}
+{%- endmacro -%}
+
+{# TEMPLATE MACROs #}
+{% macro header_begin(color) %}
+          <!-- HEADER START -->
+          <table cellpadding="0" cellspacing="0" border="0" width="100%" align="center" bgcolor="{{ color }}">
+            <tr>
+              <td class="empty">
+                <table cellpadding="0" cellspacing="0" border="0" width="560" align="center" class="width_full">
+                  <!--[if gte mso 9]>
+                  <tr>
+                    <td colspan="3">
+                      <img src="https://ea.twimg.com/email/self_serve/media/spacer_560_x_1-1478717885230.png" class="width_full"/>
+                    </td>
+                  </tr>
+                  <![endif]-->
+                  <tr>
+                    <td class="empty width_20" width="48">
+                      <!--[if gte mso 9]>
+                      <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="48" />
+                      <![endif]-->
+                    </td>
+                    <td class="empty" align="center">
+                      <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
+{% endmacro %}
+
+{% macro header_spacer(height) %}
+                        <tr>
+                          <td class="empty" height="{{ height }}">
+                            &nbsp;
+                          </td>
+                        </tr>
+{% endmacro %}
+
+{% macro header_title(copy, alignment="center", link="") %}
+                        <tr>
+                          <td class="h1 white" align="{{ alignment }}">
+                            {% if link != "" %}
+                              <a href="{{ link }}" target="blank" class="white">
+                                {{ i10n(noWidow(copy)) }}
+                              </a>
+                            {% else %}
+                              {{ i10n(noWidow(copy)) }}
+                            {% endif %}
+                          </td>
+                        </tr>
+{% endmacro %}
+
+{% macro header_end() %}
+                      </table>
+                    </td>
+                    <td class="empty width_20" width="48">
+                      <!--[if gte mso 9]>
+                      <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="48" />
+                      <![endif]-->
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+          <!-- HEADER END -->
+{% endmacro %}
+
+{% macro header_icon(icon, link, height="24", alignment="center") %}
+                        <tr>
+                          <td class="empty image" align="{{ alignment }}">
+                            <a href="{{ link }}" target="blank">
+                              <img src="{{ icon }}" height="{{ height }}"/>
+                            </a>
+                          </td>
+                        </tr>
+{% endmacro %}
+
+{% macro header(url_img,link_img,title,color, height="24",copy="",link_title="",link_copy="") %}
+          <!-- HEADER START -->
+          <table cellpadding="0" cellspacing="0" border="0" width="560" bgcolor="{{ color }}" align="center" class="width_full">
+            <!--[if gte mso 9]>
+            <tr>
+              <td colspan="3">
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer_560_x_1-1478717885230.png" class="width_full"/>
+              </td>
+            </tr>
+            <![endif]-->
+            <tr>
+              <td class="empty width_20" width="100">
+                <!--[if gte mso 9]>
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="100" />
+                <![endif]-->
+              </td>
+              <td class="empty" align="center">
+                <table cellpadding="0" cellspacing="0" border="0" align="center">
+                  <tr>
+                    <td class="empty" height="24">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty image" align="center" style="mso-line-height-rule: exactly;">
+                      <a href="{{ link_img }}" target="blank">
+                        <img src="{{ url_img }}" height="{{ height }}"/>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="12">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="h3 white" align="center">
+                      {% if link_title != "" %}
+                        <a href="{{ link_title }}" target="blank" class="white">
+                          {{ i10n(title) }}
+                        </a>
+                      {% else %}
+                        {{ i10n(title) }}
+                      {% endif %}
+                    </td>
+                  </tr>
+                  {% if copy != "" %}
+                  <tr>
+                    <td class="empty" height="12">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="body white" align="center">
+                      {% if link_copy != "" %}
+                        <a href="{{ link_copy }}" target="blank" class="white">
+                          {{ i10n(copy) }}
+                        </a>
+                      {% else %}
+                        {{ i10n(copy) }}
+                      {% endif %}
+                    </td>
+                  </tr>
+                  {% endif %}
+                  <tr>
+                    <td class="empty" height="24">
+                      &nbsp;
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td class="empty width_20" width="100">
+                <!--[if gte mso 9]>
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="100" />
+                <![endif]-->
+              </td>
+            </tr>
+          </table>
+          <!-- HEADER END -->
+{% endmacro %}
+
+{% macro header_bg(url_img,link_img,title,headline,copy,url_bg,color) %}
+          <!-- HEADER START -->
+          <table cellpadding="0" cellspacing="0" border="0" width="560" bgcolor="{{ color }}" align="center" class="width_full">
+            <!--[if gte mso 9]>
+            <tr>
+              <td colspan="3">
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer_560_x_1-1478717885230.png" class="width_full"/>
+              </td>
+            </tr>
+            <![endif]-->
+            <tr>
+              <td background="{{ url_bg }}" bgcolor="{{ color }}" valign="top">
+                <!--[if gte mso 9]>
+                <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:560px;">
+                  <v:fill type="tile" src="{{ url_bg }}" color="{{ color }}" />
+                  <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
+                <![endif]-->
+                  <table cellpadding="0" cellspacing="0" border="0" align="center">
+                    <tr> 
+                      <td class="empty width_20" width="100">
+                        &nbsp;
+                      </td>
+                      <td class="empty">
+                        <table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+                          <tr>
+                            <td class="empty" height="24">
+                              &nbsp;
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="empty image" align="center" style="mso-line-height-rule: exactly;">
+                              <a href="{{ link_img }}" target="blank">
+                                <img src="{{ url_img }}" height="24"/>
+                              </a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="empty" height="12">
+                              &nbsp;
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="h3 white" align="center">
+                              {{ i10n(title) }}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="empty" height="12">
+                              &nbsp;
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="h3 white" align="center">
+                              {{ i10n(headline) }}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="empty" height="12">
+                              &nbsp;
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="body white" align="center">
+                              {{ i10n(copy) }}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="empty" height="24">
+                              &nbsp;
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td class="empty width_20" width="100">
+                        &nbsp;
+                      </td>
+                    </tr>
+                  </table>
+                <!--[if gte mso 9]>
+                  </v:textbox>
+                </v:rect>
+                <![endif]-->
+              </td>
+            </tr>
+          </table>
+          <!-- HEADER END -->
+{% endmacro %}
+
+{% macro hero(url_img,link_img="",alt_img="") %}
+          <!-- HERO START -->
+          <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="560" class="width_full">
+            <tr>
+              <td class="empty image" align="center" style="mso-line-height-rule: exactly;">
+                {% if link_img == "" %}
+                <img src="{{ url_img }}" width="560" style="width: 560px;" class="width_full" alt="{{ i10n(alt_img) }}" title="{{ i10n(alt_img) }}"/>
+                {% else %}
+                <a href="{{ link_img }}">
+                  <img src="{{ url_img }}" width="560" style="width: 560px;" class="width_full" alt="{{ i10n(alt_img) }}" title="{{ i10n(alt_img) }}"/>
+                </a>
+                {% endif %}
+              </td>
+            </tr>
+          </table>
+          <!-- HERO END -->
+{% endmacro %}
+
+{% macro card_begin() %}
+          <!-- CARD START -->
+          <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="560" class="width_full">
+            <tr>
+              <td class="empty width_20" width="100">
+                <!--[if gte mso 9]>
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="100" />
+                <![endif]-->
+                &nbsp;
+              </td>
+              <td class="empty" align="center">
+                <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
+{% endmacro %}
+
+{% macro card_end() %}
+                </table>
+                <!--[if gte mso 9]>
+                  </v:textbox>
+                </v:rect>
+                <![endif]-->
+              </td>
+              <td class="empty width_20" width="100">
+                <!--[if gte mso 9]>
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="100" />
+                <![endif]-->
+                &nbsp;
+              </td>
+            </tr>
+          </table>
+          <!-- CARD END -->
+{% endmacro %}
+
+{% macro card_intro(headline,copy) %}
+                  <tr>
+                    <td class="h2 pink" align="center">
+                      {{ i10n(headline) }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="24">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="body deep_grey" align="center">
+                      {{ i10n(copy) }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="60">
+                      &nbsp;
+                    </td>
+                  </tr>
+{% endmacro %}
+
+{% macro card_icon(headline,subheadline,copy,url_img, color) %}
+                  <!-- {{ headline }} -->
+                  <tr>
+                    <td class="image" style="mso-line-height-rule: exactly;" align="center">
+                      <img src="{{ url_img }}" height="24" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="12">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="h2 {{ color }}" align="center">
+                      {{ i10n(headline) }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="12">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="h3 deep_grey" align="center">
+                      {{ i10n(subheadline) }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="12">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="body deep_grey" align="center">
+                      {{ i10n(copy) }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="60">
+                      &nbsp;
+                    </td>
+                  </tr>
+{% endmacro %}
+
+{% macro card_recap(copy) %}
+                  <!-- RECAP -->
+                  <tr>
+                    <td class="h3 deep_grey" align="center">
+                      {{ i10n(copy) }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="24">
+                      &nbsp;
+                    </td>
+                  </tr>
+{% endmacro %}
+
+{% macro card_cta(copy,link,color) %}
+                  <!-- BUTTON -->
+                  <tr>
+                    <td class="empty" align="center">
+                      <table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td align="center" class="button" bgcolor="{{ color }}">
+                            <a href="{{ link }}" target="_blank" class="button">
+                              <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                              {{ i10n(copy) }}
+                              <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+{% endmacro %}
+
+{% macro card_img(url_img, alt_img, height, link_img="") %}
+                  <tr>
+                    <td class="image" align="center">
+                      {% if link_img == "" %}
+                        <img src="{{ url_img }}" height="{{ height }}" alt="{{ i10n(alt_img) }}" title="{{ i10n(alt_img) }}"/>
+                      {% else %}
+                        <a href="{{ link_img }}">
+                          <img src="{{ url_img }}" height="{{ height }}" alt="{{ i10n(alt_img) }}" title="{{ i10n(alt_img) }}"/>
+                        </a>
+                      {% endif %}
+                    </td>
+                  </tr>
+{% endmacro %}
+
+{% macro card_spacer(height) %}
+                  <tr>
+                    <td class="empty" height="{{ height }}">
+                      &nbsp;
+                    </td>
+                  </tr>
+{% endmacro %}
+
+{% macro card_headline(headline,color) %}
+                  <tr>
+                    <td class="h2 {{ color }}" align="center">
+                      {{ i10n(headline) }}
+                    </td>
+                  </tr>
+{% endmacro %}
+
+{% macro card_h2(h2,color) %}
+                  <tr>
+                    <td class="h2 {{ color }}" align="center">
+                      {{ i10n(h2) }}
+                    </td>
+                  </tr>
+{% endmacro %}
+
+{% macro card_copy(copy,color) %}
+                  <tr>
+                    <td class="body {{ color }}" align="center">
+                      {{ i10n(copy) }}
+                    </td>
+                  </tr>
+{% endmacro %}
+
+{% macro footer(copy,links,color) %}
+          <!-- FOOTER START -->
+          <table cellpadding="0" cellspacing="0" border="0" align="center" width="560" class="width_full" bgcolor="#f5f8fa">
+            <tr>
+              <td class="empty width_20" width="100">&nbsp;</td>
+              <td class="empty" align="center">
+                <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
+                  <tr>
+                    <td class="empty" height="72">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="supporting deep_grey" align="center">
+                      <a href="{{ links[0] }}" class="{{ color }}">
+                        {{ i10n(copy[0]) }}
+                      </a>
+                      &nbsp;|&nbsp;
+                      <a href="{{ links[1] }}" class="{{ color }}">
+                        {{ i10n(copy[1]) }}
+                      </a>
+                      &nbsp;|&nbsp;
+                      <a href="{{ links[2] }}" class="{{ color }}">
+                        {{ i10n(copy[2]) }}
+                      </a>
+                      {% if copy[4] %}
+                        &nbsp;|&nbsp;
+                        <a href="{{ links[3] }}" class="{{ color }}">
+                          {{ i10n(copy[4]) }}
+                        </a>
+                      {% endif %}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="24">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="footer deep_grey" align="center">
+                      <span class="addressLink">{{ fixAddress(copy[3]) }}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="72">
+                      &nbsp;
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td class="empty width_20" width="100">&nbsp;</td>
+            </tr>
+            <!--[if gte mso 9]>
+            <tr>
+              <td colspan="3">
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer_560_x_1-1478717885230.png" class="width_full"/>
+              </td>
+            </tr>
+            <![endif]-->
+          </table>
+          <!-- FOOTER END -->
+{% endmacro %}
+
+{% macro footer_lifecycle_education(copy,links,color) %}
+          <!-- FOOTER START -->
+          <table cellpadding="0" cellspacing="0" border="0" align="center" width="560" class="width_full" bgcolor="#f5f8fa">
+            <tr>
+              <td class="empty width_20" width="100">&nbsp;</td>
+              <td class="empty" align="center">
+                <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
+                  <tr>
+                    <td class="empty" height="72">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="footer strong deep_grey" align="center">
+                      <a href="{{ links[0] }}" class="{{ color }}">
+                        {{ i10n(copy[0]) }}
+                      </a>
+                      &nbsp;|&nbsp;
+                      <a href="{{ links[1] }}" class="{{ color }}">
+                        {{ i10n(copy[1]) }}
+                      </a>
+                      &nbsp;|&nbsp;
+                      <a href="{{ links[2] }}" class="{{ color }}">
+                        {{ i10n(copy[2]) }}
+                      </a>
+                      {% if copy[4] %}
+                        &nbsp;|&nbsp;
+                        <a href="{{ links[3] }}" class="{{ color }}">
+                          {{ i10n(copy[4]) }}
+                        </a>
+                      {% endif %}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="12">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="footer deep_grey" align="center">
+                      <span class="addressLink">{{ fixAddress(copy[3]) }}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="72">
+                      &nbsp;
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td class="empty width_20" width="100">&nbsp;</td>
+            </tr>
+            <!--[if gte mso 9]>
+            <tr>
+              <td colspan="3">
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer_560_x_1-1478717885230.png" class="width_full"/>
+              </td>
+            </tr>
+            <![endif]-->
+          </table>
+          <!-- FOOTER END -->
+{% endmacro %}

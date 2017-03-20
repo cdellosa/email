@@ -1,0 +1,79 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# COPY #}
+{% set copy = {
+	"title" : "How to talk Twitter",
+	"copy_1" : "From hashtags to Retweets, there are a few key terms to know to help make your Twitter experience complete.",
+  "alt_icon" : "Direct Message",
+  "icon" : "Direct Message",
+	"headline_2" : "Send the best directly",
+	"copy_2" : "Some things are too good to keep to yourself. When you spot something on Twitter and you’ve got a friend who’ll love it, send it privately via Direct Message.",
+	"cta" : "Try it now",
+	"footer" : ["About", "Help", "Unsubscribe", "Download app"],
+  "disclaimer" : "This email was generated for @" + signal("screen_name","Somebody") + ".",
+	"address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "logo" : prefix_img + "logo-1475170569504.png",
+  "icon" : prefix_img + "dm-1476834756055.png"
+} %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "icon" : "https://twitter.com",
+  "cta" : "https://twitter.com",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# CSS #}
+{% block style %}
+    td.button {
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      line-height: 18px;
+    }
+
+    a.button {
+      font-size: 16px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 11px 30px; 
+      border: 1px solid #E0245E;
+      display: inline-block; 
+      font-weight:bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+{% endblock %}
+
+{% block body %}
+  {{ header(img.logo,track(link.logo,1), copy.title, "#E0245E", 30, copy.copy_1, track(link.logo,2), track(link.logo,3)) }}
+  {{ card_begin() }}
+  {{ card_spacer(48) }}
+  {{ card_img(img.icon, copy.alt_icon, 36, track(link.icon,4)) }}
+  {{ card_spacer(12) }}
+  {{ card_h2(copy.icon,"pink") }}
+  {{ card_spacer(12) }}
+  {{ card_h2(copy.headline_2,"custom_grey") }}
+  {{ card_spacer(12) }}
+  {{ card_copy(copy.copy_2,"custom_grey") }}
+  {{ card_spacer(24) }}
+  {{ card_cta(copy.cta, track(link.cta,5), "#E0245E") }}
+  {{ card_spacer(48) }}
+  {{ card_end() }}
+  {{ footer_lifecycle_education([copy.footer[0], copy.footer[1], copy.footer[2], copy.address, copy.footer[3]], [track(link.about,6), track(link.help,7), "{{ unsubscribe }}", track(link.download,8) ], "pink") }}
+{% endblock %}

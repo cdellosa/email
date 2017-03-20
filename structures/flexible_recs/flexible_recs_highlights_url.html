@@ -1,0 +1,144 @@
+<!--{{image_load_scribe}}-->
+{{#urlView}}
+<table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;">
+  <tr><td class="full_tweet_box"><a href="{{details_link}}">
+    <table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;">
+      <tr><td><a href="{{social_context_link}}">
+        <!-- social proof header start -->
+        <table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;border-bottom:1px solid #E1E8ED;">
+          <tr><td height="12" style="height:12px;"></td></tr>
+          <tr><td>
+            <table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;">
+              <tr>
+                <td width="24" class="social_proof_margin_lr"></td>
+                <td>
+                  <table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+                    <tr>
+                      <td>
+                        <table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+                          <tr><td class="social_proof_title">
+                            {{^isRebranding}}
+                              {{_i}}TOP STORY{{/i}}
+                            {{/isRebranding}}
+                            {{#isRebranding}}
+                              {{_i}}Shared by{{/i}}
+                            {{/isRebranding}}
+                          </td></tr>
+                          {{#isRebranding}}
+                          <tr><td class="social_proof_detail">
+                            {{#has_other_social_proof}}
+                              {{_i}}{{#first_social_proof}}{{user.name}}{{/first_social_proof}} and {{other_social_proof_count}} others{{/i}}
+                            {{/has_other_social_proof}}
+                            {{^has_other_social_proof}}
+                              {{#first_social_proof}}{{user.name}}{{/first_social_proof}}
+                            {{/has_other_social_proof}}
+                          </td></tr>
+                          {{/isRebranding}}
+                        </table>
+                      </td>
+                      {{#isRebranding}}
+                      <td align="{{#is_rtl}}left{{/is_rtl}}{{^is_rtl}}right{{/is_rtl}}">
+                        <!-- CTA button start -->
+                        <table cellpadding="0" cellspacing="0" border="0">
+                          <tr><td class="view_more_button"><a href="{{view_tweet_link}}">
+                            <table cellpadding="0" cellspacing="0" border="0">
+                              <tr><td height="9" style="height:9px;"></td></tr>
+                              <tr>
+                                <td width="18" style="width:18px;"></td>
+                                <td class="view_more_button_text">{{_i}}See more{{/i}}</td>
+                                <td width="18" style="width:18px;"></td>
+                              </tr>
+                              <tr><td height="9" style="height:9px;"></td></tr>
+                            </table>
+                          </a></td></tr>
+                        </table>
+                        <!-- CTA button end -->
+                      </td>
+                      {{/isRebranding}}
+                    </tr>
+                  </table>
+                </td>
+                <td width="24" class="social_proof_margin_lr"></td>
+              </tr>
+            </table>
+          </td></tr>
+          <tr><td height="12" style="height:12px;"></td></tr>
+        </table>
+        <!-- social proof header end -->
+      </a></td></tr>
+      <tr><td height="24" class="module_margin_tb"></td></tr> <!-- top margin -->
+      <tr><td>
+        <table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;"><tr>
+          <td width="24" class="module_margin_lr"></td> <!-- left margin -->
+          <td>
+            <table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+              {{#image_url.isDefined}}
+              <tr><td>
+                <!--[if mso]> <a href="{{image_link}}"><img width="400" src="{{image_url}}"></a> <![endif]-->
+                <a href="{{image_link}}" style="mso-hide:all;"><img style="min-width:100%;width:100%" src="{{image_url}}"></a>
+              </td></tr>
+              <tr><td height="14" style="height:14px;"></td></tr>
+              {{/image_url.isDefined}}
+              <tr><td class="link_card_title">{{short_title}}</td></tr>
+              {{#description.isDefined}}
+              <tr><td height="6" style="height:6px;"></td></tr>
+              <tr><td class="link_card_description">{{short_description}}</td></tr>
+              {{/description.isDefined}}
+              
+              {{^module_design_key_reserved3}}
+              <tr><td height="14" style="height:14px;"></td></tr>
+              <tr><td><a href="{{read_more_link}}">
+                <table cellpadding="0" cellspacing="0" border="0" style="width:100%;min-width:100%;" align="center" class="news_button_box">
+                  <tr><td height="6" style="height:6px;"></td></tr>
+                  <tr><td class="news_button_text" align="center">
+                    {{#domain.isDefined}}
+                      {{_i}}Read more at {{domain}}{{/i}}
+                    {{/domain.isDefined}}
+                    {{^domain.isDefined}}
+                      {{_i}}Read more{{/i}}
+                    {{/domain.isDefined}}
+                  </td></tr>
+                  <tr><td height="6" style="height:6px;"></td></tr>
+                </table>
+              </a></td></tr>
+              {{/module_design_key_reserved3}}
+              {{#module_design_key_reserved3}}
+              <tr><td height="6" style="height:6px;"></td></tr>
+              <tr><td class="link_card_read_more">
+                <a href="{{read_more_link}}">
+                  {{#domain.isDefined}}
+                    {{_i}}Read more at {{domain}}{{/i}}
+                  {{/domain.isDefined}}
+                  {{^domain.isDefined}}
+                    {{_i}}Read more{{/i}}
+                  {{/domain.isDefined}}
+                </a>
+              </td></tr>
+              {{/module_design_key_reserved3}}
+              
+              {{^isRebranding}}
+              {{#relatedTweets}}
+              <tr><td height="14" style="height:14px;"></td></tr>
+              <tr><td><a href="{{tweet_details_tweet_link}}">
+                <table cellpadding="0" cellspacing="0" border="0" style="min-width:100%;width:100%;border-top:1px solid #E1E8ED;">
+                  <tr><td height="14" style="height:14px;"></td></tr> <!--top margin-->
+                  <tr><td>
+                    <!-- referece tweet start -->
+                    {{>manhattan:static:flexible_recs_hl_ref_tweet/html_content}}
+                    <!-- referece tweet end -->
+                  </td></tr>
+                </table>
+              </a></td></tr>
+              {{/relatedTweets}}
+              {{/isRebranding}}
+            </table>
+          </td>
+          <td width="24" class="module_margin_lr"></td> <!-- right margin -->
+        </tr></table>
+      </td></tr>
+      <tr><td height="24" class="news_margin_bottom"></td></tr> <!-- bottom margin -->
+    </table>
+  </a></td></tr>
+  <tr><td height="20" class="module_space"></td></tr>
+</table>
+{{/urlView}}
