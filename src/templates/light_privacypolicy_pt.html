@@ -1,0 +1,90 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "text" : [
+    "https://twitter.com/privacy",
+    "https://twitter.com/personalization",
+    "https://twitter.com/your_twitter_data",
+    "https://twitter.com/personalization",
+    "https://twitter.com/personalization",
+    "https://support.twitter.com/forms/privacy"
+  ],
+  "help" : "https://support.twitter.com/",
+  "settings" : "https://twitter.com/settings",
+  "unsubscribe" : "{{unsubscribe}}",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject" : "Important updates to our Privacy Policy",
+  "alt_logo" : "Twitter",
+  "title" : "Update to our Privacy Policy",
+  "body" : [
+    "We’re updating our Privacy Policy to reflect improvements we’ve made to Twitter. We encourage you to read the updated policy in full — by using our services on or after June 4, 2017, you’ll be agreeing to these revisions.  Here are some of the important updates:",
+    "Transparency and control: We’ve launched new Personalization and Data settings and expanded Your Twitter Data to give you more transparent access to your information and more granular controls over how your data is used by Twitter. These enhanced settings will replace Twitter’s reliance on the Do Not Track browser setting, which we will no longer support.",
+    "Web data: We’ve updated how we store and use data from other websites that integrate Twitter content like embedded timelines, to improve our services and personalize the content we show you including ads. We do not store web page visit data for users who are in the European Union and EFTA States.",
+    "Data sharing: We’ve updated how we share non-personal, aggregated, and device-level data, including under select partnership agreements that allow the data to be linked to your name, email, or other personal information if you give the partner your consent. You can control whether your data is shared under these partnership agreements in your Personalization and Data settings.",
+    "Personalization across your devices: We’ve explained how we use data to personalize across your devices, and given you additional control in your Personalization and Data settings for devices that you haven’t used to log into Twitter.",
+    "Privacy Shield and the Digital Advertising Alliance: We’re excited to announce that we will be participating in the Swiss-US Privacy Shield program and adhering to the Digital Advertising Alliance Self-Regulatory Principles for Online Behavioral Advertising.",
+    "We hope you see value in these changes as we continue to improve your Twitter experience in a way that dovetails with our heartbeat as a company — a commitment to protecting and defending your privacy. If you have any questions, feel free to write to us here. Thank you for using Twitter!",
+    "-Twitter"
+  ],
+  "footer" : ["Help", "Settings", "Unsubscribe", "Download App"],
+  "disclaimer" : "This email was generated for @" + mustache("{{#recipient}}{{screen_name}}{{/recipient}}","Somebody") + ".",
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+Subject: 
+{{ i10n(copy.subject) }}
+ 
+Twitter 
+{{ "> " + link.logo }}
+
+=
+
+{{ i10n(pt(copy.title)) }}
+
+=
+
+{{ i10n(pt(copy.body[0])) }}
+{{ "> " + link.text[0] }}
+  
+{{ i10n(pt(copy.body[1])) }}
+{{ "> " + link.text[1] }}
+{{ "> " + link.text[2] }}
+
+{{ i10n(pt(copy.body[2])) }}
+
+{{ i10n(pt(copy.body[3])) }}
+{{ "> " + link.text[3] }}
+
+{{ i10n(pt(copy.body[4])) }}
+{{ "> " + link.text[4] }}
+
+{{ i10n(pt(copy.body[5])) }}
+
+{{ i10n(pt(copy.body[6])) }}
+{{ "> " + link.text[5] }}
+
+{{ i10n(pt(copy.body[7])) }}
+
+=
+
+{{ i10n(pt(copy.footer[0])) }} 
+{{ "> " + link.help }}
+
+{{ i10n(pt(copy.footer[1])) }} 
+{{ "> " + link.settings }}
+
+{{ i10n(pt(copy.footer[2])) }} 
+{{ "> " + link.unsubscribe }}
+
+{{ i10n(pt(copy.footer[3])) }} 
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

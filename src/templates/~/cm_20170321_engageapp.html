@@ -1,0 +1,291 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "text" : [
+    "https://analytics.twitter.com",
+    "https://business.twitter.com/en/help/troubleshooting/media-studio-faqs.html",
+    "https://www.niche.co/"
+  ],
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "preheader" : "We are shutting down the Engage app on 5/5",
+  "subject_line" : "Important update regading Engage app  ",
+  "alt_logo" : "Twitter",
+  "headline" : "We’d like to hear your thoughts",
+  "body" : [
+    "We introduced the Engage app to our community a little less than a year ago. Because we want to improve the tools that you use more frequently, we are shutting down the Engage app on <strong>Friday, May 5th,</strong> to better focus our efforts on making those improvements. But, not to worry, the same functionality that is found in the Engage app can be found elsewhere:",
+    "Go to <a href='" + track(link.text[0],2) + "'>analytics.twitter.com</a> to see your top followers, Tweets and mentions. You can also review impressions and engagements over time, and learn about your audience. Lastly, you can see your earnings on the Video Activity Dashboard.",
+    "Go to <a href='" + track(link.text[1],3) + "'>Media Studio</a> or the Twitter app to opt-in and manage Amplify Open",
+    "Manage your Niche account via the <a href='" + track(link.text[2],4) + "'>Niche website</a>",
+    "Thanks for your support and engagement along the way!",
+    "- Twitter Engage team"
+    ],
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],
+  "address" : "Twitter &#65279;International &#65279;Company<br>One&nbsp;Cumberland&nbsp;Place,&nbsp;Fenian&nbsp;Street<br>Dublin&nbsp;2,&nbsp;D02&nbsp;AX07&nbsp;&nbsp;IRELAND"
+} %}
+
+{# COLOR LOGIC #}
+{% set color_hex = colors[color].hex %}
+{% set color_css = colors[color].css %}
+{% set color_icon = colors[color].icons[icon_type] %}
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "logo_twitter" : prefix_img + "icon_twitter_blue.png"
+} %}
+
+{# CSS #}
+{% block style %}
+    .h1 {
+      font-size: 40px;
+      line-height: 48px;
+      font-weight: 600;
+    }
+
+    a {
+      color: #1DA1F2;
+      text-decoration: none;
+    }
+
+    td.button {
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      line-height: 18px;
+    }
+
+    a.button {
+      font-size: 16px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 11px 30px; 
+      border: 1px solid #1DA1F2;
+      display: inline-block; 
+      font-weight: bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .button img {
+      display: inline;
+      vertical-align: top;
+    }
+
+    .body {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 16px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 22px;
+    }
+{% endblock %}
+
+{% block media_query %}
+        .hide {
+          display: none !important;
+        }
+
+        .width_full {
+          width: 100% !important;
+          min-width: 360px !important;
+        }
+
+        .height_30 {
+          height: 30px !important;
+        }
+
+        .h1 {
+          font-size: 40px !important;
+          line-height: 44px !important;
+        }
+{% endblock %}
+
+{% block body %}
+  <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#F5F8FA" width="100%" class="width_full" dir="{{ dir('ltr') }}">
+    <tr>
+      <td class="empty">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="450" class="width_full">
+          <tr>
+            <td class="empty width_20" width="42">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table cellpadding="0" cellspacing="0" border="0" align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="image empty" align="center">
+                    <a href="{{ track(link.logo,1) }}">
+                      <img src="{{ img.logo_twitter }}" width="32" alt="{{ copy.alt_logo }}" title="{{ copy.alt_logo }}" />
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body black" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[0]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+<tr>
+                  <td class="empty">
+                    <table align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                      <tr>
+                        <td class="empty" width="12">
+                          &nbsp;
+                        </td>
+                        <td class="body black" align="{{ align('left') }}" valign="top">
+                          &bull;
+                        </td>
+                        <td class="empty" width="12">
+                          &nbsp;
+                        </td>
+                        <td class="body black" align="{{ align('left') }}">
+                          {{ i10n(copy.body[1]) }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="empty" colspan="4" height="12">
+                          &nbsp;
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="empty" width="12">
+                          &nbsp;
+                        </td>
+                        <td class="body black" align="{{ align('left') }}" valign="top">
+                          &bull;
+                        </td>
+                        <td class="empty" width="12">
+                          &nbsp;
+                        </td>
+                        <td class="body black" align="{{ align('left') }}">
+                          {{ i10n(copy.body[2]) }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="empty" colspan="4" height="12">
+                          &nbsp;
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="empty" width="12">
+                          &nbsp;
+                        </td>
+                        <td class="body black" align="{{ align('left') }}" valign="top">
+                          &bull;
+                        </td>
+                        <td class="empty" width="12">
+                          &nbsp;
+                        </td>
+                        <td class="body black" align="{{ align('left') }}">
+                          {{ i10n(copy.body[3]) }}
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body black" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[4]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body black" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[5]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer strong deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    <a href="{{ track(link.about,5) }}" class="blue">
+                      {{ i10n(copy.footer[0]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ track(link.help,6) }}" class="blue">
+                      {{ i10n(copy.footer[1]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ '{{unsubscribe}}' }}" class="blue">
+                      {{ i10n(copy.footer[2]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ track(link.download,7) }}" class="blue">
+                      {{ i10n(copy.footer[3]) }}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer deep_grey center" align="center">
+                    <span class="addressLink">{{ "{{>manhattan:static:address_twitter/html_content}}" }}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="42">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr class="hide">
+      <td class="empty hide" height="32">
+        &nbsp;
+      </td>
+    </tr>
+  </table>
+{% endblock %}

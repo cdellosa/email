@@ -1,0 +1,94 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# COPY #}
+{% set copy = {
+  "title" : "Hi @" + signal("screen_name","Somebody"),
+  "alt_hero" : "Profile photo",
+  "headline_1" : "Let's get started",
+  "copy_1" : "Thanks for being a part of Twitter. You'll find it's the best place to get the latest on things you care about most. Here's a tip or two to get you started.",
+  "headline_2" : "Be yourself",
+  "copy_2" : "Since you haven't uploaded a profile photo yet, it's harder for people to get to know you. Give them a peek at the real you by adding a photo to your profile.",
+  "cta_1" : "Add a photo",
+  "alt_friends" : "Friends",
+  "headline_3" : "Find your friends",
+  "copy_3" : "Some of your friends may already be using Twitter. Let's find them now so you can see what they're saying and start chatting with them.",
+  "cta_2" : "Find friends",
+  "alt_profiles" : "Interesting accounts to follow",
+  "headline_4" : "Get more of what you love",
+  "copy_4" : "Now that you're part of the Twitter community, follow interesting accounts to get instant updates 
+and keep up with topics you care about most. Take a look at some you may like.",
+  "cta_3" : "See some now",
+  "footer" : ["Settings", "Help", "Unsubscribe"],
+  "disclaimer" : "This email was generated for @" + signal("screen_name","Somebody") + ".",
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com?refsrc=email",
+  "hero" : "https://twitter.com/settings/profile?refsrc=email",
+  "cta_1" : "https://twitter.com/settings/profile?refsrc=email",
+  "friends" : "https://twitter.com/who_to_follow/?refsrc=email",
+  "cta_2" : "https://twitter.com/who_to_follow?refsrc=email",
+  "profiles" : "https://twitter.com/who_to_follow?refsrc=email",
+  "cta_3" : "https://twitter.com/who_to_follow?refsrc=email",
+  "settings" : "https://twitter.com/settings/notifications",
+  "help" : "https://support.twitter.com/"
+} %}
+
+Twitter {{ "<" + track(link.logo,1) + ">" }}
+
+{{ i10n(copy.title) }}
+
+{{ i10n(copy.headline_1) }}
+
+{{ i10n(copy.copy_1) }}
+
+=
+{{ signal("^profile_image_url") }}
+{{ i10n(copy.alt_hero) }} {{ "<" + track(link.hero,2) + ">" }}
+
+=
+
+{{ i10n(copy.headline_2) }}
+
+{{ i10n(copy.copy_2) }}
+
+{{ i10n(copy.cta_1) }} {{ "<" + track(link.cta_1,3) + ">" }}
+
+=
+{{ signal("/profile_image_url") }}{{ signal("^hasImportedAddressBook") }}
+{{ i10n(copy.alt_friends) }} {{ "<" + track(link.friends,4) + ">" }}
+
+=
+
+{{ i10n(copy.headline_3) }}
+
+{{ i10n(copy.copy_3) }}
+
+{{ i10n(copy.cta_2) }} {{ "<" + track(link.cta_2,5) + ">" }}
+
+=
+{{ signal("/hasImportedAddressBook") }}
+{{ i10n(copy.alt_profiles) }} {{ "<" + track(link.profiles,6) + ">" }}
+
+=
+
+{{ i10n(copy.headline_4) }}
+
+{{ i10n(copy.copy_4) }}
+
+{{ i10n(copy.cta_3) }} {{ "<" + track(link.cta_3,7) + ">" }}
+
+= 
+
+{{ i10n(copy.footer[0]) }} {{ "<" + track(link.settings,8) + ">" }}
+
+{{ i10n(copy.footer[1]) }} {{ "<" + track(link.help,9) + ">" }}
+
+{{ i10n(copy.footer[2]) }} {{ "<{{ unsubscribe }}>" }}
+
+{{ copy.address }}

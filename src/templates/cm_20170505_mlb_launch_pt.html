@@ -1,0 +1,81 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{% set copy = {
+  "preheader" : "Watch and tweet every Friday night this season",
+  "subject_line" : "Major league baseball every Friday on Twitter",
+  "alt_hero" : "Let the games begin",
+  "headline" : "Twitter Presents Friday Night Baseball, Live!",
+  "body" : "Watch live baseball on Twitter and get more than play-by-play action. You also get to join the crowd and
+experience the game with all the fan chatter, smack-talk, cries of anguish, and shrieks of joy. Catch it every Friday night during the regular season – only on Twitter.",
+  "body_2" : [
+    "Watch it. Talk about it.",
+    "Watch and tweet along with your favorite @MLB teams and players all season long! Visit mlb.twitter.com"
+  ],
+  "alt_schedule" : "Coming up in May... Nationals vs. Philles - Friday, May 5 | 7:10 ET | Rays vs. Red Sox - Friday, May 12 | 7:10 ET | Yankees vs Rays | Friday, May 19 | 7:10ET | Rangers vs. Blue Jays - Friday, May 26 | 7:07 ET | Streams available everywhere except select international territories and team hometowns. Blackout and other restrictions apply.",
+  "cta" : "Watch LIVE on",
+  "alt_icon" : "MLB",
+  "alt_logo" : "Twitter",
+  "footer" : ["About", "Help", "Unsubscribe", "Download app"],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+  "cta" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+  "text" : [
+    "https://twitter.com/mlb",
+    "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+    "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB"
+  ],
+  "schedule" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+  "icon" : "https://twitter.com/mlb",
+  "logo_twitter_large" : "https://twitter.com/",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+Subject: {{ i10n(pt(copy.subject_line)) }}
+
+{{ i10n(pt(copy.alt_hero)) }} 
+{{ "> " + link.hero }}
+
+{{ i10n(pt(copy.headline)) }}
+
+{{ i10n(pt(copy.body)) }}
+
+{{ i10n(pt(copy.cta + " Twitter")) }} {{ "> " + link.cta }}
+
+{{ i10n(pt(copy.body_2[0])) }}
+{{ i10n(pt(copy.body_2[1])) }}
+
+=
+
+{{ i10n(pt(copy.alt_schedule)) }}
+
+=
+
+{{ i10n(pt(copy.alt_icon)) }} 
+{{ "> " + link.icon }}
+
+{{ i10n(pt(copy.alt_logo)) }} 
+{{ "> " + link.logo_twitter_large }}
+
+=
+
+{{ i10n(copy.footer[0]) }} 
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }} 
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }} 
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }} 
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

@@ -1,0 +1,68 @@
+{% include "includes/macros_notifications.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis_2 = true %}
+
+{% set link = {
+  "logo" : "https://twitter.com",
+  "cta" : "https://twitter.com/account/begin_password_reset",
+  "sms_command_link" : "https://support.twitter.com/articles/14020",
+  "certain_sms_notification_link" : "https://support.twitter.com/articles/20169920",
+  "settings" : "https://twitter.com/settings",
+  "help" : "https://support.twitter.com/",
+  "not_my_account" : "{{not_my_account}}",
+  "email_security_tips" : "https://support.twitter.com/articles/204820-fake-twitter-emails"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject_line" : "Your phone number has been added to another account",
+  "alt_logo" : "Twitter",
+  "headline" : "Your phone number ({{phone_number}}) has been added to another account.",
+  "body" : "Is this still your phone number? If not, please update your account (@{{#recipient}}{{screen_name}}{{/recipient}}) with your current phone number.",
+  "body_2" : "NOTE: your account (@{{#recipient}}{{screen_name}}{{/recipient}}) can no longer perform SMS commands nor receive certain SMS notifications.",
+  "body_3" : "Only the account most recently linked to this phone number will have these features.",
+  "body_4" : "How do I know an email is from Twitter?",
+  "body_5" : "Links in this email will start with \"https://\" and contain \"twitter.com\" Your browser will also display a padlock icon to let you know a site is secure.",
+  "footer" : ["Help", "Not my account", "Email security tips"],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+Subject: {{ i10n(copy.subject_line) }}
+
+Twitter 
+{{ "> " + link.logo }}
+
+=
+  
+{{ i10n(copy.headline) }}
+
+{{ i10n(copy.body) }}
+> {{"{{update_phone_link}}"}}
+
+=
+
+{{ i10n(copy.body_2) }}
+> {{ link.sms_command_link }} 
+> {{ link.certain_sms_notification_link }}
+
+{{ i10n(copy.body_3) }}
+
+=
+
+{{ i10n(copy.body_4) }}
+
+{{ i10n(copy.body_5) }}
+
+=
+
+{{ i10n(copy.footer[0]) }} 
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[1]) }} 
+{{ "> " + link.not_my_account }}
+
+{{ i10n(copy.footer[2]) }} 
+{{ "> " + link.email_security_tips }}
+
+{{ copy.address }}

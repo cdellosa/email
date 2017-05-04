@@ -1,0 +1,226 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com/",
+  "main" : {
+    "table" : "https://twitter.com/i/live/851984309619531776?ref_src=twsrc%5Eemail%7Ctwcamp%5EDreamhack",
+    "copy" : "https://twitter.com/i/live/851984309619531776?ref_src=twsrc%5Eemail%7Ctwcamp%5EDreamhack",
+    "cta" : "https://twitter.com/i/live/851984309619531776?ref_src=twsrc%5Eemail%7Ctwcamp%5EDreamhack",
+    "cta_2" : "https://twitter.com/i/live/851984309619531776?ref_src=twsrc%5Eemail%7Ctwcamp%5EDreamhack",
+    "team_1" : "https://twitter.com/redsox",
+    "team_2" : "https://twitter.com/orioles"
+  },
+  "main_2" : {
+    "image" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+    "cta" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB"
+  },
+  "main_3" : {
+    "image" : "https://twitter.com/i/live/836709389494968325?ref_src=twsrc%5Eemail%7Ctwcamp%5ENLL",
+    "cta" : "https://twitter.com/i/live/836709389494968325?ref_src=twsrc%5Eemail%7Ctwcamp%5ENLL"
+  },
+  "weekly" : {
+    "image" : "https://twitter.com/i/live/856668785591189504?ref_src=twsrc%5EEmail%7Ctwcamp%5EIEM",
+    "cta" : "https://twitter.com/i/live/856668785591189504?ref_src=twsrc%5EEmail%7Ctwcamp%5EIEM"
+  },
+  "weekly_2" : {
+    "image" : "https://twitter.com/i/live/839624863232876544?ref_src=twsrc%5Eemail%7Ctwcamp%5EEsportsWeekly",
+    "cta" : "https://twitter.com/i/live/839624863232876544?ref_src=twsrc%5Eemail%7Ctwcamp%5EEsportsWeekly"
+  },
+  "weekly_3" : {
+    "image" : "https://twitter.com/i/live/789516242163859457?ref_src=twsrc%5Eemail%7Ctwcamp%5Enbathestarters%7Ctwgr%5Enewsletter",
+    "cta" : "https://twitter.com/i/live/789516242163859457?ref_src=twsrc%5Eemail%7Ctwcamp%5Enbathestarters%7Ctwgr%5Enewsletter"
+  },
+  "weekly_4" : {
+    "image" : "https://twitter.com/i/live/765339035866804224?ref_src=twsrc%5Eemail%7Ctwcamp%5ERally",
+    "cta" : "https://twitter.com/i/live/765339035866804224?ref_src=twsrc%5Eemail%7Ctwcamp%5ERally"
+  },
+  "help" : "https://support.twitter.com/",
+  "settings" : "https://twitter.com/settings",
+  "unsubscribe" : "{{unsubscribe}}",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject" : [
+    "@{{screen_name}}, see what's happening LIVE this week",
+    "@{{screen_name}}, you've got to see what's happening LIVE this week",
+    "@{{screen_name}}, don't miss your favorite sports LIVE this week",
+    "@{{screen_name}}, watch PGA Tour LIVE on Twitter"
+  ],
+  "preheader" : "Watch it. Talk about it. Only on Twitter.",
+  "hashtag" : "Streaming LIVE on Twitter",
+  "cta" : "Watch LIVE on",
+  "main" : {
+    "title" : "DreamHack ASTRO Open: Austin<br>Your front row Tweet.",
+    "copy" : [
+      "Three days of CS:GO action begins",
+      "on Friday, April 28 | 11:40am ET",
+      "Watch it. Talk about it."
+    ],
+    "alt" : "RedSox VS Orioles | April 21 | 7:05pm ET | #MLBLive | mlb.twitter.com | MLB | Streaming LIVE on Twitter",
+    "cta" : "Watch LIVE on"
+  },
+  "main_2" : {
+    "title" : "MLB: @Reds vs. @Cardinals",
+    "date" : "Friday, April 28 | 8:15pm ET",
+    "copy" : "The #STLCards open a three-game homestand against the Cincinnati #Reds.<span class='hide'><br>&nbsp;</span>",
+    "alt" : "MLB: @Reds vs. @Cardinals",
+    "cta" : "Watch LIVE on"
+  },
+  "main_3" : {
+    "title" : "NLL: Saskatchewan vs. Calgary",
+    "date" : "Saturday, April 29 | 9pm ET",
+    "copy" : "SCalgary's Roughnecks host the playoff-bound Rush in the National Lacrosse League’s last regular-season matchup.",
+    "alt" : "The Rally",
+    "cta" : "Watch LIVE on"
+  },
+  "weekly_header" : "Your Watch List",
+  "weekly_sub" : "Catch up on your favorite #LIVE shows",
+  "weekly" : {
+    "title" : "IEM Sydney",
+    "date" : "May 5th 11:30pm ET & May 6th 10pm ET",
+    "copy" : "6 world-class teams, 2 Aussie challengers, $200k.",
+    "alt" : "IEM Sydney",
+    "cta" : "Watch LIVE on"
+  },
+  "weekly_2" : {
+    "title" : "Everything Esports",
+    "date" : "Every Monday | 1:00pm ET",
+    "copy" : "From MMOGs to single-players, we've got game.",
+    "alt" : "Everything Esports",
+    "cta" : "Watch LIVE on"
+  },
+  "weekly_3" : {
+    "title" : "The Starters Twitter Show",
+    "date" : "Tuesdays | 11am ET",
+    "copy" : "Your go-to for all things NBA, now that the playoffs are underway.",
+    "alt" : "The Starters Twitter Show",
+    "cta" : "Watch LIVE on"
+  },
+  "weekly_4" : {
+    "title" : "The Rally",
+    "date" : "Monday-Friday | 9pm ET",
+    "copy" : "Sports highlights, look-ins, and commentary.",
+    "alt" : "The Rally",
+    "cta" : "Watch LIVE on"
+  },
+  "footer" : ["Help", "Settings", "Unsubscribe", "Download App"],
+  "disclaimer" : "This email was generated for @" + signal("screen_name","Somebody") + ".",
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+Subject:
+{{ "{{^email_live_sports_treatments_6104}}" +
+  i10n(pt(copy.subject[0]))
++ "{{/email_live_sports_treatments_6104}}
+{{#email_live_sports_treatments_6104}}
+  {{#control}}" +
+    i10n(pt(copy.subject[0]))
+  + "{{/control}}
+  {{#treatment1}}" +
+    i10n(pt(copy.subject[1]))
+  + "{{/treatment1}}
+  {{#treatment2}}" +
+    i10n(pt(copy.subject[2]))
+  + "{{/treatment2}}
+  {{#treatment3}}" +
+    i10n(pt(copy.subject[3]))
+  + "{{/treatment3}}
+{{/email_live_sports_treatments_6104}}" }}
+
+{{ i10n(pt(copy.hashtag)) }}
+
+=
+
+{{ i10n(pt(copy.main.title)) }}
+
+{{ i10n(pt(copy.main.copy[0])) }}
+{{ i10n(pt(copy.main.copy[1])) }}
+
+{{ i10n(pt(copy.main.cta)) }} Twitter
+{{ "> " + link.main.cta }}
+
+{{ i10n(pt(copy.main.copy[2])) }}{#
+
+=
+
+{{ i10n(pt(copy.main_2.title)) }}
+{{ i10n(pt(copy.main_2.date)) }}
+{{ i10n(pt(copy.main_2.copy)) }}
+
+{{ i10n(pt(copy.main_2.cta)) }} Twitter
+{{ "> " + link.main_2.cta }}
+
+=
+
+{{ i10n(pt(copy.main_3.title)) }}
+{{ i10n(pt(copy.main_3.date)) }}
+{{ i10n(pt(copy.main_3.copy)) }}
+
+{{ i10n(pt(copy.main_3.cta)) }} Twitter
+{{ "> " + link.main_3.cta }}#}
+
+=
+
+{{ i10n(pt(copy.weekly_header)) }}
+{{ i10n(pt(copy.weekly_sub)) }}
+
+=
+
+{{ i10n(pt(copy.weekly.title)) }}
+{{ i10n(pt(copy.weekly.date)) }}
+{{ i10n(pt(copy.weekly.copy)) }}
+
+{{ i10n(pt(copy.weekly.cta)) }} Twitter
+{{ "> " + link.weekly.cta }}
+
+=
+
+{{ i10n(pt(copy.weekly_2.title)) }}
+{{ i10n(pt(copy.weekly_2.date)) }}
+{{ i10n(pt(copy.weekly_2.copy)) }}
+
+{{ i10n(pt(copy.weekly_2.cta)) }} Twitter
+{{ "> " + link.weekly_2.cta }}{#
+
+=
+
+{{ i10n(pt(copy.weekly_3.title)) }}
+
+{{ i10n(pt(copy.weekly_3.date)) }}
+
+{{ i10n(pt(copy.weekly_3.copy)) }}
+
+{{ i10n(pt(copy.weekly_3.cta)) }} 
+{{ "> " + link.weekly_3.cta }}
+
+=
+
+{{ i10n(pt(copy.weekly_4.title)) }}
+
+{{ i10n(pt(copy.weekly_4.date)) }}
+
+{{ i10n(pt(copy.weekly_4.copy)) }}
+
+{{ i10n(pt(copy.weekly_4.cta)) }} 
+{{ "> " + link.weekly_4.cta }}#}
+
+=
+
+{{ i10n(copy.footer[0]) }} 
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[1]) }} 
+{{ "> " + link.settings }}
+
+{{ i10n(copy.footer[2]) }} 
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }} 
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

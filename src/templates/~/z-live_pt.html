@@ -1,0 +1,182 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# COPY #}
+{% set copy = {
+  "preheader" : "Check out our top videos of the week and choose your favorite to pass along.",
+  "title" : "Hi @" + signal("screen_name","Somebody"),
+  "hero" : "Streaming LIVE on Twitter: PGA TOUR LIVE | Thursday and Friday 7am ET | #PGATOUR | pgatourlive.twitter.com",
+  "cta" : "Go to PGA Tour LIVE",
+  "main" : {
+    "title" : "PGA: The Honda Classic",
+    "date" : "Thursday February 23, 2017, at 7am ET",
+    "date_2" : "Friday, February 24, 2017, at 7am ET",
+    "copy" : "Coverage of golf's biggest names will be streaming LIVE on Twitter. Do more than watch.",
+    "cta" : "Go to PGA Tour LIVE"
+  },
+  "main_2" : {
+    "title" : "Liga MX: Tigres vs Monarcas",
+    "date" : "Saturday, February 25, 2017, 8pm-10pm ET",
+    "copy" : "Tune in to see Tigres UANL plays against Monarcas Moreali.",
+    "cta" : "Go to Liga MX LIVE"
+  },
+  "main_3" : {
+    "title" : "PBS NewsHour Address to Congress",
+    "date" : "Tuesday, February 28, 2017, 8pm-1am ET",
+    "copy" : "Presented by @NewsHour, President Trump's addresses Congress.",
+    "cta" : "Go to PBS Newshour LIVE"
+  },
+  "weekly_header" : "Weekly Programming",
+  "weekly_sub" : "Catch up on your favorite #LIVE shows",
+  "weekly" : {
+    "title" : "The Rally",
+    "date" : "9-11pm ET, Monday-Friday",
+    "copy" : "Produced by @120sports, “The Rally” recaps sports highlights of the day.",
+    "cta" : "Go to The Rally LIVE"
+  },
+  "weekly_2" : {
+    "title" : "What’d You Miss?",
+    "date" : "4-6pm ET, Monday-Friday",
+    "copy" : "Catch the analysis of the markets at the end of the day’s trading.",
+    "cta" : "Go to Bloomber Markets LIVE"
+  },
+  "weekly_3" : {
+    "title" : "The Starters",
+    "date" : "11am-12pm ET, Tuesdays",
+    "copy" : "An NBA podcast show that packs in all the news— on and off the court.",
+    "cta" : "Go to The Starters LIVE"
+  },
+  "weekly_4" : {
+    "title" : "The Warmup",
+    "date" : "7:30-8pm ET, every Thursday",
+    "copy" : "The Warmup - a blend of the NBA, lifestyle, music, and pop culture",
+    "cta" : "Go to The Warmup LIVE"
+  },
+  "footer" : ["Help", "Settings", "Unsubscribe"],
+  "disclaimer" : "This email was generated for @" + signal("screen_name","Somebody") + ".",
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com/",
+  "main" : {
+    "table" : "https://twitter.com/",
+    "copy" : "https://twitter.com/",
+    "cta" : "https://twitter.com/",
+    "cta_2" : "https://twitter.com/"
+  },
+  "main_2" : {
+    "image" : "https://twitter.com/",
+    "cta" : "https://twitter.com/"
+  },
+  "main_3" : {
+    "image" : "https://twitter.com/",
+    "cta" : "https://twitter.com/"
+  },
+  "weekly" : {
+    "image" : "https://twitter.com/",
+    "cta" : "https://twitter.com/"
+  },
+  "weekly_2" : {
+    "image" : "https://twitter.com/",
+    "cta" : "https://twitter.com/"
+  },
+  "weekly_3" : {
+    "image" : "https://twitter.com/",
+    "cta" : "https://twitter.com/"
+  },
+  "weekly_4" : {
+    "image" : "https://twitter.com/",
+    "cta" : "https://twitter.com/"
+  },
+  "help" : "https://support.twitter.com/",
+  "settings" : "https://twitter.com/settings",
+  "unsubscribe" : "{{unsubscribe}}"
+} %}
+{{ i10n(pt(copy.main.title)) }}
+
+{{ i10n(pt(copy.main.date)) }}
+{{ i10n(pt(copy.main.date_2)) }}
+
+{{ i10n(pt(copy.main.copy)) }}
+
+{{ i10n(pt(copy.main.cta)) }} {{ "<" + track(link.main.cta,1) + ">" }}
+
+=
+
+{{ i10n(pt(copy.main_2.title)) }}
+
+{{ i10n(pt(copy.main_2.date)) }}
+
+{{ i10n(pt(copy.main_2.copy)) }}
+
+{{ i10n(pt(copy.main_2.cta)) }} {{ "<" + track(link.main_2.cta,2) + ">" }}
+
+=
+
+{{ i10n(pt(copy.main_3.title)) }}
+
+{{ i10n(pt(copy.main_3.date)) }}
+
+{{ i10n(pt(copy.main_3.copy)) }}
+
+{{ i10n(pt(copy.main_3.cta)) }} {{ "<" + track(link.main_3.cta,3) + ">" }}
+
+=
+
+{{ i10n(pt(copy.weekly_header)) }}
+{{ i10n(pt(copy.weekly_sub)) }}
+
+=
+
+{{ i10n(pt(copy.weekly.title)) }}
+
+{{ i10n(pt(copy.weekly.date)) }}
+
+{{ i10n(pt(copy.weekly.copy)) }}
+
+{{ i10n(pt(copy.weekly.cta)) }} {{ "<" + track(link.weekly.cta,4) + ">" }}
+
+=
+
+{{ i10n(pt(copy.weekly_2.title)) }}
+
+{{ i10n(pt(copy.weekly_2.date)) }}
+
+{{ i10n(pt(copy.weekly_2.copy)) }}
+
+{{ i10n(pt(copy.weekly_2.cta)) }} {{ "<" + track(link.weekly_2.cta,5) + ">" }}
+
+=
+
+{{ i10n(pt(copy.weekly_3.title)) }}
+
+{{ i10n(pt(copy.weekly_3.date)) }}
+
+{{ i10n(pt(copy.weekly_3.copy)) }}
+
+{{ i10n(pt(copy.weekly_3.cta)) }} {{ "<" + track(link.weekly_3.cta,6) + ">" }}
+
+=
+
+{{ i10n(pt(copy.weekly_4.title)) }}
+
+{{ i10n(pt(copy.weekly_4.date)) }}
+
+{{ i10n(pt(copy.weekly_4.copy)) }}
+
+{{ i10n(pt(copy.weekly_4.cta)) }} {{ "<" + track(link.weekly_4.cta,7) + ">" }}
+
+=
+
+{{ i10n(copy.footer[0]) }} {{ "<" + track(link.help,8) + ">" }}
+
+{{ i10n(copy.footer[1]) }} {{ "<" + track(link.settings,9) + ">" }}
+
+{{ i10n(copy.footer[2]) }} {{ "<{{ unsubscribe }}>" }}
+
+
+{{ copy.address }}

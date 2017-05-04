@@ -1,0 +1,54 @@
+{% include "includes/macros_notifications.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis_2 = true %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "settings" : "https://twitter.com/settings",
+  "help" : "https://support.twitter.com/",
+  "not_my_account" : "{{not_my_account}}",
+  "email_security_tips" : "https://support.twitter.com/articles/204820-fake-twitter-emails",
+  "password_reset_link" : "https://twitter.com/account/begin_password_reset",
+  "main_user" : "https://twitter.com/{{#recipient}}{{screen_name}}{{/recipient}}"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject_line" : "Your phone number has been added to your account",
+  "alt_logo" : "Twitter",
+  "headline" : "Your phone number has been added to your account.",
+  "body" : "({{device_address}}) has been added to your account @{{#recipient}}{{screen_name}}{{/recipient}}.",
+  "body_2" : "If you didn’t make this change, remove the number from your account and reset your password.",
+  "body_3" : "How do I know an email is from Twitter?",
+  "body_4" : "Links in this email will start with \"https://\" and contain \"twitter.com\" Your browser will also display a padlock icon to let you know a site is secure.",
+  "cta" : "Reset password",
+  "footer" : ["Help", "Not my account", "Email security tips"],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+Subject: {{ i10n(copy.subject_line) }}
+
+Twitter {{ "<" + trackm(link.logo,1) + ">" }}
+
+=
+  
+{{ i10n(copy.headline) }}
+
+{{ i10n(copy.body) }}
+> {{ link.main_user }}
+
+{{ i10n(copy.body_2) }}
+> {{device_link}}
+> {{ link.password_reset_link }}
+
+=
+
+{{ i10n(copy.footer[0]) }} {{ "<" + track(link.help,1) + ">" }}
+
+{{ i10n(copy.footer[1]) }} {{ "<" + track(link.not_my_account,2) + ">" }}
+
+{{ i10n(copy.footer[2]) }} {{ "<" + track(link.email_security_tips,3) + ">" }}
+
+{{ copy.address }}

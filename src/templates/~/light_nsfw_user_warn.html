@@ -1,0 +1,247 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros_notifications.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis_2 = true %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "twitter_rules_url" : "https://support.twitter.com/articles/18311",
+  "policy_article_url_no_redirect" : "https://support.twitter.com/articles/20169199",
+  "media_settings_url_no_redirect" : "https://twitter.com/settings/account"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject_line" : "Notification: Media Setting Changed",
+  "alt_logo" : "Twitter",
+  "body" : [
+    "We received reports that media you Tweeted may contain sensitive content.",
+
+    "For your reference, here is the <a href=\"{{tweet_permalink}}\" class=\"leading-blurb-username\">Tweet</a>.",
+
+    "Upon review, we have determined that the media is potentially sensitive and have labeled it accordingly.",
+
+    "There will now be a click-through warning message over the media for users whose accounts are set so they are informed before viewing media that may be sensitive.",
+
+    "See the <a href=\"" + track(link.twitter_rules_url,1) + "\">Twitter Rules</a> and the <a href=\"" + track(link.policy_article_url_no_redirect,2) + "\">Twitter media policy</a> for more information.",
+
+    "We have also updated your <a href=\"" + track(link.media_settings_url_no_redirect,3) + "\">Content</a> settings to reflect that media you Tweet may contain sensitive material so that users can be informed prior to viewing it.",
+
+    "If you regularly Tweet media that may be considered sensitive, we recommend keeping this setting update in place.",
+
+
+    "If you would like to change the setting, visit your <a href=\"" + track(link.media_settings_url_no_redirect,4) + "\">Content</a> settings to uncheck the box next to \"Mark media I tweet as containing material that may be sensitive\".",
+
+    "Note that changing your setting will not remove the warning message from this media, or any other media Tweeted while this setting was active.",
+
+    "If you continue to upload potentially sensitive media that are not labeled as such, we may permanently adjust your account setting.",
+
+    "Our media <a href=\"" + track(link.policy_article_url_no_redirect,5) + "\">policy</a> includes more information about your media settings.",
+
+    "Twitter Support"
+    ],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# COLOR LOGIC #}
+{% set color_hex = colors[color].hex %}
+{% set color_css = colors[color].css %}
+{% set color_icon = colors[color].icons[icon_type] %}
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "logo_twitter" : prefix_img + "icon_twitter_blue.png"
+} %}
+
+{# CSS #}
+{% block style %}
+    a {
+      color: #1DA1F2;
+      text-decoration: none;
+    }
+
+    td.button {
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      line-height: 18px;
+    }
+
+    a.button {
+      font-size: 16px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 11px 30px; 
+      border: 1px solid #1DA1F2;
+      display: inline-block; 
+      font-weight: bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .button img {
+      display: inline;
+      vertical-align: top;
+    }
+
+    .body {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 16px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 22px;
+    }
+{% endblock %}
+
+{% block media_query %}
+        .hide {
+          display: none !important;
+        }
+
+        .width_full {
+          width: 100% !important;
+          min-width: 360px !important;
+        }
+
+        .height_30 {
+          height: 30px !important;
+        }
+{% endblock %}
+
+{% block body %}
+  <table cellpadding="0" cellspacing="0" border="0" align=“center\" bgcolor="#F5F8FA" width="100%" class="width_full" dir="{{ dir('ltr') }}">
+    <tr>
+      <td class="empty">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="450" class="width_full">
+          <tr>
+            <td class="empty width_20" width="24">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table cellpadding="0" cellspacing="0" border="0" align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="image empty" align="{{ align('right') }}">
+                    <a href="{{ trackm(link.logo,1) }}">
+                      <img src="{{ img.logo_twitter }}" width="32" alt="{{ copy.alt_logo }}" title="{{ copy.alt_logo }}" />
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                {{ mustache("{{#trigger_tweet_item}}") }}
+                <tr>
+                  <td class="body black" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[0]) }} {{ i10n(copy.body[1]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                {{ mustache("{{/trigger_tweet_item}}") }}
+                <tr>
+                  <td class="body black" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[2]) }} {{ i10n(copy.body[3]) }} {{ i10n(copy.body[4]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                <tr>
+                  <td class="body black" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[5]) }} {{ i10n(copy.body[6]) }} {{ i10n(copy.body[7]) }} {{ i10n(copy.body[8]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                <tr>
+                  <td class="body black" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[9]) }} {{ i10n(copy.body[10]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                <tr>
+                  <td class="body black" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[11]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="24">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center">
+          <tr>
+            <td class="empty" height="1">
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" width="450" class="width_full" bgcolor="#ffffff">
+          <tr>
+            <td class="empty width_20" width="24">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer deep_grey center" align="center">
+                    <span class="addressLink">{{ fixAddress(copy.address) }}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="24">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr class="hide">
+      <td class="empty hide" height="32">
+        &nbsp;
+      </td>
+    </tr>
+  </table>
+{% endblock %}

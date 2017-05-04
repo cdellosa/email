@@ -1,0 +1,41 @@
+{% include "includes/macros_notifications.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis_2 = true %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "api_support" : "https://support.twitter.com/forms/platform?cn=dGVzdF92YXJpYWJsZXM%3D"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject_line" : "Application suspension notice",
+  "alt_logo" : "Twitter",
+  "body" : [
+    "This is a notice that your OAuth token for {{application_name}} has been suspended from interacting with the Twitter API.",
+    "Please make sure that your application follows Twitter's API <a href='{{api_terms}}'>Terms of Service</a>",
+    "To request for your token to be re-enabled, please visit our <a href='" + track(link.api_support,2)+ "'>support form</a>.",
+    "While this suspension is still in place, please do not attempt to register a new API key for your application without authorization from Twitter. Such an action is a violation of our API Terms of Service and may result in the permanent suspension of your application (as well as any associated developer accounts)."
+    ],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+Subject: {{ i10n(copy.subject_line) }}
+
+Twitter {{ "<" + track(link.logo,1) + ">" }}
+
+=
+
+{{ i10n(copy.body[0]) }}
+
+{{ i10n(copy.body[1]) }}
+
+{{ i10n(copy.body[2]) }}
+
+{{ i10n(copy.body[3]) }}
+
+=
+
+{{ copy.address }}

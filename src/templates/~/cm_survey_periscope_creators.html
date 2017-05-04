@@ -1,0 +1,262 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# COPY #}
+{% set copy = {
+  "preheader" : "We need your help with a research study.",
+  "subject_line" : "@{{screen_name}}, we'd like to get your thoughts!",
+  "alt_logo" : "Periscope",
+  "headline" : "We'd like to hear your thoughts",
+  "body" : [
+    "Thank you for being part of Periscope! You've been selected to take part in a short research study to help us improve your experience. It should take approximately 10-15 minutes to complete and as a token of appreciation, we’d like to offer you a <strong>$10 Amazon Gift Code for completing the survey</strong>.",
+    "Your opinions help us make Periscope better for everyone. Thanks for your time.",
+    "You should receive the code 5-10 business days after completing the survey. If you have any questions or problems with receiving the Gift Code, please contact: invite@murphysurvey.com"
+    ],
+  "cta" : "Take part",
+  "footer" : ["Settings", "Help", "Unsubscribe"],
+  "address" : "{{>manhattan:static:address_twitter/html_content}}"
+} %}
+
+{# COLOR LOGIC #}
+{% set color_hex = colors[color].hex %}
+{% set color_css = colors[color].css %}
+{% set color_icon = colors[color].icons[icon_type] %}
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "logo_periscope" : prefix_img + "survey_logo_periscope-1492471541638.png"
+} %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://periscope.tv",
+  "cta" : "http://v2.decipherinc.com/survey/selfserve/1bde/170303?list=3&id={{uid_encrypted}}",
+  "cta2" : "lite.twitter.com",
+  "about" : "https://about.twitter.com/",
+  "settings" : "https://twitter.com/settings/notifications",
+  "help" : "https://support.twitter.com/",
+  "not_my_account" : "{{not_my_account}}",
+  "footer" : [
+    "https://twitter.com/settings/notifications",
+    "https://support.twitter.com/"
+  ]
+} %}
+
+{# CSS #}
+{% block style %}
+    .h1 {
+      font-size: 40px;
+      line-height: 48px;
+      font-weight: 600;
+    }
+
+    a {
+      color: #1DA1F2;
+      text-decoration: none;
+    }
+
+    td.button {
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      line-height: 18px;
+    }
+
+    a.button {
+      font-size: 16px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 11px 30px; 
+      border: 1px solid #53bad2;
+      display: inline-block; 
+      font-weight: bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .button img {
+      display: inline;
+      vertical-align: top;
+    }
+
+    .body {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 16px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 22px;
+    }
+
+    .cyan {
+      color: #53bad2;
+    }
+
+    .normal {
+      font-weight: normal;
+    }
+{% endblock %}
+
+{% block media_query %}
+        .hide {
+          display: none !important;
+        }
+
+        .width_full {
+          width: 100% !important;
+          min-width: 360px !important;
+        }
+
+        .height_30 {
+          height: 30px !important;
+        }
+
+        .h1 {
+          font-size: 40px !important;
+          line-height: 44px !important;
+        }
+{% endblock %}
+
+{% block body %}
+  <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#F5F8FA" width="100%" class="width_full" dir="{{ dir('ltr') }}">
+    <tr>
+      <td class="empty center">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="500" class="width_full center">
+          <tr>
+            <td class="empty width_20" width="42">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table cellpadding="0" cellspacing="0" border="0" align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="48">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="image empty" align="center">
+                    <a href="{{ track(link.logo,1) }}">
+                      <img src="{{ img.logo_periscope }}" width="46" alt="{{ copy.alt_logo }}" title="{{ copy.alt_logo }}" />
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="h1 cyan center" align="center" dir="{{ dir('ltr') }}"> 
+                    {{ i10n(copy.headline) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="48">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body text_black center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[0]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="h3 normal text_black center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[1]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="48">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" align="center">
+                    <table border="0" cellspacing="0" cellpadding="0" align="center">
+                      <tr>
+                        <td align="center" class="button center" bgcolor="#53bad2" dir="{{ dir('ltr') }}">
+                          <a href="{{ track(link.cta,2) }}" target="_blank" class="button">
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                            {{ i10n(copy.cta) }}
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="48">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body text_black center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[2]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer strong deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    <a href="{{ track(link.footer[0],3) }}" class="cyan">
+                      {{ i10n(copy.footer[0]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ track(link.footer[1],4) }}" class="cyan">
+                      {{ i10n(copy.footer[1]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ '{{unsubscribe}}' }}" class="cyan">
+                      {{ i10n(copy.footer[2]) }}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer deep_grey center" align="center">
+                    <span class="addressLink">{{ "{{>manhattan:static:address_twitter/html_content}}" }}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="48">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="42">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr class="hide">
+      <td class="empty hide" height="32">
+        &nbsp;
+      </td>
+    </tr>
+  </table>
+{% endblock %}

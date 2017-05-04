@@ -1,0 +1,406 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros.html" %}
+
+{# BGCOLOR MAIN #}
+{% set bgcolor_main = "#f5f8fa" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "text" : [
+    "https://twitter.com/privacy",
+    "https://twitter.com/personalization",
+    "https://twitter.com/your_twitter_data",
+    "https://twitter.com/personalization",
+    "https://twitter.com/personalization",
+    "https://support.twitter.com/forms/privacy"
+  ],
+  "help" : "https://support.twitter.com/",
+  "settings" : "https://twitter.com/settings",
+  "unsubscribe" : "{{unsubscribe}}",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject" : "Important updates to our Privacy Policy",
+  "preheader" : "Read the updated policy in full",
+  "alt_logo" : "Twitter",
+  "title" : "Update to our Privacy Policy",
+  "body" : [
+    "We’re updating our <a href=\"" + tl(link.text[0]) + "\" class=\"blue\">Privacy Policy</a> to reflect improvements we’ve made to Twitter.",
+
+    "We encourage you to read the updated policy in full — by using our services on or after June 4, 2017, you’ll be agreeing to these revisions.",
+
+    "Here are some of the important updates:",
+
+    "<strong>Transparency and control:</strong> We’ve launched new <a href=\"" + tl(link.text[1]) + "\" class=\"blue\">Personalization and Data</a> settings and expanded <a href=\"" + tl(link.text[2]) + "\" class=\"blue\">Your Twitter Data</a> to give you more transparent access to your information and more granular controls over how your data is used by Twitter.",
+
+    "These enhanced settings will replace Twitter’s reliance on the Do Not Track browser setting, which we will no longer support.",
+
+    "<strong>Web data:</strong> We’ve updated how we store and use data from other websites that integrate Twitter content like embedded timelines, to improve our services and personalize the content we show you including ads.",
+
+    "We do not store web page visit data for users who are in the European Union and EFTA States.",
+
+    "<strong>Data sharing:</strong> We’ve updated how we share non-personal, aggregated, and device-level data, including under select partnership agreements that allow the data to be linked to your name, email, or other personal information if you give the partner your consent.",
+
+    "You can control whether your data is shared under these partnership agreements in your <a href=\"" + tl(link.text[3]) + "\" class=\"blue\">Personalization and Data settings</a>.",
+
+    "<strong>Personalization across your devices:</strong> We’ve explained how we use data to personalize across your devices, and given you additional control in your <a href=\"" + tl(link.text[4]) + "\" class=\"blue\">Personalization and Data settings</a> for devices that you haven’t used to log into Twitter.",
+
+    "<strong>Privacy Shield and the Digital Advertising Alliance:</strong> We’re excited to announce that we will be participating in the Swiss-US Privacy Shield program and adhering to the Digital Advertising Alliance Self-Regulatory Principles for Online Behavioral Advertising.",
+
+    "We hope you see value in these changes as we continue to improve your Twitter experience in a way that dovetails with our heartbeat as a company — a commitment to protecting and defending your privacy.",
+
+    "If you have any questions, feel free to write to us <a href=\"" + tl(link.text[0]) + "\" class=\"blue\">here</a>.",
+    
+    "Thank you for using Twitter!",
+   
+    "-Twitter"
+  ],
+  "footer" : ["Help", "Settings", "Unsubscribe", "Download App"],
+  "disclaimer" : "This email was generated for @" + mustache("{{#recipient}}{{screen_name}}{{/recipient}}","Somebody") + ".",
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "spacer_3_1" : prefix_img + "spacer_3_x_1-1480718996570.png",
+  "logo_twitter" : prefix_img + "icon_twitter_blue.png",
+  "icon" : prefix_img + "icon_follow_" + "1da1f2" + ".png"
+} %}
+
+{# CSS #}
+{% block style %}
+    .wrapper {
+      min-width: 400px;
+    }
+
+    .h3 {
+      line-height: 22px;
+    }
+
+    a {
+      color: #1DA1F2;
+    }
+
+    .white a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .a_deep_grey a {
+      color: #8899A6;
+    }
+
+    .a_text_black a {
+      color: #292F33;
+    }
+
+    .color {
+      color: #1DA1F2;
+    }
+
+    td.button {
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      line-height: 18px;
+    }
+
+    a.button_white {
+      font-size: 12px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #1DA1F2; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 6px 23px; 
+      border: 1px solid #ffffff;
+      display: inline-block; 
+      font-weight:bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a.button_white_2 {
+      font-size: 12px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #1DA1F2; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 6px 23px; 
+      border: 1px solid #1DA1F2;
+      display: inline-block; 
+      font-weight:bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a.button {
+      font-size: 12px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 6px 23px; 
+      border: 1px solid #1DA1F2;
+      display: inline-block; 
+      font-weight:bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+{% endblock %}
+
+{% block media_query %}
+        .hide {
+          display: none !important;
+        }
+
+        .width_full {
+          width: 100% !important;
+          min-width: 360px !important;
+          height: auto !important;
+        }
+
+        .height_30 {
+          height: 30px !important;
+        }
+
+        .dots {
+          max-width: 100px !important;
+    }
+{% endblock %}
+
+{% block style_custom %}
+    <!--[if IE]>
+    <style type="text/css" inline="false">
+        /* Outlook 2000 - 2003 Canopy Image Fix */
+        .canopy img {
+            height: 154px !important;
+        }
+    </style>
+    <![endif]-->
+{% endblock %}
+
+{% block body %}
+  <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#F5F8FA" width="100%" class="width_full" dir="{{ dir('ltr') }}">
+    <tr>
+      <td class="empty center">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="450" class="width_full center">
+          <tr>
+            <td class="empty width_20" width="24">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table cellpadding="0" cellspacing="0" border="0" align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr> 
+                  <td class="image empty center" align="center">
+                    <a href="{{ tl(link.logo) }}">
+                      <img src="{{ img.logo_twitter }}" width="32" alt="{{ copy.alt_logo }}" title="{{ copy.alt_logo }}" />
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="24">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" class="center">
+          <tr>
+            <td class="empty" height="1" bgcolor="#E1E8ED">>
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" width="450" class="width_full center" bgcolor="#ffffff">
+          <tr>
+            <td class="empty width_20" width="24">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="h2 black" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.title) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body black" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[0]) }} {{ i10n(copy.body[1]) }} {{ i10n(copy.body[2]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body black" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[3]) }} {{ i10n(copy.body[4]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body black" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[5]) }} {{ i10n(copy.body[6]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body black" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                     {{ i10n(copy.body[7]) }} {{ i10n(copy.body[8]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body black" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[9]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body black" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[10]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body black" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[11]) }} {{ i10n(copy.body[13]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body black" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[14]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="24">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center"
+          <tr>
+            <td class="empty" height="1" bgcolor="#E1E8ED">>
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" width="450" class="width_full center" bgcolor="#ffffff">
+          <tr>
+            <td class="empty width_20" width="24">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                <td class="footer strong deep_grey" align="center">
+                  <a href="{{ tl(link.help) }}" class="color">
+                    {{ i10n(copy.footer[0]) }}
+                  </a> &nbsp;|&nbsp;
+                  <a href="{{ tl(link.settings) }}" class="color">
+                    {{ i10n(copy.footer[1]) }}
+                  </a> &nbsp;|&nbsp;
+                  <a href="{{ link.unsubscribe }}" class="color">
+                    {{ i10n(copy.footer[2]) }}
+                  </a>&nbsp;|&nbsp;
+                  <a href="{{ link.download }}" class="color">
+                    {{ i10n(copy.footer[3]) }}
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="empty" height="6">
+                  &nbsp;
+                </td>
+              </tr>
+              <tr>
+                <td class="footer deep_grey center" align="center">
+                  <span class="addressLink">{{"{{>manhattan:static:address_twitter/html_content}}"}}</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="empty" height="72">
+                  &nbsp;
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td class="empty width_20" width="24">
+            &nbsp;
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr class="hide">
+    <td class="empty hide" height="32">
+      &nbsp;
+    </td>
+  </tr>
+</table>
+{% endblock %}

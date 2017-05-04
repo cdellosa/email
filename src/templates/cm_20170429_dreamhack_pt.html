@@ -1,0 +1,80 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# COPY #}
+{% set copy = {
+  "preheader" : "We have the best Tweets in the house for DreamHack on Twitter LIVE.",
+  "subject_line" : "@{{screen_name}}, one word: DreamHack. On LIVE this week",
+  "alt_hero" : "Games On",
+  "headline" : "Dreamhack ASTRO Open Live on Twitter",
+  "body" : "Let the Counter-Strike: Global Offense games begin! For the first time ever, Twitter brings live coverage of DreamHack - the world’s largest digital festival. DreamHack Austin will feature 8 of the world’s top esports teams going toe to toe - or mouse to mouse - for the $100,000 prize pool. And you can help cheer them to victory from anywhere in the world. Just Tweet and you will be heard. It all happens here.",
+  "body_2" : [
+    "April 2, 6pm ET | 3pm PT",
+    "dreamhack.twitter.com",
+    "@DreamHackCSGO",
+    "Watch it. Talk about it."
+  ],
+  "alt_schedule" : "ALL TIMES ARE CDT | SATURDAY 29TH | 9:40 AM: Pre-show | 10:00 AM: Group A – Elimination Match - BO3 | 1:00 PM: Group B – Elimination Match - BO3 | 4:00 PM: Group A – Decider Match - BO3 | 7:00 PM: Group B – Decider Match - BO3 | SUNDAY 30TH | 9:30 AM: Pre-show | 10:00 AM: Semi-final #1 - BO3 | 1:00 PM: Semi-final #2 - BO3 | 5:00 PM: Grand Final - BO3",
+  "cta" : "Watch LIVE on",
+  "alt_icon" : "Dreamhack ASTRO Open 2017",
+  "alt_logo" : "Twitter",
+  "footer" : ["About", "Help", "Unsubscribe", "Download app"],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/live/851984309619531776?ref_src=twsrc%5Eemail%7Ctwcamp%5EDreamhack",
+  "cta" : "https://twitter.com/i/live/851984309619531776?ref_src=twsrc%5Eemail%7Ctwcamp%5EDreamhack",
+  "text" : "https://twitter.com/i/live/851984309619531776?ref_src=twsrc%5Eemail%7Ctwcamp%5EDreamhack",
+  "text_2" : "https://twitter.com/dreamhackcsgo",
+  "schedule" : "https://twitter.com/i/live/851984309619531776?ref_src=twsrc%5Eemail%7Ctwcamp%5EDreamhack",
+  "icon" : "https://twitter.com/dreamhackcsgo",
+  "logo_twitter_large" : "https://twitter.com/",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+Subject: {{ i10n(pt(copy.subject_line)) }}
+
+{{ i10n(pt(copy.alt_hero)) }} 
+{{ "> " + link.hero }}
+
+{{ i10n(pt(copy.headline)) }}
+
+{{ i10n(pt(copy.body)) }}
+
+{{ i10n(pt(copy.body_2[0])) }}
+{{ i10n(pt(copy.body_2[1])) }} 
+{{ "> " + link.text }}
+
+{{ i10n(pt(copy.body_2[2])) }} 
+{{ "> " + link.text }}
+
+{{ i10n(pt(copy.body_2[3])) }}
+
+{{ i10n(pt(copy.cta + " Twitter")) }} {{ "> " + link.cta }}
+
+{{ i10n(pt(copy.alt_icon)) }} 
+{{ "> " + link.icon }}
+
+{{ i10n(pt(copy.alt_logo)) }} 
+{{ "> " + link.logo_twitter_large }}
+
+=
+
+{{ i10n(copy.footer[0]) }} 
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }} 
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }} 
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }} 
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

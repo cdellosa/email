@@ -1,0 +1,56 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# COPY #}
+{% set copy = {
+	"title" : "How to talk Twitter",
+	"copy_1" : "From hashtags to Retweets, there are a few key terms to know to help make your Twitter experience complete.",
+	"alt_icon" : "Follow",
+	"icon" : "Follow",
+	"headline_2" : "Get more of the good stuff",
+	"copy_2" : "To get the Tweets you love, just follow the accounts who bring great content. Click the follow button to get the latest delivered right to your timeline.",
+	"cta" : "Try it now",
+	"footer" : ["About", "Help", "Unsubscribe", "Download app"],
+	"disclaimer" : "This email was generated for @" + signal("screen_name","Somebody") + ".",
+	"address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "icon" : "https://twitter.com",
+  "cta" : "https://twitter.com",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+Twitter {{ "<" + track(link.logo,1) + ">" }}
+
+{{ i10n(copy.title) }} {{ "<" + track(link.logo,2) + ">" }}
+
+{{ i10n(copy.copy_1) }} {{ "<" + track(link.logo,3) + ">" }}
+
+=
+
+{{ i10n(copy.icon) }}
+
+{{ i10n(copy.headline_2) }}
+
+{{ i10n(copy.copy_2) }}
+
+{{ i10n(copy.cta) }} {{ "<" + track(link.cta,4) + ">" }}
+
+= 
+
+{{ i10n(copy.footer[0]) }} {{ "<" + track(link.about,5) + ">" }}
+
+{{ i10n(copy.footer[1]) }} {{ "<" + track(link.help,6) + ">" }}
+
+{{ i10n(copy.footer[2]) }} {{ "<{{ unsubscribe }}>" }}
+
+{{ i10n(copy.footer[3]) }} {{ "<" + track(link.download,7) + ">" }}
+
+{{ copy.address }}

@@ -1,0 +1,289 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# COPY #}
+{% set copy = {
+  "preheader" : "Watch and create live videos straight from Twitter!",
+  "subheadline" : "Want to go LIVE?",
+  "subheadline_link" : "Learn how here",
+  "headline" : "Go Live on Twitter",
+  "body" : "Show what's happening in your world by starting a live video straight from Twitter. You can also watch other live videos from around the world.",
+  "cta" : "Watch Now",
+  "footer" : ["About", "Help", "Unsubscribe", "Download app"],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# COLOR LOGIC #}
+{% set color_hex = colors[color].hex %}
+{% set color_css = colors[color].css %}
+{% set color_icon = colors[color].icons[icon_type] %}
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "logo_twitter" : prefix_img + "logo-1475170569504.png",
+  "logo_periscope" : prefix_img + "periscope_launch_logo_periscope-1480703481536.png",
+  "icon_play" : prefix_img + "periscope_launch_icon_play-1480632146718.png",
+  "hero" : prefix_img + "periscope_launch_hero-1481136490266.gif",
+  "spacer" : prefix_img + "spacer_650x265-1481056487262.png",
+  "spacer_1" : prefix_img + "spacer_650x1-1481059174655.png"
+} %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/twitter/status/809035848138178562",
+  "icon" : "https://twitter.com/twitter/status/809035848138178562",
+  "learn" : "https://twitter.com/video/status/809442927646650368",
+  "cta" : "https://twitter.com/twitter/status/809035848138178562",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# CSS #}
+{% block style %}
+    td.button {
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      line-height: 18px;
+    }
+
+    a.button {
+      font-size: 16px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 11px 30px; 
+      border: 1px solid #1DA1F2;
+      display: inline-block; 
+      font-weight:bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+{% endblock %}
+
+{% block media_query %}
+        .width_full {
+          width: 100% !important;
+          min-width: 480px !important;
+        }
+
+        #hero {
+          background-image: url({{ img.hero }}) !important;
+          background-size: cover !important; 
+        }
+
+        .height_30 {
+          height: 30px !important;
+        }
+{% endblock %}
+
+{% block body %}
+  <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full" dir="{{ dir('ltr') }}">
+    <tr>
+      <td background="{{ img.hero }}" id="hero" bgcolor="#f5f8fa" valign="top">
+        <!--[if gte mso 9]>
+          <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:640px;height:365px;">
+          <v:fill type="tile" src="{{ img.hero }}" color="#f5f8fa" />
+          <v:textbox inset="0,0,0,0">
+        <![endif]-->
+        <div>
+          <table cellpadding="0" cellspacing="0" border="0" align="center" dir="{{ dir('ltr') }}">
+            <tr>
+              <td class="empty">
+                <a href="{{ track(link.hero,1) }}">
+                  <img src="{{ img.spacer }}" width="640" class="width_full"/>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td class="empty" align="center">
+                <table border="0" cellspacing="0" cellpadding="0" align="center">
+                  <tr>
+                    <td align="center" class="button" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
+                      <a href="{{ track(link.cta,2) }}" target="_blank" class="button">
+                        <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                        {{ i10n(copy.cta) }}
+                        <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td class="empty height_30" height="54">
+                &nbsp;
+              </td>
+            </tr>
+          </table>
+        </div>
+        <!--[if gte mso 9]>
+          </v:textbox>
+        </v:rect>
+        <![endif]-->
+      </td>
+    </tr>
+    <tr>
+      <td class="empty">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full">
+          <tr>
+            <td class="empty width_20" width="120">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table cellpadding="0" cellspacing="0" border="0" align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="32" align="center">
+                    <a href="{{ track(link.icon,3) }}">
+                      <img src="{{ img.logo_periscope }}" height="32" />
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="h2 deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.headline) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" align="center">
+                    <table border="0" cellspacing="0" cellpadding="0" align="center">
+                      <tr>
+                        <td align="center" class="button center" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
+                          <a href="{{ track(link.cta,4) }}" target="_blank" class="button">
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                            {{ i10n(copy.cta) }}
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                {{ mustache("{{#lang_en}}") }}
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey center" align="center"  dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.subheadline) }} <a href="{{ track(link.learn,5) }}" class="blue underline">{{ i10n(copy.subheadline_link) }}</a>.
+                  </td>
+                </tr>
+                {{ mustache("{{/lang_en}}") }}
+                {{ mustache("{{#lang_en-gb}}") }}
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey center" align="center"  dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.subheadline) }} <a href="{{ track(link.learn,5) }}" class="blue underline">{{ i10n(copy.subheadline_link) }}</a>.
+                  </td>
+                </tr>
+                {{ mustache("{{/lang_en-gb}}") }}
+                <tr>
+                  <td class="empty" height="64">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="120">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#f5f8fa" width="640" class="width_full">
+          <!--[if gte mso 9]>
+          <tr>
+            <td colspan="3" align="center">
+              <img src="{{ img.spacer_1 }}" width="640" />
+            </td>
+          </tr>
+          <![endif]-->
+          <tr>
+            <td class="empty width_20" width="120">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer strong deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    <a href="{{ track(link.about,6) }}" class="blue">
+                      {{ i10n(noWidow(copy.footer[0])) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ track(link.help,7) }}" class="blue">
+                      {{ i10n(noWidow(copy.footer[1])) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ '{{unsubscribe}}' }}" class="blue">
+                      {{ i10n(noWidow(copy.footer[2])) }}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer deep_grey center" align="center">
+                    <span class="addressLink">{{ fixAddress(copy.address) }}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="120">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+{% endblock %}

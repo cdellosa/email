@@ -1,0 +1,294 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros_notifications.html" %}
+
+{# BGCOLOR MAIN #}
+{% set bgcolor_main = "#f5f8fa" %}
+
+{# IBIS SWITCH #}
+{% set ibis_2 = true %}
+
+{# COPY #}
+{% set copy = {
+  "preheader" : "You have a new follower on Twitter.",
+  "logo" : "Twitter",
+	"title" : mustache(
+    "@{{screen_name}}{{#lang_ja}} さん{{/lang_ja}}{{#lang_ko}} 님{{/lang_ko}}",
+    "@c_dellosa"
+    ) + ", meet your new follower",
+  "cta_1" : "View profile",
+  "name_real" : mustache(
+    "{{{full_name}}}",
+    "Jenny Qiu Hylbert"
+  ),
+  "name_screen" : mustache(
+    "@{{screen_name}} {{#lang_ja}} さん{{/lang_ja}}{{#lang_ko}} 님{{/lang_ko}}",
+    "@jqiu"
+    ),
+	"cta_2" : "Follow",
+  "intro" : mustache(
+    "{{{bio.get}}}",
+    "Product Designer @twitter. Freakishly perceptive, quiety clownish. Co-found @postcardpoets. Previously @appl @svaixd"
+    ),
+  "location" : "<span class='deep_grey'>- " + mustache(
+    "{{location.get}}",
+    "London, England"
+    ) + "</span>",
+  "number_following" : mustache(
+    "{{ following_count }}",
+    661
+    ),
+  "number_follower" : mustache(
+    "{{ followers_count }}",
+    549
+    ),
+  "following" : "Following",
+  "follower" : "Followers",
+	"footer" : ["About", "Help", "Unsubscribe", "Download app"],
+  "disclaimer" : "This email was generated for @" + signal("screen_name","Somebody") + ".",
+	"address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# COLOR SWITCH #}
+{% set color = "blue" %}
+{% set icon_type = "follow" %}
+
+{# ICONS #}
+{% set icon = {
+  "icon_dm_blue" : "icon_dm_1da1f2.png",
+  "icon_dm_green" : "icon_dm_17bf63.png",
+  "icon_dm_orange" : "icon_dm_f45d22.png",
+  "icon_dm_pink" : "icon_dm_e0245e.png",
+  "icon_dm_purple" : "icon_dm_794bc4.png",
+  "icon_dm_yellow" : "icon_dm_ffad1f.png",
+
+  "icon_follow_blue" : "icon_follow_1da1f2.png",
+  "icon_follow_green" : "icon_follow_17bf63.png",
+  "icon_follow_orange" : "icon_follow_f45d22.png",
+  "icon_follow_pink" : "icon_follow_e0245e.png",
+  "icon_follow_purple" : "icon_follow_p794bc4.png",
+  "icon_follow_yellow" : "icon_follow_ffad1f.png",
+
+  "icon_like_blue" : "icon_like_1da1f2.png",
+  "icon_like_green" : "icon_like_17bf63.png",
+  "icon_like_orange" : "icon_like_f45d22.png",
+  "icon_like_pink" : "icon_like_e0245e.png",
+  "icon_like_purple" : "icon_like_794bc4.png",
+  "icon_like_yellow" : "icon_like_ffad1f.png",
+
+  "icon_reply_blue" : "icon_reply_1da1f2.png",
+  "icon_reply_green" : "icon_reply_17bf63.png",
+  "icon_reply_orange" : "icon_reply_f45d22.png",
+  "icon_reply_pink" : "icon_reply_e0245e.png",
+  "icon_reply_purple" : "icon_reply_794bc4.png",
+  "icon_reply_yellow" : "icon_reply_ffad1f.png",
+
+  "icon_retweet_blue" : "icon_retweet_1da1f2.png",
+  "icon_retweet_green" : "icon_retweet_17bf63.png",
+  "icon_retweet_orange" : "icon_retweet_f45d22.png",
+  "icon_retweet_pink" : "icon_retweet_e0245e.png",
+  "icon_retweet_purple" : "icon_retweet_794bc4.png",
+  "icon_retweet_yellow" : "icon_retweet_ffad1f.png"
+} %}
+
+{# BGCOLORS, LINKS, & ICON COLORS #}
+{% set colors = {
+  "pink" : {
+    "hex" : "#E0245E",
+    "css" : "pink",
+    "icons" : {
+      "dm" : "icon_dm_pink",
+      "follow" : "icon_follow_pink",
+      "like" : "icon_like_pink",
+      "reply" : "icon_reply_pink",
+      "retweet" : "icon_retweet_pink"
+    }
+  },
+  "orange" : {
+    "hex" : "{{ color_hex }}",
+    "css" : "orange",
+    "icons" : {
+      "dm" : "icon_dm_orange",
+      "follow" : "icon_follow_orange",
+      "like" : "icon_like_orange",
+      "reply" : "icon_reply_orange",
+      "retweet" : "icon_retweet_orange"
+    }
+  },
+  "yellow" : {
+    "hex" : "#FFAD1F",
+    "css" : "yellow",
+    "icons" : {
+      "dm" : "icon_dm_yellow",
+      "follow" : "icon_follow_yellow",
+      "like" : "icon_like_yellow",
+      "reply" : "icon_reply_yellow",
+      "retweet" : "icon_retweet_yellow"
+    }
+  },
+  "green" : {
+    "hex" : "#17BF63",
+    "css" : "green",
+    "icons" : {
+      "dm" : "icon_dm_green",
+      "follow" : "icon_follow_green",
+      "like" : "icon_like_green",
+      "reply" : "icon_reply_green",
+      "retweet" : "icon_retweet_green"
+    }
+  },
+  "blue" : {
+    "hex" : "#1DA1F2",
+    "css" : "blue",
+    "icons" : {
+      "dm" : "icon_dm_blue",
+      "follow" : "icon_follow_blue",
+      "like" : "icon_like_blue",
+      "reply" : "icon_reply_blue",
+      "retweet" : "icon_retweet_blue"
+    }
+  },
+  "purple" : {
+    "hex" : "#794BC4",
+    "css" : "purple",
+    "icons" : {
+      "dm" : "icon_dm_purple",
+      "follow" : "icon_follow_purple",
+      "like" : "icon_like_purple",
+      "reply" : "icon_reply_purple",
+      "retweet" : "icon_retweet_purple"
+    }
+  }
+} %}
+
+{# COLOR LOGIC #}
+{% set color_hex = colors[color].hex %}
+{% set color_css = colors[color].css %}
+{% set color_icon = colors[color].icons[icon_type] %}
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "spacer_3_1" : prefix_img + "spacer_3_x_1-1480718996570.png",
+  "logo" : prefix_img + "logo-1475170569504.png",
+  "icon" : prefix_img + "dm-1476834756055.png",
+  "icon_color" : prefix_img + icon[color_icon],
+  "canopy" : mustache(
+    "{{{reasonably_small_profile_img}}}",
+    "https://pbs.twimg.com/profile_banners/20086442/1439585971/1500x500"
+  ),
+  "profile" : mustache(
+    "{{{reasonably_small_profile_img}}}",
+    "https://pbs.twimg.com/profile_images/583473072277028864/FXlisTdV_400x400.jpg"
+  )
+} %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "icon" : "https://twitter.com",
+  "cta_1" : mustache(
+    "{{#follows.recipientIsFollowingSender}}{{{userWrapper.profileUrl.get}}}{{/follows.recipientIsFollowingSender}}",
+    "https://twitter.com"
+    ),
+  "profile" : mustache(
+    "{{{userWrapper.profileUrl.get}}}",
+    "https://twitter.com/jqiu"
+    ),
+  "profile_img" : mustache(
+    "{{{userWrapper.profileUrl.get}}}",
+    "https://twitter.com/jqiu"
+    ),
+  "cta_2" : mustache(
+    "{{{sender.follow_autoaction_url}}}",
+    "https://twitter.com"
+    ),
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# CSS #}
+{% block style %}
+    .wrapper {
+      min-width: 400px;
+    }
+
+    .h3 {
+      line-height: 18px;
+    }
+
+    td.button {
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      line-height: 18px;
+    }
+
+    a.button_white {
+      font-size: 14px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: {{ color_hex }}; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 5px 20px; 
+      border: 1px solid #ffffff;
+      display: inline-block; 
+      font-weight:bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a.button_white_2 {
+      font-size: 14px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: {{ color_hex }}; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 5px 20px; 
+      border: 1px solid {{ color_hex }};
+      display: inline-block; 
+      font-weight:bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a.button {
+      font-size: 16px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 11px 30px; 
+      border: 1px solid #E0245E;
+      display: inline-block; 
+      font-weight:bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .canopy {
+      background-color: {{ mustache("{{#profile_banner_url.isDefined}}transparent{{/profile_banner_url.isDefined}}{{^profile_banner_url.isDefined}}#1DA1F2{{/profile_banner_url.isDefined}}","#1DA1F2") }};
+    }
+{% endblock %}
+
+{% block body %}
+  {{ mustache("{{#recipient}}") }}
+  {{ header_begin(color_hex) }}
+  {{ header_spacer(24) }}
+  {{ header_icon(img.logo, track(link.logo,1), 28, align("right")) }}
+  {{ header_spacer(24) }}
+  {{ header_title(copy.title, align("left")) }}
+  {{ header_spacer(24) }}
+  {{ header_cta(copy.cta_1, track(link.cta_1,2), align("left")) }}
+  {{ header_spacer(24) }}
+  {{ header_end() }}
+  {{ mustache("{{/recipient}}") }}
+  {{ spacer(24) }}
+  {{ mustache("{{#sender}}") }}
+  {{ card(copy, img, link) }}
+  {{ mustache("{{/sender}}") }}
+  {{ footer([copy.footer[0], copy.footer[1], copy.footer[2], copy.address, copy.footer[3]], [track(link.about,6), track(link.help,7), "{{ unsubscribe }}", track(link.download,8) ], color_css) }}
+{% endblock %}

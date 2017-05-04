@@ -1,0 +1,1301 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# HERO COPY IMAGE HEIGHT #}
+{% set hero_copy_height = 186 %}
+{# THIS IS AUTO SET BY ABOVE #}
+{% set hero_spacer_height = hero_copy_height - 119 %}
+{% set hero_copy_height_mobile = (hero_copy_height * 0.65)|round %}
+{% set hero_spacer_height_mobile = (hero_spacer_height * 0.65)|round %}
+
+{# MAIN COLOR #}
+{% set main_color = "#1DA1F2" %}
+
+{# MOBILE FIX REMOVE SWITCH #}
+{% set mobile_fix_remove = false %}
+
+{# WORD WIDTH EXPERIMENT #}
+{% set ws = "" %}
+{% for w in range(50) %}
+  {% set ws = ws + "m&#8203;" %} 
+{% endfor %}
+
+{# BGCOLOR MAIN #}
+{% set bgcolor_main = "#f5f8fa" %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com/",
+  "main" : {
+    "table" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+    "copy" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+    "cta" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+    "cta_2" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+    "team_1" : "https://twitter.com/redsox",
+    "team_2" : "https://twitter.com/orioles"
+  },
+  "main_2" : {
+    "image" : "https://twitter.com/i/live/807361386695135233?ref_src=twsrc%5Eemail%7Ctwcamp%5EPGA",
+    "cta" : "https://twitter.com/i/live/807361386695135233?ref_src=twsrc%5Eemail%7Ctwcamp%5EPGA"
+  },
+  "main_3" : {
+    "image" : "https://twitter.com/i/live/765339035866804224?ref_src=twsrc%5Eemail%7Ctwcamp%5ERally",
+    "cta" : "https://twitter.com/i/live/765339035866804224?ref_src=twsrc%5Eemail%7Ctwcamp%5ERally"
+  },
+  "weekly" : {
+    "image" : "https://twitter.com/i/live/807361386695135233?ref_src=twsrc%5Eemail%7Ctwcamp%5EPGA",
+    "cta" : "https://twitter.com/i/live/807361386695135233?ref_src=twsrc%5Eemail%7Ctwcamp%5EPGA"
+  },
+  "weekly_2" : {
+    "image" : "https://twitter.com/i/live/765339035866804224?ref_src=twsrc%5Eemail%7Ctwcamp%5ERally",
+    "cta" : "https://twitter.com/i/live/765339035866804224?ref_src=twsrc%5Eemail%7Ctwcamp%5ERally"
+  },
+  "weekly_3" : {
+    "image" : "https://twitter.com/i/live/789516242163859457?ref_src=twsrc%5Eemail%7Ctwcamp%5Enbathestarters%7Ctwgr%5Enewsletter",
+    "cta" : "https://twitter.com/i/live/789516242163859457?ref_src=twsrc%5Eemail%7Ctwcamp%5Enbathestarters%7Ctwgr%5Enewsletter"
+  },
+  "weekly_4" : {
+    "image" : "https://twitter.com/i/live/789514635313500160?ref_src=twsrc%5Eemail%7Ctwcamp%5EWarmUp",
+    "cta" : "https://twitter.com/i/live/789514635313500160?ref_src=twsrc%5Eemail%7Ctwcamp%5EWarmUp"
+  },
+  "help" : "https://support.twitter.com/",
+  "settings" : "https://twitter.com/settings",
+  "unsubscribe" : "{{unsubscribe}}",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject" : "See What’s Happening LIVE this Week",
+  "preheader" : "Watch it. Talk about it. Only on Twitter.",
+  "hashtag" : "Streaming LIVE on Twitter",
+	"cta" : "Watch LIVE on",
+  "main" : {
+    "title" : "<a href='" + tl(link.main.team_1) + "' class='text_black'>@RedSox</a> play <a href='" + tl(link.main.team_2) + "' class='text_black'>@Orioles</a>",
+    "copy" : [
+      "Baltimore leads off a three-game homestand against&nbsp;Boston.",
+      "Friday, April 21 | 7:05pm ET",
+      "Watch it. Talk about it."
+    ],
+    "alt" : "RedSox VS Orioles | April 21 | 7:05pm ET | #MLBLive | mlb.twitter.com | MLB | Streaming LIVE on Twitter",
+    "cta" : "Watch LIVE on"
+  },
+  "main_2" : {
+    "title" : "PGA Tour: Valero Texas&nbsp;Open",
+    "date" : "Thursday/Friday | 8:15am ET",
+    "copy" : "$6.2 million of bragging rights are on the line in 
+San Antonio.",
+    "alt" : "PGA Tour: Valero Texas Open",
+    "cta" : "Watch LIVE on"
+  },
+  "main_3" : {
+    "title" : "The Rally",
+    "date" : "Monday-Friday | 9pm ET<span class='hide'><br>&nbsp;</span>",
+    "copy" : "Sport highlights, look-ins, and commentary.",
+    "alt" : "The Rally",
+    "cta" : "Watch LIVE on"
+  },
+  "weekly_header" : "Your Weekly Watch List",
+  "weekly_sub" : "Catch up on your favorite #LIVE shows",
+  "weekly" : {
+    "title" : "PGA TOUR LIVE: Valero Texas&nbsp;Open",
+    "date" : "Thursday/Friday | 8:15am ET",
+    "copy" : "$6.2 million of bragging rights are on the line in 
+San Antonio.",
+    "alt" : "PGA TOUR LIVE: Valero Texas Open",
+    "cta" : "Watch LIVE on"
+  },
+  "weekly_2" : {
+    "title" : "The Rally",
+    "date" : "Monday-Friday | 9pm ET<span class='hide'><br>&nbsp;</span>",
+    "copy" : "Sport highlights, look-ins, and commentary.",
+    "alt" : "The Rally",
+    "cta" : "Watch LIVE on"
+  },
+  "weekly_3" : {
+    "title" : "The Starters",
+    "date" : "Tuesdays | 11am ET",
+    "copy" : "Your go-to for all things NBA, now that the playoffs are underway.",
+    "alt" : "The Starters",
+    "cta" : "Watch LIVE on"
+  },
+  "weekly_4" : {
+    "title" : "The Warmup",
+    "date" : "Thursdays | 6:30pm ET",
+    "copy" : "What your favorite NBA players are up to off the court.",
+    "alt" : "The Warmup",
+    "cta" : "Watch LIVE on"
+  },
+	"footer" : ["Help", "Settings", "Unsubscribe", "Download App"],
+  "disclaimer" : "This email was generated for @" + signal("screen_name","Somebody") + ".",
+	"address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "logo" : prefix_img + "logo_twitter_128-1491936394007.png",
+  "logo_twitter" : prefix_img + "logo_twitter_128-1491936394007.png",
+  "hero" : prefix_img + "cm_20170420_livesportsw2_hero-1492466633263.jpg",
+  "hero_copy" : prefix_img + "cm_20170420_livesportsw2_hero_copy-1492466886659.gif",
+  "main_2" : prefix_img + "cm_20170413_livesportsw1_slate_pga-1491862357218.png",
+  "main_3" : prefix_img + "cm_20170413_livesportsw1_slate_rally-1491862356859.png",
+  "weekly" : prefix_img + "cm_20170420_livesportsw2_pga-1492648770016.jpg",
+  "weekly_2" : prefix_img + "cm_20170413_livesportsw1_slate_rally-1491862356859.png",
+  "weekly_3" : prefix_img + "cm_20170420_livesportsw2_thestarters-1492624223762.jpg",
+  "weekly_4" : prefix_img + "cm_20170420_livesportsw2_warmup-1492649692865.jpg"
+} %}
+
+{# CSS #}
+{% block style %}
+    td.button {
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      line-height: 18px;
+    }
+
+    a.button {
+      font-size: 16px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 11px 30px; 
+      border: 1px solid {{ main_color }};
+      display: inline-block; 
+      font-weight:bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    td.button_2 {
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      line-height: 18px;
+    }
+
+    a.button_2 {
+      font-size: 12px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 5px 16px; 
+      border: 1px solid {{ main_color }};
+      display: inline-block; 
+      font-weight:bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .hero-copy {
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: #000000;
+      font-size: 20px;
+      line-height: 24px;
+    }
+{% endblock %}
+
+{% block media_query %}
+        .width_full {
+          width: 100% !important;
+        }
+
+        .width_50 {
+          width: 50px !important;
+        }
+
+        #hero {
+          background-image: url({{ img.hero }}) !important;
+          background-size: cover !important;
+        }
+
+        .hero_copy {
+          height: {{ hero_copy_height_mobile }}px !important;
+        }
+
+        .hero_spacer {
+          height: {{ hero_spacer_height_mobile }}px !important;
+        }
+
+        .height_30 {
+          height: 30px !important;
+        }
+
+        .height_12 {
+          height: 12px !important;
+        }
+
+        .height_16 {
+          height: 16px !important;
+        }
+
+        .height_24 {
+          height: 24px !important;
+        }
+
+        .font_18 {
+          font-size: 18px !important;
+          line-height: 22px !important;
+        }
+
+        a.button {
+          font-size: 12px !important; 
+          padding: 5px 16px !important; 
+        }
+
+        .hide {
+          display: none !important;
+        }
+
+        .img_cta_logo {
+          height: 10px !important;
+        }
+{% endblock %}
+
+{% block body %}
+          <table cellpadding="0" cellspacing="0" border="0" width="650" bgcolor="{{ main_color }}" align="center" class="width_full">
+            <!--[if gte mso 9]>
+            <tr>
+              <td colspan="3">
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer_560_x_1-1478717885230.png" class="width_full"/>
+              </td>
+            </tr>
+            <![endif]-->
+            {{ mustache("{{^email_live_sports_treatments_6104}}")}}
+              <tr>
+                <td class="empty" width="24">
+                  <!--[if gte mso 9]>
+                  <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="100" />
+                  <![endif]-->
+                </td>
+                <td class="empty" align="center">
+                  {#<table cellpadding="0" cellspacing="0" border="0" align="center">
+                    <tr>
+                      <td class="height_12 empty" height="24">
+                        &nbsp;
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="empty image" align="center" style="mso-line-height-rule: exactly;">
+                        <a href="{{ tl(link.logo) }}" target="blank">
+                          <img src="{{ img.logo }}" class="height_16" height="28" alt="Twitter" title="Twitter" />
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="height_12 empty" height="24">
+                        &nbsp;
+                      </td>
+                    </tr>
+                  </table>#}
+                  <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
+                    <tr>
+                      <td class="height_12 empty" height="24">
+                        &nbsp;
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="empty" align="center">
+                        <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
+                          <tr>
+                            <td class="h3 white" align="{{ align('left') }}">
+                              {{ i10n(copy.hashtag) }}
+                            </td>
+                            <td class="empty image" align="{{ align('right') }}">>
+                              <a href="{{ tl(link.logo,1) }}" target="blank">
+                                <img src="{{ img.logo }}" class="height_16" height="28" alt="Twitter" title="Twitter" />
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="height_12 empty" height="24">
+                        &nbsp;
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td class="empty" width="24">
+                  <!--[if gte mso 9]>
+                  <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="100" />
+                  <![endif]-->
+                </td>
+              </tr>
+            {{ mustache("{{/email_live_sports_treatments_6104}}")}}
+            {{ mustache("{{#email_live_sports_treatments_6104}}")}}
+              {{ mustache("{{#control}}")}}
+              <tr>
+                <td class="empty" width="24">
+                  <!--[if gte mso 9]>
+                  <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="100" />
+                  <![endif]-->
+                </td>
+                <td class="empty" align="center">
+                  {#<table cellpadding="0" cellspacing="0" border="0" align="center">
+                    <tr>
+                      <td class="height_12 empty" height="24">
+                        &nbsp;
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="empty image" align="center" style="mso-line-height-rule: exactly;">
+                        <a href="{{ tl(link.logo) }}" target="blank">
+                          <img src="{{ img.logo }}" class="height_16" height="28" alt="Twitter" title="Twitter" />
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="height_12 empty" height="24">
+                        &nbsp;
+                      </td>
+                    </tr>
+                  </table>#}
+                  <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
+                    <tr>
+                      <td class="height_12 empty" height="24">
+                        &nbsp;
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="empty" align="center">
+                        <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
+                          <tr>
+                            <td class="h3 white" align="{{ align('left') }}">
+                              {{ i10n(copy.hashtag) }}
+                            </td>
+                            <td class="empty image" align="{{ align('right') }}">>
+                              <a href="{{ tl(link.logo,1) }}" target="blank">
+                                <img src="{{ img.logo }}" class="height_16" height="28" alt="Twitter" title="Twitter" />
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="height_12 empty" height="24">
+                        &nbsp;
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td class="empty" width="24">
+                  <!--[if gte mso 9]>
+                  <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="100" />
+                  <![endif]-->
+                </td>
+              </tr>
+              {{ mustache("{{/control}}")}}
+              {{ mustache("{{#treatment2}}")}}
+              {{ mustache("{{/treatment2}}")}}
+            {{ mustache("{{/email_live_sports_treatments_6104}}")}}
+            <tr>
+              <td id="hero" background="{{ img.hero }}" bgcolor="#ffffff" width="650" valign="top" colspan="3">
+                <!--[if gte mso 9]>
+                <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:650px;height:366px;">
+                  <v:fill type="tile" src="{{ img.hero }}" color="#ffffff" />
+                  <v:textbox inset="0,0,0,0">
+                <![endif]-->
+                <a href="{{ tl(link.main.table) }}">
+                  <table cellpadding="0" cellspacing="0" border="0" width="650" align="center" class="width_full">
+                    <tr>
+                      <td class="empty" height="24" colspan="3">
+                        &nbsp;
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="empty width_24" width="24">
+                        &nbsp;
+                      </td>
+                      <td class="empty">
+                        <table cellpadding="0" cellspacing="0" border="0" align="left">
+                          <tr>
+                            <td class="empty image" align="left">
+                              <a href="{{ tl(link.main.copy,3) }}">
+                                <img src="{{ img.hero_copy }}" class="hero_copy" alt="{{ copy.main.alt }}" title="{{ copy.main.alt }}" height="{{ hero_copy_height }}" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
+                              </a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="empty" height="24">
+                              &nbsp;
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="empty">
+                              <table border="0" cellspacing="0" cellpadding="0" align="left">
+                                <tr>
+                                  <td align="center" class="button" bgcolor="{{ main_color }}">
+                                    <a href="{{ tl(link.main.cta) }}" target="_blank" class="button">
+                                      <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                      {{ i10n(copy.cta) }}&nbsp;<img src="{{ img.logo_twitter }}" height="14" class="img_cta_logo"/>
+                                      <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                    </a>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td class="empty width_24" width="24">
+                        &nbsp;
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="empty" height="24" colspan="3">
+                        &nbsp;
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="empty hide" height="{{ hero_spacer_height }}" colspan="3">
+                        &nbsp;
+                      </td>
+                    </tr>
+                  </table>
+                </a>
+                <!--[if gte mso 9]>
+                  </v:textbox>
+                </v:rect>
+                <![endif]-->
+              </td>
+            </tr>
+          </table>
+          <!-- HEADER END -->
+          <table cellpadding="0" cellspacing="0" border="0" width="650" bgcolor="#ffffff" align="center" class="width_full">
+            <!--[if gte mso 9]>
+            <tr>
+              <td colspan="3">
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer_560_x_1-1478717885230.png" class="width_full"/>
+              </td>
+            </tr>
+            <![endif]-->
+            <tr>
+              <td class="empty width_24" width="120">
+                <!--[if gte mso 9]>
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="24" />
+                <![endif]-->
+              </td>
+              <td class="empty">
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#ffffff" align="center">
+                  <tr>
+                    <td class="empty" height="24">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="h4 text_black center" aling="center">
+                      {{ i10n(copy.main.title) }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="body text_black center" aling="center">
+                      {{ i10n(copy.main.copy[0]) }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="body text_black center" aling="center">
+                      {{ i10n(copy.main.copy[1]) }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty center">
+                      <table border="0" cellspacing="0" cellpadding="0" align="center" class="center">
+                        <tr>
+                          <td align="center" class="button_2" bgcolor="{{ main_color }}">
+                            <a href="{{ tl(link.main.cta_2) }}" target="_blank" class="button_2">
+                              <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                              {{ i10n(copy.main.cta) }}&nbsp;<img src="{{ img.logo_twitter }}" height="11" class="img_cta_logo"/>
+                              <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="48">
+                      &nbsp;
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td class="empty width_24" width="120">
+                <!--[if gte mso 9]>
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="24" />
+                <![endif]-->
+              </td>
+            </tr>
+          </table>
+          {#<table cellpadding="0" cellspacing="0" border="0" width="650" bgcolor="#ffffff" align="center" class="width_full">
+            <!--[if gte mso 9]>
+            <tr>
+              <td colspan="3">
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer_560_x_1-1478717885230.png" class="width_full"/>
+              </td>
+            </tr>
+            <![endif]-->
+            <tr>
+              <td class="empty width_24" width="24">
+                <!--[if gte mso 9]>
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="24" />
+                <![endif]-->
+              </td>
+              <td class="empty">
+                <!--[if gte mso 9]>
+                <table width="602" align="center"><tr><td>
+                <![endif]-->
+                <table cellpadding="0" cellspacing="0" border="0" width="277" align="left" class="width_full">
+                  <tr>
+                    <td class="h4 text_black" align="{{ align('left') }}">
+                      {{ i10n(copy.main_2.title) }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="body_2 text_black" align="{{ align('left') }}">
+                      {{ i10n(copy.main_2.date) }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty">
+                      <a href="{{ tl(link.main_2.image) }}">
+                        <img src="{{ img.main_2 }}" width="277" class="width_full" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 18px; line-height: 22px; border: none;" alt="{{ copy.main_2.alt }}" title="{{ copy.main_2.alt }}"/>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="body_2 text_black" align="{{ align('left') }}">
+                      {{ i10n(copy.main_2.copy) }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty">
+                      <table border="0" cellspacing="0" cellpadding="0" align="{{ align('left') }}">
+                        <tr>
+                          <td align="{{ align('left') }}" class="button_2" bgcolor="{{ main_color }}">
+                            <a href="{{ tl(link.main_2.cta) }}" target="_blank" class="button_2">
+                              <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                              {{ i10n(copy.main_2.cta) }}&nbsp;<img src="{{ img.logo_twitter }}" height="11" class="img_cta_logo"/>
+                              <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="48">
+                      &nbsp;
+                    </td>
+                  </tr>
+                </table>
+                <!--[if gte mso 9]>
+                </td><td>
+                <![endif]-->
+                <table cellpadding="0" cellspacing="0" border="0" width="277" align="right" class="width_full">
+                  <tr>
+                    <td class="h4 text_black nowrap" align="{{ align('left') }}">
+                      {{ i10n(copy.main_3.title) }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="body_2 text_black" align="{{ align('left') }}">
+                      {{ i10n(copy.main_3.date) }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty">
+                      <a href="{{ tl(link.main_3.image) }}">
+                        <img src="{{ img.main_3 }}" width="277" class="width_full" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 18px; line-height: 22px; border: none;" alt="{{ copy.main_3.alt }}" title="{{ copy.main_3.alt }}"/>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="body_2 text_black" align="{{ align('left') }}">
+                      {{ i10n(copy.main_3.copy) }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty">
+                      <table border="0" cellspacing="0" cellpadding="0" align="{{ align('left') }}">
+                        <tr>
+                          <td align="{{ align('left') }}" class="button_2" bgcolor="{{ main_color }}">
+                            <a href="{{ tl(link.main_3.cta) }}" target="_blank" class="button_2">
+                              <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                              {{ i10n(copy.main_3.cta) }}&nbsp;<img src="{{ img.logo_twitter }}" height="11" class="img_cta_logo"/>
+                              <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="48">
+                      &nbsp;
+                    </td>
+                  </tr>
+                </table>
+                <!--[if gte mso 9]>
+                </td></tr></table>
+                <![endif]-->
+              </td>
+              <td class="empty width_24" width="24">
+                <!--[if gte mso 9]>
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="24" />
+                <![endif]-->
+              </td>
+            </tr>  
+          </table>#}
+          <table cellpadding="0" cellspacing="0" border="0" width="650" bgcolor="{{ main_color }}" align="center" class="width_full">
+            <!--[if gte mso 9]>
+            <tr>
+              <td colspan="3">
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer_560_x_1-1478717885230.png" class="width_full"/>
+              </td>
+            </tr>
+            <![endif]-->
+            <tr>
+              <td class="empty width_24" width="24">
+                <!--[if gte mso 9]>
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="24" />
+                <![endif]-->
+              </td>
+              <td class="empty">
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+                  <tr>
+                    <td class="empty" height="24">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty">
+                      <table cellpadding="0" cellspacing="0" border="0" width="50" align="{{ align('left') }}" bgcolor="#8ed0f8">
+                        <tr>
+                          <td class="empty" height="4">
+                            &nbsp;
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="h1 white font_18" align="{{ align('left') }}">
+                      {{ i10n(copy.weekly_header) }}
+                    </td>
+                  </tr>
+                  {#<tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="body text_black center" aling="center">
+                      {{ i10n(copy.weekly_sub) }}
+                    </td>
+                  </tr>#}
+                  <tr>
+                    <td class="empty" height="24">
+                      &nbsp;
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td class="empty width_24" width="24">
+                <!--[if gte mso 9]>
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="24" />
+                <![endif]-->
+              </td>
+            </tr>
+            <tr>
+              <td class="empty width_24" width="24">
+                <!--[if gte mso 9]>
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="24" />
+                <![endif]-->
+              </td>
+              <td class="empty">
+                <!--[if gte mso 9]>
+                <table width="602" align="center"><tr><td>
+                <![endif]-->
+                <table cellpadding="0" cellspacing="0" border="0" width="277" align="left" class="width_full" bgcolor="#ffffff">
+                  <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty">
+                      <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <tr>
+                          <td class="empty" width="12">
+                            &nbsp;
+                          </td>
+                          <td class="empty">
+                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                              <tr>
+                                <td class="h4 text_black" align="{{ align('left') }}">
+                                  {{ i10n(copy.weekly.title) }}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="body_2 text_black" align="{{ align('left') }}">
+                                  {{ i10n(copy.weekly.date) }}
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                          <td class="empty" width="12">
+                            &nbsp;
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty">
+                      <a href="{{ tl(link.weekly.image) }}">
+                        <img src="{{ img.weekly }}" width="277" class="width_full" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 18px; line-height: 22px; border: none;" alt="{{ copy.weekly.alt }}" title="{{ copy.weekly.alt }}"/>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty">
+                      <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <tr>
+                          <td class="empty" width="12">
+                            &nbsp;
+                          </td>
+                          <td class="empty">
+                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                              <tr>
+                                <td class="body_2 text_black" align="{{ align('left') }}">
+                                  {{ i10n(copy.weekly.copy) }}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="empty" height="11">
+                                  &nbsp;
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="empty">
+                                  <table border="0" cellspacing="0" cellpadding="0" align="{{ align('left') }}">
+                                    <tr>
+                                      <td align="{{ align('left') }}" class="button_2" bgcolor="{{ main_color }}">
+                                        <a href="{{ tl(link.weekly.cta) }}" target="_blank" class="button_2">
+                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                          {{ i10n(copy.weekly.cta) }}&nbsp;<img src="{{ img.logo_twitter }}" height="11" class="img_cta_logo"/>
+                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                        </a>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                          <td class="empty" width="12">
+                            &nbsp;
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                </table>
+                <!--[if !gte mso 9]><!---->
+                <table cellpadding="0" cellspacing="0" border="0" width="277" class="width_full" bgcolor="{{ main_color }}">
+                  <tr>
+                    <td class="height_24 empty" height="0">
+                      &nbsp;
+                    </td>
+                  </tr>
+                </table>
+                <!--<![endif]-->
+                <!--[if gte mso 9]>
+                </td><td>
+                <![endif]-->
+                <table cellpadding="0" cellspacing="0" border="0" width="277" align="right" class="width_full" bgcolor="#ffffff">
+                  <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty">
+                      <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <tr>
+                          <td class="empty" width="12">
+                            &nbsp;
+                          </td>
+                          <td class="empty">
+                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                              <tr>
+                                <td class="h4 text_black" align="{{ align('left') }}">
+                                  {{ i10n(copy.weekly_2.title) }}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="body_2 text_black" align="{{ align('left') }}">
+                                  {{ i10n(copy.weekly_2.date) }}
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                          <td class="empty" width="12">
+                            &nbsp;
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty">
+                      <a href="{{ tl(link.weekly_2.image) }}">
+                        <img src="{{ img.weekly_2 }}" width="277" class="width_full" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 18px; line-height: 22px; border: none;" alt="{{ copy.weekly_2.alt }}" title="{{ copy.weekly_2.alt }}"/>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty">
+                      <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <tr>
+                          <td class="empty" width="12">
+                            &nbsp;
+                          </td>
+                          <td class="empty">
+                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                              <tr>
+                                <td class="body_2 text_black" align="{{ align('left') }}">
+                                  {{ i10n(copy.weekly_2.copy) }}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="empty" height="11">
+                                  &nbsp;
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="empty">
+                                  <table border="0" cellspacing="0" cellpadding="0" align="{{ align('left') }}">
+                                    <tr>
+                                      <td align="{{ align('left') }}" class="button_2" bgcolor="{{ main_color }}">
+                                        <a href="{{ tl(link.weekly_2.cta) }}" target="_blank" class="button_2">
+                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                          {{ i10n(copy.weekly_2.cta) }}&nbsp;<img src="{{ img.logo_twitter }}" height="11" class="img_cta_logo"/>
+                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                        </a>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                          <td class="empty" width="12">
+                            &nbsp;
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                </table>
+                <!--[if gte mso 9]>
+                </td></tr></table>
+                <![endif]-->
+              </td>
+              <td class="empty width_24" width="24">
+                <!--[if gte mso 9]>
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="24" />
+                <![endif]-->
+              </td>
+            </tr>
+            <tr>
+              <td class="empty" height="24" colspan="3">
+                &nbsp;
+              </td>
+            </tr>
+            {# WEEKLY 3 & 4 #}
+            <tr>
+              <td class="empty width_24" width="24">
+                <!--[if gte mso 9]>
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="24" />
+                <![endif]-->
+              </td>
+              <td class="empty">
+                <!--[if gte mso 9]>
+                <table width="602" align="center"><tr><td>
+                <![endif]-->
+                <table cellpadding="0" cellspacing="0" border="0" width="277" align="left" class="width_full" bgcolor="#ffffff">
+                  <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty">
+                      <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <tr>
+                          <td class="empty" width="12">
+                            &nbsp;
+                          </td>
+                          <td class="empty">
+                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                              <tr>
+                                <td class="h4 text_black" align="{{ align('left') }}">
+                                  {{ i10n(copy.weekly_3.title) }}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="body_2 text_black" align="{{ align('left') }}">
+                                  {{ i10n(copy.weekly_3.date) }}
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                          <td class="empty" width="12">
+                            &nbsp;
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty">
+                      <a href="{{ tl(link.weekly_3.image) }}">
+                        <img src="{{ img.weekly_3 }}" width="277" class="width_full" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 18px; line-height: 22px; border: none;" alt="{{ copy.weekly_3.alt }}" title="{{ copy.weekly_3.alt }}"/>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty">
+                      <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <tr>
+                          <td class="empty" width="12">
+                            &nbsp;
+                          </td>
+                          <td class="empty">
+                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                              <tr>
+                                <td class="body_2 text_black" align="{{ align('left') }}">
+                                  {{ i10n(copy.weekly_3.copy) }}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="empty" height="11">
+                                  &nbsp;
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="empty">
+                                  <table border="0" cellspacing="0" cellpadding="0" align="{{ align('left') }}">
+                                    <tr>
+                                      <td align="{{ align('left') }}" class="button_2" bgcolor="{{ main_color }}">
+                                        <a href="{{ tl(link.weekly_3.cta) }}" target="_blank" class="button_2">
+                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                          {{ i10n(copy.weekly.cta) }}&nbsp;<img src="{{ img.logo_twitter }}" height="11" class="img_cta_logo"/>
+                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                        </a>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                          <td class="empty" width="12">
+                            &nbsp;
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                </table>
+                <!--[if !gte mso 9]><!---->
+                <table cellpadding="0" cellspacing="0" border="0" width="277" class="width_full" bgcolor="{{ main_color }}">
+                  <tr>
+                    <td class="height_24 empty" height="0">
+                      &nbsp;
+                    </td>
+                  </tr>
+                </table>
+                <!--<![endif]-->
+                <!--[if gte mso 9]>
+                </td><td>
+                <![endif]-->
+                <table cellpadding="0" cellspacing="0" border="0" width="277" align="right" class="width_full" bgcolor="#ffffff">
+                  <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty">
+                      <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <tr>
+                          <td class="empty" width="12">
+                            &nbsp;
+                          </td>
+                          <td class="empty">
+                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                              <tr>
+                                <td class="h4 text_black" align="{{ align('left') }}">
+                                  {{ i10n(copy.weekly_4.title) }}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="body_2 text_black" align="{{ align('left') }}">
+                                  {{ i10n(copy.weekly_4.date) }}
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                          <td class="empty" width="12">
+                            &nbsp;
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty">
+                      <a href="{{ tl(link.weekly_4.image) }}">
+                        <img src="{{ img.weekly_4 }}" width="277" class="width_full" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 18px; line-height: 22px; border: none;" alt="{{ copy.weekly_4.alt }}" title="{{ copy.weekly_4.alt }}"/>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty">
+                      <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <tr>
+                          <td class="empty" width="12">
+                            &nbsp;
+                          </td>
+                          <td class="empty">
+                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                              <tr>
+                                <td class="body_2 text_black" align="{{ align('left') }}">
+                                  {{ i10n(copy.weekly_4.copy) }}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="empty" height="11">
+                                  &nbsp;
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="empty">
+                                  <table border="0" cellspacing="0" cellpadding="0" align="{{ align('left') }}">
+                                    <tr>
+                                      <td align="{{ align('left') }}" class="button_2" bgcolor="{{ main_color }}">
+                                        <a href="{{ tl(link.weekly_4.cta) }}" target="_blank" class="button_2">
+                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                          {{ i10n(copy.weekly_4.cta) }}&nbsp;<img src="{{ img.logo_twitter }}" height="11" class="img_cta_logo"/>
+                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                        </a>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                          <td class="empty" width="12">
+                            &nbsp;
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="12">
+                      &nbsp;
+                    </td>
+                  </tr>
+                </table>
+                <!--[if gte mso 9]>
+                </td></tr></table>
+                <![endif]-->
+              </td>
+              <td class="empty width_24" width="24">
+                <!--[if gte mso 9]>
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="24" />
+                <![endif]-->
+              </td>
+            </tr>
+            <tr>
+              <td class="empty" height="24" colspan="3">
+                &nbsp;
+              </td>
+            </tr>
+          </table>
+          <table cellpadding="0" cellspacing="0" border="0" align="center" width="650" class="width_full" bgcolor="#ffffff">
+            <tr>
+              <td class="empty width_24" width="24">
+                &nbsp;
+              </td>
+              <td class="empty">
+                <table align="center" dir="{{ dir('ltr') }}">
+                  <tr>
+                    <td class="empty" height="36">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                  <td class="footer strong deep_grey" align="center">
+                    <a href="{{ tl(link.help) }}" class="blue">
+                      {{ i10n(copy.footer[0]) }}
+                    </a> &nbsp;|&nbsp;
+                    <a href="{{ tl(link.settings) }}" class="blue">
+                      {{ i10n(copy.footer[1]) }}
+                    </a> &nbsp;|&nbsp;
+                    <a href="{{ link.unsubscribe }}" class="blue">
+                      {{ i10n(copy.footer[2]) }}
+                    </a> &nbsp;|&nbsp;
+                    <a href="{{ link.download }}" class="blue">
+                      {{ i10n(copy.footer[3]) }}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="6">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer deep_grey" align="center">
+                    {{ i10n(copy.disclaimer) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer deep_grey center" align="center">
+                    <span class="addressLink">{{"{{>manhattan:static:address_twitter/html_content}}"}}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_24" width="24">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+{% endblock %}

@@ -1,0 +1,204 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# COPY #}
+{% set copy = {
+  "subject" : "See What's Happening LIVE this Week",
+  "preheader" : "Watch it. Talk about it. Only on Twitter.",
+  "hashtag" : "Streaming LIVE on Twitter",
+  "cta" : "Watch LIVE on",
+  "main" : {
+    "title" : "@RedSox play @Orioles",
+    "copy" : [
+      "Baltimore leads off a three-game homestand against Boston.",
+      "Friday, April 21 | 7:05pm ET",
+      "Watch it. Talk about it."
+    ],
+    "alt" : "Mets VS Marlins | April 14 | 7:10pm ET | #MLBLive | mlb.twitter.com | MLB | Streaming LIVE on Twitter",
+    "cta" : "Watch LIVE on"
+  },
+  "main_2" : {
+    "title" : "PGA Tour: Valero Texas Open",
+    "date" : "Thursday/Friday | 8:15am ET",
+    "copy" : "$6.2 million of bragging rights are on the line in 
+San Antonio.",
+    "alt" : "PGA Tour: Valero Texas Open",
+    "cta" : "Watch LIVE on"
+  },
+  "main_3" : {
+    "title" : "The Rally",
+    "date" : "Monday-Friday | 9pm ET",
+    "copy" : "Sport highlights, look-ins, and commentary.",
+    "alt" : "The Rally",
+    "cta" : "Watch LIVE on"
+  },
+  "weekly_header" : "Your Weekly Watch List",
+  "weekly_sub" : "Catch up on your favorite #LIVE shows",
+  "weekly" : {
+    "title" : "PGA TOUR LIVE: Valero Texas Open",
+    "date" : "Thursday/Friday | 8:15am ET",
+    "copy" : "$6.2 million of bragging rights are on the line in 
+San Antonio.",
+    "alt" : "PGA TOUR LIVE: Valero Texas Open",
+    "cta" : "Watch LIVE on"
+  },
+  "weekly_2" : {
+    "title" : "The Rally",
+    "date" : "Monday-Friday | 9pm ET",
+    "copy" : "Sport highlights, look-ins, and commentary.",
+    "alt" : "The Rally",
+    "cta" : "Watch LIVE on"
+  },
+  "weekly_3" : {
+    "title" : "The Starters",
+    "date" : "Tuesdays | 11am ET",
+    "copy" : "Your go-to for all things NBA, now that the playoffs are underway.",
+    "alt" : "The Starters",
+    "cta" : "Watch LIVE on"
+  },
+  "weekly_4" : {
+    "title" : "The Warmup",
+    "date" : "Thursdays | 6:30pm ET",
+    "copy" : "What your favorite NBA players are up to off the court.",
+    "alt" : "The Warmup",
+    "cta" : "Watch LIVE on"
+  },
+  "footer" : ["Help", "Settings", "Unsubscribe", "Download App"],
+  "disclaimer" : "This email was generated for @" + signal("screen_name","Somebody") + ".",
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com/",
+  "main" : {
+    "table" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+    "copy" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+    "cta" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+    "cta_2" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+    "team_1" : "https://twitter.com/redsox",
+    "team_2" : "https://twitter.com/orioles"
+  },
+  "main_2" : {
+    "image" : "https://twitter.com/i/live/807361386695135233?ref_src=twsrc%5Eemail%7Ctwcamp%5EPGA",
+    "cta" : "https://twitter.com/i/live/807361386695135233?ref_src=twsrc%5Eemail%7Ctwcamp%5EPGA"
+  },
+  "main_3" : {
+    "image" : "https://twitter.com/i/live/765339035866804224?ref_src=twsrc%5Eemail%7Ctwcamp%5ERally",
+    "cta" : "https://twitter.com/i/live/765339035866804224?ref_src=twsrc%5Eemail%7Ctwcamp%5ERally"
+  },
+  "weekly" : {
+    "image" : "https://twitter.com/i/live/807361386695135233?ref_src=twsrc%5Eemail%7Ctwcamp%5EPGA",
+    "cta" : "https://twitter.com/i/live/807361386695135233?ref_src=twsrc%5Eemail%7Ctwcamp%5EPGA"
+  },
+  "weekly_2" : {
+    "image" : "https://twitter.com/i/live/765339035866804224?ref_src=twsrc%5Eemail%7Ctwcamp%5ERally",
+    "cta" : "https://twitter.com/i/live/765339035866804224?ref_src=twsrc%5Eemail%7Ctwcamp%5ERally"
+  },
+  "weekly_3" : {
+    "image" : "https://twitter.com/i/live/789516242163859457?ref_src=twsrc%5Eemail%7Ctwcamp%5Enbathestarters%7Ctwgr%5Enewsletter",
+    "cta" : "https://twitter.com/i/live/789516242163859457?ref_src=twsrc%5Eemail%7Ctwcamp%5Enbathestarters%7Ctwgr%5Enewsletter"
+  },
+  "weekly_4" : {
+    "image" : "https://twitter.com/i/live/789514635313500160?ref_src=twsrc%5Eemail%7Ctwcamp%5EWarmUp",
+    "cta" : "https://twitter.com/i/live/789514635313500160?ref_src=twsrc%5Eemail%7Ctwcamp%5EWarmUp"
+  },
+  "help" : "https://support.twitter.com/",
+  "settings" : "https://twitter.com/settings",
+  "unsubscribe" : "{{unsubscribe}}",
+  "download" : "https://twitter.com/download"
+} %}
+Subject: {{ i10n(pt(copy.subject)) }}
+
+{{ mustache("{{^email_live_sports_treatments_6104}}")}}{{ i10n(pt(copy.hashtag)) }}{{ mustache("{{/email_live_sports_treatments_6104}}")}}{{ mustache("{{#email_live_sports_treatments_6104}}")}}{{ mustache("{{#control}}")}}{{ i10n(pt(copy.hashtag)) }}{{ mustache("{{/control}}")}}{{ mustache("{{#treatment2}}")}}{{ mustache("{{/treatment2}}")}}{{ mustache("{{/email_live_sports_treatments_6104}}")}}
+
+=
+
+{{ i10n(pt(copy.main.title)) }}
+
+{{ i10n(pt(copy.main.copy[0])) }}
+{{ i10n(pt(copy.main.copy[1])) }}
+
+{{ i10n(pt(copy.main.cta)) }} Twitter
+{{ "> " + link.main.cta }}{#
+
+=
+
+{{ i10n(pt(copy.main_2.title)) }}
+{{ i10n(pt(copy.main_2.date)) }}
+{{ i10n(pt(copy.main_2.copy)) }}
+
+{{ i10n(pt(copy.main_2.cta)) }} Twitter
+{{ "> " + link.main_2.cta }}
+
+=
+
+{{ i10n(pt(copy.main_3.title)) }}
+{{ i10n(pt(copy.main_3.date)) }}
+{{ i10n(pt(copy.main_3.copy)) }}
+
+{{ i10n(pt(copy.main_3.cta)) }} Twitter
+{{ "> " + link.main_3.cta }}#}
+
+=
+
+{{ i10n(pt(copy.weekly_header)) }}
+{{ i10n(pt(copy.weekly_sub)) }}
+
+=
+
+{{ i10n(pt(copy.weekly.title)) }}
+{{ i10n(pt(copy.weekly.date)) }}
+{{ i10n(pt(copy.weekly.copy)) }}
+
+{{ i10n(pt(copy.weekly.cta)) }} Twitter
+{{ "> " + link.weekly.cta }}
+
+=
+
+{{ i10n(pt(copy.weekly_2.title)) }}
+{{ i10n(pt(copy.weekly_2.date)) }}
+{{ i10n(pt(copy.weekly_2.copy)) }}
+
+{{ i10n(pt(copy.weekly_2.cta)) }} Twitter
+{{ "> " + link.weekly_2.cta }}
+
+=
+
+{{ i10n(pt(copy.weekly_3.title)) }}
+
+{{ i10n(pt(copy.weekly_3.date)) }}
+
+{{ i10n(pt(copy.weekly_3.copy)) }}
+
+{{ i10n(pt(copy.weekly_3.cta)) }} 
+{{ "> " + link.weekly_3.cta }}
+
+=
+
+{{ i10n(pt(copy.weekly_4.title)) }}
+
+{{ i10n(pt(copy.weekly_4.date)) }}
+
+{{ i10n(pt(copy.weekly_4.copy)) }}
+
+{{ i10n(pt(copy.weekly_4.cta)) }} 
+{{ "> " + link.weekly_4.cta }}
+
+=
+
+{{ i10n(copy.footer[0]) }} 
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[1]) }} 
+{{ "> " + link.settings }}
+
+{{ i10n(copy.footer[2]) }} 
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }} 
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

@@ -1,0 +1,63 @@
+{% include "includes/macros_notifications.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis_2 = true %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "twitter_rules_url" : "https://support.twitter.com/articles/18311",
+  "policy_article_url_no_redirect" : "https://support.twitter.com/articles/20169199",
+  "media_settings_url_no_redirect" : "https://twitter.com/settings/account"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject_line" : "Notification: Media Setting Changed",
+  "alt_logo" : "Twitter",
+  "body" : [
+    "We received reports that media you Tweeted may contain sensitive content.",
+
+    "For your reference, here is the <a href=\"{{tweet_permalink}}\" class=\"leading-blurb-username\">Tweet</a>.",
+
+    "Upon review, we have determined that the media is potentially sensitive and have labeled it accordingly.",
+
+    "There will now be a click-through warning message over the media for users whose accounts are set so they are informed before viewing media that may be sensitive.",
+
+    "See the <a href=\"" + track(link.twitter_rules_url,1) + "\">Twitter Rules</a> and the <a href=\"" + track(link.policy_article_url_no_redirect,2) + "\">Twitter media policy</a> for more information.",
+
+    "We have also updated your <a href=\"" + track(link.media_settings_url_no_redirect,3) + "\">Content</a> settings to reflect that media you Tweet may contain sensitive material so that users can be informed prior to viewing it.",
+
+    "If you regularly Tweet media that may be considered sensitive, we recommend keeping this setting update in place.",
+
+
+    "If you would like to change the setting, visit your <a href=\"" + track(link.media_settings_url_no_redirect,4) + "\">Content</a> settings to uncheck the box next to \"Mark media I tweet as containing material that may be sensitive\".",
+
+    "Note that changing your setting will not remove the warning message from this media, or any other media Tweeted while this setting was active.",
+
+    "If you continue to upload potentially sensitive media that are not labeled as such, we may permanently adjust your account setting.",
+
+    "Our media <a href=\"" + track(link.policy_article_url_no_redirect,5) + "\">policy</a> includes more information about your media settings.",
+
+    "Twitter Support"
+    ],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+Subject: {{ i10n(copy.subject_line) }}
+
+Twitter {{ "<" + track(link.logo,1) + ">" }}
+
+=
+
+{{ i10n(copy.body[0]) }} {{ i10n(copy.body[1]) }}
+
+{{ i10n(copy.body[2]) }} {{ i10n(copy.body[3]) }} {{ i10n(copy.body[4]) }} {{ i10n(copy.body[5]) }} {{ i10n(copy.body[6]) }} {{ i10n(copy.body[7]) }} {{ i10n(copy.body[8]) }}
+
+{{ i10n(copy.body[9]) }} {{ i10n(copy.body[10]) }} 
+
+{{ i10n(copy.body[11]) }}
+
+=
+
+{{ copy.address }}

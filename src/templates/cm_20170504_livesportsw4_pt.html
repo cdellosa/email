@@ -1,0 +1,215 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link_master = {
+  "main" : "https://twitter.com/i/live/847926495850840064?ref_src=twsrc%5Eemail%7Ctwcamp%5ENikeBreaking2",
+  "main_2" : "https://twitter.com/i/live/807361386695135233?ref_src=twsrc%5Eemail%7Ctwcamp%5EPGA",
+  "main_3" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+  "weekly" : "https://twitter.com/i/live/852578674570256384?ref_src=twsrc%5Eemail%7Ctwcamp%5EConcacafU17",
+  "weekly_2" : "https://twitter.com/i/live/789516242163859457?ref_src=twsrc%5Eemail%7Ctwcamp%5Enbathestarters%7Ctwgr%5Enewsletter",
+  "weekly_3" : "https://twitter.com/i/live/765339035866804224?ref_src=twsrc%5Eemail%7Ctwcamp%5ERally",
+  "weekly_4" : "https://twitter.com/i/live/789514635313500160?ref_src=twsrc%5Eemail%7Ctwcamp%5EWarmUp"
+} %}
+
+{% set link = {
+  "logo" : "https://twitter.com/",
+  "main" : {
+    "table" : link_master.main,
+    "copy" : link_master.main,
+    "cta" : link_master.main,
+    "cta_2" : link_master.main,
+    "team_1" : "https://twitter.com/redsox",
+    "team_2" : "https://twitter.com/orioles"
+  },
+  "main_2" : {
+    "image" : link_master.main_2,
+    "cta" : link_master.main_2
+  },
+  "main_3" : {
+    "image" : link_master.main_3,
+    "cta" : link_master.main_3
+  },
+  "weekly" : {
+    "image" : link_master.weekly,
+    "cta" : link_master.weekly
+  },
+  "weekly_2" : {
+    "image" : link_master.weekly_2,
+    "cta" : link_master.weekly_2
+  },
+  "weekly_3" : {
+    "image" : link_master.weekly_3,
+    "cta" : link_master.weekly_3
+  },
+  "weekly_4" : {
+    "image" : link_master.weekly_4,
+    "cta" : link_master.weekly_4
+  },
+  "help" : "https://support.twitter.com/",
+  "settings" : "https://twitter.com/settings",
+  "unsubscribe" : "{{unsubscribe}}",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject" : [
+    "@{{screen_name}}, you've got to see what's happening LIVE this week"
+  ],
+  "preheader" : "Watch it. Talk about it. Only on Twitter.",
+  "hashtag" : "Streaming LIVE on Twitter",
+  "cta" : "Watch LIVE on",
+  "main" : {
+    "title" : "Nike #Breaking2",
+    "copy" : [
+      "Thursday/Friday, April 27 & 28 | 9am ET",
+      "Tweet @Nike using #breaking2alerts for #Breaking2 notifications and a tune-in reminder.",
+      "Watch it. Talk about it."
+    ],
+    "alt" : "#BREAKING2 | NIKE | nikebreaking2.twitter.com",
+    "alt_2" : "Watch it. Talk about it.",
+    "cta" : "Watch LIVE on"
+  },
+  "main_2" : {
+    "title" : "PGA TOUR LIVE: Wells Fargo Championship",
+    "date" : "Thursday/Friday, May 4 & 5 | 7am ET",
+    "copy" : "The PGA returns to Wilmington, NC, for the first time since 1971.",
+    "alt" : "PGA: Wells Fargo Championship",
+    "cta" : "Watch LIVE on"
+  },
+  "main_3" : {
+    "title" : "MLB: @Nationals at @Phillies",
+    "date" : "Friday, May 5 | 7:05pm ET",
+    "copy" : "Washington and Philadelphia players square off in the first game of a weekend series.",
+    "alt" : "MLB: @Nationals at @Phillies",
+    "cta" : "Watch LIVE on"
+  },
+  "weekly_header" : "Your Weekly Watch List",
+  "weekly_sub" : "Catch up on your favorite #LIVE shows",
+  "weekly" : {
+    "title" : "CONCACAF: U-17 Championship Semi-Finals & Final",
+    "date" : "Friday 5/5 at 6:30pm ET <br>Sunday&nbsp;5/7&nbsp;at&nbsp;4pm&nbsp;ET",
+    "copy" : "Catch the final matches of the under-17 championships in Panama.",
+    "alt" : "CONCACAF: U-17 Championship Semi-Finals & Final",
+    "cta" : "Watch LIVE on"
+  },
+  "weekly_2" : {
+    "title" : "The Starters Twitter Show",
+    "date" : "Tuesdays | 11am ET",
+    "copy" : "Your go-to show for all things NBA, now that the playoffs are underway.",
+    "alt" : "The Starters Twitter Show",
+    "cta" : "Watch LIVE on"
+  },
+  "weekly_3" : {
+    "title" : "The Rally",
+    "date" : "Monday-Friday | 9pm ET",
+    "copy" : "Sports highlights, look-ins, and commentary.",
+    "alt" : "The Rally",
+    "cta" : "Watch LIVE on"
+  },
+  "weekly_4" : {
+    "title" : "The Warmup",
+    "date" : "Thursdays | 7:30pm ET",
+    "copy" : "Ro Parrish and Ben Lyons bring you the week's best NBA Twitter moments.",
+    "alt" : "The Warmup",
+    "cta" : "Watch LIVE on"
+  },
+  "footer" : ["Help", "Settings", "Unsubscribe", "Download App"],
+  "disclaimer" : "This email was generated for @" + signal("screen_name","Somebody") + ".",
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+Subject: {{ i10n(pt(copy.subject[0])) }}
+
+{{ i10n(pt(copy.hashtag)) }}
+
+=
+
+{{ i10n(pt(copy.main.title)) }}
+
+{{ i10n(pt(copy.main.copy[0])) }}
+{{ i10n(pt(copy.main.copy[1])) }}
+
+{{ i10n(pt(copy.main.cta)) }} Twitter
+{{ "> " + link.main.cta }}
+
+=
+
+{{ i10n(pt(copy.main_2.title)) }}
+{{ i10n(pt(copy.main_2.date)) }}
+{{ i10n(pt(copy.main_2.copy)) }}
+
+{{ i10n(pt(copy.main_2.cta)) }} Twitter
+{{ "> " + link.main_2.cta }}
+
+=
+
+{{ i10n(pt(copy.main_3.title)) }}
+{{ i10n(pt(copy.main_3.date)) }}
+{{ i10n(pt(copy.main_3.copy)) }}
+
+{{ i10n(pt(copy.main_3.cta)) }} Twitter
+{{ "> " + link.main_3.cta }}
+
+=
+
+{{ i10n(pt(copy.weekly_header)) }}
+{{ i10n(pt(copy.weekly_sub)) }}
+
+=
+
+{{ i10n(pt(copy.weekly.title)) }}
+{{ i10n(pt(copy.weekly.date)) }}
+{{ i10n(pt(copy.weekly.copy)) }}
+
+{{ i10n(pt(copy.weekly.cta)) }} Twitter
+{{ "> " + link.weekly.cta }}
+
+=
+
+{{ i10n(pt(copy.weekly_2.title)) }}
+{{ i10n(pt(copy.weekly_2.date)) }}
+{{ i10n(pt(copy.weekly_2.copy)) }}
+
+{{ i10n(pt(copy.weekly_2.cta)) }} Twitter
+{{ "> " + link.weekly_2.cta }}
+
+=
+
+{{ i10n(pt(copy.weekly_3.title)) }}
+
+{{ i10n(pt(copy.weekly_3.date)) }}
+
+{{ i10n(pt(copy.weekly_3.copy)) }}
+
+{{ i10n(pt(copy.weekly_3.cta)) }} 
+{{ "> " + link.weekly_3.cta }}
+
+=
+
+{{ i10n(pt(copy.weekly_4.title)) }}
+
+{{ i10n(pt(copy.weekly_4.date)) }}
+
+{{ i10n(pt(copy.weekly_4.copy)) }}
+
+{{ i10n(pt(copy.weekly_4.cta)) }} 
+{{ "> " + link.weekly_4.cta }}
+
+=
+
+{{ i10n(copy.footer[0]) }} 
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[1]) }} 
+{{ "> " + link.settings }}
+
+{{ i10n(copy.footer[2]) }} 
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }} 
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

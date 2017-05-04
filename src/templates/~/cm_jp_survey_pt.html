@@ -1,0 +1,54 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# COPY #}
+{% set copy = {
+  "preheader" : "Twitterではアンケート調査をしており、協力者を募集しています",
+  "subject_line" : "こんにちは、@{{screen_nameさんにお願いがあります",
+  "alt_logo" : "Twitter",
+  "headline" : "ご意見をお聞かせください",
+  "body" : [
+    "平素より、Twitterをご愛用いただきありがとうございます。Twitterでは、皆さまの普段の生活において、Twitterがどのように使われているかどうかの調査を実施しています。調査は10分程度で終わりますので、ご協力をいただければ幸いです。",
+    "頂いたご意見をもとに、よりよいサービスが提供できるよう努めてまいります。なお、調査で回答いただいた内容は匿名で処理され、個人が特定されることはありません。皆さまのご協力に感謝いたします。"
+    ],
+  "cta" : "調査に参加する",
+  "footer" : ["設定", "ヘルプ", "メール配信を停止する"],
+  "address" : "Twitter International Company, The Academy, 42 Pearse Street, Dublin 2, Ireland."
+} %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "cta" : "https://v2.decipherinc.com/survey/selfserve/1bde/twt17002?co=jp&userID={{uid_encrypted}}",
+  "settings" : "https://twitter.com/settings/notifications",
+  "help" : "https://support.twitter.com/",
+  "not_my_account" : "{{not_my_account}}"
+} %}
+
+Subject: {{ i10n(copy.subject_line) }}
+
+Twitter {{ "<" + track(link.logo,1) + ">" }}
+
+=
+   
+{{ i10n(copy.headline) }}
+
+=
+
+{{ i10n(copy.body[0]) }}
+
+{{ i10n(copy.cta) }} {{ "<" + track(link.cta,2) + ">" }}
+
+{{ i10n(copy.body[1]) }}
+
+=
+
+{{ i10n(copy.footer[0]) }} {{ "<" + track(link.settings,3) + ">" }}
+
+{{ i10n(copy.footer[1]) }} {{ "<" + track(link.help,4) + ">" }}
+
+{{ i10n(copy.footer[2]) }} {{ "<{{ unsubscribe }}>" }}
+
+{{ copy.address }}

@@ -1,0 +1,72 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "text" : [
+    "https://analytics.twitter.com",
+    "https://business.twitter.com/en/help/troubleshooting/media-studio-faqs.html",
+    "https://www.niche.co/"
+  ],
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "preheader" : "We are shutting down the Engage app on 5/5",
+  "subject_line" : "Important update regading Engage app",
+  "alt_logo" : "Twitter",
+  "headline" : "We’d like to hear your thoughts",
+  "body" : [
+    "We introduced the Engage app to our community a little less than a year ago. Because we want to improve the tools that you use more frequently, we are shutting down the Engage app on Friday, May 5th, to better focus our efforts on making those improvements. But, not to worry, the same functionality that is found in the Engage app can be found elsewhere:",
+    "Go to analytics.twitter.com to see your top followers, Tweets and mentions. You can also review impressions and engagements over time, and learn about your audience. Lastly, you can see your earnings on the Video Activity Dashboard.",
+    "Go to Media Studio or the Twitter app to opt-in and manage Amplify Open",
+    "Manage your Niche account via the Niche website",
+    "Thanks for your support and engagement along the way!",
+    "- Twitter Engage team"
+    ],
+  "footer" : ["Settings", "Help", "Unsubscribe", "Download app"],
+  "address" : "Twitter &#65279;International &#65279;Company<br>One&nbsp;Cumberland&nbsp;Place,&nbsp;Fenian&nbsp;Street<br>Dublin&nbsp;2,&nbsp;D02&nbsp;AX07&nbsp;&nbsp;IRELAND"
+} %}
+
+Subject: {{ i10n(copy.subject_line) }}
+
+Twitter 
+{{ "> " + link.logo }}
+
+=
+
+{{ i10n(copy.body[0]) }}
+
+- {{ i10n(copy.body[1]) }}
+  {{ "> " + link.text[0] }}
+
+- {{ i10n(copy.body[2]) }}
+  {{ "> " + link.text[1] }}
+
+- {{ i10n(copy.body[3]) }}
+  {{ "> " + link.text[2] }}
+
+{{ i10n(copy.body[4]) }}
+{{ i10n(copy.body[5]) }}
+
+=
+
+{{ i10n(copy.footer[0]) }} 
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }} 
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }} 
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }} 
+{{ "> " + link.download }}
+
+{{ "{{>manhattan:static:address_twitter/plain_content}}" }}

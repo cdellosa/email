@@ -1,0 +1,72 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# COPY #}
+{% set copy = {
+  "preheader" : "Introducing Twitter Lite. A fast, data-friendly way to see what's happening in the world right now",
+  "subject_line" : "{{screen_name}}, check out Twitter Lite today",
+  "alt_logo" : "Twitter",
+  "alt_hero" : "Twitter Lite",
+  "alt_cta" : "Try Twitter Lite",
+  "headline" : "A fast, data-friendly way to see what's happening in the world right now",
+  "body" : [
+    "Available on most smartphones and tablets through the mobile web, Twitter Lite minimizes data usage, loads quickly on slower connections, is resilient to unreliable networks, and takes up less than 1MB on your mobile device.",
+    "So you can get breaking news, sports scores, and entertainment updates. Interact with brands and your government. Easily market your business, or quickly provide customer service - all while using less of your data plan.",
+    "Try it now at mobile.twitter.com"
+    ],
+  "cta" : "Learn more",
+  "footer" : ["About", "Help", "Unsubscribe"],
+  "address" : "{{>manhattan:static:address_twitter/plain_content}}"
+} %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://mobile.twitter.com",
+  "cta" : "https://mobile.twitter.com",
+  "cta2" : "https://lite.twitter.com",
+  "about" : "https://about.twitter.com/",
+  "settings" : "https://twitter.com/settings/notifications",
+  "help" : "https://support.twitter.com/articles/20113771",
+  "not_my_account" : "{{not_my_account}}",
+  "footer" : [
+    "https://about.twitter.com/",
+    "https://support.twitter.com/articles/20113771"
+  ]
+} %}
+
+Subject: {{ i10n(copy.subject_line) }}
+
+{{ i10n(copy.alt_hero) }} 
+
+{{ i10n(copy.alt_cta) }} 
+{{ "> " + link.cta }}
+
+=
+   
+{{ i10n(copy.headline) }}
+
+=
+
+{{ i10n(copy.body[0]) }}
+
+{{ i10n(copy.body[1]) }}
+
+{{ i10n(copy.cta) }} 
+{{ "> " + link.cta }}
+
+{{ i10n(copy.body[2]) }}
+
+=
+
+{{ i10n(copy.footer[0]) }} 
+{{ "> " + link.footer[0] }}
+
+{{ i10n(copy.footer[1]) }} 
+{{ "> " + link.footer[1] }}
+
+{{ i10n(copy.footer[2]) }} 
+{{ "> {{ unsubscribe }}" }}
+
+{{ copy.address }}

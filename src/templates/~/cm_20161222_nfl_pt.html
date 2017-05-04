@@ -1,0 +1,49 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# COPY #}
+{% set copy = {
+  "subject_line" : "@{{screen_name}}, watch NFL live on Twitter",
+  "preheader" : "Watch Thursday Night Football on Twitter: Giants-Eagles, 12/22 8pm ET",
+  "headline_1" : "GIANTS VS EAGLES",
+  "headline_2" : "December 22, 8pm ET",
+  "headline_3" : "Watch live on Moments or tnf.twitter.com",
+  "subheadline" : "Live on Twitter: Giants vs Eagles",
+  "body" : "It's the NFL like you've never experienced it before. Watch Thursday Night Football streaming live on Twitter in full HD, with top Tweets and more. Also available on NBC and NFL Network. This week's matchup features the New York Giants at the Philadelphia Eagles. #TNF on Twitter. It's happening.",
+  "cta" : "Watch LIVE on",
+  "footer" : ["About", "Help", "Unsubscribe", "Download app"],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/live/768633364911788032?ref_src=twsrc%5EEMAIL%7Ctwcamp%5ENFL",
+  "icon" : "https://twitter.com/i/live/768633364911788032?ref_src=twsrc%5EEMAIL%7Ctwcamp%5ENFL",
+  "cta" : "https://twitter.com/i/live/768633364911788032?ref_src=twsrc%5EEMAIL%7Ctwcamp%5ENFL",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+{{ i10n(copy.headline_1) }}
+{{ i10n(copy.headline_2) }}
+{{ i10n(copy.headline_3) }} {{ "<" + track(link.hero,1) + ">" }}
+
+{{ i10n(copy.subheadline) }} {{ "<" + track(link.icon,2) + ">" }}
+
+{{ i10n(copy.body) }}
+
+{{ i10n(copy.cta) }} Twitter {{ "<" + track(link.cta,3) + ">" }}
+
+=
+
+{{ i10n(copy.footer[0]) }} {{ "<" + track(link.about,4) + ">" }}
+
+{{ i10n(copy.footer[1]) }} {{ "<" + track(link.help,5) + ">" }}
+
+{{ i10n(copy.footer[2]) }} {{ "<{{ unsubscribe }}>" }}
+
+{{ i10n(copy.footer[3]) }} {{ "<" + track(link.download,6) + ">" }}
+
+{{ copy.address }}

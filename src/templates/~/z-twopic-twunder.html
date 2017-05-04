@@ -1,0 +1,1345 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros.html" %}
+
+{# HEADER INSERTION #}
+{% block style_custom %}
+  <link href="https://tweets-in-email-via-css.herokuapp.com/tweets.css" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+
+{# BGCOLOR MAIN #}
+{% set bgcolor_main = "#f5f8fa" %}
+
+{# IBIS SWITCH #}
+{% set ibis = false %}
+
+{# IBIS SWITCH #}
+{% set mobile_fix_remove = true %}
+
+{# COPY #}
+{% set copy = {
+  "preheader" : "Presented by Tweam #TwopicTwunder.",
+	"hero" : "COACHELLA | Saturday and Sunday 7-9pm PT<br>#coachella | coachella.twitter.com",
+	"cta" : "Start preview",
+  "header" : "",
+  "subheader" : "",
+  "" : "",
+  "" : "",
+  "" : "",
+  "" : "",
+  "" : "",
+  "" : "",
+	"footer" : ["About", "Help", "Unsubscribe", "Download app"],
+  "disclaimer" : "This email was generated for @" + signal("screen_name","Somebody") + ".",
+	"address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# LINKS #}
+{% set link = {
+  "cta" : "https://twitter.com/search?q=%23Coachella&src=typd",
+  "download" : "https://twitter.com/search?q=%23Coachella&src=typd"
+} %}
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "logo" : prefix_img + "logo-1475170569504.png",
+  "hero" : prefix_img + "sample_hero-1489119095855.png",
+  "hero_copy" : prefix_img + "coachella_title_2-1491515226073.png",
+  "timer" : "https://ea.twimg.com/email/self_serve/media/countdown_sample-1489448583193.gif",
+  "arrow_right" : prefix_img + "arrow_right-1491517136919.png",
+  "arrow_left" : prefix_img + "arrow_left-1491517136919.png",
+  "tweets" : prefix_img + "pga_demo_tweets-1491526150848.jpg",
+  "hero_gif" : prefix_img + "coachella-1491360699795.gif",
+  "hero_mov" : "http://funkleblanc.com/wp-content/uploads/2017/04/pga_demo.mp4",
+  "moment" : prefix_img + "moment_1-1491523317711.jpg",
+  "moment_2" : prefix_img + "moment_2-1491523318498.jpg"
+} %}
+
+{# CSS #}
+{% block style %}
+    td.button_orig {
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      line-height: 18px;
+    }
+
+    a.button_orig {
+      font-size: 14px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #DD2960; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 13px 30px; 
+      border: 1px solid #DD2960;
+      display: inline-block; 
+      font-weight:bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a.countdown_left {
+      font-size: 12px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      padding: 3px; 
+      display: inline-block; 
+      font-weight: bold; 
+      -webkit-font-smoothing: antialiased;
+      line-height: 18px;
+    }
+
+    a.countdown_right {
+      font-size: 10px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      padding: 5px 20px 6px 20px; 
+      display: inline-block; 
+      font-weight:bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .hero-copy {
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: #000000;
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    .module {
+      border-radius: 4px;
+      border: 1px solid #E1E8ED;
+    }
+{% endblock %}
+
+{% block media_query %}
+        .width_full {
+          width: 100% !important;
+        }
+
+        #hero {
+          background-image: url({{ img.hero_gif }}) !important;
+          background-size: cover !important;
+        }
+
+        .hero_copy {
+          height: 100px !important;
+        }
+
+        .height_30 {
+          height: 30px !important;
+        }
+
+        .height_12 {
+          height: 12px !important;
+        }
+
+        .height_16 {
+          height: 16px !important;
+        }
+
+        .height_24 {
+          height: 63px !important;
+        }
+
+        .width_12 {
+          width: 12px !important;
+        }
+
+        a.button_orig {
+          font-size: 12px !important; 
+          padding: 9px 14px !important; 
+        }
+
+        .hide {
+          display: none !important;
+        }
+{% endblock %}
+
+{% block body %}
+          <style inline="false">
+            .video, .video-wrapper {
+              background-color: #DD2960 !important;
+              color: #DD2960 !important;
+            }
+
+            /* CAROUSEL */
+            @media only screen and (max-width: 480px), (max-device-width: 480px) {
+            
+              .wrapper {
+                min-width: 0px !important;
+              }
+              
+              .shrink {
+                width: 480px !important;
+                min-width:0px !important;
+              }
+              
+              .hide {
+                display: none !important;
+                visibility: none !important;
+                overflow: hidden !important;
+              }
+            
+            }
+            
+            @media only screen and (-webkit-min-device-pixel-ratio: 1), (min--moz-device-pixel-ratio: 1), (max-width: 480px), (max-device-width: 480px) {
+            
+              #CarouselWrapper {
+                width: 650px !important;
+                height: 366px !important;
+                position: relative;
+                display: block;
+                overflow: hidden;
+              }
+              
+              .CarouselMain {
+                width: 650px !important;
+                height: 366px !important;
+              }
+
+              .button {
+                visibility: visible !important;
+                display: block !important;
+                position: absolute !important;
+                text-align: center;
+                z-index: 7;
+                box-sizing: content-box;
+                cursor:pointer;
+                text-decoration: none;
+                font-weight: bold; 
+                -webkit-font-smoothing: antialiased;
+
+                -webkit-transition: 0.1s ease-in;
+                -moz-transition: 0.1s ease-in;
+                -ms-transition: 0.1s ease-in;
+                -o-transition: 0.1s ease-in;
+              }
+              
+              .swoosh {
+                position: relative;
+                transition: all 0.3s ease-out;
+                -webkit-transition: all 0.3s ease-out;
+                -moz-transition: all 0.3s ease-out;
+                -ms-transition: all 0.3s ease-out;
+                -o-transition: all 0.3s ease-out;
+              }
+              
+              .slide1-content,
+              .slide2-content,
+              .slide3-content {
+                display: block;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 650px;
+                height: 366px;
+                background-color: #FFFFFF; 
+              }
+            }
+            
+            @media only screen and (-webkit-min-device-pixel-ratio: 1), (min--moz-device-pixel-ratio: 1) {
+            
+              .slide1 { top: 175px; left: 24px;}
+              .slide1-content {left: 0px;}
+              .slide1:hover { background-color: transparent;}
+              #slide-1:checked ~ .slide1 {background-color: transparent !important;}
+              #slide-1:checked + span + table .swoosh { left: 0px !important; }
+              
+              .slide2 { top: 175px; right: 24px; }
+              .slide2-content { left: 650px; }
+              .slide2:hover { background-color: transparent;}
+              #slide-2:checked ~ .slide2 {background-color: transparent !important;}
+              #slide-2:checked + span + table .swoosh { left: -650px !important; }
+              
+              .slide3 { top: 122px; left: 24px; }
+              .slide3-content { left: 1300px; }
+              .slide3:hover { background-color: transparent;}
+              #slide-3:checked ~ .slide3 {background-color: transparent !important;}
+              #slide-3:checked + span + table .swoosh { left: -1300px !important; }
+
+            }
+            
+            @media only screen and (max-width: 480px),  (max-device-width: 480px) {
+            
+              #CarouselWrapper, .CarouselMain {
+                width: 480px !important;
+                height: 290px !important;
+              }
+              
+              .slide1-content,
+              .slide2-content,
+              .slide3-content {
+                top: 0px;
+                width: 480px !important;
+                height: 290px !important;
+                background-repeat: no-repeat;
+              }
+              
+              .button {
+                border: none;
+              }
+              
+              .slide1 { top: 130px; left: 24px;}
+              .slide1-content {left: 0px; width: 100%; }
+              #slide-1:checked + span + table .swoosh { left: 0px !important;}
+              
+              .slide2 { top: 130px; left: right:24px; }
+              .slide2-content { left: 480px; width: 100%; }
+              #slide-2:checked + span + table .swoosh { left: -480px !important; }
+              
+              .slide3 { top: 0px; left: 103px; }
+              .slide3-content { left: 960px; width: 100%; }
+              #slide-3:checked + span + table .swoosh { left: -960px !important; }
+            
+            }
+            /* CAROUSEL END */
+
+            /* LIVE TWEETS */
+            @media screen and (-webkit-min-device-pixel-ratio: 0) {
+              .webkit-hide {
+                  display: none !important;
+              }
+
+              #font-weight-normal {
+                  font-weight: normal !important;
+              }
+
+              .headline-pad {
+                  padding-top: 0px !important;
+              }
+
+              .wrapper {
+                  position: relative;
+                  height: 600px;
+                  overflow: hidden;
+              }
+
+              /*.wrapper::after {
+                  top: 0px;
+                  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+                  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+                  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+                  content: "";
+                  display: block;
+                  position: absolute;
+                  width: 100%;
+                  left: 0;
+                  height: 30px;
+                  z-index: 10;
+              }*/
+
+              .tweet {
+                  background-color: #ffffff;
+                  width: 600px;
+                  border-radius: 4px;
+                  padding: 20px;
+                  margin: 5px auto;
+                  display: table;
+                  position: relative;
+                  box-sizing: border-box;
+                  border: 1px solid #E1E8ED;
+              }
+
+              .slide {
+                  margin-top: -100%;
+                  opacity: 0;
+                  -webkit-animation: slide 2s ease-in-out forwards, appear 3s ease-in-out forwards;
+              }
+
+              .tweet-container { 
+                overflow: hidden;
+                position: relative;
+              }
+
+              #tweet-1 {
+                -webkit-animation-delay: 34s;
+              }
+
+              #tweet-2 {
+                -webkit-animation-delay: 30s;
+              }
+
+              #tweet-3 {
+                -webkit-animation-delay: 26s;
+              }
+
+              #tweet-4 {
+                  -webkit-animation-delay: 22s;
+              }
+
+              #tweet-5 {
+                  -webkit-animation-delay: 18s;
+              }
+
+              #tweet-6 {
+                  -webkit-animation-delay: 14s;
+              }
+
+              #tweet-7 {
+                  -webkit-animation-delay: 10s;
+              }
+
+              #tweet-8 {
+                  -webkit-animation-delay: 6s;
+              }
+
+              #tweet-9 {
+                  -webkit-animation-delay: 2s;
+              }
+
+              #tweet-10 {
+                  -webkit-animation-delay: 0s;
+              }
+
+              @-webkit-keyframes slide {
+                to { margin-top: 10px; }
+              }
+
+              @-webkit-keyframes appear {
+                to { opacity: 1 }
+              }
+
+              .tweet:hover {
+                  cursor: pointer;
+                  border-color: #E0245E;
+              }
+
+              .tweet-avatar-wrapper {
+                  width: 70px;
+                  float: left;
+              }
+
+              .tweet-wrapper {
+                  width: 470px;
+                  float: left;
+              }
+
+              .avatar {
+                  width: 48px;
+                  height: 48px;
+                  border-radius: 5px;
+                  margin-top: 5px;
+                  background-size: cover !important;
+              }
+
+              .name {
+                  font-weight: bold;
+                  font-size: 14px;
+                  line-height: 25px;
+                  color: #111111;
+              }
+
+              .handle {
+                  color: #E0245E;
+                  display: inline-block;
+                  margin-left: 3px;
+              }
+
+              .copy {
+                  color: #666666;
+                  margin-top: 5px;
+                  display: block;
+              }
+              
+              .timestamp {
+                  color: #999999;
+                  margin-left: 3px;
+                  display: inline-block;
+              }
+
+              .timestamp::before {
+                  content: '\2022';
+                  margin-right: 5px;
+              }
+
+              .name, .handle, .copy, .timestamp {
+                  font-family: Helvetica, Arial, sans-serif;
+                  font-size: 13px;
+                  line-height: 18px;
+              }
+            }
+
+            @media screen and (max-width: 480px) {
+                .wrapper {
+                    height: 450px;
+                }
+
+                .tweet, .tweet-cta {
+                    width: 100%;
+                }
+
+                .tweet {
+                    padding: 12px;
+                    width: 100% !important;
+                }
+
+                .tweet-wrapper {
+                    width: 75% !important;
+                    float: left;
+                }
+
+                .tweet-avatar-wrapper {
+                    max-width: 45px;
+                }
+
+                .avatar {
+                    height: 30px;
+                    width: 30px;
+                }
+
+                .timestamp {
+                    display: block;
+                    margin-left: 0;
+                }
+
+                .lines {
+                    /*width: 100% !important;
+                    max-width: 100% !important;*/
+                    height: auto !important;
+                }
+
+                .photo {
+                    height: 100px;
+                }
+
+              }
+              /* LIVE TWEETS END */
+
+              /* VIDEO */
+              @media (-webkit-min-device-pixel-ratio: 0) and (min-device-width:1024px) {
+                .video-wrapper { display:block!important; }
+                .video-fallback { display:none!important; }
+              }
+              @supports (-webkit-overflow-scrolling:touch) and (color:#ffffffff) {
+                div[class^=video-wrapper] { display:block!important; }
+                div[class^=video-fallback] { display:none!important; }
+              }
+              #MessageViewBody .video-wrapper { display:block!important; }
+              #MessageViewBody .video-fallback { display:none!important; }
+
+              @media only screen and (max-width: 480px),  (max-device-width: 480px) {
+                .width_480 {
+                  width: 480px !important;
+                  height: 290px !important;
+                }
+              }
+              /* VIDEO END */
+          </style>
+          <table cellpadding="0" cellspacing="0" border="0" width="650" bgcolor="#E0245E" align="center" class="width_full">
+            <!--[if gte mso 9]>
+            <tr>
+              <td colspan="3">
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer_560_x_1-1478717885230.png" class="width_full"/>
+              </td>
+            </tr>
+            <![endif]-->
+            <tr>
+              <td class="empty width_24" width="100">
+                <!--[if gte mso 9]>
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="100" />
+                <![endif]-->
+              </td>
+              <td class="empty" align="center">
+                <table cellpadding="0" cellspacing="0" border="0" align="center">
+                  <tr>
+                    <td class="height_12 empty" height="24">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty image" align="center" style="mso-line-height-rule: exactly;">
+                      <a href="{{ link.logo }}" target="blank">
+                        <img src="{{ img.logo }}" class="height_16" height="28" alt="Twitter" tilte="Twitter" />
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="height_12 empty" height="24">
+                      &nbsp;
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td class="empty width_24" width="100">
+                <!--[if gte mso 9]>
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="100" />
+                <![endif]-->
+              </td>
+            </tr>
+          </table>
+          <div class="wrapper_carousel">
+            <table id="CarouselWrapper" width="650" border="0" cellpadding="0" cellspacing="0" bgcolor="#E0245E" class="shrink" style="width:600px; margin:0 auto;">
+              <tr>
+                <td>
+                  <table class="CarouselMain" width="650" bgcolor="#FFFFFF" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+                    <tr>
+                      <td valign="top">
+                        <table border="0" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td style="line-height:1px; font-size:0px;">
+                              <!--[if mso]><p style="display: none;"><![endif]-->
+                              <form action ="foo">
+                              <input class="yahoo" type="radio" name="action" checked="checked" id="slide-1" style="display: none!important; max-height: 0; visibility: hidden;" />
+                              <span style></span>
+                              <!--[if mso]></p><![endif]-->
+                              <table border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                  <td style="line-height:1px; font-size:0px;">
+                                    <!--[if mso]><p style="display: none;"><![endif]-->
+                                    <input class="yahoo" type="radio" name="action" id="slide-2" style="display: none!important; max-height: 0; visibility: hidden;" />
+                                    <span style></span>
+                                    <!--[if mso]></p><![endif]-->
+                                    <table border="0" cellpadding="0" cellspacing="0">
+                                      <tr>
+                                        <td style="line-height:1px; font-size:0px;">
+                                          <!--[if mso]><p style="display: none;"><![endif]-->
+                                          <input class="yahoo" type="radio" name="action" id="slide-3" style="display: none!important; max-height: 0; visibility: hidden;" />
+                                          <span style></span>
+                                          </form>
+                                          <!--[if mso]></p><![endif]-->
+                                          <table border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                              <td>
+                                                <table class="swoosh" border="0" cellpadding="0" cellspacing="0">
+                                                  <tr>
+                                                    <td class="slide1-content" >
+                                                      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                          <td id="hero" background="{{ img.hero_gif }}" bgcolor="#ffffff" width="650" valign="top" colspan="3">
+                                                            <!--[if gte mso 9]>
+                                                            <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:650px;height:366px;">
+                                                              <v:fill type="tile" src="https://ea.twimg.com/email/self_serve/media/sample_hero-1489119095855.png" color="#ffffff" />
+                                                              <v:textbox inset="0,0,0,0">
+                                                            <![endif]-->
+                                                              <table cellpadding="0" cellspacing="0" border="0" width="650" align="center" class="width_full">
+                                                                <tr>
+                                                                  <td class="empty" height="24" colspan="3">
+                                                                    &nbsp;
+                                                                  </td>
+                                                                </tr>
+                                                                <tr>
+                                                                  <td class="empty" width="24">
+                                                                    &nbsp;
+                                                                  </td>
+                                                                  <td class="empty">
+                                                                    <table cellpadding="0" cellspacing="0" border="0" align="left" width="100%">
+                                                                      <tr>
+                                                                        <td class="empty image" align="left">
+                                                                          <img src="{{ img.hero_copy }}" class="hero_copy" alt="{{ copy.hero }}" title="{{ copy.hero }}" height="100" style="color: #1DA1F2; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
+                                                                        </td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td class="empty" height="24">
+                                                                          &nbsp;
+                                                                        </td>
+                                                                      </tr>
+                                                                      {#<tr>
+                                                                        <td class="empty">
+                                                                          <table border="0" cellspacing="0" cellpadding="0" align="left">
+                                                                            <tr>
+                                                                              <td align="center" class="button_orig" bgcolor="#1DA1F2">
+                                                                                <a href="{{ link.cta }}" target="_blank" class="button_orig">
+                                                                                  <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                                                                  {{ i10n(copy.cta) }}
+                                                                                  <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                                                                </a>
+                                                                              </td>
+                                                                            </tr>
+                                                                          </table>
+                                                                        </td>
+                                                                      </tr>#}
+                                                                      <tr>
+                                                                        <td class="empty height_24" height="140">
+                                                                          &nbsp;
+                                                                        </td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td class="empty">
+                                                                          <table border="0" cellspacing="0" cellpadding="0" align="right">
+                                                                            <tr>
+                                                                              <td align="center" class="countdown_left">
+                                                                                <a href="{{ link.cta }}" target="_blank" class="countdown_left">
+                                                                                  {{ i10n("starting in") }}
+                                                                                </a>
+                                                                              </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                              <td class="countdown_right" bgcolor="#E1E8ED" align="center">
+                                                                                <a href="{{ link.cta }}" target="_blank" class="countdown_right">
+                                                                                  <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                                                                  <img src="{{ img.timer }}" height="20" />
+                                                                                  <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                                                                </a>
+                                                                              </td>
+                                                                            </tr>
+                                                                          </table>
+                                                                        </td>
+                                                                      </tr>
+                                                                      <tr>
+                                                                        <td class="empty" height="24">
+                                                                          &nbsp;
+                                                                        </td>
+                                                                      </tr>
+                                                                    </table>
+                                                                  </td>
+                                                                  <td class="empty" width="24">
+                                                                    &nbsp;
+                                                                  </td>
+                                                                </tr>
+                                                              </table>
+                                                            <!--[if gte mso 9]>
+                                                              </v:textbox>
+                                                            </v:rect>
+                                                            <![endif]-->
+                                                            <label class="button slide2" for="slide-2" style="display: none; max-height: 0; visibility: hidden; font-size:1px; line-height:1px;">
+                                                              <img src="{{ img.arrow_right }}" height="28"/>
+                                                            </label>
+                                                          </td>
+                                                        </tr>
+                                                      </table>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td height="10" style="line-height:1px;font-size:1px;display:block;">&nbsp;</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="slide2-content" >
+                                                      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                          <td valign="top">
+                                                                <!-- video section -->
+                                                            <div class="video-wrapper width_480" style="display:none;">
+                                                              <video class="width_480" width="650" height="366" controls poster="https://ea.twimg.com/email/self_serve/media/coachella_preview-1491428641063.jpg">
+                                                                <source src="http://funkleblanc.com/wp-content/uploads/2017/04/coachella.mp4" type="video/mp4">
+                                                                <!-- fallback 1 -->
+                                                                <a href="https://twitter.com/search?q=%23Coachella&src=typd" >
+                                                                  <img class="width_480" height="366" src="https://ea.twimg.com/email/self_serve/media/coachella_preview-1491428641063.jpg" width="650" />
+                                                                </a>
+                                                              </video>
+                                                            </div>
+                                                            <label class="button slide1" for="slide-1" style="display: none; max-height: 0; visibility: hidden; font-size:1px; line-height:1px;">
+                                                              <img src="{{ img.arrow_left }}" height="28"/>
+                                                            </label>
+                                                          </td>
+                                                        </tr>
+                                                      </table>
+                                                    </td>
+                                                  </tr>
+                                                </table>
+                                              </td>
+                                            </tr>
+                                          </table>
+                                          </label>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <!-- HEADER END -->
+          <table cellpadding="0" cellspacing="0" border="0" width="650" align="center" class="width_full">
+            <tr>
+              <td class="empty" height="24">
+                &nbsp;
+              </td>
+            </tr>
+            <tr>
+              <td class="h2 text_black center" align="center">
+                Happening now
+              </td>
+            </tr>
+            <tr>
+              <td class="empty" height="6">
+                &nbsp;
+              </td>
+            </tr>
+            <tr>
+              <td class="body text_black center" align="center">
+                See the #coachella conversation
+              </td>
+            </tr>
+          </table>
+          <!-- TWEETS START -->
+          <img src="{{ img.tweets }}" class="webkit-hide" />
+          <table cellpadding="0" cellspacing="0" border="0" width="650" align="center" class="width_full">
+            <!--[if gte mso 9]>
+            <tr>
+              <td colspan="3">
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer_560_x_1-1478717885230.png" class="width_full"/>
+              </td>
+            </tr>
+            <![endif]-->
+            <tr>
+              <td class="empty width_24" width="24">
+                <!--[if gte mso 9]>
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="100" />
+                <![endif]-->
+              </td>
+              <td class="empty" align="center">
+                <table cellpadding="0" cellspacing="0" border="0" align="center">
+                  <tr>
+                    <td class="height_12 empty" height="24">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" align="center">
+                      <!-- TWEETS IN HERE -->
+                      <table cellpadding="0" cellspacing="0" border="0" align="center">
+                        <tr>
+                          <td align="left">
+                          <!-- LIVE DYNAMIC TWEETS IN AN EMAIL AWW YISSS -->
+                          <!-- TWEET #TEDC15 TO SEE YOUR TWEET APPEAR IN THE STREAM! -->
+                          <!-- THIS ENTIRE SECTION SHOWS FOR WEBKIT ONLY, USES DYNAMIC CSS FILE THAT OVERWRITES THE CONTENT PROPERTY FOR EACH EMPTY TWEET DIV - REFER TO THE LINKED STYLESHEET IN THE HEAD TO SEE THE CSS FOR THIS SECTION -->
+                            <!--[if (gte mso 9)|(IE)]>
+                        <div style="font-size: 0px; height: 0px; width: 0px; max-height: 0px; max-width: 0px; line-height: 0px; opacity: 0; overflow: hidden; display: none; mso-hide: all;"><![endif]-->
+                            <div class="wrapper">
+                              <div class="tweet-container">
+                                <a href="https://twitter.com/search?q=%23Coachella&src=typd" target="_blank">  
+                                  <div class="tweet slide" id="tweet-1">    
+                                    <div class="tweet-avatar-wrapper">
+                                      <div class="avatar"></div>
+                                    </div>
+                                    <div class="tweet-wrapper">
+                                      <span class="name"></span> <span class="handle"></span>
+                                      <span class="timestamp"></span>
+                                      <span class="copy"></span>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+                              <div class="tweet-container">
+                                <a href="https://twitter.com/search?q=%23Coachella&src=typd" target="_blank">    
+                                  <div class="tweet slide" id="tweet-2">    
+                                    <div class="tweet-avatar-wrapper">
+                                      <div class="avatar"></div>
+                                    </div>
+                                    <div class="tweet-wrapper">
+                                      <span class="name"></span> <span class="handle"></span>
+                                      <span class="timestamp"></span>
+                                      <span class="copy"></span>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+                              <div class="tweet-container">
+                                <a href="https://twitter.com/search?q=%23Coachella&src=typd" target="_blank">    
+                                  <div class="tweet slide" id="tweet-3">    
+                                    <div class="tweet-avatar-wrapper">
+                                      <div class="avatar"></div>
+                                    </div>
+                                    <div class="tweet-wrapper">
+                                      <span class="name"></span> <span class="handle"></span>
+                                      <span class="timestamp"></span>
+                                      <span class="copy"></span>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+                              <div class="tweet-container">
+                                <a href="https://twitter.com/search?q=%23Coachella&src=typd" target="_blank">    
+                                  <div class="tweet slide" id="tweet-4">    
+                                    <div class="tweet-avatar-wrapper">
+                                      <div class="avatar"></div>
+                                    </div>
+                                    <div class="tweet-wrapper">
+                                      <span class="name"></span> <span class="handle"></span>
+                                      <span class="timestamp"></span>
+                                      <span class="copy"></span>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+                              <div class="tweet-container">
+                                <a href="https://twitter.com/search?q=%23Coachella&src=typd" target="_blank">    
+                                  <div class="tweet slide" id="tweet-5">    
+                                    <div class="tweet-avatar-wrapper">
+                                      <div class="avatar"></div>
+                                    </div>
+                                    <div class="tweet-wrapper">
+                                      <span class="name"></span> <span class="handle"></span>
+                                      <span class="timestamp"></span>
+                                      <span class="copy"></span>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+                              <div class="tweet-container">
+                                <a href="https://twitter.com/search?q=%23Coachella&src=typd" target="_blank">    
+                                  <div class="tweet slide" id="tweet-6">    
+                                    <div class="tweet-avatar-wrapper">
+                                      <div class="avatar"></div>
+                                    </div>
+                                    <div class="tweet-wrapper">
+                                      <span class="name"></span> <span class="handle"></span>
+                                      <span class="timestamp"></span>
+                                      <span class="copy"></span>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+                              <div class="tweet-container">
+                                <a href="https://twitter.com/search?q=%23Coachella&src=typd" target="_blank">    
+                                  <div class="tweet slide" id="tweet-7">    
+                                    <div class="tweet-avatar-wrapper">
+                                      <div class="avatar"></div>
+                                    </div>
+                                    <div class="tweet-wrapper">
+                                      <span class="name"></span> <span class="handle"></span>
+                                      <span class="timestamp"></span>
+                                      <span class="copy"></span>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+                              <div class="tweet-container">
+                                <a href="https://twitter.com/search?q=%23Coachella&src=typd" target="_blank">    
+                                  <div class="tweet slide" id="tweet-8">    
+                                    <div class="tweet-avatar-wrapper">
+                                      <div class="avatar"></div>
+                                    </div>
+                                    <div class="tweet-wrapper">
+                                      <span class="name"></span> <span class="handle"></span>
+                                      <span class="timestamp"></span>
+                                      <span class="copy"></span>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+                              <div class="tweet-container">
+                                <a href="https://twitter.com/search?q=%23Coachella&src=typd" target="_blank">    
+                                  <div class="tweet slide" id="tweet-9">    
+                                    <div class="tweet-avatar-wrapper">
+                                      <div class="avatar"></div>
+                                    </div>
+                                    <div class="tweet-wrapper">
+                                      <span class="name"></span> <span class="handle"></span>
+                                      <span class="timestamp"></span>
+                                      <span class="copy"></span>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+                              <div class="tweet-container">
+                                <a href="https://twitter.com/search?q=%23Coachella&src=typd" target="_blank">    
+                                  <div class="tweet slide" id="tweet-10">    
+                                    <div class="tweet-avatar-wrapper">
+                                      <div class="avatar"></div>
+                                    </div>
+                                    <div class="tweet-wrapper">
+                                      <span class="name"></span> <span class="handle"></span>
+                                      <span class="timestamp"></span>
+                                      <span class="copy"></span>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+                              <div class="tweet-container">
+                                <a href="https://twitter.com/search?q=%23Coachella&src=typd" target="_blank">    
+                                  <div class="tweet" id="tweet-11">    
+                                    <div class="tweet-avatar-wrapper">
+                                      <div class="avatar"></div>
+                                    </div>
+                                    <div class="tweet-wrapper">
+                                      <span class="name"></span> <span class="handle"></span>
+                                      <span class="timestamp"></span>
+                                      <span class="copy"></span>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+                              <div class="tweet-container">
+                                <a href="https://twitter.com/search?q=%23Coachella&src=typd" target="_blank">    
+                                  <div class="tweet" id="tweet-12">    
+                                    <div class="tweet-avatar-wrapper">
+                                      <div class="avatar"></div>
+                                    </div>
+                                    <div class="tweet-wrapper">
+                                      <span class="name"></span> <span class="handle"></span>
+                                      <span class="timestamp"></span>
+                                      <span class="copy"></span>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+                              <div class="tweet-container">
+                                <a href="https://twitter.com/search?q=%23Coachella&src=typd" target="_blank">    
+                                  <div class="tweet" id="tweet-13">    
+                                    <div class="tweet-avatar-wrapper">
+                                      <div class="avatar"></div>
+                                    </div>
+                                    <div class="tweet-wrapper">
+                                      <span class="name"></span> <span class="handle"></span>
+                                      <span class="timestamp"></span>
+                                      <span class="copy"></span>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+                              <div class="tweet-container">
+                                <a href="https://twitter.com/search?q=%23Coachella&src=typd" target="_blank">    
+                                  <div class="tweet" id="tweet-14">    
+                                    <div class="tweet-avatar-wrapper">
+                                      <div class="avatar"></div>
+                                    </div>
+                                    <div class="tweet-wrapper">
+                                      <span class="name"></span> <span class="handle"></span>
+                                      <span class="timestamp"></span>
+                                      <span class="copy"></span>
+                                    </div>
+                                  </div>  
+                                </a>
+                              </div>
+                              <div class="tweet-container">
+                                <a href="https://twitter.com/search?q=%23Coachella&src=typd" target="_blank">    
+                                  <div class="tweet" id="tweet-15">    
+                                    <div class="tweet-avatar-wrapper">
+                                      <div class="avatar"></div>
+                                    </div>
+                                    <div class="tweet-wrapper">
+                                      <span class="name"></span> <span class="handle"></span>
+                                      <span class="timestamp"></span>
+                                      <span class="copy"></span>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+                            </div>
+                            <!--[if (gte mso 9)|(IE)]></div><![endif]-->
+                          </td>
+                        </tr>
+                      </table>
+                      <!-- TWEETS IN HERE END -->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="height_12 empty" height="24">
+                      &nbsp;
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td class="empty width_24" width="24">
+                <!--[if gte mso 9]>
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="100" />
+                <![endif]-->
+              </td>
+            </tr>
+          </table>
+          <table cellpadding="0" cellspacing="0" border="0" width="650" align="center" class="width_full">
+            <tr>
+              <td class="empty" height="24">
+                &nbsp;
+              </td>
+            </tr>
+            <tr>
+              <td class="h2 text_black center" align="center">
+                Moments
+              </td>
+            </tr>
+            <tr>
+              <td class="empty" height="24">
+                &nbsp;
+              </td>
+            </tr>
+          </table>
+          <table cellpadding="0" cellspacing="0" border="0" width="650" align="center" class="width_full">
+            <!--[if gte mso 9]>
+            <tr>
+              <td colspan="3">
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer_560_x_1-1478717885230.png" class="width_full"/>
+              </td>
+            </tr>
+            <![endif]-->
+            <tr>
+              <td class="empty width_24" width="24">
+                <!--[if gte mso 9]>
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="100" />
+                <![endif]-->
+              </td>
+              <td class="empty" align="center">
+                <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%" class="module" bgcolor="#ffffff">
+                  <tr>
+                    <td class="height_12 empty" height="24">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty">
+                      <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
+                        <tr>
+                          <td width="24" class="width_12">
+                            &nbsp;
+                          </td>
+                          <td class="empty">
+                            <table align="{{ align('left')}}">
+                              </tr>
+                                <td class="empty">
+                                  <img src="{{ img.moment }}" width="550" class="width_full" />
+                                </td>
+                              </tr>
+                              </tr>
+                                <td class="empty" height="12">
+                                  &nbsp;
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="h4 black">
+                                  Coachella!!!
+                                </td>
+                              </tr>
+                              </tr>
+                                <td class="empty" height="2">
+                                  &nbsp;
+                                </td>
+                              </tr>
+                              </tr>
+                                <td class="body_2 medium_grey">
+                                  Coachella - April 15, 2017
+                                </td>
+                              </tr>
+                              </tr>
+                                <td class="empty" height="2">
+                                  &nbsp;
+                                </td>
+                              </tr>
+                              </tr>
+                                <td class="body_2 text_black">
+                                  The only festival in the world where people care more about their clothing than the artists who perform. #flowercrown
+                                </td>
+                              </tr>
+                              </tr>
+                                <td class="empty" height="12">
+                                  &nbsp;
+                                </td>
+                              </tr>
+                               <tr>
+                                  <td class="empty">
+                                    <table border="0" cellspacing="0" cellpadding="0" align="left">
+                                      <tr>
+                                        <td align="center" class="button_orig" bgcolor="#ffffff">
+                                          <a href="{{ link.cta }}" target="_blank" class="button_orig">
+                                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                            Read More
+                                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                          </a>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                            </table>
+                          </td>
+                          <td width="24" class="width_12">
+                            &nbsp;
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  </tr>
+                  <tr>
+                    <td class="height_12 empty" height="24">
+                      &nbsp;
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td class="empty width_24" width="24">
+                <!--[if gte mso 9]>
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="100" />
+                <![endif]-->
+              </td>
+            </tr>
+          </table>
+          <table cellpadding="0" cellspacing="0" border="0" width="650" align="center" class="width_full">
+            <tr>
+              <td class="empty" height="24">
+                &nbsp;
+              </td>
+            </tr>
+          </table>
+          <table cellpadding="0" cellspacing="0" border="0" width="650" align="center" class="width_full">
+            <!--[if gte mso 9]>
+            <tr>
+              <td colspan="3">
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer_560_x_1-1478717885230.png" class="width_full"/>
+              </td>
+            </tr>
+            <![endif]-->
+            <tr>
+              <td class="empty width_24" width="24">
+                <!--[if gte mso 9]>
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="100" />
+                <![endif]-->
+              </td>
+              <td class="empty" align="center">
+                <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%" class="module" bgcolor="#ffffff">
+                  <tr>
+                    <td class="height_12 empty" height="24">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty">
+                      <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
+                        <tr>
+                          <td width="24" class="width_12">
+                            &nbsp;
+                          </td>
+                          <td class="empty">
+                            <table align="{{ align('left')}}">
+                              </tr>
+                                <td class="empty">
+                                  <img src="{{ img.moment_2 }}" width="550" class="width_full" />
+                                </td>
+                              </tr>
+                              </tr>
+                                <td class="empty" height="12">
+                                  &nbsp;
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="h4 black">
+                                  The Road to Coachella Or How I Lost All My Friends
+                                </td>
+                              </tr>
+                              </tr>
+                                <td class="empty" height="2">
+                                  &nbsp;
+                                </td>
+                              </tr>
+                              </tr>
+                                <td class="body_2 medium_grey">
+                                  <strong>Daniel Machado</strong> ✌️ ∙ April 15, 2017
+                                </td>
+                              </tr>
+                              </tr>
+                                <td class="empty" height="2">
+                                  &nbsp;
+                                </td>
+                              </tr>
+                              </tr>
+                                <td class="body_2 text_black">
+                                  513 miles. 8 hours and 4 minutes. 0 cars on fire  
+                                </td>
+                              </tr>
+                              </tr>
+                                <td class="empty" height="12">
+                                  &nbsp;
+                                </td>
+                              </tr>
+                               <tr>
+                                  <td class="empty">
+                                    <table border="0" cellspacing="0" cellpadding="0" align="left">
+                                      <tr>
+                                        <td align="center" class="button_orig" bgcolor="#ffffff">
+                                          <a href="{{ link.cta }}" target="_blank" class="button_orig">
+                                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                            Read More
+                                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                          </a>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                            </table>
+                          </td>
+                          <td width="24" class="width_12">
+                            &nbsp;
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  </tr>
+                  <tr>
+                    <td class="height_12 empty" height="24">
+                      &nbsp;
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td class="empty width_24" width="24">
+                <!--[if gte mso 9]>
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="100" />
+                <![endif]-->
+              </td>
+            </tr>
+          </table>
+          <table cellpadding="0" cellspacing="0" border="0" width="650" align="center" class="width_full">
+            <tr>
+              <td class="empty" height="24">
+                &nbsp;
+              </td>
+            </tr>
+          </table>
+          <table cellpadding="0" cellspacing="0" border="0" width="650" align="center" class="width_full">
+            <tr>
+              <td class="empty width_24" width="24">
+                &nbsp;
+              </td>
+              <td class="empty">
+                <table align="center" dir="{{ dir('ltr') }}">
+                  <tr>
+                    <td class="empty" height="36">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                  <td class="footer strong deep_grey" align="center">
+                    <a href="https://twitter.com/search?q=%23Coachella&src=typd" class="pink">
+                      {{ i10n(copy.footer[0]) }}
+                    </a> &nbsp;|&nbsp;
+                    <a href="https://twitter.com/search?q=%23Coachella&src=typd" class="pink">
+                      {{ i10n(copy.footer[1]) }}
+                    </a> &nbsp;|&nbsp;
+                    <a href="https://twitter.com/search?q=%23Coachella&src=typd" class="pink">
+                      {{ i10n(copy.footer[2]) }}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="6">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer deep_grey" align="center">
+                    {{ i10n(copy.disclaimer) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer deep_grey center" align="center">
+                    <span class="addressLink">{{ fixAddress(copy.address) }}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_24" width="24">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+{% endblock %}
