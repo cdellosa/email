@@ -32,6 +32,19 @@
   {%- endif %}
 {%- endmacro %}
 
+{# LINK TRACK MACRO / AUTO COUNTER #}
+{% set counter_tl = 1 %}
+{% macro tl(url) -%}
+  {% if ibis_2 == true -%}
+    {{ "{{#tl" + counter_tl + "}}" + url + "{{/tl" + counter_tl + "}}" }}
+  {%- elif ibis == true -%}
+    {{ "{{_tl" + counter_tl + "}}" + url + "{{/tl" + counter_tl + "}}" }}
+  {%- else -%}
+    {{ url }}
+  {%- endif %}
+  {% set counter_tl = counter_tl + 1 %}
+{%- endmacro %}
+
 {# IBIS SIGNAL MACRO #}
 {% macro signal(signal, default="") -%}
   {% if ibis_2 == true -%}

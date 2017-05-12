@@ -2,7 +2,7 @@
 {% include "includes/macros.html" %}
 
 {# IBIS SWITCH #}
-{% set ibis = false %}
+{% set ibis = true %}
 
 {# HERO COPY IMAGE HEIGHT #}
 {% set hero_copy_height = 51 %}
@@ -23,7 +23,7 @@
   "subject_line" : "@{{screen_name}}, IEM, Australia's biggest esports event, on LIVE this week.",
   "alt_hero" : "Let the games begin",
   "headline" : "Live on Twitter: IEM Sydney 2017",
-  "body" : "The Counter-Strike: Global Offense games are on! For the first time ever, Twitter brings live coverage of IEM Sydney 2017 - Australia’s biggest ever esports event. IEM features 6 of the world’s top CS:GO teams and 2 Australian challengers battling for the $200,000 prize. Your front row seats is wherever you are.",
+  "body" : "The Counter-Strike: Global Offense games are on! For the first time ever, Twitter brings live coverage of IEM Sydney 2017 - Australia’s biggest ever esports event. Watch as legends from SK Gaming, OpTic, FaZe and Astralis battle it out for the $200,000 prize. Your front row seat is wherever you are.",
   "body_2" : [
     "iem.twitter.com",
     "@IEM",
@@ -42,8 +42,8 @@
 {% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
 {% set img = {
   "logo_twitter" : prefix_img + "logo-1475170569504.png",
-  "hero" : prefix_img + "cm_20170505_iem_hero-1493762691567.jpg",
-  "hero_m" : prefix_img + "cm_20170505_iem_hero_m-1493763024124.jpg",
+  "hero" : prefix_img + "cm_20170505_iem_hero_2-1494002685874.jpg",
+  "hero_m" : prefix_img + "cm_20170505_iem_hero_2_m-1494002660882.jpg",
   "hero_copy" : prefix_img + "spacer_3_x_1-1493416213665.png",
   "spacer" : prefix_img + "spacer_640x265-1481056487262.png",
   "spacer_1" : prefix_img + "spacer_640x1-1481059174655.png",
@@ -59,7 +59,7 @@
   "cta" : "https://twitter.com/i/live/856668785591189504?ref_src=twsrc%5EEmail%7Ctwcamp%5EIEM",
   "text" : [
     "https://twitter.com/i/live/856668785591189504?ref_src=twsrc%5EEmail%7Ctwcamp%5EIEM",
-    "https://twitter.com/i/live/856668785591189504?ref_src=twsrc%5EEmail%7Ctwcamp%5EIEM",
+    "https://twitter.com/iem",
     "https://twitter.com/i/live/856668785591189504?ref_src=twsrc%5EEmail%7Ctwcamp%5EIEM"
   ],
   "schedule" : "https://twitter.com/i/live/856668785591189504?ref_src=twsrc%5EEmail%7Ctwcamp%5EIEM",
@@ -306,9 +306,7 @@
                       {{ i10n(copy.body_2[1]) }}
                     </a>
                     &nbsp;|&nbsp;
-                    <a href="{{ tl(link.text[2]) }}" class="deep_grey">
                       {{ i10n(copy.body_2[2]) }}
-                    </a>
                   </td>
                 </tr>
                 <tr>

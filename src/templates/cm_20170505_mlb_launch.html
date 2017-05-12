@@ -2,7 +2,7 @@
 {% include "includes/macros.html" %}
 
 {# IBIS SWITCH #}
-{% set ibis = false %}
+{% set ibis = true %}
 
 {# HERO COPY IMAGE HEIGHT #}
 {% set hero_copy_height = 150 %}
@@ -299,9 +299,7 @@ the regular season – only on Twitter.",
                 </tr>
                 <tr>
                   <td class="body deep_grey center" align="center" dir="{{ dir('ltr') }}">
-                    <a href="{{ tl(link.text[0]) }}" class="deep_grey">
-                      {{ i10n(copy.body_2[1]) }}
-                    </a>
+                    {{ i10n(copy.body_2[1]) }}
                   </td>
                 </tr>  
                 <tr>

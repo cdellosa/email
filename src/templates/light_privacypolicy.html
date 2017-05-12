@@ -31,13 +31,13 @@
   "alt_logo" : "Twitter",
   "title" : "Update to our Privacy Policy",
   "body" : [
-    "We’re updating our <a href=\"" + tl(link.text[0]) + "\" class=\"blue\">Privacy Policy</a> to reflect improvements we’ve made to Twitter.",
+    "We’re updating our <a href=\"{{_tl1}}https://twitter.com/privacy{{/tl1}}\" class=\"blue\">Privacy Policy</a> to reflect improvements we’ve made to Twitter.",
 
-    "We encourage you to read the updated policy in full — by using our services on or after June 4, 2017, you’ll be agreeing to these revisions.",
+    "We encourage you to read the updated policy in full — by using our services on or after June 18, 2017, you’ll be agreeing to these revisions.",
 
     "Here are some of the important updates:",
 
-    "<strong>Transparency and control:</strong> We’ve launched new <a href=\"" + tl(link.text[1]) + "\" class=\"blue\">Personalization and Data</a> settings and expanded <a href=\"" + tl(link.text[2]) + "\" class=\"blue\">Your Twitter Data</a> to give you more transparent access to your information and more granular controls over how your data is used by Twitter.",
+    "<strong>Transparency and control:</strong> We’ve launched new <a href=\"{{_tl2}}https://twitter.com/personalization{{/tl2}}\" class=\"blue\">Personalization and Data settings</a> and expanded <a href=\"{{_tl3}}https://twitter.com/your_twitter_data{{/tl3}}\" class=\"blue\">Your Twitter Data</a> to give you more transparent access to your information and more granular controls over how your data is used by Twitter.",
 
     "These enhanced settings will replace Twitter’s reliance on the Do Not Track browser setting, which we will no longer support.",
 
@@ -47,15 +47,15 @@
 
     "<strong>Data sharing:</strong> We’ve updated how we share non-personal, aggregated, and device-level data, including under select partnership agreements that allow the data to be linked to your name, email, or other personal information if you give the partner your consent.",
 
-    "You can control whether your data is shared under these partnership agreements in your <a href=\"" + tl(link.text[3]) + "\" class=\"blue\">Personalization and Data settings</a>.",
+    "You can control whether your data is shared under these partnership agreements in your <a href=\"{{_tl4}}https://twitter.com/personalization{{/tl4}}\" class=\"blue\">Personalization and Data settings</a>.",
 
-    "<strong>Personalization across your devices:</strong> We’ve explained how we use data to personalize across your devices, and given you additional control in your <a href=\"" + tl(link.text[4]) + "\" class=\"blue\">Personalization and Data settings</a> for devices that you haven’t used to log into Twitter.",
+    "<strong>Personalization across your devices:</strong> We’ve explained how we use data to personalize across your devices, and given you additional control in your <a href=\"{{_tl5}}https://twitter.com/personalization{{/tl5}}\" class=\"blue\">Personalization and Data settings</a> for devices that you haven’t used to log into Twitter.",
 
     "<strong>Privacy Shield and the Digital Advertising Alliance:</strong> We’re excited to announce that we will be participating in the Swiss-US Privacy Shield program and adhering to the Digital Advertising Alliance Self-Regulatory Principles for Online Behavioral Advertising.",
 
     "We hope you see value in these changes as we continue to improve your Twitter experience in a way that dovetails with our heartbeat as a company — a commitment to protecting and defending your privacy.",
 
-    "If you have any questions, feel free to write to us <a href=\"" + tl(link.text[0]) + "\" class=\"blue\">here</a>.",
+    "If you have any questions, feel free to write to us <a href=\"{{_tl1}}https://support.twitter.com/forms/privacy{{/tl1}}\" class=\"blue\">here</a>.",
     
     "Thank you for using Twitter!",
    
@@ -226,7 +226,7 @@
         </table>
         <table cellpadding="0" cellspacing="0" border="0" align="center" class="center">
           <tr>
-            <td class="empty" height="1" bgcolor="#E1E8ED">>
+            <td class="empty" height="1" bgcolor="#E1E8ED">
             </td>
           </tr>
         </table>
@@ -314,7 +314,7 @@
                 </tr>
                 <tr>
                   <td class="body black" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
-                    {{ i10n(copy.body[11]) }} {{ i10n(copy.body[13]) }}
+                    {{ i10n(copy.body[11]) }} {{ i10n(copy.body[12]) }} {{ i10n(copy.body[13]) }}
                   </td>
                 </tr>
                 <tr>
@@ -359,17 +359,8 @@
                 </tr>
                 <tr>
                 <td class="footer strong deep_grey" align="center">
-                  <a href="{{ tl(link.help) }}" class="color">
+                  <a href="{{ link.help }}" class="color">
                     {{ i10n(copy.footer[0]) }}
-                  </a> &nbsp;|&nbsp;
-                  <a href="{{ tl(link.settings) }}" class="color">
-                    {{ i10n(copy.footer[1]) }}
-                  </a> &nbsp;|&nbsp;
-                  <a href="{{ link.unsubscribe }}" class="color">
-                    {{ i10n(copy.footer[2]) }}
-                  </a>&nbsp;|&nbsp;
-                  <a href="{{ link.download }}" class="color">
-                    {{ i10n(copy.footer[3]) }}
                   </a>
                 </td>
               </tr>
