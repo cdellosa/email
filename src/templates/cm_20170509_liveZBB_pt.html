@@ -1,0 +1,89 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# COPY #}
+{% set copy = {
+  "preheader" : "Zac Brown Band brings down the house with WELCOME HOME.",
+  "subject_line" : "Watch Zac Brown Band LIVE",
+  "alt_hero" : "Watch Zac Brown band LIVE",
+  "headline" : "Watch Zac Brown Band perform songs from their new album \"WELCOME HOME\"",
+  "body" : "See Zac Brown Band live — exclusively on Twitter tonight at
+8:25pm ET — as part of the Live Nation Concert Series. Hear songs
+off their new album, \"WELCOME HOME\" — available now — as the Grammy
+award winners bring down the house down with a sold out crowd in their
+hometown of Atlanta.",
+  "body_1": "Tonight 8:25PM ET l 5:25PM PT",
+  "body_2" : [
+    "#zacbrownbandlive",
+    "@zacbrownband",
+    "Watch it. Talk about it."
+  ],
+  "cta" : "Watch LIVE on",
+  "alt_icon" : "Live Nation",
+  "alt_logo" : "Twitter",
+  "footer" : [
+    "About",
+    "Help",
+    "Unsubscribe",
+    "Download app"
+  ],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/live/859143763771260928?ref_src=twsrc%5EEmail%7Ctwcamp%5EZacBrown",
+  "cta" : "https://twitter.com/i/live/859143763771260928?ref_src=twsrc%5EEmail%7Ctwcamp%5EZacBrown",
+  "text" : [
+    "#",
+    "https://twitter.com/zacbrownband"
+  ],
+  "icon" : "https://twitter.com/livenation",
+  "logo_twitter_large" : "https://twitter.com/",
+  "about" : "https://about.twitter.com/company",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+Subject: {{ i10n(pt(copy.subject_line)) }}
+
+{{ i10n(pt(copy.alt_hero)) }}
+{{ "> " + link.hero }}
+
+{{ i10n(pt(copy.headline)) }}
+
+{{ i10n(pt(copy.body)) }}
+
+{{ i10n(pt(copy.cta + " Twitter")) }}
+{{ "> " + link.cta }}
+
+{{ i10n(pt(copy.body_2[0])) }}
+
+{{ i10n(pt(copy.body_2[1])) }}
+{{ "> " + link.text[1] }}
+
+{{ i10n(pt(copy.body_2[2])) }}
+{{ "> " + link.text[2] }}
+
+
+{{ i10n(pt(copy.alt_icon)) }}
+{{ "> " + link.icon }}
+
+{{ i10n(pt(copy.alt_logo)) }}
+{{ "> " + link.logo_twitter_large }}
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }}
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

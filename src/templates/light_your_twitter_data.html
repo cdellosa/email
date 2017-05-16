@@ -1,0 +1,307 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros.html" %}
+
+{# BGCOLOR MAIN #}
+{% set bgcolor_main = "#f5f8fa" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "text" : [
+    "https://twitter.com/privacy",
+    "https://twitter.com/personalization",
+    "https://twitter.com/your_twitter_data",
+    "https://twitter.com/personalization",
+    "https://twitter.com/personalization",
+    "https://support.twitter.com/forms/privacy"
+  ],
+  "help" : "https://support.twitter.com/",
+  "settings" : "https://twitter.com/settings",
+  "unsubscribe" : "{{unsubscribe}}",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject" : "Your Twitter data is ready",
+  "alt_logo" : "Twitter",
+  "title" : "Logged in users:",
+  "body" : [
+    "{{user_name}}, your Twitter data is ready! The data associated with your account on {{timestamp}} is attached. If you didn’t request this information, you can ignore this email."
+  ],
+  "footer" : ["Help", "Settings", "Unsubscribe", "Download App"],
+  "disclaimer" : "This email was generated for @" + signal("screen_name","Somebody") + ".",
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "spacer_3_1" : prefix_img + "spacer_3_x_1-1480718996570.png",
+  "logo_twitter" : prefix_img + "icon_twitter_blue.png",
+  "icon" : prefix_img + "icon_follow_" + "1da1f2" + ".png"
+} %}
+
+{# CSS #}
+{% block style %}
+    .wrapper {
+      min-width: 400px;
+    }
+
+    .h3 {
+      line-height: 22px;
+    }
+
+    a {
+      color: #1DA1F2;
+    }
+
+    .white a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .a_deep_grey a {
+      color: #8899A6;
+    }
+
+    .a_text_black a {
+      color: #292F33;
+    }
+
+    .color {
+      color: #1DA1F2;
+    }
+
+    td.button {
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      line-height: 18px;
+    }
+
+    a.button_white {
+      font-size: 12px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #1DA1F2; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 6px 23px; 
+      border: 1px solid #ffffff;
+      display: inline-block; 
+      font-weight:bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a.button_white_2 {
+      font-size: 12px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #1DA1F2; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 6px 23px; 
+      border: 1px solid #1DA1F2;
+      display: inline-block; 
+      font-weight:bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a.button {
+      font-size: 12px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 6px 23px; 
+      border: 1px solid #1DA1F2;
+      display: inline-block; 
+      font-weight:bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+{% endblock %}
+
+{% block media_query %}
+        .hide {
+          display: none !important;
+        }
+
+        .width_full {
+          width: 100% !important;
+          min-width: 360px !important;
+          height: auto !important;
+        }
+
+        .height_30 {
+          height: 30px !important;
+        }
+
+        .dots {
+          max-width: 100px !important;
+    }
+{% endblock %}
+
+{% block style_custom %}
+    <!--[if IE]>
+    <style type="text/css" inline="false">
+        /* Outlook 2000 - 2003 Canopy Image Fix */
+        .canopy img {
+            height: 154px !important;
+        }
+    </style>
+    <![endif]-->
+{% endblock %}
+
+{% block body %}
+  <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#F5F8FA" width="100%" class="width_full" dir="{{ dir('ltr') }}">
+    <tr>
+      <td class="empty center">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="450" class="width_full center">
+          <tr>
+            <td class="empty width_20" width="24">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table cellpadding="0" cellspacing="0" border="0" align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr> 
+                  <td class="image empty center" align="center">
+                    <a href="{{ tl(link.logo) }}">
+                      <img src="{{ img.logo_twitter }}" width="32" alt="{{ copy.alt_logo }}" title="{{ copy.alt_logo }}" />
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="24">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" class="center">
+          <tr>
+            <td class="empty" height="1" bgcolor="#E1E8ED">>
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" width="450" class="width_full center" bgcolor="#ffffff">
+          <tr>
+            <td class="empty width_20" width="24">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body black" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[0]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="24">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center">
+          <tr>
+            <td class="empty" height="1" bgcolor="#E1E8ED">>
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" width="450" class="width_full center" bgcolor="#ffffff">
+          <tr>
+            <td class="empty width_20" width="24">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                <td class="footer strong deep_grey" align="center">
+                  <a href="{{ tl(link.help) }}" class="color">
+                    {{ i10n(copy.footer[0]) }}
+                  </a>{#} &nbsp;|&nbsp;
+                  <a href="{{ tl(link.settings) }}" class="color">
+                    {{ i10n(copy.footer[1]) }}
+                  </a> &nbsp;|&nbsp;
+                  <a href="{{ link.unsubscribe }}" class="color">
+                    {{ i10n(copy.footer[2]) }}
+                  </a>&nbsp;|&nbsp;
+                  <a href="{{ link.download }}" class="color">
+                    {{ i10n(copy.footer[3]) }}
+                  </a>#}
+                </td>
+              </tr>
+              <tr>
+                <td class="empty" height="6">
+                  &nbsp;
+                </td>
+              </tr>
+              <tr>
+                <td class="footer deep_grey center" align="center">
+                  <span class="addressLink">{{ copy.disclaimer }}</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="empty" height="6">
+                  &nbsp;
+                </td>
+              </tr>
+              <tr>
+                <td class="footer deep_grey center" align="center">
+                  <span class="addressLink">{{"{{>manhattan:static:address_twitter/html_content}}"}}</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="empty" height="72">
+                  &nbsp;
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td class="empty width_20" width="24">
+            &nbsp;
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr class="hide">
+    <td class="empty hide" height="32">
+      &nbsp;
+    </td>
+  </tr>
+</table>
+{% endblock %}

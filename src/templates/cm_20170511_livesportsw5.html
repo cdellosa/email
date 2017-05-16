@@ -2,10 +2,10 @@
 {% include "includes/macros.html" %}
 
 {# IBIS SWITCH #}
-{% set ibis = false %}
+{% set ibis = true %}
 
 {# HERO COPY IMAGE HEIGHT #}
-{% set hero_copy_height = 156 %}
+{% set hero_copy_height = 114 %}
 {# THIS IS AUTO SET BY ABOVE #}
 {% set hero_spacer_height = 228 - hero_copy_height %}
 {% set hero_copy_height_mobile = (hero_copy_height * 0.65)|round %}
@@ -27,7 +27,7 @@
 {# WORD WIDTH EXPERIMENT #}
 {% set ws = "" %}
 {% for w in range(50) %}
-  {% set ws = ws + "m&#8203;" %}
+  {% set ws = ws + "m&#8203;" %} 
 {% endfor %}
 
 {# BGCOLOR MAIN #}
@@ -35,11 +35,13 @@
 
 {# LINKS #}
 {% set link_master = {
-  "main" : "https://twitter.com/i/live/858018226579529728?ref_src=twsrc%5EEmail%7Ctwcamp%5EWNBA",
-  "main_2" : "https://twitter.com/i/live/836709389494968325?ref_src=twsrc%5Eemail%7Ctwcamp%5ENLL",
-  "main_3" : "https://twitter.com/i/live/836709389494968325?ref_src=twsrc%5Eemail%7Ctwcamp%5ENLL",
+  "main" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+  "team_1" : "https://twitter.com/raysbaseball",
+  "team_2" : "https://twitter.com/redsox",
+  "main_2" : "https://twitter.com/i/live/807361386695135233?ref_src=twsrc%5Eemail%7Ctwcamp%5EPGA",
+  "main_3" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
   "weekly" : "https://twitter.com/i/live/807361386695135233?ref_src=twsrc%5Eemail%7Ctwcamp%5EPGA",
-  "weekly_2" : "https://twitter.com/i/live/854442977715814400",
+  "weekly_2" : "https://twitter.com/i/live/836709389494968325?ref_src=twsrc%5Eemail%7Ctwcamp%5ENLL",
   "weekly_3" : "https://twitter.com/i/live/789516242163859457?ref_src=twsrc%5Eemail%7Ctwcamp%5Enbathestarters%7Ctwgr%5Enewsletter",
   "weekly_4" : "https://twitter.com/i/live/765339035866804224?ref_src=twsrc%5Eemail%7Ctwcamp%5ERally"
 } %}
@@ -51,8 +53,8 @@
     "copy" : link_master.main,
     "cta" : link_master.main,
     "cta_2" : link_master.main,
-    "team_1" : "",
-    "team_2" : ""
+    "team_1" : link_master.team_1,
+    "team_2" : link_master.team_2
   },
   "main_2" : {
     "image" : link_master.main_2,
@@ -93,62 +95,63 @@
   "hashtag" : "Streaming LIVE on Twitter",
   "cta" : "Watch LIVE on",
   "main" : {
-    "title" : "WNBA: Phoenix vs San Antonio",
+    "title" : "MLB: @<a href=\"" + tl(link.main.team_1) + "\" class=\"blue\">RaysBaseball</a> vs @<a href=\"" + tl(link.main.team_2) + "\" class=\"blue\">RedSox</a>",
     "copy" : [
-      "Friday | 8pm ET",
-      "Lady hoops continues as the Mercury take on the Stars in San Antonio. ",
-      "Watch it. Talk about it."
+      "Friday, May 12 | 7:05pm ET",
+      "Catch the action LIVE from Fenway, as the Boston Red Sox host the Tampa Bay Rays.",
+      "Watch it. Talk about it.",
+      "Major League Baseball trademarks and copyrights are used with permission of MLB Advanced Media, L.P.  All rights reserved."
     ],
-    "alt" : "#BREAKING2 | NIKE | nikebreaking2.twitter.com",
+    "alt" : "Rays vs Red Sox | MLB | mlb.twitter.com",
     "alt_2" : "Watch it. Talk about it.",
     "cta" : "Watch LIVE on"
   },
   "main_2" : {
-    "title" : "NLL: Toronto vs Georgia",
-    "date" : "Saturday | 7:05pm ET",
-    "copy" : "See if Toronto can keep the Swarm at bay... and their chances alive.",
-    "alt" : "NLL: Toronto vs Georgia",
+    "title" : "PGA TOUR LIVE: Wells&nbsp;Fargo&nbsp;Championship",
+    "date" : "Thursday/Friday, May 4 & 5 7am&nbsp;ET",
+    "copy" : "The PGA returns to Wilmington, NC, for the first time since 1971.",
+    "alt" : "PGA: Wells Fargo Championship",
     "cta" : "Watch LIVE on"
   },
   "main_3" : {
-    "title" : "NLL: Colorado vs Saskatchewan",
-    "date" : "Saturday | 9:30pm ET",
-    "copy" : "The Mammoth need a victory over the Rush to force a tiebreaker. It’s now or never.",
-    "alt" : "NLL: Colorado vs Saskatchewan",
+    "title" : "MLB: @Nationals at @Phillies",
+    "date" : "Friday, May 5 | 7:05pm ET<span class='hide'><br>&nbsp;</span>",
+    "copy" : "Washington and Philadelphia players square off in the first game of a weekend series.",
+    "alt" : "MLB: @Nationals at @Phillies",
     "cta" : "Watch LIVE on"
   },
   "weekly_header" : "Your Weekly Watch List",
   "weekly_sub" : "Catch up on your favorite #LIVE shows",
   "weekly" : {
-    "title" : "PGA TOUR LIVE: AT&T Byron Nelson",
-    "date" : "Thursday & Friday | 8am-9:15am ET",
-    "copy" : "PGA action tees off in Texas with the first and second rounds at Byron Nelson.",
-    "alt" : "PGA TOUR LIVE: AT&T Byron Nelson",
+    "title" : "PGA: The Players Championship",
+    "date" : "Thursday/Friday, May 11 & 12 <span class='show'>|</span> 7:30am&nbsp;ET",
+    "copy" : "Don't miss Jason Day's return to TPC Sawgrass to defend his title.<span class='hide'><br>&nbsp;</span>",
+    "alt" : "PGA: The Players Championship",
     "cta" : "Watch LIVE on"
   },
   "weekly_2" : {
-    "title" : "MLL: Boston vs New York",
-    "date" : "Saturday | 7pm ET",
-    "copy" : "The Boston Cannons knock sticks with the NY Lizards in lacrosse this week.",
-    "alt" : "MLL: Boston vs New York",
+    "title" : "MLL: Rochester vs Boston",
+    "date" : "Saturday, May 13 | 6:45pm ET<span class='hide'><br>&nbsp;</span>",
+    "copy" : "Harvard Stadium becomes a lacrosse pitch as the Rochester Rattlers face off against the Boston Cannons.",
+    "alt" : "MLL: Rochester vs. Boston",
     "cta" : "Watch LIVE on"
   },
   "weekly_3" : {
     "title" : "The Starters Twitter Show",
     "date" : "Tuesdays | 11am ET",
-    "copy" : "Your go-to for NBA coverage as we get deeper into the playoffs.",
+    "copy" : "Your go-to show for all things NBA, now that the second round of playoffs are underway.",
     "alt" : "The Starters Twitter Show",
     "cta" : "Watch LIVE on"
   },
   "weekly_4" : {
     "title" : "The Rally",
     "date" : "Monday-Friday | 9pm ET",
-    "copy" : "Sports highlights, look-ins, and commentary.",
+    "copy" : "Sports highlights, look-ins, and commentary.<span class='hide'><br>&nbsp;</span>",
     "alt" : "The Rally",
     "cta" : "Watch LIVE on"
   },
   "footer" : ["Help", "Settings", "Unsubscribe", "Download App"],
-  "disclaimer" : "This email was generated for @" + signal("screen_name","Somebody") + ".",
+  "disclaimer" : "This email was meant for @" + signal("screen_name","Somebody") + ".",
   "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
 } %}
 
@@ -157,63 +160,62 @@
 {% set img = {
   "logo" : prefix_img + "logo_twitter_128-1491936394007.png",
   "logo_twitter" : prefix_img + "logo_twitter_128-1491936394007.png",
-  "hero" : prefix_img + "hero-1494957030818.jpg",
-  "hero_no_copy" : prefix_img + "hero-no-copy-1494959920279.jpg",
-  "hero_m" : prefix_img + "hero_m-1494956506709.jpg",
-  "hero_copy" : prefix_img + "hero-copy-1494957030766.png",
-  "hero_copy_2" : prefix_img + "",
-  "main_2" : prefix_img + "NLL_PreLIVE_Slate_800x450_052017_TorontoGeorgia_705PM-1494956097396.jpg",
-  "main_3" : prefix_img + "NLL_PreLIVE_Slate_800x450_052017_ColoradoSaskatchewan_930PM-1494956097391.jpg",
-  "weekly" : prefix_img + "PGA_PreLIVE_Slate_800x450_V3.1-1494891851749.jpg",
-  "weekly_2" : prefix_img + "MLL_WK5_SLATE_800x450_V2.1-1494891851763.jpg",
-  "weekly_3" : prefix_img + "TheStarters-Twitter-1494892032357.jpg",
-  "weekly_4" : prefix_img + "RallyEmailslate-1494891851747.jpg",
+  "hero" : prefix_img + "20170511_hero-1494262391041.jpg",
+  "hero_m" : prefix_img + "20170511_hero_m-1494265388903.jpg",
+  "hero_copy" : prefix_img + "20170511_hero_copy-1494262391087.png",
+  "hero_copy_2" : prefix_img + "20170511_hero_copy-1494262391087.png",
+  "main_2" : prefix_img + "20170511_pga_2-1494447157702.jpg",
+  "main_3" : prefix_img + "20170511_mll_2-1494450194707.jpg",
+  "weekly" : prefix_img + "20170511_pga_2-1494447157702.jpg",
+  "weekly_2" : prefix_img + "20170511_mll_2-1494450194707.jpg",
+  "weekly_3" : prefix_img + "20170511_starters-1494262391124.jpg",
+  "weekly_4" : prefix_img + "20170511_rally-1494262391072.jpg",
   "spacer" : prefix_img + "spacer_3_x_1-1480718996570.png"
 } %}
 
 {# CSS #}
 {% block style %}
     td.button {
-      -webkit-border-radius: 4px;
-      -moz-border-radius: 4px;
-      border-radius: 4px;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
       line-height: 18px;
     }
 
     a.button {
-      font-size: 16px;
-      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      color: #ffffff;
+      font-size: 16px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
       text-decoration: none;
-      -webkit-border-radius: 4px;
-      -moz-border-radius: 4px;
-      border-radius: 4px;
-      padding: 11px 30px;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 11px 30px; 
       border: 1px solid {{ main_color }};
-      display: inline-block;
-      font-weight:bold;
+      display: inline-block; 
+      font-weight:bold; 
       -webkit-font-smoothing: antialiased;
     }
 
     td.button_2 {
-      -webkit-border-radius: 4px;
-      -moz-border-radius: 4px;
-      border-radius: 4px;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
       line-height: 18px;
     }
 
     a.button_2 {
-      font-size: 12px;
-      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      color: #ffffff;
+      font-size: 12px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
       text-decoration: none;
-      -webkit-border-radius: 4px;
-      -moz-border-radius: 4px;
-      border-radius: 4px;
-      padding: 5px 16px;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 5px 16px; 
       border: 1px solid {{ main_color }};
-      display: inline-block;
-      font-weight:bold;
+      display: inline-block; 
+      font-weight:bold; 
       -webkit-font-smoothing: antialiased;
     }
 
@@ -222,6 +224,10 @@
       color: #000000;
       font-size: 20px;
       line-height: 24px;
+    }
+
+    .show {
+      display: none;
     }
 {% endblock %}
 
@@ -237,10 +243,6 @@
         #hero {
           background-image: url({{ img.hero_m }}) !important;
           {# background-size: cover !important;#}
-        }
-
-        .hero-mobile-space {
-          height: 28px !important;
         }
 
         .hero_copy {
@@ -268,7 +270,7 @@
         }
 
         .hero_spacer_bottom_m {
-          height: 20px !important;
+          height: 60px !important;
           width: 416px !important;
         }
 
@@ -278,12 +280,16 @@
         }
 
         a.button {
-          font-size: 12px !important;
-          padding: 5px 16px !important;
+          font-size: 12px !important; 
+          padding: 5px 16px !important; 
         }
 
         .hide {
           display: none !important;
+        }
+
+        .show {
+          display: inline !important;
         }
 
         .img_cta_logo {
@@ -371,7 +377,7 @@
                 <a href="{{ tl(link.main.table) }}">
                   <table cellpadding="0" cellspacing="0" border="0" width="650" align="center" class="width_full">
                     <tr>
-                      <td class="empty hero-mobile-space" height="44" colspan="3">
+                      <td class="empty" height="24" colspan="3">
                         &nbsp;
                       </td>
                     </tr>
@@ -384,7 +390,7 @@
                           <tr>
                             <td class="empty image" align="left">
                               <a href="{{ tl(link.main.copy,3) }}">
-                                <img src="{{ img.hero_copy }}" class="hero_copy" alt="{{ copy.main.alt }}" title="{{ copy.main.alt }}" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
+                                <img src="{{ img.hero_copy }}" class="hero_copy" alt="{{ copy.main.alt }}" title="{{ copy.main.alt }}" height="{{ hero_copy_height }}" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
                               </a>
                             </td>
                           </tr>
@@ -518,6 +524,16 @@
                     </td>
                   </tr>
                   <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="footer deep_grey center" aling="center">
+                      {{ i10n(copy.main.copy[3]) }}
+                    </td>
+                  </tr>
+                  <tr>
                     <td class="empty" height="48">
                       &nbsp;
                     </td>
@@ -531,7 +547,7 @@
               </td>
             </tr>
           </table>
-          <table cellpadding="0" cellspacing="0" border="0" width="650" bgcolor="#ffffff" align="center" class="width_full">
+          {#<table cellpadding="0" cellspacing="0" border="0" width="650" bgcolor="#ffffff" align="center" class="width_full">
             <!--[if gte mso 9]>
             <tr>
               <td colspan="3">
@@ -679,8 +695,8 @@
                 <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="24" />
                 <![endif]-->
               </td>
-            </tr>
-          </table>
+            </tr>  
+          </table>#}
           <table cellpadding="0" cellspacing="0" border="0" width="650" bgcolor="{{ main_color }}" align="center" class="width_full">
             <!--[if gte mso 9]>
             <tr>

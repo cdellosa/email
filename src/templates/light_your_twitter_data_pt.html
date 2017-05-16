@@ -1,0 +1,61 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "text" : [
+    "https://twitter.com/privacy",
+    "https://twitter.com/personalization",
+    "https://twitter.com/your_twitter_data",
+    "https://twitter.com/personalization",
+    "https://twitter.com/personalization",
+    "https://support.twitter.com/forms/privacy"
+  ],
+  "help" : "https://support.twitter.com/",
+  "settings" : "https://twitter.com/settings",
+  "unsubscribe" : "{{unsubscribe}}",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject" : "Your advertiser list is ready",
+  "alt_logo" : "Twitter",
+  "title" : "Logged in users:",
+  "body" : [
+    "{{user_name}}, your Twitter data is ready! The data associated with your account on {{timestamp}} is attached. If you didn’t request this information, you can ignore this email."
+  ],
+  "footer" : ["Help", "Settings", "Unsubscribe", "Download App"],
+  "disclaimer" : "This email was generated for @" + signal("screen_name","Somebody") + ".",
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+Subject: 
+{{ i10n(copy.subject) }}
+ 
+Twitter 
+{{ "> " + link.logo }}
+
+=
+
+{{ i10n(pt(copy.body[0])) }}
+
+=
+
+{{ i10n(pt(copy.footer[0])) }} 
+{{ "> " + link.help }}{#
+
+{{ i10n(pt(copy.footer[1])) }} 
+{{ "> " + link.settings }}
+
+{{ i10n(pt(copy.footer[2])) }} 
+{{ "> " + link.unsubscribe }}
+
+{{ i10n(pt(copy.footer[3])) }} 
+{{ "> " + link.download }}#}
+
+{{ i10n(pt(copy.disclaimer)) }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

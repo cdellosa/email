@@ -1,0 +1,72 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "text" : [
+    "https://support.twitter.com/articles/204820",
+    "https://www.consumer.ftc.gov/articles/0003-phishing"
+  ],
+  "help" : "https://support.twitter.com/",
+  "settings" : "https://twitter.com/settings",
+  "unsubscribe" : "{{unsubscribe}}",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject" : "Important information from Vine about your account safety",
+  "preheader" : "",
+  "title" : "Update to our Privacy Policy",
+  "body" : [
+    "Dear @{{screen_name}},",
+
+    "We are writing to let you know that we were alerted to — and immediately fixed — a bug that affected the Vine Archive for less than 24 hours.  This bug had the potential to expose the email address associated with a Vine account to third parties under certain circumstances.",
+
+    "In our investigation, we discovered that the email address linked to your account was exposed.  We want to emphasize that this information can't directly be used to access your account, and we have no information indicating that it has been misused.  We take these incidents very seriously, and we're sorry this occurred.",
+
+    "As a security best practice, we recommend that you be cautious if you receive emails from unknown senders.  Please keep in mind that Vine will only send you communications from support@twitter.com, and we will never send emails with attachments or request your password by email.",
+
+    "For more tips on how to avoid fake emails and stay safe online, read the Twitter Help Center and the FTC's guide on phishing.",
+
+    "- Vine Support"
+  ],
+  "footer" : ["Help", "Settings", "Unsubscribe", "Download App"],
+  "disclaimer" : "This email was generated for @" + mustache("{{#recipient}}{{screen_name}}{{/recipient}}","Somebody") + ".",
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+Subject: 
+{{ i10n(copy.subject) }}
+ 
+Twitter 
+{{ "> " + link.logo }}
+
+=
+
+{{ i10n(copy.title) }}
+
+=
+
+{{ i10n(copy.body[0]) }} 
+
+{{ i10n(copy.body[1]) }} 
+
+{{ i10n(copy.body[2]) }}
+
+{{ i10n(copy.body[3]) }} 
+
+{{ i10n(copy.body[4]) }}
+> {{ link.text[0] }}
+> {{ link.text[1] }}
+
+{{ i10n(copy.body[5]) }} 
+
+=
+
+{{ i10n(copy.footer[0]) }} 
+{{ "> " + link.help }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}
