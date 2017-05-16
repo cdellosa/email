@@ -2,7 +2,11 @@
 {% include "includes/macros.html" %}
 
 {# IBIS SWITCH #}
+<<<<<<< Updated upstream
 {% set ibis = false %}
+=======
+{% set ibis = true %}
+>>>>>>> Stashed changes
 
 {# HERO COPY IMAGE HEIGHT #}
 {% set hero_copy_height = 51 %}
@@ -23,10 +27,17 @@
   "subject_line" : "Watch Zac Brown Band LIVE",
   "alt_hero" : "Watch Zac Brown band LIVE",
   "headline" : "Watch Zac Brown Band perform songs from their new album \"WELCOME HOME\"",
+<<<<<<< Updated upstream
   "body" : "See Zac Brown Band live — exclusively on Twitter tonight at
 8:25pm ET — as part of the Live Nation Concert Series. Hear songs
 off their new album, \"WELCOME HOME\" — available now — as the Grammy
 award winners bring down the house down with a sold out crowd in their
+=======
+  "body" : "See Zac Brown Band live—exclusively on Twitter tonight at 
+8:25pm ET—as part of the Live Nation Concert Series. Hear songs 
+off their new album, \"WELCOME HOME\"—available now—as the Grammy 
+award winners bring the house down with a sold out crowd in their 
+>>>>>>> Stashed changes
 hometown of Atlanta.",
   "body_1": "Tonight 8:25PM ET l 5:25PM PT",
   "body_2" : [
@@ -180,6 +191,7 @@ hometown of Atlanta.",
 
 {% block body %}
   <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full" dir="{{ dir('ltr') }}">
+<<<<<<< Updated upstream
             <tr>
               <td id="hero" background="{{ img.hero }}" bgcolor="#ffffff" width="640" valign="top" colspan="3">
                 <!--[if gte mso 9]>
@@ -251,6 +263,92 @@ hometown of Atlanta.",
                 <![endif]-->
               </td>
             </tr>
+=======
+    <tr>
+      <td id="hero" background="{{ img.hero }}" bgcolor="#ffffff" width="640" valign="top">
+        <!--[if gte mso 9]>
+        <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:640px;height:366px;">
+          <v:fill type="tile" src="{{ img.hero }}" color="#ffffff" />
+          <v:textbox inset="0,0,0,0">
+        <![endif]-->
+        <a href="{{ tl(link.hero) }}">
+          <table cellpadding="0" cellspacing="0" border="0" width="640" align="center" class="width_full">
+            <tr>
+              <td class="empty m_top" height="118">
+                &nbsp;
+              </td>
+              <td class="empty m_top" height="118">
+                &nbsp;
+              </td>
+              <td class="empty m_top" height="118">
+                &nbsp;
+              </td>
+            </tr>
+            <tr>
+              <td class="empty hero_copy_horizontal_spacer_m" width="80">
+                &nbsp;
+              </td>
+              <td class="empty">
+                <table cellpadding="0" cellspacing="0" border="0" align="right">
+                  <tr>
+                    <td class="empty image center" align="center">
+                      <a href="{{ tl(link.hero) }}">
+                        <img src="{{ img.hero_copy }}" class="hero_copy" alt="{{ copy.alt_hero }}" title="{{ copy.alt_hero }}" height="{{ hero_copy_height }}" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty hide" height="24">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty hide" height="120">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty">
+                      <table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td align="center" class="button" bgcolor="{{ main_color }}">
+                            <a href="{{ tl(link.hero) }}" target="_blank" class="button">
+                              <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                              {{ i10n(copy.cta) }}&nbsp;<img src="{{ img.logo_twitter }}" height="14" class="img_cta_logo"/>
+                              <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td class="empty hero_copy_horizontal_spacer_m" width="80">
+                &nbsp;
+              </td>
+            </tr>
+            <tr>
+              <td class="empty center" height="36" align="center">
+                &nbsp;
+              </td>
+              <td class="empty center" height="36" align="center">
+                &nbsp;
+              </td>
+              <td class="empty center" height="36" align="center">
+                &nbsp;
+              </td>
+            </tr>
+          </table>
+          <img src="{{ img.spacer_2 }}" height="1" width="1" class="width_416">
+        </a>
+        <!--[if gte mso 9]>
+          </v:textbox>
+        </v:rect>
+        <![endif]-->
+      </td>
+    </tr>
+>>>>>>> Stashed changes
     <tr>
       <td class="empty">
         <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full">
@@ -293,9 +391,13 @@ hometown of Atlanta.",
                 </td>
                 <tr>
                   <td class="body deep_grey center" align="center" dir="{{ dir('ltr') }}">
+<<<<<<< Updated upstream
                     <a href="{{ tl(link.text[0]) }}" class="deep_grey">
                       {{ i10n(copy.body_2[0]) }}
                     </a>
+=======
+                      {{ i10n(copy.body_2[0]) }}
+>>>>>>> Stashed changes
                     &nbsp;|&nbsp;
                     <a href="{{ tl(link.text[1]) }}" class="deep_grey">
                       {{ i10n(copy.body_2[1]) }}

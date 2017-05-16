@@ -2,7 +2,7 @@
 {% include "includes/macros.html" %}
 
 {# IBIS SWITCH #}
-{% set ibis = false %}
+{% set ibis = true %}
 
 {# HERO COPY IMAGE HEIGHT #}
 {% set hero_copy_height = 156 %}
@@ -361,6 +361,7 @@
                 <![endif]-->
               </td>
             </tr>
+            {{"{{^email_live_sports_treatments_6104}}"}}
             <tr>
               <td id="hero" background="{{ img.hero }}" bgcolor="#ffffff" width="650" valign="top" colspan="3">
                 <!--[if gte mso 9]>
@@ -439,6 +440,169 @@
                 <![endif]-->
               </td>
             </tr>
+            {{"{{/email_live_sports_treatments_6104}}
+            {{#email_live_sports_treatments_6104}}
+              {{#control}}"}}
+                <tr>
+                  <td id="hero" background="{{ img.hero }}" bgcolor="#ffffff" width="650" valign="top" colspan="3">
+                    <!--[if gte mso 9]>
+                    <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:650px;height:366px;">
+                      <v:fill type="tile" src="{{ img.hero }}" color="#ffffff" />
+                      <v:textbox inset="0,0,0,0">
+                    <![endif]-->
+                    <a href="{{ tl(link.main.table) }}">
+                      <table cellpadding="0" cellspacing="0" border="0" width="650" align="center" class="width_full">
+                        <tr>
+                          <td class="empty hero-mobile-space" height="44" colspan="3">
+                            &nbsp;
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="empty width_24" width="24">
+                            &nbsp;
+                          </td>
+                          <td class="empty">
+                            <table cellpadding="0" cellspacing="0" border="0" align="left">
+                              <tr>
+                                <td class="empty image" align="left">
+                                  <a href="{{ tl(link.main.copy,3) }}">
+                                    <img src="{{ img.hero_copy }}" class="hero_copy" alt="{{ copy.main.alt }}" title="{{ copy.main.alt }}" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
+                                  </a>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="empty" height="24">
+                                  &nbsp;
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="empty">
+                                  <table border="0" cellspacing="0" cellpadding="0" align="left">
+                                    <tr>
+                                      <td align="center" class="button" bgcolor="{{ main_color }}">
+                                        <a href="{{ tl(link.main.cta) }}" target="_blank" class="button">
+                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                          {{ i10n(copy.cta) }}&nbsp;<img src="{{ img.logo_twitter }}" height="14" class="img_cta_logo"/>
+                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                        </a>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+                              {#<tr>
+                                <td class="empty image" align="left">
+                                  <a href="{{ tl(link.main.copy,3) }}">
+                                    <img src="{{ img.hero_copy_2 }}" class="hero_copy_2" alt="{{ copy.main.alt_2 }}" title="{{ copy.main.alt_2 }}" height="{{ hero_copy_height_2 }}" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
+                                  </a>
+                                </td>
+                              </tr>#}
+                            </table>
+                          </td>
+                          <td class="empty width_24" width="24">
+                            &nbsp;
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="empty" height="24" colspan="3">
+                            &nbsp;
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="empty hero_spacer_bottom_m" height="{{ hero_spacer_height }}" colspan="3">
+                            <img src="{{ img.spacer }}" height="1" width="1" class="hero_spacer_bottom_m">
+                          </td>
+                        </tr>
+                      </table>
+                    </a>
+                    <!--[if gte mso 9]>
+                      </v:textbox>
+                    </v:rect>
+                    <![endif]-->
+                  </td>
+                </tr>
+              {{"{{/control}}
+              {{#treatment2}}"}}
+                <tr>
+                  <td id="hero" background="{{ img.hero_no_copy }}" bgcolor="#ffffff" width="650" valign="top" colspan="3">
+                    <!--[if gte mso 9]>
+                    <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:650px;height:366px;">
+                      <v:fill type="tile" src="{{ img.hero_no_copy }}" color="#ffffff" />
+                      <v:textbox inset="0,0,0,0">
+                    <![endif]-->
+                    <a href="{{ tl(link.main.table) }}">
+                      <table cellpadding="0" cellspacing="0" border="0" width="650" align="center" class="width_full">
+                        <tr>
+                          <td class="empty hero-mobile-space" height="44" colspan="3">
+                            &nbsp;
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="empty width_24" width="24">
+                            &nbsp;
+                          </td>
+                          <td class="empty">
+                            <table cellpadding="0" cellspacing="0" border="0" align="left">
+                              <tr>
+                                <td class="empty image" align="left">
+                                  <a href="{{ tl(link.main.copy,3) }}">
+                                    <img src="{{ img.spacer }}" class="hero_copy" alt="{{ copy.main.alt }}" title="{{ copy.main.alt }}" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
+                                  </a>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="empty" height="24">
+                                  &nbsp;
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="empty">
+                                  <table border="0" cellspacing="0" cellpadding="0" align="left">
+                                    <tr>
+                                      <td align="center" class="button" bgcolor="{{ main_color }}">
+                                        <a href="{{ tl(link.main.cta) }}" target="_blank" class="button">
+                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                          {{ i10n(copy.cta) }}&nbsp;<img src="{{ img.logo_twitter }}" height="14" class="img_cta_logo"/>
+                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                        </a>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+                              {#<tr>
+                                <td class="empty image" align="left">
+                                  <a href="{{ tl(link.main.copy,3) }}">
+                                    <img src="{{ img.hero_copy_2 }}" class="hero_copy_2" alt="{{ copy.main.alt_2 }}" title="{{ copy.main.alt_2 }}" height="{{ hero_copy_height_2 }}" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
+                                  </a>
+                                </td>
+                              </tr>#}
+                            </table>
+                          </td>
+                          <td class="empty width_24" width="24">
+                            &nbsp;
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="empty" height="24" colspan="3">
+                            &nbsp;
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="empty hero_spacer_bottom_m" height="{{ hero_spacer_height }}" colspan="3">
+                            <img src="{{ img.spacer }}" height="1" width="1" class="hero_spacer_bottom_m">
+                          </td>
+                        </tr>
+                      </table>
+                    </a>
+                    <!--[if gte mso 9]>
+                      </v:textbox>
+                    </v:rect>
+                    <![endif]-->
+                  </td>
+                </tr>
+              {{"{{/treatment2}}
+            {{/email_live_sports_treatments_6104}}"}}
           </table>
           <!-- HEADER END -->
           <table cellpadding="0" cellspacing="0" border="0" width="650" bgcolor="#ffffff" align="center" class="width_full">
