@@ -1,0 +1,324 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# MOBILE FIX REMOVE SWITCH #}
+{% set mobile_fix_remove = false %}
+
+{# COPY #}
+{% set copy = {
+  "preheader" : "Catch MLB Live & tweet along with the fans",
+  "subject_line" : "Get the best seats in the stadium for MLB live action!",
+  "alt_hero" : "Twitter Presents MLB Live Tuesdays throughout June!",
+  "headline" : "Twitter Presents MLB Live Tuesdays throughout June!",
+  "body" : "We're broadcasting some of the best games in baseball every
+  Tuesday night through June on Twitter. Put yourself in the action
+  as teams fight for the top slot leading into the All-Star break.
+  Talk teams, stats, players or just banter with other fans. Catch MLB
+  action every Tuesday through June—only on Twitter.",
+  "body_2" : [
+    "Watch it. Talk about it.",
+    "Watch and Tweet along with your favorite <a class='deep_grey' href='https://twitter.com/mlb'>@MLB</a> teams and players
+    all season long.",
+    "Visit <a class='deep_grey' href='https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB'>mlb.twitter.com.</a>"
+  ],
+  "cta" : "Watch LIVE on",
+  "schedule" : "IGN at #E32017 schedule",
+  "alt_acma" : "IGN",
+  "alt_logo" : "Twitter",
+  "footer" : ["About", "Help", "Unsubscribe", "Download app"],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "logo_twitter" : prefix_img + "logo-1475170569504.png",
+  "hero" : prefix_img + "mlb_herobanner-1496896461758.jpg",
+  "schedule" : prefix_img + "mlb_schedule-1496895846636.jpg",
+  "spacer" : prefix_img + "spacer_650x265-1481056487262.png",
+  "spacer_1" : prefix_img + "spacer_650x1-1481059174655.png",
+  "logo_acma" : prefix_img + "20170505_mlb_launch_logo_mlb-1493836110453.png",
+  "logo_twitter_large" : prefix_img + "dm_logo_twitter-1489534651038.png"
+} %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+  "cta" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+  "text" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+  "text_2" : "https://twitter.com/mlb",
+  "logo_acma" : "https://twitter.com/mlb",
+  "logo_twitter_large" : "https://twitter.com/",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# CSS #}
+{% block style %}
+    .h3 {
+      font-size: 22px;
+      line-height: 26px;
+    }
+
+    td.button {
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      line-height: 18px;
+    }
+
+    a.button {
+      font-size: 16px;
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: #ffffff;
+      text-decoration: none;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      padding: 11px 30px;
+      border: 1px solid #1DA1F2;
+      display: inline-block;
+      font-weight:600;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .button img {
+      display: inline;
+      vertical-align: top;
+    }
+
+    .body {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 16px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 22px;
+    }
+
+    .justify {
+      text-align: justify;
+    }
+{% endblock %}
+
+{% block media_query %}
+        .iosBlue a {
+          text-decoration: underline;
+          }
+
+        .width_full {
+          width: 100% !important;
+        }
+
+        .height_30 {
+          height: 30px !important;
+        }
+{% endblock %}
+
+{% block body %}
+  <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full" dir="{{ dir('ltr') }}">
+    <tr>
+      <td class="empty image">
+        <a href="{{ track(link.hero,1) }}">
+          <img src="{{ img.hero }}" width="640" class="width_full" title="{{ i10n(copy.alt_hero) }}" alt="{{ i10n(copy.alt_hero) }}" style="color: #1DA1F2; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none; text-align: center;"/>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td class="empty">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full">
+          <tr>
+            <td class="empty width_20" width="90">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table cellpadding="0" cellspacing="0" border="0" align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="40">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="h3 deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.headline) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="40">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" align="center">
+                    <table border="0" cellspacing="0" cellpadding="0" align="center">
+                      <tr>
+                        <td align="center" class="button center" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
+                          <a href="{{ track(link.cta,2) }}" target="_blank" class="button nowrap">
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                            {{ i10n(copy.cta) }}&nbsp;<img src="{{ img.logo_twitter }}" height="16" />
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="40">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="h3 deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body_2[0]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="6">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body_2[1]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body_2[2]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty image">
+                    <img src="{{ img.schedule }}" width="640" class="width_full" title="{{ i10n(copy.schedule) }}" alt="{{ i10n(copy.schedule) }}" style="color: #1DA1F2; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none; text-align: center;"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty">
+                    <table align="center">
+                      <tr>
+                        <td class="empty center" align="center">
+                          <a href="{{ track(link.logo_acma,5) }}" class="blue">
+                            <img src="{{ img.logo_acma }}" height="42" title="{{ i10n(copy.alt_acma) }}" alt="{{ i10n(copy.alt_acma) }}"/>
+                          </a>
+                        </td>
+                        <td class="empty" width="20">
+                          &nbsp;
+                        </td>
+                        <td class="empty" width="1" bgcolor="#bec9d1">
+                          &nbsp;
+                        </td>
+                        <td class="empty" width="20">
+                          &nbsp;
+                        </td>
+                        <td class="empty center" align="center">
+                          <a href="{{ track(link.logo_twitter_large,6) }}" class="blue">
+                          <img src="{{ img.logo_twitter_large }}" height="42" title="{{ i10n(copy.alt_logo) }}" alt="{{ i10n(copy.alt_logo) }}"/>
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="40">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="90">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#f5f8fa" width="640" class="width_full">
+          <!--[if gte mso 9]>
+          <tr>
+            <td colspan="3" align="center">
+              <img src="{{ img.spacer_1 }}" width="640" />
+            </td>
+          </tr>
+          <![endif]-->
+          <tr>
+            <td class="empty width_20" width="90">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer strong deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    <a href="{{ track(link.about,7) }}" class="blue">
+                      {{ i10n(copy.footer[0]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ track(link.help,8) }}" class="blue">
+                      {{ i10n(copy.footer[1]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ '{{ unsubscribe }}' }}" class="blue">
+                      {{ i10n(copy.footer[2]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ track(link.download,9) }}" class="blue">
+                      {{ i10n(copy.footer[3]) }}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer deep_grey center" align="center">
+                    <span class="addressLink">{{ fixAddress(copy.address) }}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="90">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+{% endblock %}

@@ -2,7 +2,7 @@
 {% include "includes/macros.html" %}
 
 {# IBIS SWITCH #}
-{% set ibis = true %}
+{% set ibis = false %}
 
 {# HERO COPY IMAGE HEIGHT #}
 {% set hero_copy_height = 156 %}
@@ -35,13 +35,13 @@
 
 {# LINKS #}
 {% set link_master = {
-  "main" : "https://twitter.com/i/live/858018226579529728?ref_src=twsrc%5EEmail%7Ctwcamp%5EWNBA",
-  "main_2" : "https://twitter.com/i/live/836709389494968325?ref_src=twsrc%5Eemail%7Ctwcamp%5ENLL",
-  "main_3" : "https://twitter.com/i/live/836709389494968325?ref_src=twsrc%5Eemail%7Ctwcamp%5ENLL",
-  "weekly" : "https://twitter.com/i/live/807361386695135233?ref_src=twsrc%5Eemail%7Ctwcamp%5EPGA",
-  "weekly_2" : "https://twitter.com/i/live/854442977715814400",
-  "weekly_3" : "https://twitter.com/i/live/789516242163859457?ref_src=twsrc%5Eemail%7Ctwcamp%5Enbathestarters%7Ctwgr%5Enewsletter",
-  "weekly_4" : "https://twitter.com/i/live/765339035866804224?ref_src=twsrc%5Eemail%7Ctwcamp%5ERally"
+  "main" : "https://twitter.com/i/live/847216698398658560?ref_src=twsrc%5EEmail%7Ctwcamp%5EIGN",
+  "main_2" : "https://twitter.com/i/live/864584878926348289?ref_src=twsrc%5EEmail%7Ctwcamp%5EXBox",
+  "main_3" : "https://twitter.com/i/live/847216698398658560?ref_src=twsrc%5EEmail%7Ctwcamp%5EIGN",
+  "weekly" : "https://twitter.com/i/live/847216698398658560?ref_src=twsrc%5EEmail%7Ctwcamp%5EIGN",
+  "weekly_2" : "https://twitter.com/i/live/866753258169057280?ref_src=twsrc%5EEmail%7Ctwcamp%5EMTG_Dreamhack",
+  "weekly_3" : "",
+  "weekly_4" : ""
 } %}
 
 {% set link = {
@@ -78,7 +78,7 @@
     "image" : link_master.weekly_4,
     "cta" : link_master.weekly_4
   },
-  "help" : "https://support.twitter.com/",
+  "about" : "https://t.co/about",
   "settings" : "https://twitter.com/settings",
   "unsubscribe" : "{{unsubscribe}}",
   "download" : "https://twitter.com/download"
@@ -89,65 +89,51 @@
   "subject" : [
     "@{{screen_name}}, you've got to see what's happening LIVE this week"
   ],
-  "preheader" : "Watch it. Talk about it. Only on Twitter.",
+  "preheader" : "E3 and CSGO, streaming LIVE June 10-19.",
   "hashtag" : "Streaming LIVE on Twitter",
   "cta" : "Watch LIVE on",
   "main" : {
-    "title" : "WNBA: Phoenix vs San Antonio",
+    "title" : "E3: Live coverage via IGN",
     "copy" : [
-      "Friday | 8pm ET",
-      "Lady hoops continues as the Mercury take on the Stars in San Antonio. ",
+      "Saturday, June 10 l 2:00pm ET",
+      "It's the biggest virtual event of the year. And you'll be virtually there.",
       "Watch it. Talk about it."
     ],
-    "alt" : "#BREAKING2 | NIKE | nikebreaking2.twitter.com",
+    "alt" : "E3: Live coverage via IGN",
     "alt_2" : "Watch it. Talk about it.",
     "cta" : "Watch LIVE on"
   },
   "main_2" : {
-    "title" : "NLL: Toronto vs Georgia",
-    "date" : "Saturday | 7:05pm ET",
-    "copy" : "See if Toronto can keep the Swarm at bay... and their chances alive.",
-    "alt" : "NLL: Toronto vs Georgia",
+    "title" : "Xbox E3 2017 Briefing",
+    "date" : "Sunday, June 11 l 5:00pm ET",
+    "copy" : "Watch live, along with the world, as Xbox unveils what's next.",
+    "alt" : "PGA TOUR LIVE: The Memorial Tournament",
     "cta" : "Watch LIVE on"
   },
   "main_3" : {
-    "title" : "NLL: Colorado vs Saskatchewan",
-    "date" : "Saturday | 9:30pm ET",
-    "copy" : "The Mammoth need a victory over the Rush to force a tiebreaker. It’s now or never.",
-    "alt" : "NLL: Colorado vs Saskatchewan",
+    "title" : "#E32017",
+    "date" : "Monday, June 12 l 3:00pm ET",
+    "copy" : "IGN brings you coverage all day, everyday, so don't miss a minute.",
+    "alt" : "#E32017",
     "cta" : "Watch LIVE on"
   },
-  "weekly_header" : "Your Weekly Watch List",
+  "weekly_header" : "Your Watch List",
   "weekly_sub" : "Catch up on your favorite #LIVE shows",
   "weekly" : {
-    "title" : "PGA TOUR LIVE: AT&T Byron Nelson",
-    "date" : "Thursday & Friday | 8am-9:15am ET",
-    "copy" : "PGA action tees off in Texas with the first and second rounds at Byron Nelson.",
-    "alt" : "PGA TOUR LIVE: AT&T Byron Nelson",
+    "title" : "#E32017",
+    "date" : "Tuesday - Thursday",
+    "copy" : "Epic moments, game demos and interviews as they happen. ",
+    "alt" : "#E32017",
     "cta" : "Watch LIVE on"
   },
   "weekly_2" : {
-    "title" : "MLL: Boston vs New York",
-    "date" : "Saturday | 7pm ET",
-    "copy" : "The Boston Cannons knock sticks with the NY Lizards in lacrosse this week.",
-    "alt" : "MLL: Boston vs New York",
+    "title" : "DreamHack Summer",
+    "date" : "Saturday - Monday",
+    "copy" : "DreamHack Summer, FTW!",
+    "alt" : "DreamHack Summer",
     "cta" : "Watch LIVE on"
   },
-  "weekly_3" : {
-    "title" : "The Starters Twitter Show",
-    "date" : "Tuesdays | 11am ET",
-    "copy" : "Your go-to for NBA coverage as we get deeper into the playoffs.",
-    "alt" : "The Starters Twitter Show",
-    "cta" : "Watch LIVE on"
-  },
-  "weekly_4" : {
-    "title" : "The Rally",
-    "date" : "Monday-Friday | 9pm ET",
-    "copy" : "Sports highlights, look-ins, and commentary.",
-    "alt" : "The Rally",
-    "cta" : "Watch LIVE on"
-  },
-  "footer" : ["Help", "Settings", "Unsubscribe", "Download App"],
+  "footer" : ["About", "Settings", "Unsubscribe", "Download App"],
   "disclaimer" : "This email was generated for @" + signal("screen_name","Somebody") + ".",
   "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
 } %}
@@ -157,17 +143,14 @@
 {% set img = {
   "logo" : prefix_img + "logo_twitter_128-1491936394007.png",
   "logo_twitter" : prefix_img + "logo_twitter_128-1491936394007.png",
-  "hero" : prefix_img + "hero-1494957030818.jpg",
-  "hero_no_copy" : prefix_img + "hero-no-copy-1494959920279.jpg",
-  "hero_m" : prefix_img + "hero_m-1494956506709.jpg",
-  "hero_copy" : prefix_img + "hero-copy-1494957030766.png",
+  "hero" : prefix_img + "IGN_E3_hero-1496701327298.jpg",
+  "hero_m" : prefix_img + "ign-e3-hero-m-1496701327317.jpg",
+  "hero_copy" : prefix_img + "",
   "hero_copy_2" : prefix_img + "",
-  "main_2" : prefix_img + "NLL_PreLIVE_Slate_800x450_052017_TorontoGeorgia_705PM-1494956097396.jpg",
-  "main_3" : prefix_img + "NLL_PreLIVE_Slate_800x450_052017_ColoradoSaskatchewan_930PM-1494956097391.jpg",
-  "weekly" : prefix_img + "PGA_PreLIVE_Slate_800x450_V3.1-1494891851749.jpg",
-  "weekly_2" : prefix_img + "MLL_WK5_SLATE_800x450_V2.1-1494891851763.jpg",
-  "weekly_3" : prefix_img + "TheStarters-Twitter-1494892032357.jpg",
-  "weekly_4" : prefix_img + "RallyEmailslate-1494891851747.jpg",
+  "main_2" : prefix_img + "ign-xbox-1496701327344.jpg",
+  "main_3" : prefix_img + "ign-e3tuesday-1496701327333.jpg",
+  "weekly" : prefix_img + "ign-e3tuesday-1496701327333.jpg",
+  "weekly_2" : prefix_img + "ign-dreamhack-1496701327331.jpg",
   "spacer" : prefix_img + "spacer_3_x_1-1480718996570.png"
 } %}
 
@@ -223,6 +206,14 @@
       font-size: 20px;
       line-height: 24px;
     }
+
+    .fl {
+      float: left;
+    }
+
+    .fr {
+      float: right;
+    }
 {% endblock %}
 
 {% block media_query %}
@@ -236,11 +227,14 @@
 
         #hero {
           background-image: url({{ img.hero_m }}) !important;
-          {# background-size: cover !important;#}
+        }
+
+        #hero-treatment-mobile {
+          background-image: url({{ img.hero_treatment_m}}) !important;
         }
 
         .hero-mobile-space {
-          height: 28px !important;
+          height: 0 !important;
         }
 
         .hero_copy {
@@ -268,8 +262,12 @@
         }
 
         .hero_spacer_bottom_m {
-          height: 20px !important;
+          height: 10px !important;
           width: 416px !important;
+        }
+
+        .hero_treatment_m_spacer {
+          display: none !important;
         }
 
         .font_18 {
@@ -281,6 +279,8 @@
           font-size: 12px !important;
           padding: 5px 16px !important;
         }
+
+
 
         .hide {
           display: none !important;
@@ -361,7 +361,6 @@
                 <![endif]-->
               </td>
             </tr>
-            {{"{{^email_live_sports_treatments_6104}}"}}
             <tr>
               <td id="hero" background="{{ img.hero }}" bgcolor="#ffffff" width="650" valign="top" colspan="3">
                 <!--[if gte mso 9]>
@@ -383,10 +382,8 @@
                       <td class="empty">
                         <table cellpadding="0" cellspacing="0" border="0" align="left">
                           <tr>
-                            <td class="empty image" align="left">
-                              <a href="{{ tl(link.main.copy,3) }}">
-                                <img src="{{ img.hero_copy }}" class="hero_copy" alt="{{ copy.main.alt }}" title="{{ copy.main.alt }}" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
-                              </a>
+                            <td class="empty" height="96">
+                              &nbsp;
                             </td>
                           </tr>
                           <tr>
@@ -409,16 +406,14 @@
                               </table>
                             </td>
                           </tr>
-                          {#<tr>
-                            <td class="empty image" align="left">
-                              <a href="{{ tl(link.main.copy,3) }}">
-                                <img src="{{ img.hero_copy_2 }}" class="hero_copy_2" alt="{{ copy.main.alt_2 }}" title="{{ copy.main.alt_2 }}" height="{{ hero_copy_height_2 }}" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
-                              </a>
-                            </td>
-                          </tr>#}
                         </table>
                       </td>
                       <td class="empty width_24" width="24">
+                        &nbsp;
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="empty" height="54" colspan="3">
                         &nbsp;
                       </td>
                     </tr>
@@ -440,169 +435,6 @@
                 <![endif]-->
               </td>
             </tr>
-            {{"{{/email_live_sports_treatments_6104}}
-            {{#email_live_sports_treatments_6104}}
-              {{#control}}"}}
-                <tr>
-                  <td id="hero" background="{{ img.hero }}" bgcolor="#ffffff" width="650" valign="top" colspan="3">
-                    <!--[if gte mso 9]>
-                    <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:650px;height:366px;">
-                      <v:fill type="tile" src="{{ img.hero }}" color="#ffffff" />
-                      <v:textbox inset="0,0,0,0">
-                    <![endif]-->
-                    <a href="{{ tl(link.main.table) }}">
-                      <table cellpadding="0" cellspacing="0" border="0" width="650" align="center" class="width_full">
-                        <tr>
-                          <td class="empty hero-mobile-space" height="44" colspan="3">
-                            &nbsp;
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="empty width_24" width="24">
-                            &nbsp;
-                          </td>
-                          <td class="empty">
-                            <table cellpadding="0" cellspacing="0" border="0" align="left">
-                              <tr>
-                                <td class="empty image" align="left">
-                                  <a href="{{ tl(link.main.copy,3) }}">
-                                    <img src="{{ img.hero_copy }}" class="hero_copy" alt="{{ copy.main.alt }}" title="{{ copy.main.alt }}" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
-                                  </a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="empty" height="24">
-                                  &nbsp;
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="empty">
-                                  <table border="0" cellspacing="0" cellpadding="0" align="left">
-                                    <tr>
-                                      <td align="center" class="button" bgcolor="{{ main_color }}">
-                                        <a href="{{ tl(link.main.cta) }}" target="_blank" class="button">
-                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                                          {{ i10n(copy.cta) }}&nbsp;<img src="{{ img.logo_twitter }}" height="14" class="img_cta_logo"/>
-                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                                        </a>
-                                      </td>
-                                    </tr>
-                                  </table>
-                                </td>
-                              </tr>
-                              {#<tr>
-                                <td class="empty image" align="left">
-                                  <a href="{{ tl(link.main.copy,3) }}">
-                                    <img src="{{ img.hero_copy_2 }}" class="hero_copy_2" alt="{{ copy.main.alt_2 }}" title="{{ copy.main.alt_2 }}" height="{{ hero_copy_height_2 }}" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
-                                  </a>
-                                </td>
-                              </tr>#}
-                            </table>
-                          </td>
-                          <td class="empty width_24" width="24">
-                            &nbsp;
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="empty" height="24" colspan="3">
-                            &nbsp;
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="empty hero_spacer_bottom_m" height="{{ hero_spacer_height }}" colspan="3">
-                            <img src="{{ img.spacer }}" height="1" width="1" class="hero_spacer_bottom_m">
-                          </td>
-                        </tr>
-                      </table>
-                    </a>
-                    <!--[if gte mso 9]>
-                      </v:textbox>
-                    </v:rect>
-                    <![endif]-->
-                  </td>
-                </tr>
-              {{"{{/control}}
-              {{#treatment2}}"}}
-                <tr>
-                  <td id="hero" background="{{ img.hero_no_copy }}" bgcolor="#ffffff" width="650" valign="top" colspan="3">
-                    <!--[if gte mso 9]>
-                    <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:650px;height:366px;">
-                      <v:fill type="tile" src="{{ img.hero_no_copy }}" color="#ffffff" />
-                      <v:textbox inset="0,0,0,0">
-                    <![endif]-->
-                    <a href="{{ tl(link.main.table) }}">
-                      <table cellpadding="0" cellspacing="0" border="0" width="650" align="center" class="width_full">
-                        <tr>
-                          <td class="empty hero-mobile-space" height="44" colspan="3">
-                            &nbsp;
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="empty width_24" width="24">
-                            &nbsp;
-                          </td>
-                          <td class="empty">
-                            <table cellpadding="0" cellspacing="0" border="0" align="left">
-                              <tr>
-                                <td class="empty image" align="left">
-                                  <a href="{{ tl(link.main.copy,3) }}">
-                                    <img src="{{ img.spacer }}" class="hero_copy" alt="{{ copy.main.alt }}" title="{{ copy.main.alt }}" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
-                                  </a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="empty" height="24">
-                                  &nbsp;
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="empty">
-                                  <table border="0" cellspacing="0" cellpadding="0" align="left">
-                                    <tr>
-                                      <td align="center" class="button" bgcolor="{{ main_color }}">
-                                        <a href="{{ tl(link.main.cta) }}" target="_blank" class="button">
-                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                                          {{ i10n(copy.cta) }}&nbsp;<img src="{{ img.logo_twitter }}" height="14" class="img_cta_logo"/>
-                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                                        </a>
-                                      </td>
-                                    </tr>
-                                  </table>
-                                </td>
-                              </tr>
-                              {#<tr>
-                                <td class="empty image" align="left">
-                                  <a href="{{ tl(link.main.copy,3) }}">
-                                    <img src="{{ img.hero_copy_2 }}" class="hero_copy_2" alt="{{ copy.main.alt_2 }}" title="{{ copy.main.alt_2 }}" height="{{ hero_copy_height_2 }}" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
-                                  </a>
-                                </td>
-                              </tr>#}
-                            </table>
-                          </td>
-                          <td class="empty width_24" width="24">
-                            &nbsp;
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="empty" height="24" colspan="3">
-                            &nbsp;
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="empty hero_spacer_bottom_m" height="{{ hero_spacer_height }}" colspan="3">
-                            <img src="{{ img.spacer }}" height="1" width="1" class="hero_spacer_bottom_m">
-                          </td>
-                        </tr>
-                      </table>
-                    </a>
-                    <!--[if gte mso 9]>
-                      </v:textbox>
-                    </v:rect>
-                    <![endif]-->
-                  </td>
-                </tr>
-              {{"{{/treatment2}}
-            {{/email_live_sports_treatments_6104}}"}}
           </table>
           <!-- HEADER END -->
           <table cellpadding="0" cellspacing="0" border="0" width="650" bgcolor="#ffffff" align="center" class="width_full">
@@ -647,7 +479,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td class="body text_black center" aling="center">
+                    <td class="body text_black center" align="center">
                       {{ i10n(copy.main.copy[1]) }}
                     </td>
                   </tr>
@@ -658,7 +490,7 @@
                   </tr>
                   <tr>
                     <td class="body text_black center" aling="center">
-                      <strong>{{ i10n(copy.main.copy[2]) }}</strong>
+                      <strong></strong>
                     </td>
                   </tr>
                   <tr>
@@ -920,7 +752,7 @@
                 <!--[if gte mso 9]>
                 <table width="602" align="center"><tr><td>
                 <![endif]-->
-                <table cellpadding="0" cellspacing="0" border="0" width="277" align="left" class="width_full" bgcolor="#ffffff">
+                <table cellpadding="0" cellspacing="0" border="0" width="277" align="left" class="width_full fl" bgcolor="#ffffff">
                   <tr>
                     <td class="empty" height="11">
                       &nbsp;
@@ -1032,7 +864,7 @@
                 <!--[if gte mso 9]>
                 </td><td>
                 <![endif]-->
-                <table cellpadding="0" cellspacing="0" border="0" width="277" align="right" class="width_full" bgcolor="#ffffff">
+                <table cellpadding="0" cellspacing="0" border="0" width="277" align="right" class="width_full fr" bgcolor="#ffffff">
                   <tr>
                     <td class="empty" height="11">
                       &nbsp;
@@ -1095,6 +927,8 @@
                               <tr>
                                 <td class="body_2 text_black" align="{{ align('left') }}">
                                   {{ i10n(copy.weekly_2.copy) }}
+                                  <span class='hide'><br></span>
+                                  <span class='hide'><br></span>
                                 </td>
                               </tr>
                               <tr>
@@ -1158,106 +992,6 @@
                 <!--[if gte mso 9]>
                 <table width="602" align="center"><tr><td>
                 <![endif]-->
-                <table cellpadding="0" cellspacing="0" border="0" width="277" align="left" class="width_full" bgcolor="#ffffff">
-                  <tr>
-                    <td class="empty" height="11">
-                      &nbsp;
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="empty">
-                      <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                        <tr>
-                          <td class="empty" width="12">
-                            &nbsp;
-                          </td>
-                          <td class="empty">
-                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                              <tr>
-                                <td class="h4 text_black" align="{{ align('left') }}">
-                                  {{ i10n(copy.weekly_3.title) }}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="body_2 text_black" align="{{ align('left') }}">
-                                  {{ i10n(copy.weekly_3.date) }}
-                                </td>
-                              </tr>
-                            </table>
-                          </td>
-                          <td class="empty" width="12">
-                            &nbsp;
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="empty" height="11">
-                      &nbsp;
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="empty">
-                      <a href="{{ tl(link.weekly_3.image) }}">
-                        <img src="{{ img.weekly_3 }}" width="277" class="width_full" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 18px; line-height: 22px; border: none;" alt="{{ copy.weekly_3.alt }}" title="{{ copy.weekly_3.alt }}"/>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="empty" height="11">
-                      &nbsp;
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="empty">
-                      <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                        <tr>
-                          <td class="empty" width="12">
-                            &nbsp;
-                          </td>
-                          <td class="empty">
-                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                              <tr>
-                                <td class="body_2 text_black" align="{{ align('left') }}">
-                                  {{ i10n(copy.weekly_3.copy) }}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="empty" height="11">
-                                  &nbsp;
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="empty">
-                                  <table border="0" cellspacing="0" cellpadding="0" align="{{ align('left') }}">
-                                    <tr>
-                                      <td align="{{ align('left') }}" class="button_2" bgcolor="{{ main_color }}">
-                                        <a href="{{ tl(link.weekly_3.cta) }}" target="_blank" class="button_2">
-                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                                          {{ i10n(copy.weekly.cta) }}&nbsp;<img src="{{ img.logo_twitter }}" height="11" class="img_cta_logo"/>
-                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                                        </a>
-                                      </td>
-                                    </tr>
-                                  </table>
-                                </td>
-                              </tr>
-                            </table>
-                          </td>
-                          <td class="empty" width="12">
-                            &nbsp;
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="empty" height="11">
-                      &nbsp;
-                    </td>
-                  </tr>
-                </table>
                 <!--[if !gte mso 9]><!---->
                 <table cellpadding="0" cellspacing="0" border="0" width="277" class="width_full" bgcolor="{{ main_color }}">
                   <tr>
@@ -1270,106 +1004,6 @@
                 <!--[if gte mso 9]>
                 </td><td>
                 <![endif]-->
-                <table cellpadding="0" cellspacing="0" border="0" width="277" align="right" class="width_full" bgcolor="#ffffff">
-                  <tr>
-                    <td class="empty" height="11">
-                      &nbsp;
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="empty">
-                      <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                        <tr>
-                          <td class="empty" width="12">
-                            &nbsp;
-                          </td>
-                          <td class="empty">
-                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                              <tr>
-                                <td class="h4 text_black" align="{{ align('left') }}">
-                                  {{ i10n(copy.weekly_4.title) }}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="body_2 text_black" align="{{ align('left') }}">
-                                  {{ i10n(copy.weekly_4.date) }}
-                                </td>
-                              </tr>
-                            </table>
-                          </td>
-                          <td class="empty" width="12">
-                            &nbsp;
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="empty" height="11">
-                      &nbsp;
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="empty">
-                      <a href="{{ tl(link.weekly_4.image) }}">
-                        <img src="{{ img.weekly_4 }}" width="277" class="width_full" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 18px; line-height: 22px; border: none;" alt="{{ copy.weekly_4.alt }}" title="{{ copy.weekly_4.alt }}"/>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="empty" height="11">
-                      &nbsp;
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="empty">
-                      <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                        <tr>
-                          <td class="empty" width="12">
-                            &nbsp;
-                          </td>
-                          <td class="empty">
-                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                              <tr>
-                                <td class="body_2 text_black" align="{{ align('left') }}">
-                                  {{ i10n(copy.weekly_4.copy) }}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="empty" height="11">
-                                  &nbsp;
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="empty">
-                                  <table border="0" cellspacing="0" cellpadding="0" align="{{ align('left') }}">
-                                    <tr>
-                                      <td align="{{ align('left') }}" class="button_2" bgcolor="{{ main_color }}">
-                                        <a href="{{ tl(link.weekly_4.cta) }}" target="_blank" class="button_2">
-                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                                          {{ i10n(copy.weekly_4.cta) }}&nbsp;<img src="{{ img.logo_twitter }}" height="11" class="img_cta_logo"/>
-                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                                        </a>
-                                      </td>
-                                    </tr>
-                                  </table>
-                                </td>
-                              </tr>
-                            </table>
-                          </td>
-                          <td class="empty" width="12">
-                            &nbsp;
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="empty" height="12">
-                      &nbsp;
-                    </td>
-                  </tr>
-                </table>
                 <!--[if gte mso 9]>
                 </td></tr></table>
                 <![endif]-->
@@ -1400,7 +1034,7 @@
                   </tr>
                   <tr>
                   <td class="footer strong deep_grey" align="center">
-                    <a href="{{ tl(link.help) }}" class="blue">
+                    <a href="{{ tl(link.about) }}" class="blue">
                       {{ i10n(copy.footer[0]) }}
                     </a> &nbsp;|&nbsp;
                     <a href="{{ tl(link.settings) }}" class="blue">

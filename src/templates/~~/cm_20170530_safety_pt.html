@@ -1,0 +1,98 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://t.co/youre-in-control-with-our-safety-tools",
+  "cta" : "https://t.co/youre-in-control-with-our-safety-tools",
+  "section_1_cta": "https://t.co/youre-in-control-with-our-safety-tools",
+  "section_2_cta": "https://t.co/youre-in-control-with-our-safety-tools",
+  "section_3_cta": "https://t.co/youre-in-control-with-our-safety-tools",
+  "logo_twitter_large" : "https://twitter.com/",
+  "about" : "https://about.twitter.com/company",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "preheader" : "Three tools for staying safe",
+  "subject_line" : "@{{screen_name}} check out these tools to help keep you safe on Twitter",
+  "alt_hero" : "Three tools for staying safe",
+  "headline" : "Three tools for staying safe",
+  "body" : [
+    "We want you to be able to control what you see and who you interact with on Twitter. Here are three key tools to help you manage your experience.",
+    "We’ll continue to work on new features to keep you safe. To get updates on our progress, follow"
+  ],
+  "headline_2": "Mute",
+  "body_2": [
+    "Rather than see content in Tweets you'd like to avoid, you can manage what you see in your timeline and notifications. Mute accounts, words, and conversations",
+    "Learn More"
+  ],
+  "headline_3": "Notification Filters",
+  "body_3": [
+    "Get an extra level of conrol by filtering the types of accounts you see in your notifications. You can choose to stop seeing notifications from certain kinds of accounts",
+    "Learn More"
+  ],
+  "headline_4": "Block",
+  "body_4": [
+    "You can instantly block any account. When you do, that account holder can't see your Tweets or send you a message while you're logged in.",
+    "Learn More"
+  ],
+  "alt_logo" : "Twitter",
+  "footer" : ["About", "Help", "Unsubscribe", "Download app"],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+Subject: {{ i10n(pt(copy.subject_line)) }}
+
+{{ i10n(pt(copy.alt_hero)) }}
+{{ "> " + link.hero }}
+
+{{ i10n(pt(copy.headline)) }}
+
+{{ i10n(pt(copy.body[0])) }}
+
+
+{{ i10n(pt(copy.headline_2)) }}
+
+{{ i10n(pt(copy.body_2[0])) }}
+
+{{ i10n(copy.body_2[1]) }}
+{{ "> " + link.section_1_cta }}
+
+
+{{ i10n(pt(copy.headline_3)) }}
+
+{{ i10n(pt(copy.body_3[0])) }}
+
+{{ i10n(copy.body_3[1]) }}
+{{ "> " + link.section_2_cta }}
+
+
+{{ i10n(pt(copy.headline_4)) }}
+
+{{ i10n(pt(copy.body_4[0])) }}
+
+{{ i10n(copy.body_4[1]) }}
+{{ "> " + link.section_3_cta }}
+
+
+{{ i10n(pt(copy.body[1])) }}
+
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }}
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

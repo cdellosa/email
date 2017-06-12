@@ -342,6 +342,14 @@
       line-height: 24px;
     }
 
+    .fl {
+      float: left;
+    }
+
+    .fr {
+      float: right;
+    }
+
     </style>
     <style type="text/css" inline="false">
       /* Windows 10 Mail Fix */
@@ -373,12 +381,15 @@
         }
 
         #hero {
-          background-image: url(https://ea.twimg.com/email/self_serve/media/hero_m-1494956506709.jpg) !important;
-          
+          background-image: url(https://ea.twimg.com/email/self_serve/media/ign-e3-hero-m-1496701327317.jpg) !important;
+        }
+
+        #hero-treatment-mobile {
+          background-image: url() !important;
         }
 
         .hero-mobile-space {
-          height: 28px !important;
+          height: 0 !important;
         }
 
         .hero_copy {
@@ -406,8 +417,12 @@
         }
 
         .hero_spacer_bottom_m {
-          height: 20px !important;
+          height: 10px !important;
           width: 416px !important;
+        }
+
+        .hero_treatment_m_spacer {
+          display: none !important;
         }
 
         .font_18 {
@@ -419,6 +434,8 @@
           font-size: 12px !important;
           padding: 5px 16px !important;
         }
+
+
 
         .hide {
           display: none !important;
@@ -437,7 +454,7 @@
         color: #1DA1F2 !important; 
         text-decoration: none;
       }
-    </style><div class="preheader">{{_i}}Watch it. Talk about it. Only on Twitter.{{/i}}</div>
+    </style><div class="preheader">E3 and CSGO, streaming LIVE June 10-19.</div>
     <table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#f5f8fa" class="wrapper">
       <tr> 
         <td class="empty" width="100%" align="center">
@@ -469,11 +486,11 @@
                     <td class="empty" align="center">
                       <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
                         <tr>
-                          <td class="h3 white" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
-                            {{_i}}Streaming LIVE on Twitter{{/i}}
+                          <td class="h3 white" align="left">
+                            Streaming LIVE on Twitter
                           </td>
-                          <td class="empty image" align="{{^is_rtl}}right{{/is_rtl}}{{#is_rtl}}left{{/is_rtl}}">>
-                            <a href="{{_tl1}}https://twitter.com/{{/tl1}}
+                          <td class="empty image" align="right">>
+                            <a href="https://twitter.com/
   " target="blank">
                               <img src="https://ea.twimg.com/email/self_serve/media/logo_twitter_128-1491936394007.png" class="height_16" height="28" alt="Twitter" title="Twitter" />
                             </a>
@@ -495,15 +512,14 @@
                 <![endif]-->
               </td>
             </tr>
-            {{^email_live_sports_treatments_6104}}
             <tr>
-              <td id="hero" background="https://ea.twimg.com/email/self_serve/media/hero-1494957030818.jpg" bgcolor="#ffffff" width="650" valign="top" colspan="3">
+              <td id="hero" background="https://ea.twimg.com/email/self_serve/media/IGN_E3_hero-1496701327298.jpg" bgcolor="#ffffff" width="650" valign="top" colspan="3">
                 <!--[if gte mso 9]>
                 <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:650px;height:366px;">
-                  <v:fill type="tile" src="https://ea.twimg.com/email/self_serve/media/hero-1494957030818.jpg" color="#ffffff" />
+                  <v:fill type="tile" src="https://ea.twimg.com/email/self_serve/media/IGN_E3_hero-1496701327298.jpg" color="#ffffff" />
                   <v:textbox inset="0,0,0,0">
                 <![endif]-->
-                <a href="{{_tl2}}https://twitter.com/i/live/858018226579529728?ref_src=twsrc%5EEmail%7Ctwcamp%5EWNBA{{/tl2}}
+                <a href="https://twitter.com/i/live/847216698398658560?ref_src=twsrc%5EEmail%7Ctwcamp%5EIGN
   ">
                   <table cellpadding="0" cellspacing="0" border="0" width="650" align="center" class="width_full">
                     <tr>
@@ -518,11 +534,8 @@
                       <td class="empty">
                         <table cellpadding="0" cellspacing="0" border="0" align="left">
                           <tr>
-                            <td class="empty image" align="left">
-                              <a href="{{_tl3}}https://twitter.com/i/live/858018226579529728?ref_src=twsrc%5EEmail%7Ctwcamp%5EWNBA{{/tl3}}
-  ">
-                                <img src="https://ea.twimg.com/email/self_serve/media/hero-copy-1494957030766.png" class="hero_copy" alt="#BREAKING2 | NIKE | nikebreaking2.twitter.com" title="#BREAKING2 | NIKE | nikebreaking2.twitter.com" style="color: #1DA1F2; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
-                              </a>
+                            <td class="empty" height="96">
+                              &nbsp;
                             </td>
                           </tr>
                           <tr>
@@ -535,10 +548,10 @@
                               <table border="0" cellspacing="0" cellpadding="0" align="left">
                                 <tr>
                                   <td align="center" class="button" bgcolor="#1DA1F2">
-                                    <a href="{{_tl4}}https://twitter.com/i/live/858018226579529728?ref_src=twsrc%5EEmail%7Ctwcamp%5EWNBA{{/tl4}}
+                                    <a href="https://twitter.com/i/live/847216698398658560?ref_src=twsrc%5EEmail%7Ctwcamp%5EIGN
   " target="_blank" class="button">
                                       <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                                      {{_i}}Watch LIVE on{{/i}}&nbsp;<img src="https://ea.twimg.com/email/self_serve/media/logo_twitter_128-1491936394007.png" height="14" class="img_cta_logo"/>
+                                      Watch LIVE on&nbsp;<img src="https://ea.twimg.com/email/self_serve/media/logo_twitter_128-1491936394007.png" height="14" class="img_cta_logo"/>
                                       <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
                                     </a>
                                   </td>
@@ -546,10 +559,14 @@
                               </table>
                             </td>
                           </tr>
-                          
                         </table>
                       </td>
                       <td class="empty width_24" width="24">
+                        &nbsp;
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="empty" height="54" colspan="3">
                         &nbsp;
                       </td>
                     </tr>
@@ -571,163 +588,6 @@
                 <![endif]-->
               </td>
             </tr>
-            {{/email_live_sports_treatments_6104}}
-            {{#email_live_sports_treatments_6104}}
-              {{#control}}
-                <tr>
-                  <td id="hero" background="https://ea.twimg.com/email/self_serve/media/hero-1494957030818.jpg" bgcolor="#ffffff" width="650" valign="top" colspan="3">
-                    <!--[if gte mso 9]>
-                    <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:650px;height:366px;">
-                      <v:fill type="tile" src="https://ea.twimg.com/email/self_serve/media/hero-1494957030818.jpg" color="#ffffff" />
-                      <v:textbox inset="0,0,0,0">
-                    <![endif]-->
-                    <a href="{{_tl5}}https://twitter.com/i/live/858018226579529728?ref_src=twsrc%5EEmail%7Ctwcamp%5EWNBA{{/tl5}}
-  ">
-                      <table cellpadding="0" cellspacing="0" border="0" width="650" align="center" class="width_full">
-                        <tr>
-                          <td class="empty hero-mobile-space" height="44" colspan="3">
-                            &nbsp;
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="empty width_24" width="24">
-                            &nbsp;
-                          </td>
-                          <td class="empty">
-                            <table cellpadding="0" cellspacing="0" border="0" align="left">
-                              <tr>
-                                <td class="empty image" align="left">
-                                  <a href="{{_tl6}}https://twitter.com/i/live/858018226579529728?ref_src=twsrc%5EEmail%7Ctwcamp%5EWNBA{{/tl6}}
-  ">
-                                    <img src="https://ea.twimg.com/email/self_serve/media/hero-copy-1494957030766.png" class="hero_copy" alt="#BREAKING2 | NIKE | nikebreaking2.twitter.com" title="#BREAKING2 | NIKE | nikebreaking2.twitter.com" style="color: #1DA1F2; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
-                                  </a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="empty" height="24">
-                                  &nbsp;
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="empty">
-                                  <table border="0" cellspacing="0" cellpadding="0" align="left">
-                                    <tr>
-                                      <td align="center" class="button" bgcolor="#1DA1F2">
-                                        <a href="{{_tl7}}https://twitter.com/i/live/858018226579529728?ref_src=twsrc%5EEmail%7Ctwcamp%5EWNBA{{/tl7}}
-  " target="_blank" class="button">
-                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                                          {{_i}}Watch LIVE on{{/i}}&nbsp;<img src="https://ea.twimg.com/email/self_serve/media/logo_twitter_128-1491936394007.png" height="14" class="img_cta_logo"/>
-                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                                        </a>
-                                      </td>
-                                    </tr>
-                                  </table>
-                                </td>
-                              </tr>
-                              
-                            </table>
-                          </td>
-                          <td class="empty width_24" width="24">
-                            &nbsp;
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="empty" height="24" colspan="3">
-                            &nbsp;
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="empty hero_spacer_bottom_m" height="72" colspan="3">
-                            <img src="https://ea.twimg.com/email/self_serve/media/spacer_3_x_1-1480718996570.png" height="1" width="1" class="hero_spacer_bottom_m">
-                          </td>
-                        </tr>
-                      </table>
-                    </a>
-                    <!--[if gte mso 9]>
-                      </v:textbox>
-                    </v:rect>
-                    <![endif]-->
-                  </td>
-                </tr>
-              {{/control}}
-              {{#treatment2}}
-                <tr>
-                  <td id="hero" background="https://ea.twimg.com/email/self_serve/media/hero-no-copy-1494959920279.jpg" bgcolor="#ffffff" width="650" valign="top" colspan="3">
-                    <!--[if gte mso 9]>
-                    <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:650px;height:366px;">
-                      <v:fill type="tile" src="https://ea.twimg.com/email/self_serve/media/hero-no-copy-1494959920279.jpg" color="#ffffff" />
-                      <v:textbox inset="0,0,0,0">
-                    <![endif]-->
-                    <a href="{{_tl8}}https://twitter.com/i/live/858018226579529728?ref_src=twsrc%5EEmail%7Ctwcamp%5EWNBA{{/tl8}}
-  ">
-                      <table cellpadding="0" cellspacing="0" border="0" width="650" align="center" class="width_full">
-                        <tr>
-                          <td class="empty hero-mobile-space" height="44" colspan="3">
-                            &nbsp;
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="empty width_24" width="24">
-                            &nbsp;
-                          </td>
-                          <td class="empty">
-                            <table cellpadding="0" cellspacing="0" border="0" align="left">
-                              <tr>
-                                <td class="empty image" align="left">
-                                  <a href="{{_tl9}}https://twitter.com/i/live/858018226579529728?ref_src=twsrc%5EEmail%7Ctwcamp%5EWNBA{{/tl9}}
-  ">
-                                    <img src="https://ea.twimg.com/email/self_serve/media/spacer_3_x_1-1480718996570.png" class="hero_copy" alt="#BREAKING2 | NIKE | nikebreaking2.twitter.com" title="#BREAKING2 | NIKE | nikebreaking2.twitter.com" style="color: #1DA1F2; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
-                                  </a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="empty" height="24">
-                                  &nbsp;
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="empty">
-                                  <table border="0" cellspacing="0" cellpadding="0" align="left">
-                                    <tr>
-                                      <td align="center" class="button" bgcolor="#1DA1F2">
-                                        <a href="{{_tl10}}https://twitter.com/i/live/858018226579529728?ref_src=twsrc%5EEmail%7Ctwcamp%5EWNBA{{/tl10}}
-  " target="_blank" class="button">
-                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                                          {{_i}}Watch LIVE on{{/i}}&nbsp;<img src="https://ea.twimg.com/email/self_serve/media/logo_twitter_128-1491936394007.png" height="14" class="img_cta_logo"/>
-                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                                        </a>
-                                      </td>
-                                    </tr>
-                                  </table>
-                                </td>
-                              </tr>
-                              
-                            </table>
-                          </td>
-                          <td class="empty width_24" width="24">
-                            &nbsp;
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="empty" height="24" colspan="3">
-                            &nbsp;
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="empty hero_spacer_bottom_m" height="72" colspan="3">
-                            <img src="https://ea.twimg.com/email/self_serve/media/spacer_3_x_1-1480718996570.png" height="1" width="1" class="hero_spacer_bottom_m">
-                          </td>
-                        </tr>
-                      </table>
-                    </a>
-                    <!--[if gte mso 9]>
-                      </v:textbox>
-                    </v:rect>
-                    <![endif]-->
-                  </td>
-                </tr>
-              {{/treatment2}}
-            {{/email_live_sports_treatments_6104}}
           </table>
           <!-- HEADER END -->
           <table cellpadding="0" cellspacing="0" border="0" width="650" bgcolor="#ffffff" align="center" class="width_full">
@@ -753,7 +613,7 @@
                   </tr>
                   <tr>
                     <td class="h4 text_black center" aling="center">
-                      {{_i}}WNBA: Phoenix vs San Antonio{{/i}}
+                      E3: Live coverage via IGN
                     </td>
                   </tr>
                   <tr>
@@ -763,7 +623,17 @@
                   </tr>
                   <tr>
                     <td class="body text_black center" aling="center">
-                      {{_i}}Friday | 8pm ET{{/i}}
+                      Saturday, June 10 l 2:00pm ET
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="11">
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="body text_black center" align="center">
+                      It's the biggest virtual event of the year. And you'll be virtually there.
                     </td>
                   </tr>
                   <tr>
@@ -773,17 +643,7 @@
                   </tr>
                   <tr>
                     <td class="body text_black center" aling="center">
-                      {{_i}}Lady hoops continues as the Mercury take on the Stars in San Antonio. {{/i}}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="empty" height="11">
-                      &nbsp;
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="body text_black center" aling="center">
-                      <strong>{{_i}}Watch it. Talk about it.{{/i}}</strong>
+                      <strong></strong>
                     </td>
                   </tr>
                   <tr>
@@ -796,10 +656,10 @@
                       <table border="0" cellspacing="0" cellpadding="0" align="center" class="center">
                         <tr>
                           <td align="center" class="button_2" bgcolor="#1DA1F2">
-                            <a href="{{_tl11}}https://twitter.com/i/live/858018226579529728?ref_src=twsrc%5EEmail%7Ctwcamp%5EWNBA{{/tl11}}
+                            <a href="https://twitter.com/i/live/847216698398658560?ref_src=twsrc%5EEmail%7Ctwcamp%5EIGN
   " target="_blank" class="button_2">
                               <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                              {{_i}}Watch LIVE on{{/i}}&nbsp;<img src="https://ea.twimg.com/email/self_serve/media/logo_twitter_128-1491936394007.png" height="11" class="img_cta_logo"/>
+                              Watch LIVE on&nbsp;<img src="https://ea.twimg.com/email/self_serve/media/logo_twitter_128-1491936394007.png" height="11" class="img_cta_logo"/>
                               <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
                             </a>
                           </td>
@@ -841,13 +701,13 @@
                 <![endif]-->
                 <table cellpadding="0" cellspacing="0" border="0" width="277" align="left" class="width_full">
                   <tr>
-                    <td class="h4 text_black" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
-                      {{_i}}NLL: Toronto vs Georgia{{/i}}
+                    <td class="h4 text_black" align="left">
+                      Xbox E3 2017 Briefing
                     </td>
                   </tr>
                   <tr>
-                    <td class="body_2 text_black" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
-                      {{_i}}Saturday | 7:05pm ET{{/i}}
+                    <td class="body_2 text_black" align="left">
+                      Sunday, June 11 l 5:00pm ET
                     </td>
                   </tr>
                   <tr>
@@ -857,9 +717,9 @@
                   </tr>
                   <tr>
                     <td class="empty">
-                      <a href="{{_tl12}}https://twitter.com/i/live/836709389494968325?ref_src=twsrc%5Eemail%7Ctwcamp%5ENLL{{/tl12}}
+                      <a href="https://twitter.com/i/live/864584878926348289?ref_src=twsrc%5EEmail%7Ctwcamp%5EXBox
   ">
-                        <img src="https://ea.twimg.com/email/self_serve/media/NLL_PreLIVE_Slate_800x450_052017_TorontoGeorgia_705PM-1494956097396.jpg" width="277" class="width_full" style="color: #1DA1F2; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 18px; line-height: 22px; border: none;" alt="NLL: Toronto vs Georgia" title="NLL: Toronto vs Georgia"/>
+                        <img src="https://ea.twimg.com/email/self_serve/media/ign-xbox-1496701327344.jpg" width="277" class="width_full" style="color: #1DA1F2; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 18px; line-height: 22px; border: none;" alt="PGA TOUR LIVE: The Memorial Tournament" title="PGA TOUR LIVE: The Memorial Tournament"/>
                       </a>
                     </td>
                   </tr>
@@ -869,8 +729,8 @@
                     </td>
                   </tr>
                   <tr>
-                    <td class="body_2 text_black" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
-                      {{_i}}See if Toronto can keep the Swarm at bay... and their chances alive.{{/i}}
+                    <td class="body_2 text_black" align="left">
+                      Watch live, along with the world, as Xbox unveils what's next.
                     </td>
                   </tr>
                   <tr>
@@ -880,13 +740,13 @@
                   </tr>
                   <tr>
                     <td class="empty">
-                      <table border="0" cellspacing="0" cellpadding="0" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
+                      <table border="0" cellspacing="0" cellpadding="0" align="left">
                         <tr>
-                          <td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" class="button_2" bgcolor="#1DA1F2">
-                            <a href="{{_tl13}}https://twitter.com/i/live/836709389494968325?ref_src=twsrc%5Eemail%7Ctwcamp%5ENLL{{/tl13}}
+                          <td align="left" class="button_2" bgcolor="#1DA1F2">
+                            <a href="https://twitter.com/i/live/864584878926348289?ref_src=twsrc%5EEmail%7Ctwcamp%5EXBox
   " target="_blank" class="button_2">
                               <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                              {{_i}}Watch LIVE on{{/i}}&nbsp;<img src="https://ea.twimg.com/email/self_serve/media/logo_twitter_128-1491936394007.png" height="11" class="img_cta_logo"/>
+                              Watch LIVE on&nbsp;<img src="https://ea.twimg.com/email/self_serve/media/logo_twitter_128-1491936394007.png" height="11" class="img_cta_logo"/>
                               <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
                             </a>
                           </td>
@@ -905,13 +765,13 @@
                 <![endif]-->
                 <table cellpadding="0" cellspacing="0" border="0" width="277" align="right" class="width_full">
                   <tr>
-                    <td class="h4 text_black nowrap" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
-                      {{_i}}NLL: Colorado vs Saskatchewan{{/i}}
+                    <td class="h4 text_black nowrap" align="left">
+                      #E32017
                     </td>
                   </tr>
                   <tr>
-                    <td class="body_2 text_black" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
-                      {{_i}}Saturday | 9:30pm ET{{/i}}
+                    <td class="body_2 text_black" align="left">
+                      Monday, June 12 l 3:00pm ET
                     </td>
                   </tr>
                   <tr>
@@ -921,9 +781,9 @@
                   </tr>
                   <tr>
                     <td class="empty">
-                      <a href="{{_tl14}}https://twitter.com/i/live/836709389494968325?ref_src=twsrc%5Eemail%7Ctwcamp%5ENLL{{/tl14}}
+                      <a href="https://twitter.com/i/live/847216698398658560?ref_src=twsrc%5EEmail%7Ctwcamp%5EIGN
   ">
-                        <img src="https://ea.twimg.com/email/self_serve/media/NLL_PreLIVE_Slate_800x450_052017_ColoradoSaskatchewan_930PM-1494956097391.jpg" width="277" class="width_full" style="color: #1DA1F2; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 18px; line-height: 22px; border: none;" alt="NLL: Colorado vs Saskatchewan" title="NLL: Colorado vs Saskatchewan"/>
+                        <img src="https://ea.twimg.com/email/self_serve/media/ign-e3tuesday-1496701327333.jpg" width="277" class="width_full" style="color: #1DA1F2; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 18px; line-height: 22px; border: none;" alt="#E32017" title="#E32017"/>
                       </a>
                     </td>
                   </tr>
@@ -933,8 +793,8 @@
                     </td>
                   </tr>
                   <tr>
-                    <td class="body_2 text_black" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
-                      {{_i}}The Mammoth need a victory over the Rush to force a tiebreaker. It’s now or never.{{/i}}
+                    <td class="body_2 text_black" align="left">
+                      IGN brings you coverage all day, everyday, so don't miss a minute.
                     </td>
                   </tr>
                   <tr>
@@ -944,13 +804,13 @@
                   </tr>
                   <tr>
                     <td class="empty">
-                      <table border="0" cellspacing="0" cellpadding="0" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
+                      <table border="0" cellspacing="0" cellpadding="0" align="left">
                         <tr>
-                          <td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" class="button_2" bgcolor="#1DA1F2">
-                            <a href="{{_tl15}}https://twitter.com/i/live/836709389494968325?ref_src=twsrc%5Eemail%7Ctwcamp%5ENLL{{/tl15}}
+                          <td align="left" class="button_2" bgcolor="#1DA1F2">
+                            <a href="https://twitter.com/i/live/847216698398658560?ref_src=twsrc%5EEmail%7Ctwcamp%5EIGN
   " target="_blank" class="button_2">
                               <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                              {{_i}}Watch LIVE on{{/i}}&nbsp;<img src="https://ea.twimg.com/email/self_serve/media/logo_twitter_128-1491936394007.png" height="11" class="img_cta_logo"/>
+                              Watch LIVE on&nbsp;<img src="https://ea.twimg.com/email/self_serve/media/logo_twitter_128-1491936394007.png" height="11" class="img_cta_logo"/>
                               <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
                             </a>
                           </td>
@@ -998,7 +858,7 @@
                   </tr>
                   <tr>
                     <td class="empty">
-                      <table cellpadding="0" cellspacing="0" border="0" width="50" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" bgcolor="#8ed0f8">
+                      <table cellpadding="0" cellspacing="0" border="0" width="50" align="left" bgcolor="#8ed0f8">
                         <tr>
                           <td class="empty" height="4">
                             &nbsp;
@@ -1013,8 +873,8 @@
                     </td>
                   </tr>
                   <tr>
-                    <td class="h1 white font_18" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
-                      {{_i}}Your Weekly Watch List{{/i}}
+                    <td class="h1 white font_18" align="left">
+                      Your Watch List
                     </td>
                   </tr>
                   
@@ -1041,7 +901,7 @@
                 <!--[if gte mso 9]>
                 <table width="602" align="center"><tr><td>
                 <![endif]-->
-                <table cellpadding="0" cellspacing="0" border="0" width="277" align="left" class="width_full" bgcolor="#ffffff">
+                <table cellpadding="0" cellspacing="0" border="0" width="277" align="left" class="width_full fl" bgcolor="#ffffff">
                   <tr>
                     <td class="empty" height="11">
                       &nbsp;
@@ -1057,13 +917,13 @@
                           <td class="empty">
                             <table cellpadding="0" cellspacing="0" border="0" width="100%">
                               <tr>
-                                <td class="h4 text_black" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
-                                  {{_i}}PGA TOUR LIVE: AT&T Byron Nelson{{/i}}
+                                <td class="h4 text_black" align="left">
+                                  #E32017
                                 </td>
                               </tr>
                               <tr>
-                                <td class="body_2 text_black" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
-                                  {{_i}}Thursday & Friday | 8am-9:15am ET{{/i}}
+                                <td class="body_2 text_black" align="left">
+                                  Tuesday - Thursday
                                 </td>
                               </tr>
                             </table>
@@ -1082,9 +942,9 @@
                   </tr>
                   <tr>
                     <td class="empty">
-                      <a href="{{_tl16}}https://twitter.com/i/live/807361386695135233?ref_src=twsrc%5Eemail%7Ctwcamp%5EPGA{{/tl16}}
+                      <a href="https://twitter.com/i/live/847216698398658560?ref_src=twsrc%5EEmail%7Ctwcamp%5EIGN
   ">
-                        <img src="https://ea.twimg.com/email/self_serve/media/PGA_PreLIVE_Slate_800x450_V3.1-1494891851749.jpg" width="277" class="width_full" style="color: #1DA1F2; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 18px; line-height: 22px; border: none;" alt="PGA TOUR LIVE: AT&T Byron Nelson" title="PGA TOUR LIVE: AT&T Byron Nelson"/>
+                        <img src="https://ea.twimg.com/email/self_serve/media/ign-e3tuesday-1496701327333.jpg" width="277" class="width_full" style="color: #1DA1F2; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 18px; line-height: 22px; border: none;" alt="#E32017" title="#E32017"/>
                       </a>
                     </td>
                   </tr>
@@ -1103,8 +963,8 @@
                           <td class="empty">
                             <table cellpadding="0" cellspacing="0" border="0" width="100%">
                               <tr>
-                                <td class="body_2 text_black" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
-                                  {{_i}}PGA action tees off in Texas with the first and second rounds at Byron Nelson.{{/i}}
+                                <td class="body_2 text_black" align="left">
+                                  Epic moments, game demos and interviews as they happen. 
                                 </td>
                               </tr>
                               <tr>
@@ -1114,13 +974,13 @@
                               </tr>
                               <tr>
                                 <td class="empty">
-                                  <table border="0" cellspacing="0" cellpadding="0" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
+                                  <table border="0" cellspacing="0" cellpadding="0" align="left">
                                     <tr>
-                                      <td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" class="button_2" bgcolor="#1DA1F2">
-                                        <a href="{{_tl17}}https://twitter.com/i/live/807361386695135233?ref_src=twsrc%5Eemail%7Ctwcamp%5EPGA{{/tl17}}
+                                      <td align="left" class="button_2" bgcolor="#1DA1F2">
+                                        <a href="https://twitter.com/i/live/847216698398658560?ref_src=twsrc%5EEmail%7Ctwcamp%5EIGN
   " target="_blank" class="button_2">
                                           <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                                          {{_i}}Watch LIVE on{{/i}}&nbsp;<img src="https://ea.twimg.com/email/self_serve/media/logo_twitter_128-1491936394007.png" height="11" class="img_cta_logo"/>
+                                          Watch LIVE on&nbsp;<img src="https://ea.twimg.com/email/self_serve/media/logo_twitter_128-1491936394007.png" height="11" class="img_cta_logo"/>
                                           <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
                                         </a>
                                       </td>
@@ -1155,7 +1015,7 @@
                 <!--[if gte mso 9]>
                 </td><td>
                 <![endif]-->
-                <table cellpadding="0" cellspacing="0" border="0" width="277" align="right" class="width_full" bgcolor="#ffffff">
+                <table cellpadding="0" cellspacing="0" border="0" width="277" align="right" class="width_full fr" bgcolor="#ffffff">
                   <tr>
                     <td class="empty" height="11">
                       &nbsp;
@@ -1171,13 +1031,13 @@
                           <td class="empty">
                             <table cellpadding="0" cellspacing="0" border="0" width="100%">
                               <tr>
-                                <td class="h4 text_black" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
-                                  {{_i}}MLL: Boston vs New York{{/i}}
+                                <td class="h4 text_black" align="left">
+                                  DreamHack Summer
                                 </td>
                               </tr>
                               <tr>
-                                <td class="body_2 text_black" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
-                                  {{_i}}Saturday | 7pm ET{{/i}}
+                                <td class="body_2 text_black" align="left">
+                                  Saturday - Monday
                                 </td>
                               </tr>
                             </table>
@@ -1196,9 +1056,9 @@
                   </tr>
                   <tr>
                     <td class="empty">
-                      <a href="{{_tl18}}https://twitter.com/i/live/854442977715814400{{/tl18}}
+                      <a href="https://twitter.com/i/live/866753258169057280?ref_src=twsrc%5EEmail%7Ctwcamp%5EMTG_Dreamhack
   ">
-                        <img src="https://ea.twimg.com/email/self_serve/media/MLL_WK5_SLATE_800x450_V2.1-1494891851763.jpg" width="277" class="width_full" style="color: #1DA1F2; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 18px; line-height: 22px; border: none;" alt="MLL: Boston vs New York" title="MLL: Boston vs New York"/>
+                        <img src="https://ea.twimg.com/email/self_serve/media/ign-dreamhack-1496701327331.jpg" width="277" class="width_full" style="color: #1DA1F2; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 18px; line-height: 22px; border: none;" alt="DreamHack Summer" title="DreamHack Summer"/>
                       </a>
                     </td>
                   </tr>
@@ -1217,8 +1077,10 @@
                           <td class="empty">
                             <table cellpadding="0" cellspacing="0" border="0" width="100%">
                               <tr>
-                                <td class="body_2 text_black" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
-                                  {{_i}}The Boston Cannons knock sticks with the NY Lizards in lacrosse this week.{{/i}}
+                                <td class="body_2 text_black" align="left">
+                                  DreamHack Summer, FTW!
+                                  <span class='hide'><br></span>
+                                  <span class='hide'><br></span>
                                 </td>
                               </tr>
                               <tr>
@@ -1228,13 +1090,13 @@
                               </tr>
                               <tr>
                                 <td class="empty">
-                                  <table border="0" cellspacing="0" cellpadding="0" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
+                                  <table border="0" cellspacing="0" cellpadding="0" align="left">
                                     <tr>
-                                      <td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" class="button_2" bgcolor="#1DA1F2">
-                                        <a href="{{_tl19}}https://twitter.com/i/live/854442977715814400{{/tl19}}
+                                      <td align="left" class="button_2" bgcolor="#1DA1F2">
+                                        <a href="https://twitter.com/i/live/866753258169057280?ref_src=twsrc%5EEmail%7Ctwcamp%5EMTG_Dreamhack
   " target="_blank" class="button_2">
                                           <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                                          {{_i}}Watch LIVE on{{/i}}&nbsp;<img src="https://ea.twimg.com/email/self_serve/media/logo_twitter_128-1491936394007.png" height="11" class="img_cta_logo"/>
+                                          Watch LIVE on&nbsp;<img src="https://ea.twimg.com/email/self_serve/media/logo_twitter_128-1491936394007.png" height="11" class="img_cta_logo"/>
                                           <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
                                         </a>
                                       </td>
@@ -1283,108 +1145,6 @@
                 <!--[if gte mso 9]>
                 <table width="602" align="center"><tr><td>
                 <![endif]-->
-                <table cellpadding="0" cellspacing="0" border="0" width="277" align="left" class="width_full" bgcolor="#ffffff">
-                  <tr>
-                    <td class="empty" height="11">
-                      &nbsp;
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="empty">
-                      <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                        <tr>
-                          <td class="empty" width="12">
-                            &nbsp;
-                          </td>
-                          <td class="empty">
-                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                              <tr>
-                                <td class="h4 text_black" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
-                                  {{_i}}The Starters Twitter Show{{/i}}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="body_2 text_black" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
-                                  {{_i}}Tuesdays | 11am ET{{/i}}
-                                </td>
-                              </tr>
-                            </table>
-                          </td>
-                          <td class="empty" width="12">
-                            &nbsp;
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="empty" height="11">
-                      &nbsp;
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="empty">
-                      <a href="{{_tl20}}https://twitter.com/i/live/789516242163859457?ref_src=twsrc%5Eemail%7Ctwcamp%5Enbathestarters%7Ctwgr%5Enewsletter{{/tl20}}
-  ">
-                        <img src="https://ea.twimg.com/email/self_serve/media/TheStarters-Twitter-1494892032357.jpg" width="277" class="width_full" style="color: #1DA1F2; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 18px; line-height: 22px; border: none;" alt="The Starters Twitter Show" title="The Starters Twitter Show"/>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="empty" height="11">
-                      &nbsp;
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="empty">
-                      <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                        <tr>
-                          <td class="empty" width="12">
-                            &nbsp;
-                          </td>
-                          <td class="empty">
-                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                              <tr>
-                                <td class="body_2 text_black" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
-                                  {{_i}}Your go-to for NBA coverage as we get deeper into the playoffs.{{/i}}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="empty" height="11">
-                                  &nbsp;
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="empty">
-                                  <table border="0" cellspacing="0" cellpadding="0" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
-                                    <tr>
-                                      <td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" class="button_2" bgcolor="#1DA1F2">
-                                        <a href="{{_tl21}}https://twitter.com/i/live/789516242163859457?ref_src=twsrc%5Eemail%7Ctwcamp%5Enbathestarters%7Ctwgr%5Enewsletter{{/tl21}}
-  " target="_blank" class="button_2">
-                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                                          {{_i}}Watch LIVE on{{/i}}&nbsp;<img src="https://ea.twimg.com/email/self_serve/media/logo_twitter_128-1491936394007.png" height="11" class="img_cta_logo"/>
-                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                                        </a>
-                                      </td>
-                                    </tr>
-                                  </table>
-                                </td>
-                              </tr>
-                            </table>
-                          </td>
-                          <td class="empty" width="12">
-                            &nbsp;
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="empty" height="11">
-                      &nbsp;
-                    </td>
-                  </tr>
-                </table>
                 <!--[if !gte mso 9]><!---->
                 <table cellpadding="0" cellspacing="0" border="0" width="277" class="width_full" bgcolor="#1DA1F2">
                   <tr>
@@ -1397,108 +1157,6 @@
                 <!--[if gte mso 9]>
                 </td><td>
                 <![endif]-->
-                <table cellpadding="0" cellspacing="0" border="0" width="277" align="right" class="width_full" bgcolor="#ffffff">
-                  <tr>
-                    <td class="empty" height="11">
-                      &nbsp;
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="empty">
-                      <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                        <tr>
-                          <td class="empty" width="12">
-                            &nbsp;
-                          </td>
-                          <td class="empty">
-                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                              <tr>
-                                <td class="h4 text_black" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
-                                  {{_i}}The Rally{{/i}}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="body_2 text_black" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
-                                  {{_i}}Monday-Friday | 9pm ET{{/i}}
-                                </td>
-                              </tr>
-                            </table>
-                          </td>
-                          <td class="empty" width="12">
-                            &nbsp;
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="empty" height="11">
-                      &nbsp;
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="empty">
-                      <a href="{{_tl22}}https://twitter.com/i/live/765339035866804224?ref_src=twsrc%5Eemail%7Ctwcamp%5ERally{{/tl22}}
-  ">
-                        <img src="https://ea.twimg.com/email/self_serve/media/RallyEmailslate-1494891851747.jpg" width="277" class="width_full" style="color: #1DA1F2; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 18px; line-height: 22px; border: none;" alt="The Rally" title="The Rally"/>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="empty" height="11">
-                      &nbsp;
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="empty">
-                      <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                        <tr>
-                          <td class="empty" width="12">
-                            &nbsp;
-                          </td>
-                          <td class="empty">
-                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                              <tr>
-                                <td class="body_2 text_black" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
-                                  {{_i}}Sports highlights, look-ins, and commentary.{{/i}}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="empty" height="11">
-                                  &nbsp;
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="empty">
-                                  <table border="0" cellspacing="0" cellpadding="0" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
-                                    <tr>
-                                      <td align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" class="button_2" bgcolor="#1DA1F2">
-                                        <a href="{{_tl23}}https://twitter.com/i/live/765339035866804224?ref_src=twsrc%5Eemail%7Ctwcamp%5ERally{{/tl23}}
-  " target="_blank" class="button_2">
-                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                                          {{_i}}Watch LIVE on{{/i}}&nbsp;<img src="https://ea.twimg.com/email/self_serve/media/logo_twitter_128-1491936394007.png" height="11" class="img_cta_logo"/>
-                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                                        </a>
-                                      </td>
-                                    </tr>
-                                  </table>
-                                </td>
-                              </tr>
-                            </table>
-                          </td>
-                          <td class="empty" width="12">
-                            &nbsp;
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="empty" height="12">
-                      &nbsp;
-                    </td>
-                  </tr>
-                </table>
                 <!--[if gte mso 9]>
                 </td></tr></table>
                 <![endif]-->
@@ -1521,7 +1179,7 @@
                 &nbsp;
               </td>
               <td class="empty center">
-                <table align="center" class="center" dir="{{^is_rtl}}ltr{{/is_rtl}}{{#is_rtl}}rtl{{/is_rtl}}">
+                <table align="center" class="center" dir="ltr">
                   <tr>
                     <td class="empty" height="36">
                       &nbsp;
@@ -1529,19 +1187,19 @@
                   </tr>
                   <tr>
                   <td class="footer strong deep_grey" align="center">
-                    <a href="{{_tl24}}https://support.twitter.com/{{/tl24}}
+                    <a href="https://t.co/about
   " class="blue">
-                      {{_i}}Help{{/i}}
+                      About
                     </a> &nbsp;|&nbsp;
-                    <a href="{{_tl25}}https://twitter.com/settings{{/tl25}}
+                    <a href="https://twitter.com/settings
   " class="blue">
-                      {{_i}}Settings{{/i}}
+                      Settings
                     </a> &nbsp;|&nbsp;
                     <a href="{{unsubscribe}}" class="blue">
-                      {{_i}}Unsubscribe{{/i}}
+                      Unsubscribe
                     </a> &nbsp;|&nbsp;
                     <a href="https://twitter.com/download" class="blue">
-                      {{_i}}Download App{{/i}}
+                      Download App
                     </a>
                   </td>
                 </tr>
@@ -1552,7 +1210,7 @@
                 </tr>
                 <tr>
                   <td class="footer deep_grey" align="center">
-                    {{_i}}This email was generated for @{{screen_name}}.{{/i}}
+                    This email was generated for @Somebody.
                   </td>
                 </tr>
                 <tr>

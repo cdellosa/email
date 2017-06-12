@@ -1,0 +1,67 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# COPY #}
+{% set copy = {
+  "preheader" : "Twitter and IGN bring you LIVE coverage, June 10-15. The energy drinks, however, are up to you.",
+  "subject_line" : "Get your E3 fix. All day. Every day.",
+  "alt_hero" : "E3 coverage, LIVE on Twitter",
+  "headline" : "E3 coverage, LIVE on Twitter",
+  "body" : "This year, that’s what E3 stands for. Because for the first time ever, Twitter and IGN are bringing you live coverage. All day. Every day. Watch and talk about the press conferences as they happen. Engage in the interviews. See demos of all the hottest releases. All day. Every day. There’s something for everyone. It’s all LIVE so you will be heard.",
+  "body_2" : [
+    "Watch it. Talk about it.",
+    "With your favorite <a class='deep_grey' href='https://twitter.com/ign'>@ign</a> team all week long.",
+    "Visit <a class='deep_grey' href='https://twitter.com/i/live/847216698398658560?ref_src=twsrc%5EEmail%7Ctwcamp%5EIGN'>e3.twitter.com</a>."
+  ],
+  "cta" : "Watch LIVE on",
+  "schedule" : "IGN at #E32017 schedule",
+  "alt_acma" : "IGN",
+  "alt_logo" : "Twitter",
+  "footer" : ["About", "Help", "Unsubscribe", "Download app"],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/live/847216698398658560?ref_src=twsrc%5EEmail%7Ctwcamp%5EIGN",
+  "cta" : "https://twitter.com/i/live/847216698398658560?ref_src=twsrc%5EEmail%7Ctwcamp%5EIGN",
+  "text" : "https://twitter.com/i/live/847216698398658560?ref_src=twsrc%5EEmail%7Ctwcamp%5EIGN",
+  "text_2" : "https://twitter.com/IGN",
+  "logo_acma" : "https://twitter.com/IGN",
+  "logo_twitter_large" : "https://twitter.com/",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+Subject: {{ i10n(pt(copy.subject_line)) }}
+
+{{ i10n(pt(copy.alt_hero)) }} {{ "<" + track(link.hero,1) + ">" }}
+
+{{ i10n(pt(copy.headline)) }}
+
+{{ i10n(pt(copy.body)) }}
+
+{{ i10n(pt(copy.body_2[0])) }}
+{{ i10n(pt(copy.body_2[1])) }} {{ "<" + track(link.text,2) + ">" }}
+{{ i10n(pt(copy.body_2[2])) }} {{ "<" + track(link.text,3) + ">" }}
+
+{{ i10n(pt(copy.cta + " Twitter")) }} {{ "<" + track(link.cta,4) + ">" }}
+
+{{ i10n(pt(copy.alt_acma)) }} {{ "<" + track(link.logo_acma,5) + ">" }}
+
+{{ i10n(pt(copy.alt_logo)) }} {{ "<" + track(link.logo_twitter_large,6) + ">" }}
+
+=
+
+{{ i10n(copy.footer[0]) }} {{ "<" + track(link.about,7) + ">" }}
+
+{{ i10n(copy.footer[1]) }} {{ "<" + track(link.help,8) + ">" }}
+
+{{ i10n(copy.footer[2]) }} {{ "<{{ unsubscribe }}>" }}
+
+{{ i10n(copy.footer[3]) }} {{ "<" + track(link.download,9) + ">" }}
+
+{{ copy.address }}

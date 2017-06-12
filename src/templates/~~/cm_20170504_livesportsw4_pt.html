@@ -5,13 +5,13 @@
 
 {# LINKS #}
 {% set link_master = {
-  "main" : "https://twitter.com/i/live/858018226579529728?ref_src=twsrc%5EEmail%7Ctwcamp%5EWNBA",
-  "main_2" : "https://twitter.com/i/live/836709389494968325?ref_src=twsrc%5Eemail%7Ctwcamp%5ENLL",
-  "main_3" : "https://twitter.com/i/live/836709389494968325?ref_src=twsrc%5Eemail%7Ctwcamp%5ENLL",
-  "weekly" : "https://twitter.com/i/live/807361386695135233?ref_src=twsrc%5Eemail%7Ctwcamp%5EPGA",
-  "weekly_2" : "https://twitter.com/i/live/854442977715814400",
-  "weekly_3" : "https://twitter.com/i/live/789516242163859457?ref_src=twsrc%5Eemail%7Ctwcamp%5Enbathestarters%7Ctwgr%5Enewsletter",
-  "weekly_4" : "https://twitter.com/i/live/765339035866804224?ref_src=twsrc%5Eemail%7Ctwcamp%5ERally"
+  "main" : "https://twitter.com/i/live/847216698398658560?ref_src=twsrc%5EEmail%7Ctwcamp%5EIGN",
+  "main_2" : "https://twitter.com/i/live/864584878926348289?ref_src=twsrc%5EEmail%7Ctwcamp%5EXBox",
+  "main_3" : "https://twitter.com/i/live/847216698398658560?ref_src=twsrc%5EEmail%7Ctwcamp%5EIGN",
+  "weekly" : "https://twitter.com/i/live/847216698398658560?ref_src=twsrc%5EEmail%7Ctwcamp%5EIGN",
+  "weekly_2" : "https://twitter.com/i/live/866753258169057280?ref_src=twsrc%5EEmail%7Ctwcamp%5EMTG_Dreamhack",
+  "weekly_3" : "",
+  "weekly_4" : ""
 } %}
 
 {% set link = {
@@ -48,7 +48,7 @@
     "image" : link_master.weekly_4,
     "cta" : link_master.weekly_4
   },
-  "help" : "https://support.twitter.com/",
+  "about" : "https://about.twitter.com/company",
   "settings" : "https://twitter.com/settings",
   "unsubscribe" : "{{unsubscribe}}",
   "download" : "https://twitter.com/download"
@@ -57,70 +57,58 @@
 {# COPY #}
 {% set copy = {
   "subject" : [
-    "@{{screen_name}}, you've got to see what's happening LIVE this week"
+    ""
   ],
-  "preheader" : "Watch it. Talk about it. Only on Twitter.",
+  "preheader" : "",
   "hashtag" : "Streaming LIVE on Twitter",
   "cta" : "Watch LIVE on",
   "main" : {
-    "title" : "WNBA: Phoenix vs San Antonio",
+    "title" : "E3: Live coverage via IGN",
     "copy" : [
-      "Friday | 8pm ET",
-      "Lady hoops continues as the Mercury take on the Stars in San Antonio. ",
+      "Saturday, June 10 l 2:00pm ET",
+      "It's the biggest virtual event of the year. And you'll be virtually there.",
       "Watch it. Talk about it."
     ],
-    "alt" : "#BREAKING2 | NIKE | nikebreaking2.twitter.com",
+    "alt" : "E3: Live coverage via IGN",
     "alt_2" : "Watch it. Talk about it.",
     "cta" : "Watch LIVE on"
   },
   "main_2" : {
-    "title" : "NLL: Toronto vs Georgia",
-    "date" : "Saturday | 7:05pm ET",
-    "copy" : "See if Toronto can keep the Swarm at bay... and their chances alive.",
-    "alt" : "NLL: Toronto vs Georgia",
+    "title" : "Xbox E3 2017 Briefing",
+    "date" : "Sunday, June 11 l 5:00pm ET",
+    "copy" : "Watch live, along with the world, as Xbox unveils what's next.",
+    "alt" : "PGA TOUR LIVE: The Memorial Tournament",
     "cta" : "Watch LIVE on"
   },
   "main_3" : {
-    "title" : "NLL: Colorado vs Saskatchewan",
-    "date" : "Saturday | 9:30pm ET",
-    "copy" : "The Mammoth need a victory over the Rush to force a tiebreaker. It’s now or never.",
-    "alt" : "NLL: Colorado vs Saskatchewan",
+    "title" : "#E32017",
+    "date" : "Monday, June 12 l 3:00pm ET",
+    "copy" : "IGN brings you coverage all day, everyday, so don't miss a minute.",
+    "alt" : "#E32017",
     "cta" : "Watch LIVE on"
   },
-  "weekly_header" : "Your Weekly Watch List",
+  "weekly_header" : "Your Watch List",
   "weekly_sub" : "Catch up on your favorite #LIVE shows",
   "weekly" : {
-    "title" : "PGA TOUR LIVE: AT&T Byron Nelson",
-    "date" : "Thursday & Friday | 8am-9:15am ET",
-    "copy" : "PGA action tees off in Texas with the first and second rounds at Byron Nelson.",
-    "alt" : "PGA TOUR LIVE: AT&T Byron Nelson",
+    "title" : "#E32017",
+    "date" : "Tuesday - Thursday",
+    "copy" : "Epic moments, game demos and interviews as they happen. ",
+    "alt" : "#E32017",
     "cta" : "Watch LIVE on"
   },
   "weekly_2" : {
-    "title" : "MLL: Boston vs New York",
-    "date" : "Saturday | 7pm ET",
-    "copy" : "The Boston Cannons knock sticks with the NY Lizards in lacrosse this week.",
-    "alt" : "MLL: Boston vs New York",
+    "title" : "DreamHack Summer",
+    "date" : "Saturday - Monday",
+    "copy" : "DreamHack Summer, FTW!",
+    "alt" : "DreamHack Summer",
     "cta" : "Watch LIVE on"
   },
-  "weekly_3" : {
-    "title" : "The Starters Twitter Show",
-    "date" : "Tuesdays | 11am ET",
-    "copy" : "Your go-to for NBA coverage as we get deeper into the playoffs.",
-    "alt" : "The Starters Twitter Show",
-    "cta" : "Watch LIVE on"
-  },
-  "weekly_4" : {
-    "title" : "The Rally",
-    "date" : "Monday-Friday | 9pm ET",
-    "copy" : "Sports highlights, look-ins, and commentary.",
-    "alt" : "The Rally",
-    "cta" : "Watch LIVE on"
-  },
-  "footer" : ["Help", "Settings", "Unsubscribe", "Download App"],
+  "footer" : ["About", "Settings", "Unsubscribe", "Download App"],
   "disclaimer" : "This email was generated for @" + signal("screen_name","Somebody") + ".",
   "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
 } %}
+
+
 Subject: {{ i10n(pt(copy.subject[0])) }}
 
 {{ i10n(pt(copy.hashtag)) }}
@@ -178,30 +166,8 @@ Subject: {{ i10n(pt(copy.subject[0])) }}
 
 =
 
-{{ i10n(pt(copy.weekly_3.title)) }}
-
-{{ i10n(pt(copy.weekly_3.date)) }}
-
-{{ i10n(pt(copy.weekly_3.copy)) }}
-
-{{ i10n(pt(copy.weekly_3.cta)) }}
-{{ "> " + link.weekly_3.cta }}
-
-=
-
-{{ i10n(pt(copy.weekly_4.title)) }}
-
-{{ i10n(pt(copy.weekly_4.date)) }}
-
-{{ i10n(pt(copy.weekly_4.copy)) }}
-
-{{ i10n(pt(copy.weekly_4.cta)) }}
-{{ "> " + link.weekly_4.cta }}
-
-=
-
 {{ i10n(copy.footer[0]) }}
-{{ "> " + link.help }}
+{{ "> " + link.about }}
 
 {{ i10n(copy.footer[1]) }}
 {{ "> " + link.settings }}
