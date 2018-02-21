@@ -1,0 +1,180 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set uid = "" %}
+{% set link = {
+  "logo" : "https://twitter.com" + uid,
+  "hero" : "https://twitter.com/i/events/931632515340627968?ref_src=twsrc%5Eemail%7Ctwcamp%5EBloombergTicToc" + uid,
+  "cta" : [
+    "https://twitter.com/i/events/931632515340627968?ref_src=twsrc%5Eemail%7Ctwcamp%5EBloombergTicToc",
+    "https://twitter.com/i/events/931632515340627968?ref_src=twsrc%5Eemail%7Ctwcamp%5EBloombergTicToc",
+    "https://twitter.com/i/events/931632515340627968?ref_src=twsrc%5Eemail%7Ctwcamp%5EBloombergTicToc",
+    "https://twitter.com/i/events/931632515340627968?ref_src=twsrc%5Eemail%7Ctwcamp%5EBloombergTicToc",
+    "https://twitter.com/i/events/931632515340627968?ref_src=twsrc%5Eemail%7Ctwcamp%5EBloombergTicToc",
+    "https://twitter.com/i/events/931632515340627968?ref_src=twsrc%5Eemail%7Ctwcamp%5EBloombergTicToc",
+    "https://twitter.com/i/events/931632515340627968?ref_src=twsrc%5Eemail%7Ctwcamp%5EBloombergTicToc",
+    "https://twitter.com/i/events/931632515340627968?ref_src=twsrc%5Eemail%7Ctwcamp%5EBloombergTicToc",
+    "https://twitter.com/i/events/931632515340627968?ref_src=twsrc%5Eemail%7Ctwcamp%5EBloombergTicToc",
+    "https://twitter.com/i/events/931632515340627968?ref_src=twsrc%5Eemail%7Ctwcamp%5EBloombergTicToc",
+    "https://twitter.com/i/events/931632515340627968?ref_src=twsrc%5Eemail%7Ctwcamp%5EBloombergTicToc",
+    "https://twitter.com/i/events/931632515340627968?ref_src=twsrc%5Eemail%7Ctwcamp%5EBloombergTicToc"
+  ],
+  "m_cta" : [
+    "http://twitter.com/{{screen_name}}" + uid,
+    "https://twitter.com/i/events/931632515340627968?ref_src=twsrc%5Eemail%7Ctwcamp%5EBloombergTicToc" + uid
+  ],
+  "blue" : [
+    "https://twitter.com/tictoc",
+    "https://twitter.com/search?q=%23whatdyoumiss&src=typd",
+    "https://twitter.com/i/events/931632515340627968?ref_src=twsrc%5Eemail%7Ctwcamp%5EBloombergTicToc"
+  ],
+  "alt" : [
+    "https://twitter.com/tictoc",
+    "https://twitter.com/twitterlive"
+  ],
+  "about" : "https://twitter.com/about",
+  "download" : "https://twitter.com/download",
+  "help" : "https://twitter.com/support",
+  "settings" : "https://twitter.com/settings",
+  "unsubscribe" : "{{unsubscribe}}",
+  "help" : "https://support.twitter.com/",
+  "not_my_account" : "{{not_my_account}}"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject_line" : "@{{screen_name}}, news at the speed of news.",
+  "preheader" : "Tic Toc by Bloomberg, streaming LIVE on Twitter, 24/7",
+  "alt_logo" : "Twitter",
+  "alt_hero" : "News, As it happens. Watch LIVE on Twitter",
+  "body" : [
+    "TicToc by Bloomberg, LIVE on Twitter",
+    "This is 24/7 news at your fingertips. And by news, we're not talking about sound bites. Or provocative statements designed to get clicks. We're talking about objective reporting from a global perspective. Without bias. And across all the news categories. We're talking about TicToc by Bloomberg. News at the speed of Twitter.",
+    "Politics",
+    "Politics doesn't wait for you to get home. Politics is happening. A lot and always. Find out what's going on in Washington and all over the world. From your side. And from all sides.",
+    "CES / Technology",
+    "Welcome to the cutting edge of the cutting edge. Find out what's trending directly from the trend makers. Learn about all the hottest launches at CES. And stay on top of everything that's happening in tech.",
+    "World Trending News",
+    "Get your world news from where it's happening. When it's happening. With over 2700 journalists spread around the world and the Bloomberg name behind it, you can trust TicToc to always keep you well informed on global events."
+  ],
+  "cta" : [
+    "Watch",
+    "Watch",
+    "Watch",
+    "Watch",
+    "Watch",
+    "Watch",
+    "Watch",
+    "Watch",
+    "Watch"
+    ],
+  "blue" : [
+    "Watch it. Talk about it.",
+    "@tictoc",
+    "#tictocnews",
+    "live.twitter.com/tictoc"
+  ],
+  "download_app" : "Download Twitter and watch live video on the following devices:",
+  "alt" : [  
+    "TicToc by Bloomberg",
+    "Twitter LIVE"
+  ],
+  "apps" : [
+    "Apple TV",
+    "Google Play",
+    "Roku",
+    "Xbox One",
+    "Windows 10",
+    "Amazon Fire TV"
+  ],
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# BODY COPY MACRO / AUTO COUNTER #}
+{% set count_body = 0 %}
+{% macro cb() -%}
+  {{ count_body|float }}
+  {% set count_body = count_body + 1 %}
+{%- endmacro %}
+
+{# LINK CTA MACRO / AUTO COUNTER #}
+{% set count_cta = 0 %}
+{% macro cc() -%}
+  {{ count_cta|float }}
+  {% set count_cta = count_cta + 1 %}
+{%- endmacro %}
+
+{# LINK CTA MACRO / AUTO COUNTER #}
+{% set count_cta_link = 0 %}
+{% macro ccl() -%}
+  {{ count_cta_link|float }}
+  {% set count_cta_link = count_cta_link + 1 %}
+{%- endmacro %}
+
+Subject: {{ i10n(pt(copy.subject_line)) }}
+
+{{ i10n(pt(copy.alt_hero)) }}
+{{ "> " + link.hero }}
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+{{ i10n(pt(copy.body[cb()|float])) }}
+
+{{ i10n(pt(copy.cta[cc()|float])) }}
+{{ "> " + link.cta[ccl()|float] }}
+
+=
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+{{ i10n(pt(copy.body[cb()|float])) }}
+
+=
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+{{ i10n(pt(copy.body[cb()|float])) }}
+
+=
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+{{ i10n(pt(copy.body[cb()|float])) }}
+
+
+=
+
+{{ i10n(pt(copy.blue[0])) }}
+
+{{ i10n(pt(copy.blue[1])) }}
+{{ "> " + link.blue[0] }}
+
+{{ i10n(pt(copy.blue[2])) }}
+{{ "> " + link.blue[1] }}
+
+{{ i10n(pt(copy.blue[3])) }}
+{{ "> " + link.blue[2] }}
+
+=
+
+{{ i10n(pt(copy.alt[0])) }}
+{{ "> " + link.alt[0] }}
+
+{{ i10n(pt(copy.alt[1])) }}
+{{ "> " + link.alt[1] }}
+
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }}
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

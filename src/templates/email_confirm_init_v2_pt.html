@@ -1,0 +1,163 @@
+mess{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{% set uid = "?refsrc=email&ID={{{screen_name}}}" %}
+{% set link = {
+  "logo" : "https://twitter.com" + uid,
+  "cta" : [
+    "{{confirm_code_button}}",
+    "https://twitter.com/settings/profile" + uid,
+    "https://twitter.com/settings/profile" + uid,
+    "https://twitter.com/settings/profile" + uid,
+    "https://twitter.com/who_to_follow/import" + uid,
+    "https://twitter.com/who_to_follow/import" + uid,
+    "https://twitter.com/who_to_follow/import" + uid,
+    "https://twitter.com/who_to_follow/suggestions" + uid,
+    "https://twitter.com/who_to_follow/suggestions" + uid,
+    "https://twitter.com/who_to_follow/suggestions" + uid,
+    "https://support.twitter.com/categories/281" + uid,
+    "https://support.twitter.com/categories/281" + uid,
+    "https://support.twitter.com/categories/281" + uid,
+    "https://twitter.com/intent/tweet" + uid,
+    "https://twitter.com/intent/tweet" + uid,
+    "https://twitter.com/intent/tweet" + uid
+  ],
+  "settings" : "https://twitter.com/settings",
+  "unsubscribe" : "{{unsubscribe}}",
+  "help" : "https://support.twitter.com/",
+  "not_my_account" : "{{not_my_account}}"
+} %}
+
+{% set copy = {
+  "subject_line" : "Confirm your Twitter account, {{full_name}}.",
+  "alt_logo" : "Twitter",
+  "body" : [
+    "Final Step...",
+    "Confirm your email address to complete your Twitter account @{{screen_name}}. It's easy - just click the button below.",
+    "Be you",
+    "Let the world know who you are with a profile pic.",
+    "Find your friends",
+    "See which of your friends is already on Twitter.",
+    "More of what you love",
+    "Never miss out on the topics and people you care about most.",
+    "Jump into the action",
+    "Learn how to share your thoughts with a Like, Retweet, or Reply.",
+    "Tweet any time",
+    "Bring your Tweet to life by adding a GIF, video, photo, and more.",
+    "Clicking on any of the links above will confirm {{email}} on Twitter.",
+    "If you haven't created this Twitter account, please <a href=\"{{not_my_account}}\" class=\"click_here\">click here</a> to report this.",
+    "If you haven't created this Twitter account, please <a href=\"{{not_my_account}}\" class=\"click_here\">click here</a> to report it."
+  ],
+  "cta" : [
+    "Confirm now",
+    "Add your photo",
+    "Add your photo",
+    "Find friends",
+    "Find friends",
+    "Follow your faves",
+    "Follow your faves",
+    "See how",
+    "See how",
+    "Express yourself",
+    "Express yourself"
+    ],
+  "footer" : ["Help", "Unsubscribe", "Settings", "Not my account"],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# BODY COPY MACRO / AUTO COUNTER #}
+{% set count_body = 0 %}
+{% macro cb() -%}
+  {{ count_body|float }}
+  {% set count_body = count_body + 1 %}
+{%- endmacro %}
+
+{# LINK CTA MACRO / AUTO COUNTER #}
+{% set count_cta = 0 %}
+{% macro cc() -%}
+  {{ count_cta|float }}
+  {% set count_cta = count_cta + 1 %}
+{%- endmacro %}
+
+{# LINK CTA MACRO / AUTO COUNTER #}
+{% set count_cta_link = 0 %}
+{% macro ccl() -%}
+  {{ count_cta_link|float }}
+  {% set count_cta_link = count_cta_link + 1 %}
+{%- endmacro %}
+
+Subject: {{ i10n(pt(copy.subject_line)) }}
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+
+{{ i10n(pt(copy.cta[cc()|float])) }}
+{{ "> " + link.cta[ccl()|float] }}
+
+{{"{{^email_confirm_nux_6711}}{{/email_confirm_nux_6711}}{{#email_confirm_nux_6711}}{{#control}}" }}=
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+{{ "> " + link.cta[ccl()|float] }}
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+
+{{ i10n(pt(copy.cta[cc()|float])) }}
+{{ "> " + link.cta[ccl()|float] }}
+
+=
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+{{ "> " + link.cta[ccl()|float] }}
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+
+{{ i10n(pt(copy.cta[cc()|float])) }}
+{{ "> " + link.cta[ccl()|float] }}
+
+=
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+{{ "> " + link.cta[ccl()|float] }}
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+
+{{ i10n(pt(copy.cta[cc()|float])) }}
+{{ "> " + link.cta[ccl()|float] }}
+
+=
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+{{ "> " + link.cta[ccl()|float] }}
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+
+{{ i10n(pt(copy.cta[cc()|float])) }}
+{{ "> " + link.cta[ccl()|float] }}
+
+=
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+{{ "> " + link.cta[ccl()|float] }}
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+
+{{ i10n(pt(copy.cta[cc()|float])) }}
+{{ "> " + link.cta[ccl()|float] }}
+
+{{" {{/control}}{{#treatment}}{{/treatment}}{{/email_confirm_nux_6711}}"}}=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> " + link.settings }}
+
+{{ i10n(copy.footer[3]) }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

@@ -1,0 +1,412 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# HERO COPY IMAGE HEIGHT #}
+{% set hero_copy_height = 120 %}
+{# THIS IS AUTO SET BY ABOVE #}
+{% set hero_spacer_height = 366 - hero_copy_height - 119 %}
+{% set hero_copy_height_mobile = (hero_copy_height * 0.65)|round %}
+{% set hero_spacer_height_mobile = (hero_spacer_height * 0.65)|round %}
+
+{# MAIN COLOR #}
+{% set main_color = "#1DA1F2" %}
+
+{# MOBILE FIX REMOVE SWITCH #}
+{% set mobile_fix_remove = false %}
+
+{% set copy = {     
+  "subject" : [   
+    "Get Backstage Access to the BET Awards on Twitter" 
+  ],    
+  "preheader" : "Go behind the scenes at summer's hottest award show",    
+  "cta" : "Watch LIVE on",    
+  "main" : {    
+    "alt_hero" : "The only show <br>bad enough to break the rules", 
+    "title" : "Backstage access to the <span class='hide'><br>&nbsp;</span>BET Awards 2017 LIVE on Twitter",  
+    "body" : [  
+      "See what's happening behind the scenes at the BET Awards 2017 LIVE
+on Twitter. Watch exclusive backstage interviews hosted by comedians
+Chris Spencer and Zainab Johnson with your favorite performances fresh
+off the stage. Get the tea on nominees, hear from the winners, and
+catch the most memorable celebrity moments to take place. Don't miss
+your chance for an All Access VIP experience. See you backstage.",
+      "5:30pm PT | 8:30pm ET",
+      "@BET",
+      "#BETAwards",
+      "bet.twitter.com",
+      "Watch it. Talk about it."
+    ],  
+    "alt_left" : "BET", 
+    "alt_right" : "Twitter",  
+    "cta" : "Watch LIVE on" 
+  },    
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],   
+  "disclaimer" : "This email was meant for @" + signal("screen_name","Somebody") + ".",   
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"   
+} %} 
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "logo_twitter" : prefix_img + "logo-1475170569504.png",
+  "hero" : prefix_img + "cm_20170625_bet_hero-1498243356402.jpg",
+  "hero_m" : prefix_img + "cm_20170625_bet_hero_m-1498243355752.jpg",
+  "hero_copy" : prefix_img + "cm_20170617_dreamhacksummer_copy-1497629687792.png",
+  "spacer" : prefix_img + "spacer-1497649689465.png",
+  "spacer_1" : prefix_img + "spacer_640_x_1-1497634066349.png",
+  "logo_twitter_large" : prefix_img + "dm_logo_twitter-1489534651038.png",
+  "icon" : prefix_img + "cm_20170625_bet_logo-1498245639837.png",
+  "spacer_2" : prefix_img + "spacer_3_x_1-1493416213665.png"
+} %}
+
+{% set link = {      
+  "hero" : "https://twitter.com/i/live/864581996994899968?ref_src=twsrc%5Eemail%7Ctwcamp%5EBET",    
+  "body" : [    
+    "https://twitter.com/bet",  
+    "https://twitter.com/search?q=%23BETAwards&src=tyah", 
+    "https://twitter.com/i/live/864581996994899968?ref_src=twsrc%5Eemail%7Ctwcamp%5EBET"
+  ],    
+  "alt" : [   
+    "https://twitter.com/bet",  
+    "https://twitter.com" 
+  ],    
+  "cta" : "https://twitter.com/i/live/864581996994899968?ref_src=twsrc%5Eemail%7Ctwcamp%5EBET", 
+  "logo_twitter_large" : "https://twitter.com/",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"  
+} %} 
+
+{# CSS #}
+{% block style %}
+    .h1 {
+      font-size: 36px;
+      line-height: 36px;
+    }
+
+    .h3 {
+      font-size: 22px;
+      line-height: 26px;
+    }
+
+    td.button {
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      line-height: 18px;
+    }
+
+    a.button {
+      font-size: 16px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      padding: 11px 30px; 
+      border: 1px solid #1DA1F2;
+      display: inline-block; 
+      font-weight:600; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .button img {
+      display: inline;
+      vertical-align: top;
+    }
+
+    .body {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 16px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 22px;
+    }
+
+    .justify {
+      text-align: justify;
+    }
+{% endblock %}
+
+{% block media_query %}
+        .h1 {
+          font-size: 28px !important;
+          line-height: 26px !important;
+        }
+
+        .h4 {
+          font-size: 14px !important;
+        }
+
+        .hide {
+          display: none !important;
+        }
+
+        .show {
+          display: inline !important;
+        }
+
+        .iosBlue a {
+          text-decoration: underline;
+          } 
+
+        .width_full {
+          width: 100% !important;
+        }
+
+        .width_90p {
+          width: 90% !important;
+        }
+
+        .height_1 {
+          height: 1px !important;
+        }
+
+        .height_30 {
+          height: 30px !important;
+        }
+
+        #hero {
+          background-image: url({{ img.hero_m }}) !important;
+        }
+
+        .hero_copy {
+          height: {{ hero_copy_height_mobile }}px !important;
+        }
+
+        .m_top {
+          height: 24px !important;
+        }
+
+        .hero_spacer {
+          height: 24px !important;
+        }
+
+        .width_368 {
+          width: 368px !important;
+        }
+
+        .width_416 {
+          width: 416px !important;
+          height: 1px !important;
+        }
+{% endblock %}
+
+{% block body %}
+  <style inline="false">
+    .appleLinksWhite a {
+      color: #ffffff !important; 
+      text-decoration: none;
+    } 
+  </style>
+  <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full" dir="{{ dir('ltr') }}">
+    <tr>
+      <td class="empty">
+        <a href="{{ link.hero }}">
+          <img src="{{ img.hero }}" class="hide" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;" alt="{{ i10n(copy.main.alt_hero) }}" title="{{ i10n(copy.main.alt_hero) }}"/>
+        </a>
+        <!--[if !gte mso 9]><!---->
+        <div class="show" style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+          <a href="{{ link.hero }}">
+            <img src="{{ img.hero_m }}" width="100%" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;" alt="{{ i10n(copy.main.alt_hero) }}" title="{{ i10n(copy.main.alt_hero) }}"/>
+          </a>
+        </div>
+        <!--<![endif]-->
+      </td>
+    </tr>
+    <tr>
+      <td class="empty">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full">
+          <tr>
+            <td class="empty width_20" width="90">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table cellpadding="0" cellspacing="0" border="0" align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="h3 deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.main.title) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey center" align="center">
+                    {{ i10n(copy.main.body[0]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="h3 deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.main.body[1]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="6">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="h4 deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    <a href="{{ tl(link.body[0]) }}" class="deep_grey">{{ i10n(copy.main.body[2]) }}</a>&nbsp;|&nbsp;<a href="{{ tl(link.body[1]) }}" class="deep_grey">{{ i10n(copy.main.body[3]) }}</a>&nbsp;|&nbsp;<a href="{{ tl(link.body[2]) }}" class="deep_grey">{{ i10n(copy.main.body[4]) }}</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="36">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" align="center">
+                    <table border="0" cellspacing="0" cellpadding="0" align="center">
+                      <tr>
+                        <td align="center" class="button center" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
+                          <a href="{{ tl(link.cta) }}" target="_blank" class="button nowrap">
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                            {{ i10n(copy.cta) }}&nbsp;<img src="{{ img.logo_twitter }}" height="16" />
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="h3 deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    <a href="{{ tl(link.text) }}" class="deep_grey">
+                      {{ i10n(copy.main.body[5]) }}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="48">
+                    &nbsp;
+                  </td>
+                </tr> 
+                <tr>
+                  <td class="empty center">
+                    <table align="center" class="center">
+                      <tr>
+                        <td class="empty center" align="center">
+                          <a href="{{ tl(link.alt[0]) }}" class="blue">
+                            <img src="{{ img.icon }}" height="28" title="{{ i10n(copy.main.alt_left) }}" alt="{{ i10n(copy.main.alt_left) }}"/>
+                          </a>
+                        </td>
+                        <td class="empty" width="20">
+                          &nbsp;
+                        </td>
+                        <td class="empty" width="2" bgcolor="#bec9d1">
+                          <img src="{{ img.spacer }}" height="1" width="2" />
+                        </td>
+                        <td class="empty" width="20">
+                          &nbsp;
+                        </td>
+                        <td class="empty center" align="center">
+                          <a href="{{ tl(link.alt[1]) }}" class="blue">
+                          <img src="{{ img.logo_twitter_large }}" height="28" title="{{ i10n(copy.main.alt[1]) }}" alt="{{ i10n(copy.main.alt_right) }}"/>
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="48">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="90">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#f5f8fa" width="640" class="width_full">
+          <!--[if gte mso 9]>
+          <tr>
+            <td colspan="3" align="center">
+              <img src="{{ img.spacer_1 }}" width="640" />
+            </td>
+          </tr>
+          <![endif]-->
+          <tr>
+            <td class="empty width_20" width="90">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer strong deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    <a href="{{ tl(link.about) }}" class="blue">
+                      {{ i10n(copy.footer[0]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ tl(link.help) }}" class="blue">
+                      {{ i10n(copy.footer[1]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ '{{ unsubscribe }}' }}" class="blue">
+                      {{ i10n(copy.footer[2]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ tl(link.download) }}" class="blue">
+                      {{ i10n(copy.footer[3]) }}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer deep_grey center" align="center">
+                    <span class="addressLink">{{"{{>manhattan:static:address_twitter/html_content}}"}}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="90">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+{% endblock %}

@@ -212,9 +212,9 @@
 
 {% macro header_title(copy, alignment="center", link="") %}
                         <tr>
-                          <td class="h1 white" align="{{ alignment }}">
+                          <td class="h1 text_black" align="{{ alignment }}">
                             {% if link != "" %}
-                              <a href="{{ link }}" target="blank" class="white">
+                              <a href="{{ link }}" target="blank" class="text_black">
                                 {{ copy }}
                               </a>
                             {% else %}
@@ -240,8 +240,8 @@
                     <td class="empty" align="{{ alignment }}">
                       <table border="0" cellspacing="0" cellpadding="0" align="{{ alignment }}">
                         <tr>
-                          <td align="center" class="button" bgcolor="#ffffff">
-                            <a href="{{ link }}" target="_blank" class="button_white">
+                          <td align="center" class="button" bgcolor="{{ mustache("#{{randomBgColor}}","#1DA1F2") }}">
+                            <a href="{{ link }}" target="_blank" class="button">
                               <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
                               {{ i10n(copy) }}
                               <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->

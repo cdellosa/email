@@ -1,0 +1,408 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros_notifications.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis_2 = true %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com/?refsrc=email",
+  "avatar" : "http://twitter.com/{{#recipient}}{{screen_name}}{{/recipient}}",
+  "cta" : "{{{conversation_link_pre}}}{{sender.screen_name}}{{{conversation_link_post}}}",
+  "box" : "{{{conversation_link_pre}}}{{sender.screen_name}}{{{conversation_link_post}}}",
+  "settings" : "https://twitter.com/settings",
+  "help" : "https://support.twitter.com/",
+  "not_my_account" : "{{not_my_account}}",
+  "contact_us" : "https://support.twitter.com/forms",
+  "download" : "https://twitter.com/download",
+  "translation_center_forum_link" : "https://translate.twitter.com/forum"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject_line" : "{{{sender_name}}} (@{{sender_screen_name}}) has sent you a Direct Message on Twitter!",
+  "preheader" : "@{{sender.screen_name}}: {{{dm_message}}}",
+  "alt_logo" : "Twitter",
+  "headline" : "{{sender.full_name}} sent you a Direct Message.",
+  "body" : [
+    "Direct message goes in here.",
+    "This group includes you, {{screen_name}}, and {{screen_name}}."
+    ],
+  "disclaimer" : "We sent this to @{{#recipient}}{{screen_name}}{{/recipient}}.",
+  "footer" : ["Settings","Help","Unsubscribe","Download App"],
+  "cta" : "Reply",
+  "cta_2" : "View",
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "avatar" : "{{{recipient.userWrapper.profile.get.profileImageUrls.get.reasonablySmall.httpsUrl}}}",
+  "logo_twitter" : prefix_img + "icon_twitter_blue.png"
+} %}
+
+{# CSS #}
+{% block style %}
+    td.button {
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 25px; 
+      line-height: 18px;
+    }
+
+    a {
+      color: #1DA1F2;
+      text-decoration: none;
+    }
+
+    a.button {
+      font-size: 14px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 25px; 
+      padding: 5px 20px; 
+      border: 1px solid #1DA1F2;
+      display: inline-block; 
+      font-weight: bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .button img {
+      display: inline;
+      vertical-align: top;
+    }
+
+    .body {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 16px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 22px;
+    }
+
+    .border_grey {
+      border-left: 1px solid #aab8c2;
+      border-radius: 4px;
+    }
+
+    .avatar {
+      border-radius: 25px;
+    }
+
+    .view_media {
+      font-size: 9px;
+    }
+{% endblock %} 
+
+{% block media_query %}
+        .hide {
+          display: none !important;
+        }
+
+        .width_full {
+          width: 100% !important;
+          min-width: 360px !important;
+        }
+
+        .height_30 {
+          height: 30px !important;
+        }
+{% endblock %} 
+
+{% block body %}
+  <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="100%" class="width_full" dir="{{ dir('ltr') }}">
+    <tr>
+      <td class="empty">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="450" class="width_full">
+          <tr>
+            <td class="empty width_20" width="24">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table cellpadding="0" cellspacing="0" border="0" align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <table align="{{ align('left') }}">
+                      <tr>
+                        <td class="image empty" align="{{ align('left') }}">
+                          <a href="{{ tl(link.avatar) }}">
+                            <img src="{{ img.avatar }}" width="32" class="avatar" />
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                    <table align="{{ align('right') }}">
+                      <tr>
+                        <td class="image empty" align="{{ align('right') }}">
+                          <a href="{{ tl(link.logo) }}">
+                            <img src="{{ img.logo_twitter }}" width="32" alt="{{ copy.alt_logo }}" title="{{ copy.alt_logo }}" />
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="h1 black" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.headline) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" align="{{ align('left') }}">
+                    <table border="0" cellspacing="0" cellpadding="0" align="{{ align('left') }}">
+                      <tr>
+                        <td align="center" class="button center" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
+                          <a href="{{ tl(link.cta) }}" target="_blank" class="button">
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                              {{"{{^is_no_text_only_media}}"}}
+                                {{ i10n(copy.cta) }}
+                              {{"{{/is_no_text_only_media}}{{#is_no_text_only_media}}"}}
+                                {{ i10n(copy.cta_2) }}
+                              {{"{{/is_no_text_only_media}}"}}
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="18">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty">
+                    {{"{{^is_no_text_only_media}}"}}
+                      <a href="{{ tl(link.box) }}">
+                        <table cellspacing="0" cellpadding="0" class="border_grey" width="100%">
+                          <tr>
+                            <td class="empty" height="24" colspan="3">
+                              &nbsp;
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="empty width_20" width="24">
+                              &nbsp;
+                            </td>
+                            <td>
+                              <table align="center" width="100%">
+                                <tr>
+                                  <td class="body_2 text_black" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                                    {{"{{{dm_message}}}"}}
+                                  </td>
+                                </tr>
+                                {{"{{#is_text_with_media}}"}}
+                                  <tr>
+                                    <td height="12"></td>
+                                  </tr>
+                                  <tr>
+                                    <td align="center">
+                                      <img src="https://ea.twimg.com/email/self_serve/media/icon_view_image-1512602304952.png" height="18">
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td height="3"></td>
+                                  </tr>
+                                  <tr>
+                                    <td align="center" class="footer view_media deep_grey">
+                                      <strong>{{"{{#i}}VIEW MEDIA{{/i}}"}}</strong>
+                                    </td>
+                                  </tr>
+                                {{"{{/is_text_with_media}}"}}
+                              </table>
+                            </td>
+                            <td class="empty width_20" width="24">
+                              &nbsp;
+                            </td>                      
+                          </tr>
+                          <tr>
+                            <td class="empty" height="24" colspan="3">
+                              &nbsp;
+                            </td>
+                          </tr>
+                        </table>
+                      </a>
+                    {{"{{/is_no_text_only_media}}"}}
+                    {{"{{#is_no_text_only_media}}"}}
+                      <a href="{{ tl(link.box) }}">
+                        <table cellspacing="0" cellpadding="0" class="border_grey" width="100%">
+                          <tr>
+                            <td class="empty" height="24" colspan="3">
+                              &nbsp;
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="empty width_20" width="24">
+                              &nbsp;
+                            </td>
+                            <td>
+                              <table align="center" width="100%">
+                                <tr>
+                                  <td align="center">
+                                    <img src="https://ea.twimg.com/email/self_serve/media/icon_view_image-1512602304952.png" height="18">
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td height="3"></td>
+                                </tr>
+                                <tr>
+                                  <td align="center" class="footer view_media deep_grey">
+                                    <strong>{{"{{#i}}VIEW MEDIA{{/i}}"}}</strong>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                            <td class="empty width_20" width="24">
+                              &nbsp;
+                            </td>                      
+                          </tr>
+                          <tr>
+                            <td class="empty" height="24" colspan="3">
+                              &nbsp;
+                            </td>
+                          </tr>
+                        </table>
+                      </a>
+                    {{"{{/is_no_text_only_media}}"}}
+                  </td>
+                </tr>
+                {#<tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" align="center">
+                    <table>
+                      <tr>
+                        <td class="empty image">
+                          <img src="https://pbs.twimg.com/profile_images/463745662446600192/FlNaz6PN_400x400.jpeg" height="53" class="avatar"/>
+                        </td>
+                        <td class="empty" width="12">
+                          &nbsp;
+                        </td>
+                        <td class="empty image">
+                          <img src="https://pbs.twimg.com/profile_images/463745662446600192/FlNaz6PN_400x400.jpeg" height="53" class="avatar"/>
+                        </td>
+                        <td class="empty" width="12">
+                          &nbsp;
+                        </td>
+                        <td class="empty image">
+                          <img src="https://pbs.twimg.com/profile_images/463745662446600192/FlNaz6PN_400x400.jpeg" height="53" class="avatar"/>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body black" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[1]) }}
+                  </td>
+                </tr>#}
+              </table>
+            </td>
+            <td class="empty width_20" width="24">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" width="450" class="width_full" bgcolor="#ffffff">
+          <tr>
+            <td class="empty width_20" width="24">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer strong deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    <a href="{{ tl(link.settings) }}" class="blue">
+                      {{ i10n(copy.footer[0]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ tl(link.help) }}" class="blue">
+                      {{ i10n(copy.footer[1]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ "{{unsubscribe}}" }}" class="blue">
+                      {{ i10n(copy.footer[2]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ tl(link.download) }}" class="blue">
+                      {{ i10n(copy.footer[3]) }}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer deep_grey center" align="center">
+                    {{ i10n(copy.disclaimer) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer deep_grey center" align="center">
+                    <span class="addressLink"><a href="http://twitter.com" style="color: #8899a6 !important; text-decoration: none !important;"><span style="color: #8899a6 !important; text-decoration: none !important;">Twitter, Inc. 1355 Market Street, Suite 900 San&nbsp;Francisco,&nbsp;CA&nbsp;94103</span></a></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="24">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    {#<tr class="hide">
+      <td class="empty hide" height="32">
+        &nbsp;
+      </td>
+    </tr>#}
+  </table>
+{% endblock %} 

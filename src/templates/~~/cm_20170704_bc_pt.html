@@ -1,0 +1,121 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = false %}
+
+{# COPY #}
+{% set copy = {     
+    "subject_line" : [  
+        "Summer is happening. Explore every side of it on Twitter."
+    ],  
+    "preheader" : "When it comes to sports, everyone has an opinion. #SeeEverySide at Twitter.",    
+    "alt_hero" : "Trending is happening.", 
+    "headline" : "Cue the Tweets",   
+    "body" : [  
+        "Explore the origin story of your favorite blockbuster. Find out which fireworks are popping off from Burbank to Barnstable. Witness every forehand smash and audible grunt from Wimbledon. Summer has officially arrived and every day brings a raft of new hot topics. Discover every captivating side of every meme, brand, and event right here on Twitter. #SeeEverySide",
+        "",
+        "",
+        "Lin-Manuel Miranda supports immigration reform
+with #Ham4all challenge.",
+        "💯💯💯 Tweets about this summer's MUST SEE blockbusters.",
+        "🔥 Memes of 2017 😂"
+    ],  
+    "cta" : [   
+        "Explore Moments",
+        "View Moment",
+        "View Moment",
+        "View Moment",
+        "Explore",
+        "Explore Twitter"
+    ],  
+    "blue" : [  
+        "See every side of what's happening",
+        "in Moments.",
+        "When it happens,",
+        "it happens on Twitter."
+    ],  
+    "white" : "See what's happening.",  
+    "footer" : ["About", "Help", "Unsubscribe", "Download app"],    
+    "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"   
+} %}
+
+{# LINKS #}
+{% set link = {     
+    "hero" : "https://twitter.com/i/moments", 
+    "cta" : [   
+      "https://twitter.com/i/moments",
+      "https://twitter.com/i/moments/879761443129655296",
+      "https://twitter.com/i/moments/875146735055650816",
+      "https://twitter.com/i/moments/875151669880791040",
+      "https://twitter.com/i/moments",
+      "https://mobile.twitter.com/search",
+      "https://twitter.com"
+    ],  
+    "about" : "https://about.twitter.com",  
+    "help" : "https://support.twitter.com/",    
+    "download" : "https://twitter.com/download" 
+} %} 
+Subject: {{ i10n(pt(copy.subject_line[0])) }}
+
+{{ i10n(copy.alt_hero) }} 
+
+{{ i10n(copy.headline) }} 
+
+{{ i10n(copy.body[0]) }} 
+
+=
+
+{{ i10n(copy.blue[0]) }} 
+{{ i10n(copy.blue[1]) }} 
+
+=
+
+{{ i10n(copy.body[3]) }} 
+
+{{ i10n(copy.cta[1]) }} 
+{{ "> " + link.cta[1] }}
+
+=
+
+{{ i10n(copy.body[4]) }} 
+
+{{ i10n(copy.cta[2]) }} 
+{{ "> " + link.cta[2] }}
+
+=
+
+{{ i10n(copy.body[5]) }} 
+
+{{ i10n(copy.cta[3]) }} 
+{{ "> " + link.cta[3] }}
+
+=
+
+{{ i10n(copy.blue[2]) }} 
+{{ i10n(copy.blue[3]) }} 
+
+{{ i10n(copy.cta[4]) }} 
+{{ "> " + link.cta[4] }}
+
+=
+
+{{ i10n(pt(copy.white)) }} 
+
+{{ i10n(copy.cta[5]) }} 
+{{ "> " + link.cta[6] }}
+
+=
+
+{{ i10n(copy.footer[0]) }} 
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }} 
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }} 
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }} 
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

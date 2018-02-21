@@ -1,0 +1,114 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/",  
+  "text" : [  
+    "https://twitter.com/BET",
+    "https://twitter.com/search?q=%23HipHopAwards&src=typd",
+    "https://bet.twitter.com"
+  ],  
+  "alt" : [  
+    "https://twitter.com/twitter"
+  ],  
+  "cta" : "https://twitter.com/i/live/912774471122960385?ref_src=twsrc%5Eemail%7Ctwcamp%5EBET",
+  "logo_twitter_large" : "https://twitter.com/",  
+  "about" : "https://about.twitter.com",  
+  "help" : "https://support.twitter.com/",  
+  "download" : "https://twitter.com/download",
+  "apps" : [
+    "https://twitter.tlnk.io/serve?action=click&publisher_id=360136&site_id=64980",
+    "https://twitter.tlnk.io/serve?action=click&publisher_id=360136&site_id=64602"
+  ]
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [  
+    "The fastest way to see every side." 
+  ],  
+  "preheader" : "We the best green carpet show",
+  "alt_hero" : "Rap kings, breakout queens and green carpet bling.",  
+  "cta" : "Watch LIVE on",  
+  "headline" : [  
+    "Get more from your Twitter.",
+    "Download the app today!",
+    "The fastest way to see every side."
+  ],  
+  "body" : [  
+    "The fastest way to see every side. From breaking news and entertainment to sports, politics and everyday interests, when it happens in the world...",
+    "Get more from your Twitter.",
+    "Download the app today!",
+    "The fastest way to see every side.",
+    "From breaking news and entertainment to sports, politics, and everyday interests, when it happens in the world, it happens on Twitter first.",
+    "See all sides of the story.",
+    "Join the conversation.",
+    "Watch live streaming events.",
+    "Twitter is what's happening in the world and what people are talking about right now.",
+    "Download the Twitter App on the App Store",
+    "Get the Twitter App on Google Play"
+  ],  
+  "alt" : [  
+    "Twitter"
+  ],   
+  "apps" : [
+    "Apple TV",
+    "Google Play",
+    "Roku",
+    "Xbox One",
+    "Windows 10",
+    "Amazon Fire TV"
+  ], 
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],  
+  "disclaimer" : "This email was meant for @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}   
+
+Subject: {{ i10n(pt(copy.subject[0])) }}
+
+{{ i10n(pt(copy.headline[0])) }}
+{{ i10n(pt(copy.headline[1])) }}
+
+{{ i10n(pt(copy.body[9])) }}
+{{ "> " + link.apps[0] }}
+
+{{ i10n(pt(copy.body[10])) }}
+{{ "> " + link.apps[1] }}
+
+=
+
+{{ i10n(pt(copy.headline[2])) }}
+
+{{ i10n(pt(copy.body[4])) }} {{ i10n(pt(copy.body[5])) }} {{ i10n(pt(copy.body[6])) }} {{ i10n(pt(copy.body[7])) }} {{ i10n(pt(copy.body[8])) }}
+
+=
+
+{{ i10n(pt(copy.body[9])) }}
+{{ "> " + link.apps[0] }}
+
+{{ i10n(pt(copy.body[10])) }}
+{{ "> " + link.apps[1] }}
+
+=
+
+{{ i10n(pt(copy.alt[0])) }}
+{{ "> " + link.alt[0] }}
+
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }}
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

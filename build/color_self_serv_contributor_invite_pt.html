@@ -1,0 +1,88 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Subject: {{#i}}{{{contributor.profile.get.name}}} has been invited to Tweet from @{{{contributee.profile.get.screenName}}}.{{/i}}
+
+{{#recipient}}
+Twitter <{{#tlm1}}https://twitter.com{{/tlm1}}>
+
+{{#i}}You have been given permission to Tweet from @{{#sender}}{{screen_name}}{{/sender}}. <{{#tlm2}}https://twitter.com/{{contributee.profile.get.screenName}}{{/tlm2}}>{{/i}}
+  
+{{#i}}Go to TweetDeck{{/i}} <{{#tl1}}https://tweetdeck.twitter.com/{{/tl1}}>
+{{/recipient}}
+
+=
+
+{{#sender}}
+{{#i}}{{{full_name}}}{{/i}}
+{{#i}}@{{screen_name}} {{#lang_ja}} さん{{/lang_ja}}{{#lang_ko}} 님{{/lang_ko}}{{/i}}
+
+{{#userWrapper}}{{#bio.isDefined}}
+{{#i}}{{{bio.get}}}{{/i}} {{location.get}}
+{{/bio.isDefined}}{{/userWrapper}}
+
+{{following_count.compact}} {{#i}}Following{{/i}}
+{{followers_count.compact}} {{#i}}Followers{{/i}}
+
+<{{#tlm2}}{{{userWrapper.profileUrl.get}}}{{/tlm2}}>
+{{/sender}}
+
+=
+
+{{#i}}This feature makes TweetDeck <{{#tl2}}https://tweetdeck.twitter.com/{{/tl2}}> more secure for teams by avoiding the need to share passwords.{{/i}}
+
+{{#i}}Learn more about teams{{/i}}
+
+=
+
+{{#i}}Update who can invite me to their team{{/i}} <{{#tl3}}https://support.twitter.com/{{/tl3}}>
+
+Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103

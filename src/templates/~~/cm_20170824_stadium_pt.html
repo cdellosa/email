@@ -1,0 +1,118 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/live/885273741764083712?ref_src=twsrc%5Eemail%7Ctwcamp%5EStadium",
+  "cta" : "https://twitter.com/i/live/885273741764083712?ref_src=twsrc%5Eemail%7Ctwcamp%5EStadium",
+  "text" : [
+    "https://twitter.com/WatchStadium",
+    "https://twitter.com/search?q=%23watchstadium&src=typd",
+    "https://twitter.com/i/live/885273741764083712?ref_src=twsrc%5Eemail%7Ctwcamp%5EStadium"
+  ],
+  "icon" : "https://twitter.com/WatchStadium",
+  "logo_twitter_large" : "https://twitter.com/twitterlive",
+  "mlb" : "https://twitter.com/wnba",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [ 
+    "{{user_name}}, Introducing Stadium. A sports network for today's fans."
+  ],  
+  "preheader" : "See what's happening. Watch the eclipse LIVE on Twitter",  
+  "alt_hero" : "Nonstop sports for nonstop fans. Watch LIVE on Twitter",  
+  "cta" : "Watch LIVE on",  
+  "headline" : [  
+    "Introducing the ultimate destination for 24/7 sports — Stadium",
+    "Watch it. Talk about it."
+  ],  
+  "body" : [  
+    "Stadium is the sports network you've been waiting for. Get ready for exclusive live games and sporting events, extensive highlights, classic games, and original programming. Stadium delivers 24/7 sports to fans everywhere, on the device they like best.",
+    "@watchstadium",
+    "#watchstadium",
+    "watchstadium.twitter.com",
+    "Watch it. Talk about it.",
+    "Download Twitter and watch live video on the following devices:"
+  ],
+  "schedule" : "Featured Programming | Inside the League | Weekdays | 4PM ET | Bryant McFadden and Dave Ross discuss the latest viral NFL news. | Campus Insiders | Weekdays | 4:30PM ET | Get your all-information access pass to American college football. | The Rally | Nightly | 6PM, 11PM, 1AM ET  | The Rally's back with sports highlights, look-ins, and commentary. | The Seth Davis Show | Weekdays | 5PM ET | Award winning show hosted by college sports expert Seth Davis featuring in-depth interviews | with some of the biggest personalities in sports and entertainment. | Live & Classic Games | Watch live as well as classic full game replays of some of the greatest professional and | college games from current and past seasons.",
+  "alt" : [  
+    "Stadium",
+    "Twitter"
+  ], 
+  "apps" : [
+    "Apple TV",
+    "Google Play",
+    "Roku",
+    "Xbox One",
+    "Windows 10",
+    "Amazon Fire TV"
+  ], 
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],  
+  "disclaimer" : "This email was meant for @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %} 
+
+Subject: {{ i10n(pt(copy.subject[0])) }}
+
+{{ i10n(pt(copy.alt_hero)) }}
+{{ "> " + link.hero }}
+
+=
+
+{{ i10n(pt(copy.headline[0])) }}
+
+{{ i10n(pt(copy.body[0])) }}
+
+{{ i10n(pt(copy.headline[1])) }}
+
+{{ i10n(pt(copy.body[1])) }}
+{{ "> " + link.text[0] }}
+
+{{ i10n(pt(copy.body[2])) }}
+{{ "> " + link.text[1] }}
+
+{{ i10n(pt(copy.body[3])) }}
+{{ "> " + link.text[2] }}
+
+{{ i10n(pt(copy.cta)) }}
+{{ "> " + link.cta }}
+
+=
+
+{{ i10n(pt(copy.schedule)) }}
+
+=
+
+{{ i10n(pt(copy.alt[0])) }}
+{{ "> " + link.icon }}
+
+{{ i10n(pt(copy.alt[1])) }}
+{{ "> " + link.logo_twitter_large }}
+
+=
+
+{{ i10n(pt(copy.body[5])) }}
+
+{{ copy.apps[0] }} | {{ copy.apps[1] }} | {{ copy.apps[2] }} | {{ copy.apps[3] }} | {{ copy.apps[4] }} | {{ copy.apps[5] }}
+
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }}
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

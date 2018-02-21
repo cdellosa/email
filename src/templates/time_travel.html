@@ -1,0 +1,860 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# HERO COPY IMAGE HEIGHT #}
+{% set hero_copy_height = 150 %}
+{# THIS IS AUTO SET BY ABOVE #}
+{% set hero_spacer_height = 366 - hero_copy_height - 119 %}
+{% set hero_copy_height_mobile = (hero_copy_height * 0.65)|round %}
+{% set hero_spacer_height_mobile = (hero_spacer_height * 0.65)|round %}
+
+{# BGCOLOR MAIN #}
+{% set bgcolor_main = "#f5f8fa" %}
+
+{# MAIN COLOR #}
+{% set main_color = "#1DA1F2" %}
+
+{# MOBILE FIX REMOVE SWITCH #}
+{% set mobile_fix_remove = true %}
+
+{# LINKS #}
+{% set link = {
+  "avatar" : "https://twitter.com/{{screen_name}}",
+  "hero" : "https://twitter.com",  
+  "text" : [  
+    "https://twitter.com",
+    "https://twitter.com",
+    "https://twitter.com"
+  ],  
+  "alt" : [  
+    "https://twitter.com/thegameawards",
+    "https://twitter.com/twitterlive"
+  ],  
+  "cta" : [
+    "",
+    "",
+    "",
+    "https://twitter.com/CaseyD/status/827656905556242433",
+    "https://twitter.com/CaseyD/status/696505216003215360",
+    "https://twitter.com/CaseyD/status/827393628301512706"
+  ],
+  "logo_twitter_large" : "https://twitter.com/",  
+  "about" : "https://about.twitter.com",  
+  "help" : "https://support.twitter.com/",  
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [  
+    "Check out your #TBT-worthy Tweets"
+  ],  
+  "alt_hero" : "#TBT",  
+  "cta" : [
+    "See more on Twitter",
+    "Second CTA",
+    "See Tweets from 2016"
+  ],  
+  "headline" : [  
+    "{{#contentRecModuleViews.head}}{{#timeTravelView}}{{start_date}} - {{end_date}}{{/timeTravelView}}{{/contentRecModuleViews.head}}",
+    "Now you're ready for #ThrowbackThursday",
+    "We've compiled your Tweets from this week, from the years past"
+  ],  
+  "body" : [  
+    "Take a look at your <span style='font-size: 24px;'>🔥</span> Tweets from <span class='underline_orange'>{{#is_last_year}}last year{{/is_last_year}}{{^is_last_year}}{{year_of_module}}{{/is_last_year}}</span>.",
+
+    "Remember when 140 was a thing?",
+
+    "Tweets shorter than 140 characters are so <span class='underline_orange'>{{#is_last_year}}last year{{/is_last_year}}{{^is_last_year}}{{year_of_module}}{{/is_last_year}}</span>",
+
+    "These Tweets from <span class='underline_orange'>{{#is_last_year}}last year{{/is_last_year}}{{^is_last_year}}{{year_of_module}}{{/is_last_year}}</span> are <a href='{{tbt_hashtag_link}}' class='pink'>#TBT</a>-worthy",
+
+    "Take a look at your <span style='font-size: 24px;'>🔥</span> Tweet from <span class='underline_orange'>{{#is_last_year}}last year{{/is_last_year}}{{^is_last_year}}{{year_of_module}}{{/is_last_year}}</span>.",
+
+    "Remember when 140 was a thing?",
+
+    "Tweets shorter than 140 characters are so <span class='underline_orange'>{{#is_last_year}}last year{{/is_last_year}}{{^is_last_year}}{{year_of_module}}{{/is_last_year}}</span>",
+
+    "This pic from <span class='underline_orange'>{{#is_last_year}}last year{{/is_last_year}}{{^is_last_year}}{{year_of_module}}{{/is_last_year}} / year</span> are <a href='{{tbt_hashtag_link}}' class='pink'>#TBT</a>-worthy"
+  ],  
+  "social" : [
+    "reply",
+    "Retweet",
+    "like"
+  ],  
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],  
+  "disclaimer" : "This email was meant for @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}  
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "logo_twitter" : prefix_img + "dm_logo_twitter-1489534651038.png",
+  "hero" : prefix_img + "tbt-1517603836436.gif",
+  "hero_mso" : prefix_img + "tbt-1518145492102.jpg",
+  "hero_m" : prefix_img + "cm_20171207_gameawards_hero-1512672852555.jpg",
+  "spacer" : prefix_img + "spacer.png",
+  "spacer_1" : prefix_img + "spacer_640x1-1481059174655.png",
+  "logo_twitter_large" : prefix_img + "dm_logo_twitter-1489534651038.png",
+  "icon" : prefix_img + "cm_20171207_gameawards_icon-1512166633227.png",
+  "spacer_2" : prefix_img + "spacer_3_x_1-1493416213665.png",
+  "camera" : prefix_img + "time_travel_icon_camera-1518205185944.png",
+  "party" : prefix_img + "time_travel_icon_party-1518205185953.png",
+  "social" : [
+    prefix_img + "icon_reply-1497559206779.png",
+    prefix_img + "icon_retweet-1497559206722.png",
+    prefix_img + "icon_like-1497559206788.png"
+    ],
+  "apps" : [
+    prefix_img + "apps_line-1501197126309.png",
+    prefix_img + "apps_apple-1501204946130.png",
+    prefix_img + "apps_google-1501197126312.png",
+    prefix_img + "apps_roku-1501204946153.png",
+    prefix_img + "apps_xbox_one-1501197126317.png",
+    prefix_img + "apps_windows-1501197126311.png",
+    prefix_img + "apps_amazon-1501204946080.png"
+  ]
+} %}
+
+{# CSS #}
+{% block style %}
+    .h1 {
+      font-size: 32px;
+      line-height: 36px;
+    }
+
+    .h2 {
+      font-size: 24px;
+      line-height: 32px;
+    }
+
+    .h3 {
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    .h4 {
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: normal;
+    }
+
+    .download {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 12px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: 600;
+      line-height: 16px;
+    }
+
+    td.button {
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      line-height: 18px;
+    }
+
+    a.button {
+      font-size: 12px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      padding: 6px 14px; 
+      border: 1px solid #1DA1F2;
+      display: inline-block; 
+      font-weight:600; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a.button_2 {
+      font-size: 12px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #1DA1F2; 
+      text-decoration: none;
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      padding: 6px 14px; 
+      border: 1px solid #ffffff;
+      display: inline-block; 
+      font-weight:600; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .button img {
+      display: inline;
+      vertical-align: top;
+    }
+
+    .body {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 16px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 22px;
+    }
+
+    .body_3 {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 20px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 24px;
+    }
+
+    .justify {
+      text-align: justify;
+    }
+
+    .apps img {
+      white-space: nowrap;
+      display: inline;
+    }
+
+    .card {
+      padding: 0px;
+      border: 2px solid #1da1f2;
+      background-color: #ffffff;
+      border-radius: 4px;
+      min-width: 320px;
+    }
+
+    .avatar {
+      border: none;
+      padding: 0px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+
+    .tweet_username {
+      text-decoration:none;
+      font-family:Helvetica,Arial,sans-serif;
+      font-size:16px;
+      line-height:18px;
+      font-weight:bold;
+      color:#292f33;
+      padding:0px;
+      display:block;
+      overflow:hidden;
+      text-overflow: ellipsis;
+      white-space:nowrap;
+    }
+
+    .tweet_screenname {
+      text-decoration:none;
+      font-family:Helvetica,Arial,sans-serif;
+      font-size:14px;
+      line-height:16px;
+      color:#657786;
+      padding:0px;
+      display:block;
+      overflow:hidden;
+      text-overflow: ellipsis;
+      white-space:nowrap;
+    }
+
+    .tweet_text {
+      font-family: Helvetica,Arial,sans-serif;
+      font-size: 14px;
+      line-height: 18px;
+      color: #31373b;
+      padding: 0px;
+    }
+
+    .tweet_social {
+      font-family: Helvetica,Arial,sans-serif;
+      font-size: 12px;
+      line-height: 16px;
+      color: #657786;
+      vertical-align: middle;
+    }
+
+    .underline_pink { 
+      text-decoration: underline #E0245E;
+    }
+
+    .underline_orange { 
+      text-decoration: underline #FFAD1F;
+    }
+{% endblock %}
+
+{% block media_query %}
+        .show {
+          overflow: visible !important;
+          float: none !important;
+          display: table !important;
+          line-height: 100% !important;
+        }
+
+        .iosBlue a {
+          text-decoration: underline;
+          } 
+
+        .width_full {
+          width: 100% !important;
+        }
+
+        .m_height_24 {
+          height: 24px !important;
+        }
+
+        .m_width_24 {
+          width: 24px !important;
+        }
+
+        .hide {
+          display: none !important;
+        }
+
+        .m_height_12 {
+          height: 12px !important;
+        }
+
+        .m_width_12 {
+          min-width: 12px !important;
+        }
+
+        .avatar {
+          height: 24px !important;
+          width: 24px !important;
+        }
+
+        .logo_twitter {
+          height: 24px !important;
+        }
+
+        .hero {
+          width: 246px !important;
+        }
+{% endblock %}
+
+{% block body %}
+  <style inline="false">
+    .appleLinksWhite a {
+      color: #ffffff !important; 
+      text-decoration: none;
+    } 
+  </style>
+  {{ "{{#contentRecsView}}{{#contentRecCollectionViews.head}}" }}
+  <table cellpadding="0" cellspacing="0" border="0" align="center" width="500" class="width_full" dir="{{ dir('ltr') }}">
+    <tr>
+      <td class="empty">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" class="width_full">
+          <tr>
+            <td height="24" colspan="3" class="m_height_12"></td>
+          </tr>
+          <tr>
+            <td width="0" class="empty m_width_12"></td>
+            <td>
+              <table cellpadding="0" cellspacing="0" border="0" align="center" width="500" class="width_full" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td align="center" width="32" valign="top">
+                    <a href="{{ tl(link.avatar) }}">
+                      <img alt="{{'@{{screen_name}}'}}" title="{{'@{{screen_name}}'}}" src="{{ '{{#profile_image_src}}{{{profile_image_src}}}{{/profile_image_src}}{{^profile_image_src}}https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png{{/profile_image_src}}' }}" width="32" height="32" class="avatar">
+                    </a>
+                  </td>
+                  <td align="center" valign="top">
+                    <!--[if !gte mso 9]><!---->
+                      <img src="{{ img.hero }}" class="hero" alt="#TBT" title="#TBT">
+                    <!--<![endif]-->
+                    <!--[if gte mso 9]>
+                      <img src="{{ img.hero_mso }}" class="hero" alt="#TBT" title="#TBT">
+                    <![endif]-->
+                  </td>
+                  <td align="center" width="32" valign="top">
+                    <a href="{{ tl(link.logo_twitter_large) }}">
+                      <img src="{{ img.logo_twitter }}" height="32"  alt="Twitter" title="Twitter" class="logo_twitter">
+                    </a>
+                  </td>
+                </tr>
+              </table>
+              <table cellpadding="0" cellspacing="0" border="0" align="center">
+                <tr>
+                  <td class="h2 text_black" align="center">
+                    {{ i10n(copy.headline[0]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td height="18" class="m_height_12"></td>
+                </tr>
+                <tr>
+                  <td class="h4 text_black" align="center">
+                    {{ i10n(copy.headline[1]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td height="24" colspan="3" class="m_height_12"></td>
+                </tr>
+              </table>
+            </td>
+            <td width="0" class="empty m_width_12"></td>
+          </tr>
+        </table>
+        {{ "{{#contentRecModuleViews}}{{#timeTravelView}}" }}
+        <table cellpadding="0" cellspacing="0" border="0" align="center">
+          <tr>
+            <td width="0" class="empty m_width_12"></td>
+            <td class="empty">
+              {{ "{{^module_design_key_reserved7}}" }}
+                {{ "{{#hot_tweets_module}}" }}
+                  {# MODULE 1 #}
+                  <a href="{{ '{{module_link}}' }}">
+                    <table cellpadding="0" cellspacing="0" border="0" align="center" class="card width_full" width="480">
+                      <tr>
+                        <td width="48" class="m_width_24">
+                          &nbsp;
+                        </td>
+                        <td>
+                          <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                            <tr>
+                              <td height="48" class="m_height_24"></td>
+                            </tr>
+                            <tr>
+                              <td class="h1 text_black" align="center">
+                                {{ i10n(copy.body[0]) }}
+                              </td>
+                            </tr>
+                            <tr>
+                              <td height="24" class="m_height_24"></td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <table border="0" cellspacing="0" cellpadding="0" align="center">
+                                  <tr>
+                                    <td align="center" class="button center" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
+                                      <a href="{{ '{{see_more_on_twitter_link}}' }}" target="_blank" class="button nowrap">
+                                        <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                        {{ i10n(copy.cta[0]) }}
+                                        <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                      </a>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td height="48" class="m_height_24"></td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td width="48" class="m_width_24">
+                          &nbsp;
+                        </td>
+                      </tr>
+                    </table>
+                  </a>
+                  {# GAP 1 #}
+                  <table align="center" width="480">
+                    <tr>
+                      <td height="24" class="m_height_12"></td>
+                    </tr>
+                  </table>
+                {{ "{{/hot_tweets_module}}" }}
+                {{ "{{#one_forty_module}}" }}
+                {# MODULE 2 #}
+                  <a href="{{ '{{module_link}}' }}">
+                    <table cellpadding="0" cellspacing="0" border="0" align="center" class="card width_full" width="480">
+                      <tr>
+                        <td width="48" class="m_width_24">
+                          &nbsp;
+                        </td>
+                        <td>
+                          <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                            <tr>
+                              <td height="48" class="m_height_24"></td>
+                            </tr>
+                            <tr>
+                              <td class="h1 text_black" align="center">
+                                {{ i10n(copy.body[1]) }}
+                              </td>
+                            </tr>
+                            <tr>
+                              <td height="24"></td>
+                            </tr>
+                            <tr>
+                              <td class="body text_black" align="center">
+                                {{ i10n(copy.body[2]) }}
+                              </td>
+                            </tr>
+                            <tr>
+                              <td height="24"></td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <table border="0" cellspacing="0" cellpadding="0" align="center">
+                                  <tr>
+                                    <td align="center" class="button center" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
+                                      <a href="{{ '{{see_more_on_twitter_link}}' }}" target="_blank" class="button nowrap">
+                                        <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                        {{ i10n(copy.cta[0]) }}
+                                        <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                      </a>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td height="48" class="m_height_24"></td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td width="48" class="m_width_24">
+                          &nbsp;
+                        </td>
+                      </tr>
+                    </table>
+                  </a>
+                  {# GAP 2 #}
+                  <table align="center" width="480">
+                    <tr>
+                      <td height="24" class="m_height_12"></td>
+                    </tr>
+                  </table>
+                {{ "{{/one_forty_module}}" }}
+                {{ "{{#tbt_worthy_module}}" }}
+                  {# MODULE 3 #}
+                  <a href="{{ '{{module_link}}' }}">
+                    <table cellpadding="0" cellspacing="0" border="0" align="center" class="card width_full" width="480">
+                      <tr>
+                        <td width="48" class="m_width_24">
+                          &nbsp;
+                        </td>
+                        <td>
+                          <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                            <tr>
+                              <td height="48" class="m_height_24"></td>
+                            </tr>
+                            <tr>
+                              <td height="45" align="center">
+                                <img src="{{ img.party }}" height="45" width="45"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td height="24" class="m_height_24"></td>
+                            </tr>
+                            <tr>
+                              <td class="h1 text_black" align="center">
+                                {{ i10n(copy.body[3]) }}
+                              </td>
+                            </tr>
+                            <tr>
+                              <td height="24" class="m_height_24"></td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <table border="0" cellspacing="0" cellpadding="0" align="center">
+                                  <tr>
+                                    <td align="center" class="button center" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
+                                      <a href="{{ '{{see_more_on_twitter_link}}' }}" target="_blank" class="button nowrap">
+                                        <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                        {{ i10n(copy.cta[0]) }}
+                                        <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                      </a>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td height="48" class="m_height_24"></td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td width="48" class="m_width_24">
+                          &nbsp;
+                        </td>
+                      </tr>
+                    </table>
+                  </a>
+                  {# GAP 3 #}
+                  <table align="center" width="480">
+                    <tr>
+                      <td height="24" class="m_height_12"></td>
+                    </tr>
+                  </table>
+                {{ "{{/tbt_worthy_module}}" }}
+              {{ "{{/module_design_key_reserved7}}" }}
+              {{ "{{#module_design_key_reserved7}}" }}
+                {{ "{{#hot_tweets_module}}" }}
+                  {# MODULE 4 #}
+                    <a href="{{ '{{module_link}}' }}">
+                      <table cellpadding="0" cellspacing="0" border="0" align="center" class="card width_full" width="480">
+                        <tr>
+                          <td width="48" class="m_width_24">
+                            &nbsp;
+                          </td>
+                          <td>
+                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                              <tr>
+                                <td height="48" class="m_height_24"></td>
+                              </tr>
+                              <tr>
+                                <td class="h1 text_black" align="center">
+                                  {{ i10n(copy.body[4]) }}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td height="24" class="m_height_24"></td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <table border="0" cellspacing="0" cellpadding="0" align="center">
+                                    <tr>
+                                      <td align="center" class="button center" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
+                                        <a href="{{ '{{see_more_on_twitter_link}}' }}" target="_blank" class="button nowrap">
+                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                          {{ i10n(copy.cta[0]) }}
+                                          <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                        </a>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td height="48" class="m_height_24"></td>
+                              </tr>
+                            </table>
+                          </td>
+                          <td width="48" class="m_width_24">
+                            &nbsp;
+                          </td>
+                        </tr>
+                      </table>
+                    </a>
+                  {# GAP 4 #}
+                  <table align="center" width="480">
+                    <tr>
+                      <td height="24" class="m_height_12"></td>
+                    </tr>
+                  </table>
+                {{ "{{/hot_tweets_module}}" }}
+                {{ "{{#one_forty_module}}" }}
+                  {# MODULE 5 #}
+                  <a href="{{ '{{module_link}}' }}">
+                    <table cellpadding="0" cellspacing="0" border="0" align="center" class="card width_full" width="480">
+                      <tr>
+                        <td width="48" class="m_width_24">
+                          &nbsp;
+                        </td>
+                        <td>
+                          <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                            <tr>
+                              <td height="48" class="m_height_24"></td>
+                            </tr>
+                            <tr>
+                              <td class="h1 text_black" align="center">
+                                {{ i10n(copy.body[5]) }}
+                              </td>
+                            </tr>
+                            <tr>
+                              <td height="24"></td>
+                            </tr>
+                            <tr>
+                              <td class="body text_black" align="center">
+                                {{ i10n(copy.body[6]) }}
+                              </td>
+                            </tr>
+                            <tr>
+                              <td height="24"></td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <table border="0" cellspacing="0" cellpadding="0" align="center">
+                                  <tr>
+                                    <td align="center" class="button center" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
+                                      <a href="{{ '{{see_more_on_twitter_link}}' }}" target="_blank" class="button nowrap">
+                                        <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                        {{ i10n(copy.cta[0]) }}
+                                        <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                      </a>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td height="48" class="m_height_24"></td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td width="48" class="m_width_24">
+                          &nbsp;
+                        </td>
+                      </tr>
+                    </table>
+                  </a>
+                  {# GAP 5 #}
+                  <table align="center" width="480">
+                    <tr>
+                      <td height="24" class="m_height_12"></td>
+                    </tr>
+                  </table>
+                {{ "{{/one_forty_module}}" }}
+                {{ "{{#tbt_worthy_module}}" }}
+                  {# MODULE 6 #}
+                  <a href="{{ '{{module_link}}' }}">
+                    <table cellpadding="0" cellspacing="0" border="0" align="center" class="card width_full" width="480">
+                      <tr>
+                        <td width="48" class="m_width_24">
+                          &nbsp;
+                        </td>
+                        <td>
+                          <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                            <tr>
+                              <td height="48" class="m_height_24"></td>
+                            </tr>
+                            <tr>
+                              <td height="45" align="center">
+                                <img src="{{ img.camera }}" height="45" width="45"/>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td height="24" class="m_height_24"></td>
+                            </tr>
+                            <tr>
+                              <td class="h1 text_black" align="center">
+                                {{ i10n(copy.body[7]) }}
+                              </td>
+                            </tr>
+                            <tr>
+                              <td height="24" class="m_height_24"></td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <table border="0" cellspacing="0" cellpadding="0" align="center">
+                                  <tr>
+                                    <td align="center" class="button center" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
+                                      <a href="{{ '{{see_more_on_twitter_link}}' }}" target="_blank" class="button nowrap">
+                                        <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                        {{ i10n(copy.cta[0]) }}
+                                        <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                      </a>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td height="48" class="m_height_24"></td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td width="48" class="m_width_24">
+                          &nbsp;
+                        </td>
+                      </tr>
+                    </table>
+                  </a>
+                  {# GAP 6 #}
+                  <table align="center" width="480">
+                    <tr>
+                      <td height="24" class="m_height_12"></td>
+                    </tr>
+                  </table>
+                {{ "{{/tbt_worthy_module}}" }}
+              {{ "{{/module_design_key_reserved7}}" }}
+            </td>
+            <td width="0" class="empty m_width_12"></td>
+          </tr>
+        </table>
+        {{ "{{/timeTravelView}}{{/contentRecModuleViews}}" }}
+        <table cellpadding="0" cellspacing="0" border="0" align="center" width="480" class="width_full">
+          <tr>
+            <td class="empty width_20" width="45">
+              &nbsp;
+            </td>
+            <td class="empty center">
+              <table align="center" class="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="48">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer strong deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    <a href="{{ tl(link.about,7) }}" class="blue">
+                      {{ i10n(copy.footer[0]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ tl(link.help,8) }}" class="blue">
+                      {{ i10n(copy.footer[1]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ '{{ unsubscribe }}' }}" class="blue">
+                      {{ i10n(copy.footer[2]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ tl(link.download,9) }}" class="blue">
+                      {{ i10n(copy.footer[3]) }}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer deep_grey center" align="center">
+                    <span class="addressLink">{{"{{>manhattan:static:address_twitter/html_content}}"}}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="45">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td class="fix_gmail_android" align="center">
+        <table align="center">
+          <tr>
+            <td width="64" height="1">
+              <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="64"/>
+            </td>
+            <td width="64" height="1">
+              <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="64"/>
+            </td>
+            <td width="64" height="1">
+              <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="64"/>
+            </td>
+            <td width="64" height="1">
+              <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="64"/>
+            </td>
+            <td width="64" height="1">
+              <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="64"/>*
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  {{ "{{/contentRecCollectionViews.head}}{{/contentRecsView}}" }}
+{% endblock %}

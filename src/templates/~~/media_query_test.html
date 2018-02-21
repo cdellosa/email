@@ -1,0 +1,253 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# HERO COPY IMAGE HEIGHT #}
+{% set hero_copy_height = 150 %}
+{# THIS IS AUTO SET BY ABOVE #}
+{% set hero_spacer_height = 366 - hero_copy_height - 119 %}
+{% set hero_copy_height_mobile = (hero_copy_height * 0.65)|round %}
+{% set hero_spacer_height_mobile = (hero_spacer_height * 0.65)|round %}
+
+{# BGCOLOR MAIN #}
+{% set bgcolor_main = "#f5f8fa" %}
+
+{# MAIN COLOR #}
+{% set main_color = "#1DA1F2" %}
+
+{# MOBILE FIX REMOVE SWITCH #}
+{% set mobile_fix_remove = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/live/885273741764083712?ref_src=twsrc%5Eemail%7Ctwcamp%5EStadium",
+  "cta" : "https://twitter.com/i/live/885273741764083712?ref_src=twsrc%5Eemail%7Ctwcamp%5EStadium",
+  "text" : [
+    "https://twitter.com/WatchStadium",
+    "https://twitter.com/search?q=%23watchstadium&src=typd",
+    "https://twitter.com/i/live/885273741764083712?ref_src=twsrc%5Eemail%7Ctwcamp%5EStadium"
+  ],
+  "icon" : "https://twitter.com/WatchStadium",
+  "logo_twitter_large" : "https://twitter.com/twitterlive",
+  "mlb" : "https://twitter.com/wnba",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [ 
+    "{{user_name}}, Introducing Stadium. A sports network for today's fans."
+  ],  
+  "preheader" : "See what's happening. Watch the eclipse LIVE on Twitter",  
+  "alt_hero" : "Nonstop sports for nonstop fans. Watch LIVE on Twitter",  
+  "cta" : "Watch LIVE on",  
+  "headline" : [  
+    "Introducing the ultimate destination for 24/7 sports — Stadium",
+    "Watch it. Talk about it."
+  ],  
+  "body" : [  
+    "Stadium is the sports network you’ve been waiting for. Get ready for exclusive live games and sporting events, extensive highlights, classic games, and original programming—such as Campus Insiders, The Rally and Inside the League. Stadium delivers 24/7 sports to fans everywhere, on the device they like best.",
+    "@watchstadium",
+    "#watchstadium",
+    "watchstadium.twitter.com",
+    "Watch it. Talk about it.",
+    "Download Twitter and watch live video on the following devices:"
+  ],
+  "alt" : [  
+    "The Weather Channel",
+    "Twitter"
+  ], 
+  "apps" : [
+    "Apple TV",
+    "Google Play",
+    "Roku",
+    "Xbox One",
+    "Windows 10",
+    "Amazon Fire TV"
+  ], 
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],  
+  "disclaimer" : "This email was meant for @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}  
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "logo_twitter" : prefix_img + "logo-1475170569504.png",
+  "hero" : prefix_img + "cm_20170824_stadium_hero-1502828835916.gif",
+  "hero_m" : prefix_img + "cm_20170824_stadium_hero-1502828835916.gif",
+  "spacer" : prefix_img + "spacer.png",
+  "spacer_1" : prefix_img + "spacer_640x1-1481059174655.png",
+  "logo_twitter_large" : prefix_img + "dm_logo_twitter-1489534651038.png",
+  "icon" : prefix_img + "cm_20170824_stadium_logo-1502828993354.gif",
+  "spacer_2" : prefix_img + "spacer_3_x_1-1493416213665.png",
+  "apps" : [
+    prefix_img + "apps_line-1501197126309.png",
+    prefix_img + "apps_apple-1501204946130.png",
+    prefix_img + "apps_google-1501197126312.png",
+    prefix_img + "apps_roku-1501204946153.png",
+    prefix_img + "apps_xbox_one-1501197126317.png",
+    prefix_img + "apps_windows-1501197126311.png",
+    prefix_img + "apps_amazon-1501204946080.png"
+  ]
+} %}
+
+{# CSS #}
+{% block style %}
+    .h3 {
+      font-size: 22px;
+      line-height: 26px;
+    }
+
+    .download {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 12px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: 600;
+      line-height: 16px;
+    }
+
+    td.button {
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      line-height: 18px;
+    }
+
+    a.button {
+      font-size: 16px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      padding: 11px 30px; 
+      border: 1px solid #1DA1F2;
+      display: inline-block; 
+      font-weight:600; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .button img {
+      display: inline;
+      vertical-align: top;
+    }
+
+    .body {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 16px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 22px;
+    }
+
+    .body_3 {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 20px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 24px;
+    }
+
+    .justify {
+      text-align: justify;
+    }
+{% endblock %}
+
+{% block media_query %}
+        .hide {
+          display: none !important;
+        }
+
+        .show {
+          overflow: visible !important;
+          float: none !important;
+          display: table !important;
+          line-height: 100% !important;
+        }
+
+        .show_500 {
+          overflow: visible !important;
+          float: none !important;
+          display: table !important;
+          line-height: 100% !important;
+        }
+{% endblock %}
+
+{% block media_query_350 %}
+        .hide {
+          display: none !important;
+        }
+
+        .show {
+          overflow: visible !important;
+          float: none !important;
+          display: table !important;
+          line-height: 100% !important;
+        }
+
+        .show_500 {
+          display: none !important;
+        }
+
+        .show_350 {
+          overflow: visible !important;
+          float: none !important;
+          display: table !important;
+          line-height: 100% !important;
+        }
+{% endblock %}
+
+{% block body %}
+  <style inline="false">
+    .appleLinksWhite a {
+      color: #ffffff !important; 
+      text-decoration: none;
+    } 
+  </style>
+  <table cellpadding="0" cellspacing="0" border="0" align="center" width="640" class="width_full hide" dir="{{ dir('ltr') }}">
+    <tr>
+      <td height="200" valign="middle" bgcolor="#ff0000" class="h1 white" align="center">
+        Desktop
+      </td>
+    </tr>
+  </table>
+
+  <!--[if !gte mso 9]><!---->
+  <div class="show_500 width_full" style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+    <table cellpadding="0" cellspacing="0" border="0" align="center" width="640" class="width_full" dir="{{ dir('ltr') }}">
+      <tr>
+        <td height="200" valign="middle" bgcolor="#20a040" class="h2 white" align="center">
+          iPhone 7 < (420px width)
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!--<![endif]-->
+
+  <!--[if !gte mso 9]><!---->
+  <div class="show_350 width_full" style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+    <table cellpadding="0" cellspacing="0" border="0" align="center" width="640" class="width_full" dir="{{ dir('ltr') }}">
+      <tr>
+        <td height="200" valign="middle" bgcolor="#4c2be2" class="h2 white" align="center">
+          iPhone 5 > (350px width)
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!--<![endif]-->
+{% endblock %}

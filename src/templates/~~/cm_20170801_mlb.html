@@ -1,0 +1,475 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# HERO COPY IMAGE HEIGHT #}
+{% set hero_copy_height = 150 %}
+{# THIS IS AUTO SET BY ABOVE #}
+{% set hero_spacer_height = 366 - hero_copy_height - 119 %}
+{% set hero_copy_height_mobile = (hero_copy_height * 0.65)|round %}
+{% set hero_spacer_height_mobile = (hero_spacer_height * 0.65)|round %}
+
+{# BGCOLOR MAIN #}
+{% set bgcolor_main = "#f5f8fa" %}
+
+{# MAIN COLOR #}
+{% set main_color = "#1DA1F2" %}
+
+{# MOBILE FIX REMOVE SWITCH #}
+{% set mobile_fix_remove = false %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+  "cta" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+  "text" : [
+    "https://twitter.com/mlb",
+    "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+    "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB"
+  ],
+  "schedule" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+  "icon" : "https://twitter.com/mlb",
+  "logo_twitter_large" : "https://twitter.com/twitterlive",
+  "mlb" : "https://twitter.com/mlb",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [ 
+    "Front row seat minus the heat. Watch LIVE. "
+  ],  
+  "preheader" : "MLB, streaming LIVE in August",  
+  "alt_hero" : "Front row seat minus the heat. Watch LIVE.", 
+  "cta" : "Watch LIVE on",  
+  "headline" : [  
+    "MLB, Streaming LIVE on Twitter in August"
+  ],  
+  "body" : [  
+    "It’s the biggest test of the season so far. When the boys of summer take on the dog days. This is the time when contenders rise. Pretenders fall. And October dreams begin to take shape for players and fans alike. This is August baseball on Twitter. When you’re not just watching the game, you’re joining in the conversation every Tuesday night. Starting August 1st, when the Diamondbacks travel to Wrigley Field to battle the Cubs.",
+    "Watch it. Talk about it.",
+    "Watch and Tweet along with your favorite <a href=\"" + tl(link.mlb) + "\" class=\"blue\">@MLB</a> teams and players all season long! Visit <a href=\"" + tl(link.mlb) + "\" class=\"blue\">mlb.twitter.com</a>",
+    "Streams available everywhere except select international territories and team hometowns. Blackout and other restrictions apply. Major League Baseball trademarks and copyrights are used with permission of MLB Advanced Media, L.P. All rights reserved.",
+    "Download Twitter and watch live video <!--[if !gte mso 9]><!----><div class=\"show_br\" style=\"display:none;max-height:0;overflow:hidden;mso-hide:all;\"><br></div><!--<![endif]-->on the following devices:"
+  ],
+  "schedule" : [
+    "Coming up in August... | Diamondbacks vs Cubs | Tuesday, August 1 - 8:05PM ET | Yankees vs Blue Jays | Tuesday, August 8 - 7:07PM ET | Angels vs Nationals | Tuesday, August 15 - 7:05PM ET | Dodgers vs Pirates | Tuesday, August 22 - 7:05PM ET | Red Sox vs Blue Jays | Tuesday, August 29 - 7:07PM ET"
+  ],
+  "alt" : [  
+    "MLB",
+    "Twitter"
+  ], 
+  "apps" : [
+    "Apple TV",
+    "Google Play",
+    "Roku",
+    "Xbox One",
+    "Windows 10",
+    "Amazon Fire TV"
+  ], 
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],  
+  "disclaimer" : "This email was meant for @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}  
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "logo_twitter" : prefix_img + "logo-1475170569504.png",
+  "hero" : prefix_img + "cm_20170801_mlb_hero-1501179544917.gif",
+  "hero_m" : prefix_img + "cm_20170801_mlb_hero_m-1501179544517.gif",
+  "spacer" : prefix_img + "spacer_640x265-1481056487262.png",
+  "spacer_1" : prefix_img + "spacer_640x1-1481059174655.png",
+  "logo_twitter_large" : prefix_img + "dm_logo_twitter-1489534651038.png",
+  "icon" : prefix_img + "20170505_mlb_launch_logo_mlb-1493836110453.png",
+  "schedule" : prefix_img + "cm_20170801_mlb_schedule-1501179544566.jpg",
+  "spacer_2" : prefix_img + "spacer_3_x_1-1493416213665.png",
+  "apps" : [
+    prefix_img + "apps_line-1501197126309.png",
+    prefix_img + "apps_apple-1501204946130.png",
+    prefix_img + "apps_google-1501197126312.png",
+    prefix_img + "apps_roku-1501204946153.png",
+    prefix_img + "apps_xbox_one-1501197126317.png",
+    prefix_img + "apps_windows-1501197126311.png",
+    prefix_img + "apps_amazon-1501204946080.png"
+  ]
+} %}
+
+{# CSS #}
+{% block style %}
+    .h3 {
+      font-size: 22px;
+      line-height: 26px;
+    }
+
+    .download {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 12px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: 600;
+      line-height: 16px;
+    }
+
+    td.button {
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      line-height: 18px;
+    }
+
+    a.button {
+      font-size: 16px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      padding: 11px 30px; 
+      border: 1px solid #1DA1F2;
+      display: inline-block; 
+      font-weight:600; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .button img {
+      display: inline;
+      vertical-align: top;
+    }
+
+    .body {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 16px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 22px;
+    }
+
+    .body_3 {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 20px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 24px;
+    }
+
+    .justify {
+      text-align: justify;
+    }
+{% endblock %}
+
+{% block media_query %}
+        .hide {
+          display: none !important;
+        }
+
+        .show {
+          overflow: visible !important;
+          float: none !important;
+          display: table !important;
+          line-height: 100% !important;
+        }
+
+        .show_br {
+          overflow: visible !important;
+          float: none !important;
+          display: inline !important;
+        }
+
+        .iosBlue a {
+          text-decoration: underline;
+          } 
+
+        .width_full {
+          width: 100% !important;
+        }
+
+        .width_90p {
+          width: 90% !important;
+        }
+
+        .height_1 {
+          height: 1px !important;
+        }
+
+        .height_30 {
+          height: 30px !important;
+        }
+
+        .h3 {
+          font-size: 16px !important;
+          line-height: 20px !important;
+        }
+
+        .body_3 {
+          font-size: 16px !important;
+          line-height: 20px !important;
+        }
+{% endblock %}
+
+{% block body %}
+  <style inline="false">
+    .appleLinksWhite a {
+      color: #ffffff !important; 
+      text-decoration: none;
+    } 
+  </style>
+  <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full" dir="{{ dir('ltr') }}">
+    <tr>
+      <td id="hero" bgcolor="#ffffff" width="640" valign="top" colspan="3">
+        <a href="{{ tl(link.hero) }}" class="hide">
+          <img src="{{ img.hero }}" class="hide" alt="{{ copy.alt_hero }}" title="{{ copy.alt_hero }}" width="100%" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
+        </a>
+      </td>
+    </tr>
+    <!--[if !gte mso 9]><!---->
+    <tr>
+      <td class="empty">
+        <div class="show" style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+          <a href="{{ tl(link.hero) }}">
+            <img src="{{ img.hero_m }}" class="width_full" alt="{{ copy.alt_hero }}" title="{{ copy.alt_hero }}" width="100%" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
+          </a>
+        </div>
+      </td>
+    </tr>
+    <!--<![endif]-->
+    <tr>
+      <td class="empty">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full">
+          <tr>
+            <td class="empty width_20" width="45">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table cellpadding="0" cellspacing="0" border="0" align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="h3 deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.headline) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[0]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" align="center">
+                    <table border="0" cellspacing="0" cellpadding="0" align="center">
+                      <tr>
+                        <td align="center" class="button center" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
+                          <a href="{{ tl(link.cta) }}" target="_blank" class="button nowrap">
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                            {{ i10n(copy.cta) }}&nbsp;<img src="{{ img.logo_twitter }}" height="16"/>
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="h2 deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[1]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[2]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty center" align="center">
+                    <a href="{{ tl(link.hero) }}">
+                      <img src="{{ img.schedule }}" width="542" class="width_90p" title="{% for item in copy.schedule %}{{ item }}{% endfor %}" alt="{% for item in copy.schedule %}{{ item }}{% endfor %}"/>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty center">
+                    <table align="center" class="center">
+                      <tr>
+                        <td class="empty center" align="center">
+                          <a href="{{ tl(link.icon) }}" class="blue">
+                            <img src="{{ img.icon }}" height="30" title="{{ i10n(copy.alt[0]) }}" alt="{{ i10n(copy.alt[0]) }}"/>
+                          </a>
+                        </td>
+                        <td class="empty" width="20">
+                          &nbsp;
+                        </td>
+                        <td class="empty" width="1" bgcolor="#bec9d1">
+                          &nbsp;
+                        </td>
+                        <td class="empty" width="20">
+                          &nbsp;
+                        </td>
+                        <td class="empty center" align="center">
+                          <a href="{{ tl(link.logo_twitter_large) }}" class="blue">
+                          <img src="{{ img.logo_twitter_large }}" height="30" title="{{ i10n(copy.alt[1]) }}" alt="{{ i10n(copy.alt[1]) }}"/>
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="45">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
+          <tr>
+            <td class="empty" bgcolor="#d3d3d3" height="2">
+              &nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td class="empty" height="23">
+              &nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td class="download deep_grey center" align="center" dir="{{ dir('ltr') }}">
+              {{ i10n(copy.body[4]) }}
+            </td>
+          </tr>
+          <tr>
+            <td class="empty" height="8">
+              &nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td class="empty center" align="center" dir="{{ dir('ltr') }}" style="line-height: 20px;">
+              <img src="{{ img.apps[1] }}" alt="{{ copy.apps[1] }}" title="{{ copy.apps[0] }}" height="20"/>
+              <img src="{{ img.apps[0] }}" title="" height="20"/>
+              <img src="{{ img.apps[2] }}" alt="{{ copy.apps[1] }}" title="{{ copy.apps[1] }}" height="20"/>
+              <img src="{{ img.apps[0] }}" title="" height="20"/>
+              <img src="{{ img.apps[3] }}" alt="{{ copy.apps[2] }}" title="{{ copy.apps[2] }}" height="20"/>
+              <img src="{{ img.apps[0] }}" title="" height="20"/>
+              <img src="{{ img.apps[4] }}" alt="{{ copy.apps[3] }}" title="{{ copy.apps[3] }}" height="20"/>
+              <img src="{{ img.apps[0] }}" title="" height="20" class="hide"/>
+              <!--[if !gte mso 9]><!----><div class="show" style="display:none;max-height:0;overflow:hidden;mso-hide:all;"><br><img src="{{ img.spacer_2 }}" width="1" height="6" /></div><!--<![endif]-->
+              <img src="{{ img.apps[5] }}" alt="{{ copy.apps[4] }}" title="{{ copy.apps[4] }}" height="20"/>
+              <img src="{{ img.apps[0] }}" title="" height="20"/>
+              <img src="{{ img.apps[6] }}" alt="{{ copy.apps[5] }}" title="{{ copy.apps[5] }}" height="20"/>
+            </td>
+          </tr>
+          <tr>
+            <td class="empty" height="21">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#f5f8fa" width="640" class="width_full">
+          <!--[if gte mso 9]>
+          <tr>
+            <td colspan="3" align="center">
+              <img src="{{ img.spacer_1 }}" width="640" />
+            </td>
+          </tr>
+          <![endif]-->
+          <tr>
+            <td class="empty width_20" width="45">
+              &nbsp;
+            </td>
+            <td class="empty center">
+              <table align="center" class="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer strong deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    <a href="{{ tl(link.about,7) }}" class="blue">
+                      {{ i10n(copy.footer[0]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ tl(link.help,8) }}" class="blue">
+                      {{ i10n(copy.footer[1]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ '{{ unsubscribe }}' }}" class="blue">
+                      {{ i10n(copy.footer[2]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ tl(link.download,9) }}" class="blue">
+                      {{ i10n(copy.footer[3]) }}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer deep_grey center" align="center">
+                    <span class="addressLink">{{"{{>manhattan:static:address_twitter/html_content}}"}}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="45">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+{% endblock %}

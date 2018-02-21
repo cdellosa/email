@@ -1,0 +1,529 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# HERO COPY IMAGE HEIGHT #}
+{% set hero_copy_height = 150 %}
+{# THIS IS AUTO SET BY ABOVE #}
+{% set hero_spacer_height = 366 - hero_copy_height - 119 %}
+{% set hero_copy_height_mobile = (hero_copy_height * 0.65)|round %}
+{% set hero_spacer_height_mobile = (hero_spacer_height * 0.65)|round %}
+
+{# MAIN COLOR #}
+{% set main_color = "#1DA1F2" %}
+
+{# MOBILE FIX REMOVE SWITCH #}
+{% set mobile_fix_remove = false %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+  "cta" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+  "text" : [
+    "https://twitter.com/mlb",
+    "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+    "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB"
+  ],
+  "schedule" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+  "icon" : "https://twitter.com/mlb",
+  "logo_twitter_large" : "https://twitter.com/",
+  "mlb" : "https://mlb.twitter.com",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "preheader" : "See the Yanks take on the Rays in not-to-miss MLB action",
+  "subject_line" : "Yankees and Rays in MLB Live action!",
+  "alt_hero" : "Catch every pitch, fly ball, line drive, and double play. | Streaming Live on Twitter | May 19| 7:10PM ET | ",
+  "headline" : "Twitter Presents Friday Night Baseball,&nbsp;Live!",
+  "body" : [
+    "When you watch the Red Sox take on the Devil Rays on Twitter, you’ll get more than just the play-by-play. You get every side of the action, as it’s happening, live. Join the crowd, talk some smack, show your team spirit. Just add some hot dogs and the smell of fresh-cut grass and it’s like you’re there! Catch it this Thursday. And get inside baseball with all the latest rumors, analysis, and more on The Dugout, hosted by Alexas Datt - a Twitter exclusive. ",
+    "Thursday, July 6 | 7:10pm ET",
+    "Watch it. Talk About it.",
+    "Watch and Tweet along with your favorite <a href=\"" + tl(link.mlb) + "\" class=\"blue\">@MLB</a> teams and players all season long! Visit <a href=\"" + tl(link.mlb) + "\" class=\"blue\">mlb.twitter.com</a>",
+    "*Major League Baseball trademarks and copyrights are used with permission of MLB Advanced Media, L.P. All rights reserved."
+  ],
+  "cta" : "Watch LIVE on",
+  "schedule" : [
+    "Coming up in&nbsp;July...",
+    "Red Sox vs Tampa Bay",
+    "Thursday, July 6 | 7:10PM ET",
+    "No Game/All Star Week",
+    "Tuesday, July 11",
+    "Dodgers vs White Sox",
+    "Tuesday, July 18 | 8:10PM ET",
+    "Reds vs Yankees",
+    "Tuesday, July 25 | 7:05PM ET"
+  ],
+  "alt_icon" : "MLB",
+  "alt_logo" : "Twitter",
+  "footer" : ["About", "Help", "Unsubscribe", "Download app"],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "logo_twitter" : prefix_img + "logo-1475170569504.png",
+  "hero" : prefix_img + "cm_20170706_mlb_hero-1498696803780.jpg",
+  "hero_m" : prefix_img + "cm_20170706_mlb_hero_m-1498696803791.jpg",
+  "spacer" : prefix_img + "spacer_640x265-1481056487262.png",
+  "spacer_1" : prefix_img + "spacer_640x1-1481059174655.png",
+  "logo_twitter_large" : prefix_img + "dm_logo_twitter-1489534651038.png",
+  "icon" : prefix_img + "20170505_mlb_launch_logo_mlb-1493836110453.png",
+  "schedule" : prefix_img + "cm_20170706_mlb_schedule-1498865348187.jpg",
+  "spacer_2" : prefix_img + "spacer_3_x_1-1493416213665.png"
+} %}
+
+{# CSS #}
+{% block style %}
+    .h3 {
+      font-size: 22px;
+      line-height: 26px;
+    }
+
+    td.button {
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      line-height: 18px;
+    }
+
+    a.button {
+      font-size: 16px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      padding: 11px 30px; 
+      border: 1px solid #1DA1F2;
+      display: inline-block; 
+      font-weight:600; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .button img {
+      display: inline;
+      vertical-align: top;
+    }
+
+    .body {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 16px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 22px;
+    }
+
+    .body_3 {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 20px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 24px;
+    }
+
+    .justify {
+      text-align: justify;
+    }
+{% endblock %}
+
+{% block media_query %}
+        .hide {
+          display: none !important;
+        }
+
+        .show {
+          overflow: visible !important;
+          float: none !important;
+          display: table !important;
+          line-height:100% !important;
+        }
+
+        .iosBlue a {
+          text-decoration: underline;
+          } 
+
+        .width_full {
+          width: 100% !important;
+        }
+
+        .width_90p {
+          width: 90% !important;
+        }
+
+        .height_1 {
+          height: 1px !important;
+        }
+
+        .height_30 {
+          height: 30px !important;
+        }
+
+        .h3 {
+          font-size: 16px !important;
+          line-height: 20px !important;
+        }
+
+        .body_3 {
+          font-size: 16px !important;
+          line-height: 20px !important;
+        }
+{% endblock %}
+
+{% block body %}
+  <style inline="false">
+    .appleLinksWhite a {
+      color: #ffffff !important; 
+      text-decoration: none;
+    } 
+  </style>
+  <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full" dir="{{ dir('ltr') }}">
+    <tr>
+      <td id="hero" bgcolor="#ffffff" width="640" valign="top" colspan="3">
+        <a href="{{ tl(link.hero) }}" class="hide">
+          <img src="{{ img.hero }}" class="hide" alt="{{ copy.alt_hero }}" title="{{ copy.alt_hero }}" width="100%" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
+        </a>
+      </td>
+    </tr>
+    <!--[if !gte mso 9]><!---->
+    <tr>
+      <td class="empty">
+        <div class="show" style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+          <a href="{{ tl(link.hero) }}">
+            <img src="{{ img.hero_m }}" class="width_full" alt="{{ copy.alt_hero }}" title="{{ copy.alt_hero }}" width="100%" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
+          </a>
+        </div>
+      </td>
+    </tr>
+    <!--<![endif]-->
+    <tr>
+      <td class="empty">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full">
+          <tr>
+            <td class="empty width_20" width="45">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table cellpadding="0" cellspacing="0" border="0" align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="h3 deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.headline) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[0]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[1]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" align="center">
+                    <table border="0" cellspacing="0" cellpadding="0" align="center">
+                      <tr>
+                        <td align="center" class="button center" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
+                          <a href="{{ tl(link.cta) }}" target="_blank" class="button nowrap">
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                            {{ i10n(copy.cta) }}&nbsp;<img src="{{ img.logo_twitter }}" height="16" />
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="h2 deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[2]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[3]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty center" align="center">
+                    <table border="0" cellspacing="0" cellpadding="0" align="center" width="400" class="width_full"> 
+                      <tr>
+                        <td background="{{ img.schedule }}" bgcolor="#02658b" width="400" valign="top">
+                          <!--[if gte mso 9]>
+                          <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:400px;height:368px;">
+                            <v:fill type="tile" src="{{ img.schedule }}" color="#02658b" />
+                            <v:textbox inset="0,0,0,0">
+                          <![endif]-->
+                          <div>
+                            <table border="0" cellspacing="0" cellpadding="0" align="center">
+                              <tr>
+                                <td class="empty" height="24" colspan="3">
+                                  &nbsp;
+                                </td>
+                              </tr>
+                              <tr> 
+                                <td width="24">
+                                  &nbsp;
+                                </td>
+                                <td class="empty">
+                                  <table border="0" cellspacing="0" cellpadding="0" align="{{ align('left') }}">
+                                    <tr>
+                                      <td class="h1 white" id="schedule" align="{{ align('left') }}">
+                                        <span class="appleLinksWhite">{{ copy.schedule[0] }}</span>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td class="empty" height="10">
+                                        &nbsp;
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td class="empty" height="1" bgcolor="#ffffff">
+                                        &nbsp;
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td class="empty" height="10">
+                                        &nbsp;
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td class="h3 white" align="{{ align('left') }}">
+                                        <span class="appleLinksWhite">{{ copy.schedule[1] }}</span>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td class="body_3 white" align="{{ align('left') }}">
+                                        <span class="appleLinksWhite">{{ copy.schedule[2] }}</span>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td class="empty" height="12">
+                                        &nbsp;
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td class="h3 white" align="{{ align('left') }}">
+                                        <span class="appleLinksWhite">{{ copy.schedule[3] }}</span>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td class="body_3 white" align="{{ align('left') }}">
+                                        <span class="appleLinksWhite">{{ copy.schedule[4] }}</span>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td class="empty" height="12">
+                                        &nbsp;
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td class="h3 white" align="{{ align('left') }}">
+                                        <span class="appleLinksWhite">{{ copy.schedule[5] }}</span>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td class="body_3 white" align="{{ align('left') }}">
+                                        <span class="appleLinksWhite">{{ copy.schedule[6] }}</span>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td class="empty" height="12">
+                                        &nbsp;
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td class="h3 white" align="{{ align('left') }}">
+                                        <span class="appleLinksWhite">{{ copy.schedule[7] }}</span>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td class="body_3 white" align="{{ align('left') }}">
+                                        <span class="appleLinksWhite">{{ copy.schedule[8] }}</span>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                                <td width="24">
+                                  &nbsp;
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="empty" height="24" colspan="3">
+                                  &nbsp;
+                                </td>
+                              </tr>
+                            </table>
+                          </div>
+                          <!--[if gte mso 9]>
+                            </v:textbox>
+                          </v:rect>
+                          <![endif]-->
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty center">
+                    <table align="center" class="center">
+                      <tr>
+                        <td class="empty center" align="center">
+                          <a href="{{ tl(link.icon) }}" class="blue">
+                            <img src="{{ img.icon }}" height="30" title="{{ i10n(copy.alt_icon) }}" alt="{{ i10n(copy.alt_icon) }}"/>
+                          </a>
+                        </td>
+                        <td class="empty" width="20">
+                          &nbsp;
+                        </td>
+                        <td class="empty" width="1" bgcolor="#bec9d1">
+                          &nbsp;
+                        </td>
+                        <td class="empty" width="20">
+                          &nbsp;
+                        </td>
+                        <td class="empty center" align="center">
+                          <a href="{{ tl(link.logo_twitter_large) }}" class="blue">
+                          <img src="{{ img.logo_twitter_large }}" height="30" title="{{ i10n(copy.alt_logo) }}" alt="{{ i10n(copy.alt_logo) }}"/>
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>       
+                <tr>
+                  <td class="footer deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[4]) }}
+                  </td>
+                </tr>  
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="45">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#f5f8fa" width="640" class="width_full">
+          <!--[if gte mso 9]>
+          <tr>
+            <td colspan="3" align="center">
+              <img src="{{ img.spacer_1 }}" width="640" />
+            </td>
+          </tr>
+          <![endif]-->
+          <tr>
+            <td class="empty width_20" width="45">
+              &nbsp;
+            </td>
+            <td class="empty center">
+              <table align="center" class="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer strong deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    <a href="{{ tl(link.about,7) }}" class="blue">
+                      {{ i10n(copy.footer[0]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ tl(link.help,8) }}" class="blue">
+                      {{ i10n(copy.footer[1]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ '{{ unsubscribe }}' }}" class="blue">
+                      {{ i10n(copy.footer[2]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ tl(link.download,9) }}" class="blue">
+                      {{ i10n(copy.footer[3]) }}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer deep_grey center" align="center">
+                    <span class="addressLink">{{"{{>manhattan:static:address_twitter/html_content}}"}}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="45">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+{% endblock %}

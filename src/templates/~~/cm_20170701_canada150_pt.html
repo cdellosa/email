@@ -1,0 +1,119 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# COPY #}
+{% set copy = {     
+    "subject_line" : [  
+        "#Canada150 is happening. Celebrate on Twitter."
+    ],  
+    "preheader" : "Isn't it awesome to be Canadian?",
+    "alt_hero" : "Canada 150 is happening.",
+    "headline" : "One Country. Endless Hashtags.",  
+    "body" : [  
+        "Darts. Scribblers. Bagged milk. Dreamy Prime Ministers.
+Isn't it awesome to be Canadian? We're celebrating #Canada150
+on Twitter with the most Canadian hashtags of all time.
+From #SorrynotSorry to #OnlyinCanada, bond with fellow
+Canadians over these quintessential \"Canadian-isms.\"",
+        "Sports has many exciting sides. Follow them all at Twitter.",
+        "See what's happening",
+        "Brush up on your #CanadianSlang",
+        "Behold, the #CanadianTuxedo",
+        "You know you're #OnlyinCanada when..."
+    ],  
+    "cta" : [   
+        "Explore Moments",
+        "View Moment",
+        "View Moment",
+        "View Moment",
+        "Explore",
+        "Explore Twitter"
+    ],  
+    "blue" : [  
+        "See what's happening",
+        "See what's happening",
+        "When it happens,",
+        "it happens on Twitter."
+    ],  
+    "white" : "See what's happening.",  
+    "footer" : ["About", "Help", "Unsubscribe", "Download app"],    
+    "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"   
+} %}
+
+{# LINKS #}
+{% set link = {     
+    "hero" : "https://twitter.com/CanadaMoments/status/877239213397131264",
+    "cta" : [   
+      "https://twitter.com/i/moments/876919027360256001",
+      "https://twitter.com/i/moments/876822095245725696",
+      "https://twitter.com/i/moments/877209047446966272",
+      "https://twitter.com/i/moments/877231076279758849",
+      "https://twitter.com/i/moments",
+      "https://mobile.twitter.com/search",
+      "https://twitter.com"
+    ],  
+    "about" : "https://about.twitter.com",  
+    "help" : "https://support.twitter.com/",    
+    "download" : "https://twitter.com/download" 
+} %} 
+Subject: {{ i10n(pt(copy.subject_line[0])) }}
+
+{{ i10n(copy.alt_hero) }} 
+
+{{ i10n(copy.headline) }} 
+
+{{ i10n(copy.body[0]) }} 
+
+{{ i10n(copy.cta[0]) }} 
+{{ "> " + link.cta[0] }}
+
+=
+
+{{ i10n(copy.blue[1]) }} 
+
+=
+
+{{ i10n(copy.body[3]) }} 
+
+{{ i10n(copy.cta[1]) }} 
+{{ "> " + link.cta[1] }}
+
+=
+
+{{ i10n(copy.body[4]) }} 
+
+{{ i10n(copy.cta[2]) }} 
+{{ "> " + link.cta[2] }}
+
+=
+
+{{ i10n(copy.body[5]) }} 
+
+{{ i10n(copy.cta[3]) }} 
+{{ "> " + link.cta[3] }}
+
+=
+
+{{ i10n(copy.blue[2]) }} 
+{{ i10n(copy.blue[3]) }} 
+
+{{ i10n(copy.cta[4]) }} 
+{{ "> " + link.cta[4] }}
+
+=
+
+{{ i10n(copy.footer[0]) }} 
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }} 
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }} 
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }} 
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

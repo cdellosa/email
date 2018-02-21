@@ -1,0 +1,126 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# COPY #}
+{% set copy = {
+  "preheader" : "World’s biggest CS:GO tourney is LIVE on Twitter.",
+  "subject_line" : "@{{screen_name}}, ESL One Cologne. LIVE this week",
+  "alt_hero" : "ESL One Cologne. No tickets? No problem.",
+  "headline" : "ESL One Cologne Live on Twitter",
+  "body" : "Twelve-thousand fans from all over the world are converging on Germany’s largest indoor arena for ESL One Cologne - the world’s biggest Counter-Strike: Global Offensive Tournament. Can’t make it? No worries. Follow all 5 days of news, rumors and game-action while watching 16 world-class teams battle for the championship trophy and $250,000. It’s CS:GO history in the making. And it’s all here live on Twitter.",
+  "body_2" : [
+    "@ESL",
+    "#ESLOne",
+    "esl.twitter.com",
+    "Watch it. Talk about it."
+  ],
+  "schedule" : [
+    "ESL One Cologne 2017",
+    "Wednesday, July 5",
+    "11AM – 3:15PM ET",
+    "Thursday, July 6",
+    "12:45PM – 4:45PM ET",
+    "Friday, July 7",
+    "3:45PM – 6PM ET",
+    "Saturday, July 8",
+    "9:40AM – 5:15PM ET",
+    "Sunday, July 9",
+    "9:40AM – 3:55PM ET"
+  ],
+  "cta" : "Watch LIVE on",
+  "alt_icon" : "ESL One",
+  "alt_logo" : "Twitter",
+  "footer" : ["About", "Help", "Unsubscribe", "Download app"],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/live/869687361600344064?ref_src=twsrc%5Eemail%7Ctwcamp%5EESLCologne",
+  "cta" : "https://twitter.com/i/live/869687361600344064?ref_src=twsrc%5Eemail%7Ctwcamp%5EESLCologne",
+  "text" : "https://twitter.com/i/live/869687361600344064?ref_src=twsrc%5Eemail%7Ctwcamp%5EESLCologne",
+  "body_2" : [
+    "https://twitter.com/esl",
+    "https://twitter.com/search?q=%23ESLOne&src=tyah",
+    "https://twitter.com/i/live/869687361600344064?ref_src=twsrc%5Eemail%7Ctwcamp%5EESLCologne"
+  ],
+  "schedule" : "https://twitter.com/i/live/869687361600344064?ref_src=twsrc%5Eemail%7Ctwcamp%5EESLCologne",
+  "icon" : "https://twitter.com/esl",
+  "logo_twitter_large" : "https://twitter.com/",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+Subject: {{ i10n(pt(copy.subject_line)) }}
+
+{{ i10n(pt(copy.alt_hero)) }} 
+
+{{ i10n(pt(copy.cta)) }} 
+{{ "> " + link.cta }}
+
+=
+
+{{ i10n(pt(copy.headline)) }} 
+
+{{ i10n(pt(copy.body)) }} 
+
+{{ i10n(pt(copy.cta)) }} 
+{{ "> " + link.cta }}
+
+{{ i10n(pt(copy.body_2[0])) }}
+{{ "> " + link.body_2[0] }}
+
+{{ i10n(pt(copy.body_2[1])) }} 
+{{ "> " + link.body_2[1] }}
+
+{{ i10n(pt(copy.body_2[2])) }} 
+{{ "> " + link.body_2[2] }}
+
+{{ i10n(pt(copy.body_2[3])) }} 
+
+=
+
+{{ copy.schedule[0] }}
+
+-----
+
+{{ copy.schedule[1] }}
+{{ copy.schedule[2] }}
+
+{{ copy.schedule[3] }}
+{{ copy.schedule[4] }}
+
+{{ copy.schedule[5] }}
+{{ copy.schedule[6] }}
+
+{{ copy.schedule[7] }}
+{{ copy.schedule[8] }}
+
+{{ copy.schedule[9] }}
+{{ copy.schedule[10] }}
+
+=
+
+{{ copy.alt_icon }}
+{{ "> " + link.icon }}
+
+{{ copy.alt_logo }}
+{{ "> " + link.logo_twitter_large }}
+
+=
+
+{{ i10n(copy.footer[0]) }} 
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }} 
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }} 
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }} 
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

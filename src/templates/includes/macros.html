@@ -31,7 +31,11 @@
   {%- else -%}
     {{ url }}
   {%- endif %}
-  {% set counter_tl = counter_tl + 1 %}
+  {% if counter_tl > 28 %}
+    {% set counter_tl = 29 %}
+  {% else %}
+    {% set counter_tl = counter_tl + 1 %}
+  {% endif %}
 {%- endmacro %}
 
 {# LINK TRACK MACRO #}

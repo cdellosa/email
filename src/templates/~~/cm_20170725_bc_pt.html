@@ -1,0 +1,133 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# BODY COPY MACRO / AUTO COUNTER #}
+{% set count_body = 0 %}
+{% macro cb() -%}
+  {{ count_body|float }}
+  {% set count_body = count_body + 1 %}
+{%- endmacro %}
+
+{# COPY #}
+{% set copy = {   
+  "subject_line" : [  
+    "@{{screen_name}}, find out what’s happening this summer."
+  ],  
+  "preheader" : "From cool-down tactics to hot summer jams, see every side of summer on Twitter",  
+  "alt_hero" : "Summergeddon is happening. Watch Video",  
+  "headline" : "Summer's heating up on Twitter",  
+  "body" : [  
+    "As summer heats up, there are countless ways to stay cool. 
+Come back to Twitter and see how people handle the swelter and celebrate 
+the summer - from hot, not-to-miss events to chill time with friends. 
+It’s all happening right here on Twitter. Don’t miss it. #SeeEverySide",
+    "See every side of what's happening",
+    "in Moments.",
+    "When it's so hot that...",
+    "Stream and Chill... your new TV guide",
+    "Animals beating the heat",
+    "See what you’ve been missing",
+    "on Twitter.",
+    "See what’s happening."
+  ],  
+  "cta" : [ 
+    "Watch Video",
+    "View Moment",
+    "View Moment",
+    "View Moment",
+    "Explore",
+    "Explore Twitter"
+  ],  
+  "blue" : [  
+    "See every side of what's happening",
+    "in Moments.",
+    "When it happens,",
+    "it happens on Twitter."
+  ],  
+  "black" : "See what’s happening.",  
+  "footer" : ["About", "Help", "Unsubscribe", "Download app"],  
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}
+
+{# LINKS #}
+{% set link = {   
+  "hero" : "https://twitter.com/Twitter/status/879715141834514432", 
+  "cta" : [ 
+    "",
+    "https://twitter.com/i/moments/884806342199738370",
+    "https://twitter.com/i/moments/884473266005352448",
+    "https://twitter.com/i/moments/880550685959274496",
+    "https://twitter.com/i/moments",
+    "https://mobile.twitter.com/search",
+    "https://twitter.com"
+  ],  
+  "about" : "https://about.twitter.com",  
+  "help" : "https://support.twitter.com/",  
+  "download" : "https://twitter.com/download" 
+} %}   
+Subject: {{ i10n(pt(copy.subject_line[0])) }}
+
+{{ i10n(copy.alt_hero) }} 
+
+{{ i10n(copy.headline) }} 
+
+{{ i10n(copy.body[cb()|float]) }} 
+
+=
+
+{{ i10n(copy.body[cb()|float]) }} 
+{{ i10n(copy.body[cb()|float]) }} 
+
+=
+
+{{ i10n(copy.body[cb()|float]) }} 
+
+{{ i10n(copy.cta[1]) }} 
+{{ "> " + link.cta[1] }}
+
+=
+
+{{ i10n(copy.body[cb()|float]) }} 
+
+{{ i10n(copy.cta[2]) }} 
+{{ "> " + link.cta[2] }}
+
+=
+
+{{ i10n(copy.body[cb()|float]) }} 
+
+{{ i10n(copy.cta[3]) }} 
+{{ "> " + link.cta[3] }}
+
+=
+
+{{ i10n(copy.body[cb()|float]) }} 
+{{ i10n(copy.body[cb()|float]) }} 
+
+{{ i10n(copy.cta[4]) }} 
+{{ "> " + link.cta[4] }}
+
+=
+
+{{ i10n(pt(copy.body[cb()|float])) }} 
+
+{{ i10n(copy.cta[5]) }} 
+{{ "> " + link.cta[6] }}
+
+=
+
+{{ i10n(copy.footer[0]) }} 
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }} 
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }} 
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }} 
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

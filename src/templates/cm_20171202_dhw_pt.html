@@ -1,0 +1,123 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/live/932659502662402048?ref_src=twsrc%5Eemail%7Ctwcamp%5EDreamHackWinter2017",
+  "cta" : "https://twitter.com/i/live/932659502662402048?ref_src=twsrc%5Eemail%7Ctwcamp%5EDreamHackWinter2017",
+  "text" : [
+    "",
+    "https://twitter.com/dreamhackdota",
+    "https://twitter.com/search?q=%23DHW17&src=tyah",
+    "https://twitter.com/i/live/932659502662402048?ref_src=twsrc%5Eemail%7Ctwcamp%5EDreamHackWinter2017"
+  ],
+  "icon" : "https://twitter.com/i/live/932659502662402048?ref_src=twsrc%5Eemail%7Ctwcamp%5EDreamHackWinter2017",
+  "logo_twitter_large" : "https://twitter.com/twitterlive",
+  "schedule" : "https://twitter.com/i/live/932659502662402048?ref_src=twsrc%5Eemail%7Ctwcamp%5EDreamHackWinter2017",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [ 
+    "@{{screen_name}} watch DreamHack Winter 2017, LIVE December 2-3"
+  ],  
+  "preheader" : "Fantasy game. Real loot.",
+  "alt_hero" : "This is boss level.",
+  "cta" : "Watch LIVE on", 
+  "headline" : [  
+    "Dream League Season 8 Finals are streaming LIVE on Twitter",
+    "Tuesday | [Time] ET",
+    "Watch it. Talk about it."
+  ],  
+  "body" : [  
+    "The stakes have never been higher as top teams hit the map for a million dollar prize pool. It's the DreamHack Winter Dota 2 Dream League Season 8 finals. The last major of the year. Follow every battle. Get up close with some of the world's best players. Watch and take part in the conversation as it's happening. It's huge. And it's all here.",
+    "@DreamHackDota",
+    "#DHW17",
+    "dreamhack.twitter.com",
+    "Watch it. Talk about it.",
+    "Download Twitter and watch live video on the following devices:"
+  ],
+  "schedule" : "DreamHack Winter - DreamLeague Season 8 - Dota 2 Finals | Saturday, December 2, 5am - 5pm ET | Sunday, December 3 6am - 3:15pm ET",
+  "alt" : [  
+    "DreamHack",
+    "Twitter"
+  ], 
+  "apps" : [
+    "Apple TV",
+    "Google Play",
+    "Roku",
+    "Xbox One",
+    "Windows 10",
+    "Amazon Fire TV"
+  ], 
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],  
+  "disclaimer" : "This email was meant for @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}  
+
+Subject: {{ i10n(pt(copy.subject[0])) }}
+
+{{ i10n(pt(copy.preheader)) }}
+
+{{ i10n(pt(copy.alt_hero)) }}
+{{ "> " + link.hero }}
+
+=
+
+{{ i10n(pt(copy.headline[0])) }}
+
+{{ i10n(pt(copy.body[0])) }}
+{{ "> " + link.text[0] }}
+
+{{ i10n(pt(copy.cta + " Twitter")) }}
+{{ "> " + link.cta }}
+
+{{ i10n(pt(copy.headline[2])) }}
+
+{{ i10n(pt(copy.body[1])) }}
+{{ "> " + link.text[1] }}
+
+{{ i10n(pt(copy.body[2])) }}
+{{ "> " + link.text[2] }}
+
+{{ i10n(pt(copy.body[3])) }}
+{{ "> " + link.text[3] }}
+
+=
+
+{{ i10n(pt(copy.schedule)) }}
+{{ "> " + link.schedule }}
+
+=
+
+{{ i10n(pt(copy.alt[0])) }}
+{{ "> " + link.icon }}
+
+{{ i10n(pt(copy.alt[1])) }}
+{{ "> " + link.logo_twitter_large }}
+
+=
+
+{{ i10n(pt(copy.body[5])) }}
+{{ copy.apps[0] }} | {{ copy.apps[1] }} | {{ copy.apps[2] }} | {{ copy.apps[3] }} | {{ copy.apps[4] }} | {{ copy.apps[5] }}
+
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }}
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

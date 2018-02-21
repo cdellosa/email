@@ -1,0 +1,120 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{% set copy = {     
+    "subject_line" : [  
+        "Artists, albums, awards, astrophysics – music is happening"
+    ],  
+    "preheader" : "See every fascinating side of music - even the ones that aren’t about the music - on Twitter",   
+    "alt_hero" : "Music is happening.", 
+    "headline" : "See what your favorite artist is up to today",    
+    "body" : [  
+        "A pop icon becomes a shoe maven. A star rapper becomes a humanitarian. A rock legend wins the Nobel prize... for literature. Musicians today are many-sided people sparking all kinds of intriguing conversations - about music, culture, society, and everything else. See every fascinating one of them right here on Twitter. #SeeEverySide",
+        "See every side of what’s happening",
+        "In music Moments.",
+        "Chance the Humanitarian ",
+        "Katy Perry gets you",
+        "Releases heating up this summer"
+    ],  
+    "cta" : [   
+        "Explore Moments",
+        "View Moment",
+        "View Moment",
+        "View Moment",
+        "Explore",
+        "Explore Twitter"
+    ],  
+    "blue" : [  
+        "See every side of what’s happening",
+        "In music Moments.",
+        "When it happens,",
+        "it happens on Twitter."
+    ],  
+    "white" : "See what’s happening.",  
+    "footer" : ["About", "Help", "Unsubscribe", "Download app"],    
+    "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"   
+} %}          
+
+{# LINKS #}
+{% set link = {     
+    "hero" : "https://twitter.com/i/moments", 
+    "cta" : [   
+      "https://twitter.com/i/moments",
+      "https://twitter.com/i/moments/879061719212900352",
+      "https://twitter.com/i/moments/873309909202329600",
+      "https://twitter.com/i/moments/880199062040920064",
+      "https://twitter.com/i/moments",
+      "https://mobile.twitter.com/search",
+      "https://twitter.com",
+      "https://twitter.com/i/moments/879061719212900352"
+    ],  
+    "about" : "https://about.twitter.com",  
+    "help" : "https://support.twitter.com/",    
+    "download" : "https://twitter.com/download" 
+} %} 
+Subject: {{ i10n(pt(copy.subject_line[0])) }}
+
+{{ i10n(pt(copy.alt_hero)) }} 
+
+{{ i10n(pt(copy.headline)) }} 
+
+{{ i10n(pt(copy.body[0])) }} 
+
+=
+
+{{ i10n(pt(copy.blue[0])) }} 
+{{ i10n(pt(copy.blue[1])) }} 
+
+=
+
+{{ i10n(pt(copy.body[3])) }} 
+
+{{ i10n(pt(copy.cta[1])) }} 
+{{ "> " + link.cta[1] }}
+
+=
+
+{{ i10n(pt(copy.body[4])) }} 
+
+{{ i10n(pt(copy.cta[2])) }} 
+{{ "> " + link.cta[2] }}
+
+=
+
+{{ i10n(pt(copy.body[5])) }} 
+
+{{ i10n(pt(copy.cta[3])) }} 
+{{ "> " + link.cta[3] }}
+
+=
+
+{{ i10n(pt(copy.blue[2])) }} 
+{{ i10n(pt(copy.blue[3])) }} 
+
+{{ i10n(pt(copy.cta[4])) }} 
+{{ "> " + link.cta[4] }}
+
+=
+
+{{ i10n(pt(copy.white)) }} 
+
+{{ i10n(pt(copy.cta[5])) }} 
+{{ "> " + link.cta[6] }}
+
+=
+
+{{ i10n(pt(copy.footer[0])) }} 
+{{ "> " + link.about }}
+
+{{ i10n(pt(copy.footer[1])) }} 
+{{ "> " + link.help }}
+
+{{ i10n(pt(copy.footer[2])) }} 
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(pt(copy.footer[3])) }} 
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

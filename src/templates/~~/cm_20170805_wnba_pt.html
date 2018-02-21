@@ -1,0 +1,113 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/live/858018226579529728?ref_src=twsrc%5EEmail%7Ctwcamp%5EWNBA",
+  "cta" : "https://twitter.com/i/live/858018226579529728?ref_src=twsrc%5EEmail%7Ctwcamp%5EWNBA",
+  "text" : [
+    "https://twitter.com/wnba",
+    "https://twitter.com/i/live/858018226579529728?ref_src=twsrc%5EEmail%7Ctwcamp%5EWNBA",
+    "https://twitter.com/i/live/858018226579529728?ref_src=twsrc%5EEmail%7Ctwcamp%5EWNBA"
+  ],
+  "schedule" : "https://twitter.com/i/live/858018226579529728?ref_src=twsrc%5EEmail%7Ctwcamp%5EWNBA",
+  "icon" : "https://twitter.com/wnba",
+  "logo_twitter_large" : "https://twitter.com/twitterlive",
+  "mlb" : "https://twitter.com/wnba",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [ 
+    "{{^email_wnba_august_6629}}{{_i}}{{user_name}}, watch WNBA now LIVE on Twitter.{{/i}}{{/email_wnba_august_6629}}{{#email_wnba_august_6629}}{{#control}}{{_i}}{{user_name}}, watch WNBA now LIVE on Twitter.{{/i}}{{/control}}{{#treatment2}}{{_i}}{{user_name}}, make some noise. WNBA now LIVE on Twitter{{/treatment2}}{{/email_wnba_august_6629}}"
+  ],  
+  "preheader" : "Catch all the WNBA play-by-play action, live.",  
+  "alt_hero" : "Front row seat minus the heat. Watch LIVE.",  
+  "cta" : "Watch LIVE on",  
+  "headline" : [  
+    "The WNBA LIVE on Twitter"
+  ],  
+  "body" : [  
+    "Now you can get in the game and live stream your favorite WNBA teams up close and personal. This August and September, catch all the play-by-play action live on Twitter. Go from courtside to every side and see the scores, steals and buzzer beaters all in real time. Watch tonight as the Seattle Storm take on the San Antonio Stars. You ready?",
+    "Watch it. Talk about it.",
+    "Watch and Tweet along with your favorite @WNBA teams and players.",
+    "Visit wnba.twitter.com.",
+    "Download Twitter and watch live video on the following devices:"
+  ],
+  "schedule" : [
+    "Coming up in August & September... | Seattle Storm vs San Antonio Stars | Saturday, August 5 | 8PM ET | Seattle Storm vs Connecticut Sun | Tuesday, August 8 | 7PM ET | Atlanta Dream vs San Antonio Stars | Saturday, August 12 | 8PM ET | Dallas Wings vs Connecticut Sun | Wednesday, August 23 | 7PM ET | Minnesota Lynx vs San Antonio Stars | Friday, August 25 | 8PM ET | Minnesota Lynx vs Indiana Fever | Wednesday, August 30 | 7PM ET | Connecticut Sun vs Phoenix Mercury | Friday, September 1 | 10PM ET | Atlanta Dream vs Phoenix Mercury | Sunday, September 3 | 4PM ET"
+  ],
+  "alt" : [  
+    "MLB",
+    "Twitter"
+  ], 
+  "apps" : [
+    "Apple TV",
+    "Google Play",
+    "Roku",
+    "Xbox One",
+    "Windows 10",
+    "Amazon Fire TV"
+  ], 
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],  
+  "disclaimer" : "This email was meant for @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}   
+
+Subject: {{ i10n(pt(copy.subject[0])) }}
+
+{{ i10n(pt(copy.alt_hero)) }}
+{{ "> " + link.hero }}
+
+=
+
+{{ i10n(pt(copy.headline[0])) }}
+
+{{ i10n(pt(copy.body[0])) }}
+
+{{ i10n(pt(copy.body[1])) }}
+
+{{ i10n(pt(copy.cta)) }}
+{{ "> " + link.cta }}
+
+{{ i10n(pt(copy.body[2])) }}
+
+{{ i10n(pt(copy.body[3])) }}
+
+{{ i10n(pt(copy.body[4])) }}
+
+=
+
+{{ i10n(pt(copy.schedule[0])) }}
+
+=
+
+{{ i10n(pt(copy.alt[1])) }}
+{{ "> " + link.logo_twitter_large }}
+
+=
+
+{{ i10n(pt(copy.body[4])) }}
+
+{{ copy.apps[1] }} | {{ copy.apps[2] }} | {{ copy.apps[3] }} | {{ copy.apps[4] }} | {{ copy.apps[5] }} | {{ copy.apps[6] }}
+
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }}
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

@@ -1,0 +1,126 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# COPY #}
+{% set copy = {     
+    "subject_line" : [  
+        "The #1 place for #1 fans"
+    ],  
+    "preheader" : "When it comes to sports, everyone has an opinion. #SeeEverySide at Twitter.",    
+    "alt_hero" : "Sports is happening.", 
+    "headline" : "The sport of following sports",   
+    "body" : [  
+        "Drafts. Trades. Contracts. Training. Injuries, Rumors. Scandals. Stunts. Mistakes. Fouls. Fights. Trash talk. Apologies. Strike outs. Touchdowns. Home runs. Hat tricks. High fives. Butt pats. Medals. Rings. Trophies. Records. Champagne. GOAT.",
+        "Sports has many exciting sides. Follow them all at Twitter.",
+        "#SeeEverySide.",
+        "Athletes who bring the 🔥 on Twitter",
+        "7 MLB players that hit it out of the park on Twitter",
+        "Retired athletes who make Twitter their job 🙌"
+    ],  
+    "cta" : [   
+        "Explore Moments",
+        "View Moment",
+        "View Moment",
+        "View Moment",
+        "Explore",
+        "Explore Twitter"
+    ],  
+    "blue" : [  
+        "See every side of what's happening",
+        "in sports Moments.",
+        "When it happens,",
+        "it happens on Twitter."
+    ],  
+    "white" : "See what's happening.",  
+    "footer" : ["About", "Help", "Unsubscribe", "Download app"],    
+    "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"   
+} %}
+
+{# LINKS #}
+{% set link = {     
+    "hero" : "https://twitter.com/i/moments?category_id=2", 
+    "cta" : [   
+        "https://twitter.com/i/moments?category_id=2",
+        "https://twitter.com/i/moments/875101439374180353",
+        "https://twitter.com/i/moments/875133508083003392",
+        "https://twitter.com/i/moments/875126543684583424",
+        "https://twitter.com/i/moments",
+        "https://mobile.twitter.com/search",
+        "https://twitter.com"
+    ],  
+    "about" : "https://about.twitter.com",  
+    "help" : "https://support.twitter.com/",    
+    "download" : "https://twitter.com/download" 
+} %} 
+Subject: {{ i10n(pt(copy.subject_line[0])) }}
+
+{{ i10n(copy.alt_hero) }} 
+
+{{ i10n(copy.headline) }} 
+
+{{ i10n(copy.body[0]) }} 
+
+{{ i10n(copy.body[1]) }} 
+{{ i10n(copy.body[2]) }} 
+
+{{ i10n(copy.cta[0]) }} 
+{{ "> " + link.cta[0] }}
+
+=
+
+{{ i10n(copy.blue[0]) }} 
+{{ i10n(copy.blue[1]) }} 
+
+=
+
+{{ i10n(copy.body[3]) }} 
+
+{{ i10n(copy.cta[1]) }} 
+{{ "> " + link.cta[1] }}
+
+=
+
+{{ i10n(copy.body[4]) }} 
+
+{{ i10n(copy.cta[2]) }} 
+{{ "> " + link.cta[2] }}
+
+=
+
+{{ i10n(copy.body[5]) }} 
+
+{{ i10n(copy.cta[3]) }} 
+{{ "> " + link.cta[3] }}
+
+=
+
+{{ i10n(copy.blue[2]) }} 
+{{ i10n(copy.blue[3]) }} 
+
+{{ i10n(copy.cta[4]) }} 
+{{ "> " + link.cta[4] }}
+
+=
+
+{{ i10n(pt(copy.white)) }} 
+
+{{ i10n(copy.cta[5]) }} 
+{{ "> " + link.cta[6] }}
+
+=
+
+{{ i10n(copy.footer[0]) }} 
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }} 
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }} 
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }} 
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

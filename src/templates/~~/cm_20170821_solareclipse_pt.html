@@ -1,0 +1,113 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/live/885053575251939328?ref_src=twsrc%5Eemail%7Ctwcamp%5ESolarEclipse",
+  "cta" : "https://twitter.com/i/live/885053575251939328?ref_src=twsrc%5Eemail%7Ctwcamp%5ESolarEclipse",
+  "text" : [
+    "https://twitter.com/weatherchannel",
+    "https://twitter.com/search?q=%23eclipse2017&src=typd&lang=en",
+    "https://twitter.com/i/live/885053575251939328?ref_src=twsrc%5Eemail%7Ctwcamp%5ESolarEclipse"
+  ],
+  "icon" : "https://twitter.com/weatherchannel",
+  "logo_twitter_large" : "https://twitter.com/twitterlive",
+  "mlb" : "https://twitter.com/wnba",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [ 
+    "{{user_name}} Watch the 'Great American Eclipse' live, from anywhere."
+  ],  
+  "preheader" : "See what's happening. Watch the eclipse LIVE on Twitter",  
+  "alt_hero" : "From sea to shining sea. Watch the 'Great American Eclipse'. Watch live on Twitter",  
+  "cta" : "Watch LIVE on",  
+  "headline" : [  
+    "Chasing Eclipse 2017 LIVE on Twitter",
+    "Monday, August 21 | 12PM ET"
+  ],  
+  "body" : [  
+    "Watch the total solar eclipse Live on Twitter—without the funny glasses. Follow the eclipse from coast to coast with live stream coverage from The Weather Channel.",
+    "@weatherchannel",
+    "#eclipse2017",
+    "eclipse2017.twitter.com",
+    "Watch it. Talk about it.",
+    "Download Twitter and watch live video on the following devices:"
+  ],
+  "alt" : [  
+    "The Weather Channel",
+    "Twitter"
+  ], 
+  "apps" : [
+    "Apple TV",
+    "Google Play",
+    "Roku",
+    "Xbox One",
+    "Windows 10",
+    "Amazon Fire TV"
+  ], 
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],  
+  "disclaimer" : "This email was meant for @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}    
+
+Subject: {{ i10n(pt(copy.subject[0])) }}
+
+{{ i10n(pt(copy.alt_hero)) }}
+{{ "> " + link.hero }}
+
+=
+
+{{ i10n(pt(copy.headline[0])) }}
+
+{{ i10n(pt(copy.body[0])) }}
+
+{{ i10n(pt(copy.headline[1])) }}
+
+{{ i10n(pt(copy.body[1])) }}
+{{ "> " + link.text[0] }}
+
+{{ i10n(pt(copy.body[2])) }}
+{{ "> " + link.text[1] }}
+
+{{ i10n(pt(copy.body[3])) }}
+{{ "> " + link.text[2] }}
+
+{{ i10n(pt(copy.cta)) }}
+{{ "> " + link.cta }}
+
+=
+
+{{ i10n(pt(copy.alt[0])) }}
+{{ "> " + link.icon }}
+
+{{ i10n(pt(copy.alt[1])) }}
+{{ "> " + link.logo_twitter_large }}
+
+=
+
+{{ i10n(pt(copy.body[5])) }}
+
+{{ copy.apps[0] }} | {{ copy.apps[1] }} | {{ copy.apps[2] }} | {{ copy.apps[3] }} | {{ copy.apps[4] }} | {{ copy.apps[5] }}
+
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }}
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

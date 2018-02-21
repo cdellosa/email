@@ -1,0 +1,118 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/live/893522837658415104?ref_src=twsrc%5Eemail%7Ctwcamp%5EBuzzfeed",  
+  "text" : [  
+    "https://twitter.com/AM2DM",
+    "https://twitter.com/search?q=%23AM2DM&src=tyah",
+    "https://twitter.com/i/live/893522837658415104?ref_src=twsrc%5Eemail%7Ctwcamp%5EBuzzfeed"
+  ],  
+  "alt" : [  
+    "buzzfeed.twitter.com",
+    "https://twitter.com/twitterlive"
+  ],  
+  "cta" : "https://twitter.com/i/live/893522837658415104?ref_src=twsrc%5Eemail%7Ctwcamp%5EBuzzfeed",
+  "logo_twitter_large" : "https://twitter.com/",  
+  "about" : "https://about.twitter.com",  
+  "help" : "https://support.twitter.com/",  
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [  
+    "{{user_name}}, this week on BuzzFeedNews AM to DM"
+  ],  
+  "preheader" : "Watch BuzzFeedNews AM to DM on Twitter",
+  "alt_hero" : "Get your Buzz on",
+  "cta" : "Watch LIVE on",  
+  "headline" : [  
+    "Slide Into Your Morning with AM to DM",
+    "Weekdays | 10am ET / 7am PT",
+    "Watch it. Talk about it."
+  ],  
+  "body" : [  
+    "See what's happening this week on BuzzFeedNews AM to DM. Check out which rising stars from the worlds of politics, entertainment, and tech will be joining hosts Isaac Fitzgerald and Saeed Jones each morning this week. It's the classic news format flipped on its head, so you can slide into your morning buzzed. Only on Twitter.",
+    "See what's happening this week on BuzzFeedNews AM to DM. Check out which rising stars from the worlds of politics, entertainment, and tech will be joining hosts Isaac Fitzgerald and Saeed Jones each morning this week. It's the classic news format flipped on its head, so you can slide into your morning as a VSP (very smart person). Only on Twitter.",
+    "@AM2DM",
+    "#AM2DM",
+    "buzzfeed.twitter.com",
+    "Watch LIVE on",
+    "Watch it. Talk about it."
+  ],  
+  "alt" : [  
+    "BuzzFeed News",
+    "Twitter LIVE"
+  ],   
+  "apps" : [
+    "Apple TV",
+    "Google Play",
+    "Roku",
+    "Xbox One",
+    "Windows 10",
+    "Amazon Fire TV"
+  ], 
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],  
+  "disclaimer" : "This email was meant for @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}    
+
+Subject: {{ i10n(pt(copy.subject[0])) }}
+
+{{ i10n(pt(copy.alt_hero)) }}
+{{ "> " + link.hero }}
+
+=
+
+{{ i10n(pt(copy.headline[0])) }}
+
+{{ i10n(pt(copy.body[0])) }}
+
+{{ i10n(pt(copy.headline[1])) }}
+
+{{ i10n(pt(copy.body[2])) }}
+{{ "> " + link.text[0] }}
+
+{{ i10n(pt(copy.body[3])) }}
+{{ "> " + link.text[1] }}
+
+{{ i10n(pt(copy.body[4])) }}
+{{ "> " + link.text[2] }}
+
+{{ i10n(pt(copy.cta + " Twitter")) }}
+{{ "> " + link.cta }}
+
+{{ i10n(pt(copy.headline[2])) }}
+
+=
+
+{{ i10n(pt(copy.alt[0])) }}
+{{ "> " + link.alt[0] }}
+
+{{ i10n(pt(copy.alt[1])) }}
+{{ "> " + link.alt[1] }}
+
+=
+
+{{ i10n(pt(copy.body[5])) }}
+{{ copy.apps[0] }} | {{ copy.apps[1] }} | {{ copy.apps[2] }} | {{ copy.apps[3] }} | {{ copy.apps[4] }} | {{ copy.apps[5] }}
+
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }}
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

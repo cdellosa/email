@@ -1,0 +1,116 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+  "cta" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+  "text" : [
+    "https://twitter.com/mlb",
+    "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+    "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB"
+  ],
+  "schedule" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+  "icon" : "https://twitter.com/mlb",
+  "logo_twitter_large" : "https://twitter.com/",
+  "mlb" : "https://mlb.twitter.com",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [ 
+    "Front row seat minus the heat. Watch LIVE. "
+  ],  
+  "preheader" : "MLB, streaming LIVE in August",  
+  "alt_hero" : "Front row seat minus the heat. Watch LIVE.", 
+  "cta" : "Watch LIVE on",  
+  "headline" : [  
+    "MLB, Streaming LIVE on Twitter in August"
+  ],  
+  "body" : [  
+    "It’s the biggest test of the season so far. When the boys of summer take on the dog days. This is the time when contenders rise. Pretenders fall. And October dreams begin to take shape for players and fans alike. This is August baseball on Twitter. When you’re not just watching the game, you’re joining in the conversation every Tuesday night. Starting August 1st, when the Diamondbacks travel to Wrigley Field to battle the Cubs.",
+    "Watch it. Talk about it.",
+    "Watch and Tweet along with your favorite teams and players all season long! Visit mlb.twitter.com",
+    "Streams available everywhere except select international territories and team hometowns. Blackout and other restrictions apply. Major League Baseball trademarks and copyrights are used with permission of MLB Advanced Media, L.P. All rights reserved.",
+    "Download Twitter and watch live video on the following devices:"
+  ],
+  "schedule" : [
+    "Coming up in August... | Diamondbacks vs Cubs | Tuesday, August 1 - 8:05PM ET | Yankees vs Blue Jays | Tuesday, August 8 - 7:07PM ET | Angels vs Nationals | Tuesday, August 15 - 7:05PM ET | Dodgers vs Pirates | Tuesday, August 22 - 7:05PM ET | Red Sox vs Blue Jays | Tuesday, August 29 - 7:07PM ET"
+  ],
+  "alt" : [  
+    "MLB",
+    "Twitter"
+  ], 
+  "apps" : [
+    "Apple TV",
+    "Google Play",
+    "Roku",
+    "Xbox One",
+    "Windows 10",
+    "Amazon Fire TV"
+  ], 
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],  
+  "disclaimer" : "This email was meant for @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}  
+
+Subject: {{ i10n(pt(copy.subject[0])) }}
+
+{{ i10n(pt(copy.alt_hero)) }}
+{{ "> " + link.hero }}
+
+=
+
+{{ i10n(pt(copy.headline[0])) }}
+
+{{ i10n(pt(copy.body[0])) }}
+
+{{ i10n(pt(copy.body[1])) }}
+
+{{ i10n(pt(copy.cta)) }}
+{{ "> " + link.cta }}
+
+{{ i10n(pt(copy.body[2])) }}
+
+{{ i10n(pt(copy.body[3])) }}
+
+{{ i10n(pt(copy.body[4])) }}
+
+=
+
+{{ i10n(pt(copy.schedule[0])) }}
+
+=
+
+{{ i10n(pt(copy.alt[0])) }}
+{{ "> " + link.icon }}
+
+{{ i10n(pt(copy.alt[1])) }}
+{{ "> " + link.logo_twitter_large }}
+
+=
+
+{{ i10n(pt(copy.body[4])) }}
+
+{{ copy.apps[1] }} | {{ copy.apps[2] }} | {{ copy.apps[3] }} | {{ copy.apps[4] }} | {{ copy.apps[5] }} | {{ copy.apps[6] }}
+
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }}
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

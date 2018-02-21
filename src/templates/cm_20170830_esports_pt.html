@@ -1,0 +1,111 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/TwitterGaming/status/894589226980786176",
+  "cta" : "https://twitter.com/TwitterGaming/status/894589226980786176",
+  "text" : [
+    "https://twitter.com/i/live/895009395917991936?ref_src=twsrc%5Eemail%7Ctwcamp%5EDreamHackMastersMalmo",
+    "https://twitter.com/TwitterGaming",
+    "https://twitter.com/TwitterGaming"
+  ],
+  "icon" : "https://twitter.com/TwitterGaming",
+  "logo_twitter_large" : "https://twitter.com/TwitterGaming",
+  "schedule" : "https://twitter.com/i/live/895009395917991936?ref_src=twsrc%5Eemail%7Ctwcamp%5EDreamHackMastersMalmo",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [ 
+    "Serious. Play."
+  ],  
+  "preheader" : "Esports, streaming LIVE in August",
+  "alt_hero" : "This is the boss level of gaming. Watch the video",
+  "cta" : "Watch the video", 
+  "headline" : [  
+    "Esports in Summer, streaming LIVE on Twitter",
+    "Watch it. Talk about it."
+  ],  
+  "body" : [  
+    "The esports schedule is heating up as top teams go screen-to-screen - starting with DreamHack Masters Malmö Aug. 30 - Sep. 3. Watch and pull for every victory as it happens. Participate in every story, interview and press conference. Get up close and personal with some of the best players in the world. It's all LIVE. It's all gaming. So plan accordingly.",
+    "@TwitterGaming",
+    "#watchstadium",
+    "watchstadium.twitter.com",
+    "Watch it. Talk about it.",
+    "Download Twitter and watch live video on the following devices:"
+  ],
+  "schedule" : "What's happening this summer | #EsportsWeekly | Mondays 1PM ET | DreamHack Masters Malmö | Aug 30-Sep 3 | DreamHack Montreal | Sep 8-10 | ESL One New York | Sep 15-17",
+  "alt" : [  
+    "Stadium",
+    "Twitter"
+  ], 
+  "apps" : [
+    "Apple TV",
+    "Google Play",
+    "Roku",
+    "Xbox One",
+    "Windows 10",
+    "Amazon Fire TV"
+  ], 
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],  
+  "disclaimer" : "This email was meant for @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}  
+
+Subject: {{ i10n(pt(copy.subject[0])) }}
+
+{{ i10n(pt(copy.alt_hero)) }}
+{{ "> " + link.hero }}
+
+=
+
+{{ i10n(pt(copy.headline[0])) }}
+
+{{ i10n(pt(copy.body[0])) }}
+{{ "> " + link.text[0] }}
+
+{{ i10n(pt(copy.cta)) }}
+{{ "> " + link.cta }}
+
+{{ i10n(pt(copy.headline[1])) }}
+
+{{ i10n(pt(copy.body[1])) }}
+{{ "> " + link.text[1] }}
+
+=
+
+{{ i10n(pt(copy.schedule)) }}
+{{ "> " + link.schedule }}
+
+=
+
+{{ i10n(pt(copy.alt[1])) }}
+{{ "> " + link.logo_twitter_large }}
+
+=
+
+{{ i10n(pt(copy.body[5])) }}
+{{ copy.apps[0] }} | {{ copy.apps[1] }} | {{ copy.apps[2] }} | {{ copy.apps[3] }} | {{ copy.apps[4] }} | {{ copy.apps[5] }}
+
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }}
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

@@ -1,0 +1,101 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# COPY #}
+{% set copy = {     
+  "subject" : [   
+    "@{{screen_name}}, Get Backstage Access to the BET Awards on Twitter",
+    "Get Backstage Access to the BET Awards on Twitter"
+  ],    
+  "preheader" : "Go behind the scenes at summer's hottest award show",    
+  "cta" : "Watch LIVE on",    
+  "main" : {    
+    "alt_hero" : "The only show <br>bad enough to break the rules", 
+    "title" : "Backstage access to the BET Awards 2017 LIVE on Twitter",  
+    "body" : [  
+      "See what's happening behind the scenes at the BET Awards 2017 LIVE
+on Twitter. Watch exclusive backstage interviews hosted by comedians
+Chris Spencer and Zainab Johnson with your favorite performances fresh
+off the stage. Get the tea on nominees, hear from the winners, and
+catch the most memorable celebrity moments to take place. Don't miss
+your chance for an All Access VIP experience. See you backstage.",
+      "5:30pm PT | 8:30pm ET",
+      "@BET",
+      "#BETAwards",
+      "bet.twitter.com",
+      "Watch it. Talk about it."
+    ],  
+    "alt_left" : "BET", 
+    "alt_right" : "Twitter",  
+    "cta" : "Watch LIVE on" 
+  },    
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],   
+  "disclaimer" : "This email was meant for @" + signal("screen_name","Somebody") + ".",   
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"   
+} %} 
+
+{# LINKS #}
+{% set link = {      
+  "hero" : "https://twitter.com/i/live/864581996994899968?ref_src=twsrc%5Eemail%7Ctwcamp%5EBET",    
+  "body" : [    
+    "https://twitter.com/bet",  
+    "https://twitter.com/search?q=%23BETAwards&src=tyah", 
+    "https://twitter.com/i/live/864581996994899968?ref_src=twsrc%5Eemail%7Ctwcamp%5EBET"
+  ],    
+  "alt" : [   
+    "https://twitter.com/bet",  
+    "https://twitter.com" 
+  ],    
+  "cta" : "https://twitter.com/i/live/864581996994899968?ref_src=twsrc%5Eemail%7Ctwcamp%5EBET", 
+  "logo_twitter_large" : "https://twitter.com/",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"  
+} %} 
+Subject: {{ mustache("{{^email_bet_6455}}")}}{{ i10n(pt(copy.subject[0])) }}{{ mustache("{{/email_bet_6455}}")}}{{ mustache("{{#email_bet_6455}}")}}{{ mustache("{{#control}}")}}{{ i10n(pt(copy.subject[0])) }}{{ mustache("{{/control}}")}}{{ mustache("{{#treatment2}}")}}{{ i10n(pt(copy.subject[1])) }}{{ mustache("{{/treatment2}}")}}{{ mustache("{{/email_bet_6455}}")}}
+
+{{ i10n(pt(copy.main.alt_hero)) }} 
+{{ "> " + link.hero }}
+
+{{ i10n(pt(copy.main.cta)) }} 
+{{ "> " + link.cta }}
+
+=
+
+{{ i10n(pt(copy.main.title)) }} 
+
+{{ i10n(pt(copy.main.body[0])) }} 
+
+{{ i10n(pt(copy.main.body[1])) }} 
+{{ i10n(pt(copy.main.body[2])) }} | {{ i10n(pt(copy.main.body[3])) }} | {{ i10n(pt(copy.main.body[4])) }} 
+
+{{ i10n(pt(copy.main.cta)) }} 
+{{ "> " + link.cta }}
+
+{{ i10n(pt(copy.main.body[5])) }} 
+
+=
+
+{{ copy.main.alt_left }}
+{{ "> " + link.alt[0] }}
+
+{{ copy.main.alt_right }}
+{{ "> " + link.alt[1] }}
+
+=
+
+{{ i10n(copy.footer[0]) }} 
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }} 
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }} 
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }} 
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

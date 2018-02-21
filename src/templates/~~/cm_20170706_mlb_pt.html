@@ -1,0 +1,117 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+  "cta" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+  "text" : [
+    "https://twitter.com/mlb",
+    "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+    "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB"
+  ],
+  "schedule" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+  "icon" : "https://twitter.com/mlb",
+  "logo_twitter_large" : "https://twitter.com/",
+  "mlb" : "https://mlb.twitter.com",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "preheader" : "See the Yanks take on the Rays in not-to-miss MLB action",
+  "subject_line" : "Yankees and Rays in MLB Live action!",
+  "alt_hero" : "Catch every pitch, fly ball, line drive, and double play. | Streaming Live on Twitter | May 19| 7:10PM ET | ",
+  "headline" : "Twitter Presents Friday Night Baseball, Live!",
+  "body" : [
+    "When you watch the Red Sox take on the Devil Rays on Twitter, you’ll get more than just the play-by-play. You get every side of the action, as it’s happening, live. Join the crowd, talk some smack, show your team spirit. Just add some hot dogs and the smell of fresh-cut grass and it’s like you’re there! Catch it this Thursday. And get inside baseball with all the latest rumors, analysis, and more on The Dugout, hosted by Alexas Datt - a Twitter exclusive. ",
+    "Thursday, July 6 | 7:10pm ET",
+    "Watch it. Talk About it.",
+    "Watch and Tweet along with your favorite @MLB teams and players all season long! Visit mlb.twitter.com",
+    "*Major League Baseball trademarks and copyrights are used with permission of MLB Advanced Media, L.P. All rights reserved."
+  ],
+  "cta" : "Watch LIVE on",
+  "schedule" : [
+    "Coming up in July...",
+    "Red Sox vs Tampa Bay",
+    "Thursday, July 6 | 7:10PM ET",
+    "No Game/All Star Week",
+    "Tuesday, July 11",
+    "Dodgers vs White Sox",
+    "Tuesday, July 18 | 8:10PM ET",
+    "Reds vs Yankees",
+    "Tuesday, July 25 | 7:05PM ET"
+  ],
+  "alt_icon" : "MLB",
+  "alt_logo" : "Twitter",
+  "footer" : ["About", "Help", "Unsubscribe", "Download app"],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+Subject: {{ i10n(pt(copy.subject_line)) }}
+
+{{ i10n(pt(copy.alt_hero)) }}
+{{ "> " + link.hero }}
+
+=
+
+{{ i10n(pt(copy.headline)) }}
+
+{{ i10n(pt(copy.body[0])) }}
+
+{{ i10n(pt(copy.body[1])) }}
+
+{{ i10n(pt(copy.cta)) }}
+{{ "> " + link.cta }}
+
+{{ i10n(pt(copy.body[2])) }}
+
+{{ i10n(pt(copy.body[3])) }}
+
+{{ i10n(pt(copy.body[4])) }}
+
+=
+
+{{ copy.schedule[0] }}
+
+-----
+
+{{ copy.schedule[1] }}
+{{ copy.schedule[2] }}
+
+{{ copy.schedule[3] }}
+{{ copy.schedule[4] }}
+
+{{ copy.schedule[5] }}
+{{ copy.schedule[6] }}
+
+{{ copy.schedule[7] }}
+{{ copy.schedule[8] }}
+
+=
+
+{{ i10n(pt(copy.alt_icon)) }}
+{{ "> " + link.icon }}
+
+{{ i10n(pt(copy.alt_logo)) }}
+{{ "> " + link.logo_twitter_large }}
+
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }}
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

@@ -1,0 +1,70 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "text" : [
+    "https://twitter.com/en/tos",
+    "https://support.twitter.com/articles/15358"
+  ],
+  "about" : "https://about.twitter.com/company",
+  "settings" : "https://twitter.com/settings",
+  "unsubscribe" : "{{unsubscribe}}",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject" : "We're updating the Twitter Terms of Service",
+  "preheader" : "Changes take effect 2 October 2017",
+  "alt_logo" : "Twitter",
+  "title" : "Update to the Twitter Terms of Service",
+  "body" : [
+    "We're updating our Terms of Service on 2 October 2017. With these changes users will be better able to understand when Twitter may remove content on Twitter. Additionally, we wanted to make our Limitations of Liability provision easier to understand.",
+
+    "Please note, that if you do not agree with these changes, you should feel free to deactivate your account at any time. Information about how to deactivate your account can be found on our Help Center.",
+
+    "Thank you,",
+
+    "Twitter"
+  ],
+  "footer" : ["About", "Settings", "Unsubscribe", "Download App"],
+  "disclaimer" : "This email was generated for @" + mustache("{{#recipient}}{{screen_name}}{{/recipient}}","Somebody") + ".",
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+Subject: 
+{{ i10n(copy.subject) }}
+ 
+Twitter 
+{{ "> " + link.logo }}
+
+=
+
+{{ i10n(copy.title) }}
+
+{{ i10n(copy.body[0]) }} 
+
+{{ "> " + link.text[0] }}
+
+{{ i10n(copy.body[1]) }} 
+
+{{ "> " + link.text[1] }}
+
+{{ i10n(copy.body[2]) }}
+{{ i10n(copy.body[3]) }} 
+
+=
+
+{{ i10n(copy.footer[0]) }} 
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }} 
+{{ "> " + link.settings }}
+
+{{ i10n(copy.footer[2]) }} 
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

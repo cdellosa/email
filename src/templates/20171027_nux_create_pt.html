@@ -1,0 +1,120 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "hero" : "https://twitter.com/intent/tweet?refsrc=email",
+  "cta" : [
+    "https://support.twitter.com/articles/15367",
+    "https://support.twitter.com/articles/15367",
+    "https://support.twitter.com/articles/15367",
+    "https://support.twitter.com/articles/14023",
+    "https://support.twitter.com/articles/14023",
+    "https://support.twitter.com/articles/14023",
+    "https://twitter.com/",
+    "https://support.twitter.com/articles/14023",
+    "https://support.twitter.com/articles/14023",
+    "https://twitter.com/"
+  ],
+  "settings" : "https://twitter.com/settings",
+  "unsubscribe" : "{{unsubscribe}}",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject_line" : "{{user_name}}, do you know how to Tweet?",
+  "preheader" : "Get into the action. Twitter is a great place to get involved in conversations about topics you love.",
+  "alt_logo" : "Twitter",
+  "body" : [
+    "Tweet anytime",
+    "There are many ways to create a Tweet, from a simple \"hello\" to an awesome GIF.",
+    "See an interesting Tweet?",
+    "Quickly add your thoughts in just a few taps with Like, Retweet, and Reply.",
+    "Share more",
+    "You can send photos, videos, GIFs, links, and text to all of your followers.",
+    "Tap the \"Tweet\" button to share what's happening.",
+    "Join the conversation",
+    "A reply is a response to another person's Tweet.",
+    "Add your thoughts to a conversation by using the reply icon on a Tweet.",
+    "Try it now"
+  ],
+  "cta" : [
+    "Try it now"
+    ],
+  "disclaimer" : "If you haven't created this Twitter account, please <a href=\"{{not_my_account}}\" class=\"blue\">click here</a> to report it.",
+  "footer" : ["Help", "Unsubscribe", "Settings", "Download App"],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# BODY COPY MACRO / AUTO COUNTER #}
+{% set count_body = 0 %}
+{% macro cb() -%}
+  {{ count_body|float }}
+  {% set count_body = count_body + 1 %}
+{%- endmacro %}
+
+{# LINK CTA MACRO / AUTO COUNTER #}
+{% set count_cta = 0 %}
+{% macro cc() -%}
+  {{ count_cta|float }}
+  {% set count_cta = count_cta + 1 %}
+{%- endmacro %}
+
+{# LINK CTA MACRO / AUTO COUNTER #}
+{% set count_cta_link = 0 %}
+{% macro ccl() -%}
+  {{ count_cta_link|float }}
+  {% set count_cta_link = count_cta_link + 1 %}
+{%- endmacro %}
+
+Subject: {{ i10n(pt(copy.subject_line)) }}
+
+=
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+
+{{ i10n(pt(copy.body[cb()|float])) }} {{ i10n(pt(copy.body[cb()|float])) }} {{ i10n(pt(copy.body[cb()|float])) }}
+
+{{ "> " + link.hero }}
+
+=
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+
+{{ i10n(pt(copy.body[cb()|float])) }} {{ i10n(pt(copy.body[cb()|float])) }}
+
+{{ "> " + link.cta[0] }}
+
+=
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+
+{{ i10n(pt(copy.body[cb()|float])) }} {{ i10n(pt(copy.body[cb()|float])) }}
+
+{{ "> " + link.cta[3] }}
+
+=
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+
+{{ "> " + link.cta[6] }}
+
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> " + link.settings }}
+
+{{ i10n(copy.footer[3]) }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

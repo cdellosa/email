@@ -1,0 +1,98 @@
+{% include "includes/macros_notifications.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "blog" : "http://t.co/2016-election-update",
+  "cta" : "{{confirm_code_button}}",
+  "help" : "https://support.twitter.com/articles/82050",
+  "about" : "https://twitter.com/about",
+  "download" : "https://twitter.com/download",
+  "help" : "https://twitter.com/support",
+  "settings" : "https://twitter.com/settings",
+  "unsubscribe" : "{{unsubscribe}}",
+  "help" : "https://support.twitter.com/",
+  "not_my_account" : "{{not_my_account}}"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject_line" : "Information Regarding Russian Influence Campaigns on Twitter",
+  "alt_logo" : "Twitter",
+  "headline" : "Dear {{user_name}},",
+  "body" : [
+    "As part of our recent work to understand Russian-linked activities on Twitter during the 2016 U.S. presidential election, we identified and suspended a number of accounts that were potentially connected to a propaganda effort by a Russian government-linked organization known as the Internet Research Agency.",
+
+    "Consistent with our commitment to transparency, we are emailing you because we have reason to believe that you:",
+
+    "Were following one or more of these accounts at the time the accounts were suspended;",
+
+    "Replied to or mentioned one or more of these accounts during the election period; or",
+
+    "Retweeted, quote tweeted, or liked content from one or more of these accounts during the election period.",
+
+    "This is purely for your own information purposes, and is not related to a security concern for your account. We are sharing this information so that you can learn more about these accounts and the nature of the Russian propaganda effort. You can see examples of content from these suspended accounts on our blog if you're interested. ",
+
+    "People look to Twitter for useful, timely, and appropriate information. We are taking active steps to stop malicious accounts and Tweets from spreading, and we are determined to keep ahead of the tactics of bad actors. For example, in recent months we have developed new techniques to identify accounts manipulating our platform, have improved our process for challenging suspicious accounts, and have introduced new measures designed to identify and take action on coordinated malicious activity. In 2018, we are building on these improvements. Our blog also contains more information about these efforts.",
+
+    "People come to Twitter to see what's happening in the world. We are committed to making it the best place to do that and to being transparent with the people who use and trust our platform.",
+
+    "Twitter"
+  ],
+  "cta" : "Verify now",
+  "footer" : ["About", "Settings", "Download App"],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# BODY COPY MACRO / AUTO COUNTER #}
+{% set count_body = 0 %}
+{% macro cb() -%}
+  {{ count_body|float }}
+  {% set count_body = count_body + 1 %}
+{%- endmacro %}
+Subject: {{ copy.subject_line }}
+
+Twitter 
+{{ "> " + link.logo }}
+
+=
+  
+{{ copy.headline }}
+
+{{ copy.body[cb()|float] }}
+
+{{ copy.body[cb()|float] }}
+
+- {{ copy.body[cb()|float] }}
+
+- {{ copy.body[cb()|float] }}
+
+- {{ copy.body[cb()|float] }}
+
+{{ copy.body[cb()|float] }}
+
+{{ copy.body[cb()|float] }}
+{{ "> " + link.blog }}
+
+{{ copy.body[cb()|float] }}
+{{ "> " + link.blog }}
+
+{{ copy.body[cb()|float] }}
+
+{{ copy.body[cb()|float] }}
+
+=
+
+{{ copy.footer[0] }} 
+{{ "> " + link.about }}
+
+{{ copy.footer[1] }} 
+{{ "> " + link.settings }}
+
+{{ copy.footer[2] }} 
+{{ "> " + link.download }}
+
+{{ copy.address }}

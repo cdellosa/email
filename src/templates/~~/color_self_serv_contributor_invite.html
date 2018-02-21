@@ -1,0 +1,468 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros_notifications.html" %}
+
+{# BGCOLOR MAIN #}
+{% set bgcolor_main = "#f5f8fa" %}
+
+{# IBIS SWITCH #}
+{% set ibis_2 = true %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "icon" : "https://twitter.com",
+  "self" : "https://twitter.com/{{contributor.profile.get.screenName}}",
+  "team" : "https://twitter.com/{{contributee.profile.get.screenName}}",
+  "acting" : "https://twitter.com/{{acting.profile.get.screenName}}",
+  "learn" : "https://support.twitter.com/articles/20171753-share-your-twitter-account-without-sharing-passwords",
+  "cta_1" : mustache(
+    "https://tweetdeck.twitter.com/",
+    "https://twitter.com"
+    ),
+  "tweetdeck" : mustache(
+    "https://tweetdeck.twitter.com/",
+    "https://twitter.com"
+    ),
+  "profile" : mustache(
+    "{{{contributee.profileUrl.get}}}",
+    "https://twitter.com/jqiu"
+    ),
+  "profile_img" : mustache(
+    "{{{contributee.profileUrl.get}}}",
+    "https://twitter.com/jqiu"
+    ),
+  "full_name" : mustache(
+    "{{{contributee.profileUrl.get}}}",
+    "https://twitter.com/jqiu"
+    ), 
+  "screen_name" : mustache(
+    "{{{contributee.profileUrl.get}}}",
+    "https://twitter.com/jqiu"
+    ), 
+  "cta_2" : mustache(
+    "{{{contributor.screen_name_link}}}",
+    "https://twitter.com"
+    ),
+  "help" : "https://support.twitter.com/",
+  "update" : "https://twitter.com/settings/security"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject" : "{{{contributor.profile.get.name}}} has been invited to Tweet from @{{{contributee.profile.get.screenName}}}.",
+  "preheader" : "You have a new follower on Twitter.",
+  "logo" : "Twitter",
+  "title" : mustache(
+    "You have been given permission to Tweet from <a href=\"" + trackm(link.team,2) + "\" >@{{#sender}}{{screen_name}}{{/sender}}</a>.",
+    "You have been given permission to Tweet from <a href=\"" + track(link.team,2) + "\">@design</a>."
+    ),
+  "cta_1" : "Go to TweetDeck",
+  "name_real" : mustache(
+    "{{{full_name}}}",
+    "Kate Freebarin"
+  ),
+  "name_screen" : mustache(
+    "@{{screen_name}} {{#lang_ja}} さん{{/lang_ja}}{{#lang_ko}} 님{{/lang_ko}}",
+    "@kickass"
+    ),
+  "cta_2" : "Follow",
+  "intro" : mustache(
+    "{{{bio.get}}}",
+    "Design @ twitter | Health coach (IIN 2015) & nutrition nerd | Love creating & making | Industrial designer at heart | Co-slave to @misterpurs"
+    ),
+  "location" : mustache(
+    "{{location.get}}",
+    "San Francisco, CA"),
+  "number_following" : mustache(
+    "{{following_count.compact}}",
+    661
+    ),
+  "number_follower" : mustache(
+    "{{followers_count.compact}}",
+    549
+    ),
+  "following" : "Following",
+  "follower" : "Followers",
+  "body" : mustache(
+    "This feature makes  <a href=\"" + track(link.tweetdeck,2) + "\">TweetDeck</a> more secure for teams by avoiding the need to share passwords.",
+    "Kate Freebarin will be able to use <a href=\"" + track(link.tweetdeck,2) + "\">TweetDeck</a> to Tweet from the <a href=\"" + track(link.team,2) + "\">@design</a> more secure for teams by avoiding the need to share passwords."
+    ),
+  "body_2" : "Learn more about teams",
+  "body_3" : mustache(
+    "Start by visiting  <a href=\"" + track(link.tweetdeck,4) + "\">tweetdeck.twitter.com</a>.",
+    "Start by visiting  <a href=\"" + track(link.tweetdeck,4) + "\">tweetdeck.twitter.com</a>."
+    ),
+  "footer" : ["Help", "Update who can invite me to their&nbsp;team"],
+  "disclaimer" : "This email was generated for @" + signal("screen_name","Somebody") + ".",
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "spacer_3_1" : prefix_img + "spacer_3_x_1-1480718996570.png",
+  "logo" : prefix_img + "logo-1475170569504.png",
+  "icon" : prefix_img + "icon_follow_" + mustache("{{randomBgColor}}","1da1f2") + ".png",
+  "canopy" : mustache(
+    "{{{reasonably_small_profile_img}}}",
+    "https://pbs.twimg.com/profile_banners/20086442/1439585971/1500x500"
+  ),
+  "profile" : mustache(
+    "{{{reasonably_small_profile_img}}}",
+    "https://pbs.twimg.com/profile_images/583473072277028864/FXlisTdV_400x400.jpg"
+  )
+} %}
+
+{# CSS #}
+{% block style %}
+    .wrapper {
+      min-width: 400px;
+    }
+
+    .h3 {
+      line-height: 22px;
+    }
+
+    a {
+      color: {{ mustache("#{{randomBgColor}}","#1DA1F2") }};
+    }
+
+    .white a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .a_deep_grey a {
+      color: #8899A6;
+    }
+
+    .a_text_black a {
+      color: #292F33;
+    }
+
+    .color {
+      color: {{ mustache("#{{randomBgColor}}","#1DA1F2") }};
+    }
+
+    td.button {
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      line-height: 18px;
+    }
+
+    a.button_white {
+      font-size: 14px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: {{ mustache("#{{randomBgColor}}","#1DA1F2") }}; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 5px 20px; 
+      border: 1px solid #ffffff;
+      display: inline-block; 
+      font-weight:bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a.button_white_2 {
+      font-size: 14px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: {{ mustache("#{{randomBgColor}}","#1DA1F2") }}; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 5px 20px; 
+      border: 1px solid {{ mustache("#{{randomBgColor}}","#1DA1F2") }};
+      display: inline-block; 
+      font-weight:bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a.button {
+      font-size: 16px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 11px 30px; 
+      border: 1px solid #E0245E;
+      display: inline-block; 
+      font-weight:bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+{% endblock %} 
+
+{% block media_query %}
+        .hide {
+          display: none !important;
+        }
+
+        .width_full {
+          width: 100% !important;
+          min-width: 360px !important;
+          height: auto !important;
+        }
+
+        .height_30 {
+          height: 30px !important;
+        }
+
+        .dots {
+          max-width: 100px !important;
+        }
+{% endblock %} 
+
+{% block style_custom %}
+    <!--[if IE]>
+    <style type="text/css" inline="false">
+        /* Outlook 2000 - 2003 Canopy Image Fix */
+        .canopy img {
+            height: 154px !important;
+        }
+    </style>
+    <![endif]-->
+{% endblock %} 
+
+{% block body %}
+  {{ mustache("{{#recipient}}") }}
+  {{ header_begin(mustache("#{{randomBgColor}}","#1DA1F2")) }}
+  {{ header_spacer(24) }}
+  {{ header_icon(img.logo, trackm(link.logo,1), 28, align("right")) }}
+  {{ header_spacer(24) }}
+  {{ header_title(copy.title, align("left")) }}
+  {{ header_spacer(24) }}
+  {{ header_cta(copy.cta_1, track(link.cta_1,1), align("left")) }}
+  {{ header_spacer(24) }}
+  {{ header_end() }}
+  {{ mustache("{{/recipient}}") }}
+  {{ spacer(24) }}
+  {{ mustache("{{#sender}}") }}
+  <!-- CARD START -->
+  <table cellpadding="0" cellspacing="0" border="0" align="center" width="464" class="width_full">
+    <tr>
+      <td class="empty width_20" width="0"></td>
+      <td class="empty">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="464" class="width_full rounded">
+          <tr>
+            <td class="empty canopy rounded_top" align="center" valign="top" colspan="3" bgcolor="{{ mustache("{{#profile_banner_url.isDefined}}#ffffff{{/profile_banner_url.isDefined}}{{^profile_banner_url.isDefined}}#{{randomBgColor}}{{/profile_banner_url.isDefined}}") }}">
+              <a href="{{ trackm(link.profile,2) }}">
+                {{ mustache("{{#profile_banner_url.isDefined}}<img src=\"{{profile_banner_url.get}}\" width=\"464\" class=\"width_full rounded_top\" />{{/profile_banner_url.isDefined}}{{^profile_banner_url.isDefined}}")}}
+                  <img src="{{ img.spacer_3_1 }}" width="464" class="width_full rounded_top" />
+                {{ mustache("{{/profile_banner_url.isDefined}}")}}
+              </a>
+            </td>
+          <tr>
+          <tr>
+            <td class="empty" align="center" valign="top">
+              <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%" dir="{{ dir('ltr') }}">
+                <td class="empty width_20" width="18">
+                  &nbsp;
+                </td>
+                <td class="empty">
+                  <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%" dir="{{ dir('ltr') }}">
+                    <tr>
+                      <td class="empty" height="12">
+                        &nbsp;
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="empty">
+                        <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%" dir="{{ dir('ltr') }}">
+                          <tr>
+                            <td class="empty" align="{{ align('left')}}" width="75">
+                              <a href="{{ trackm(link.profile_img,3) }}">
+                                <img src="{{ img.profile }}" width="75" class="rounded"/>
+                              </a>
+                            </td>
+                            <td class="empty" width="12">
+                              &nbsp;
+                            </td>
+                            <td class="empty" valign="middle">
+                              <table cellpadding="0" cellspacing="0" border="0" align="{{ align('left')}}">
+                                <!--[if gte mso 9]>
+                                <tr>
+                                  <td height="10">
+                                    &nbsp;
+                                  </td>
+                                </tr>
+                                <![endif]-->
+                                <tr>
+                                  <td class="empty">
+                                    <table cellpadding="0" cellspacing="0" border="0" align="{{ align('left') }}"  dir="{{ dir('ltr') }}">
+                                      <tr>
+                                        <td class="h3 a_text_black" align="{{ align('left')}}">
+                                          <a href="{{ trackm(link.full_name,4) }}" class="h3 a_text_black dots" style="display: block; overflow: hidden; text-decoration: none; white-space: nowrap; max-width: 190px; text-overflow: ellipsis;">{{ copy.name_real }}</a>
+                                        </td>
+                                        {{ mustache("{{#contributor.user.isVerified}}<td class=\"empty\" width=\"4\">&nbsp;</td><td class=\"empty\"><img src=\"https://ea.twimg.com/email/self_serve/media/verified-1417470444150.png\" width=\"16\" height=\"16\"></td>{{/contributor.user.isVerified}}","<td class=\"empty\" width=\"4\">&nbsp;</td><td class=\"empty\"><img src=\"https://ea.twimg.com/email/self_serve/media/verified-1417470444150.png\" width=\"16\" height=\"16\"></td>") }}
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="body a_deep_grey" align="{{ align('left')}}" colspan="2">
+                                    <a href="{{ trackm(link.screen_name,5) }}" class="body a_deep_grey dots" style="display: block; overflow: hidden; text-decoration: none; white-space: nowrap; width: 220px; text-overflow: ellipsis;">
+                                      {{ copy.name_screen }}
+                                    </a>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                            {#<td class="empty" width="5">
+                              &nbsp;
+                            </td>
+                            <td class="empty" valign="middle">
+                              {{ mustache("{{^follows.recipientIsFollowingSender}}") }}
+                              <table border="0" cellspacing="0" cellpadding="0" align="{{ align('right') }}">
+                                <!--[if gte mso 9]>
+                                <tr>
+                                  <td height="10">
+                                    &nbsp;
+                                  </td>
+                                </tr>
+                                <![endif]-->                                      
+                                <tr>
+                                  <td align="center" class="button" bgcolor="#ffffff" valign="middle">
+                                    <a href="{{ track(link.cta_2,4) }}" target="_blank" class="button_white_2 nowrap">
+                                      <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                      <img src="{{ img.icon }}" class="inline valign" height="14"/>&nbsp;&nbsp;{{ i10n(copy.cta_2) }}
+                                      <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                    </a>
+                                  </td>
+                                </tr>
+                              </table>
+                              {{ mustache("{{/follows.recipientIsFollowingSender}}") }}
+                            </td>#}
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    {{ mustache("{{#userWrapper}}{{#bio.isDefined}}") }}
+                    <tr>
+                      <td class="empty" height="18">
+                        &nbsp;
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="body text_black" height="18" align="{{ align('left')}}">
+                        {{ i10n(copy.intro) }} <span class='deep_grey'>- {{ copy.location }}</span>
+                      </td>
+                    </tr>
+                    {{ mustache("{{/bio.isDefined}}{{/userWrapper}}") }}
+                    <tr>
+                      <td class="empty" height="18">
+                        &nbsp;
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="body deep_grey" height="18" align="{{ align('left')}}">
+                        <strong>{{ copy.number_following }}</strong> {{ i10n(copy.following) }} &nbsp;<strong>{{ copy.number_follower }}</strong> {{ i10n(copy.follower) }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="empty" height="24">
+                        &nbsp;
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td class="empty width_20" width="18">
+                  &nbsp;
+                </td>
+              </table>
+            </td>
+          <tr>
+        </table>  
+      </td>
+      <td class="empty width_20" width="0"></td>
+    </tr> 
+  </table>
+  <!-- CARD END -->
+  {{ mustache("{{/sender}}") }}
+  <table cellpadding="0" cellspacing="0" border="0" align="center" width="464" class="width_full">
+    <tr>
+      <td class="empty width_20" width="0">
+        &nbsp;
+      </td>
+      <td class="empty">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" width="464" class="width_full">
+          <tr>
+            <td class="empty" height="24">
+              &nbsp; 
+            </td>
+          </tr>
+          <tr>
+            <td class="body text_black" align="{{ align('left')}}">
+              {{ (copy.body) }} <a href="{{ track(link.learn,3) }}">{{ (copy.body_2) }}</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="empty" height="24">
+              &nbsp; 
+            </td>
+          </tr>
+          <tr>
+            <td class="body text_black" align="{{ align('left')}}">
+              {{ (copy.body_3) }}
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td class="empty width_20" width="0">
+        &nbsp;
+      </td>
+    </tr>
+    <!-- FOOTER START -->
+    <table cellpadding="0" cellspacing="0" border="0" align="center" width="560" class="width_full" bgcolor="#f5f8fa">
+      <tr>
+        <td class="empty" width="20">&nbsp;</td>
+        <td class="empty" align="center">
+          <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
+            <tr>
+              <td class="empty" height="72">
+                &nbsp;
+              </td>
+            </tr>
+            <tr>
+              <td class="supporting deep_grey" align="center">
+                <a href="{{ track(link.help,5) }}" class="color">
+                  {{ i10n(copy.footer[0]) }}
+                </a> | 
+                <a href="{{ track(link.update,6) }}" class="color">
+                  {{ i10n(copy.footer[1]) }}
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td class="empty" height="24">
+                &nbsp;
+              </td>
+            </tr>
+            <tr>
+              <td class="footer deep_grey" align="center">
+                <span class="addressLink">{{ fixAddress(copy.address) }}</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="empty" height="72">
+                &nbsp;
+              </td>
+            </tr>
+          </table>
+        </td>
+        <td class="empty" width="20">&nbsp;</td>
+      </tr>
+      <!--[if gte mso 9]>
+      <tr>
+        <td colspan="3">
+          <img src="https://ea.twimg.com/email/self_serve/media/spacer_560_x_1-1478717885230.png" class="width_full"/>
+        </td>
+      </tr>
+      <![endif]-->
+    </table>
+    <!-- FOOTER END -->
+{% endblock %} 

@@ -1,0 +1,149 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "http://twitter.com",   
+  "cta" : "http://twitter.com",
+  "tweet" : [  
+    "https://twitter.com/i/moments/963823870691168258",
+    "https://twitter.com/twitter/status/963838504726867968",
+    "https://twitter.com/twitter/status/963424045734735873"
+  ],  
+  "about" : "https://about.twitter.com",  
+  "help" : "https://support.twitter.com/",  
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [  
+    "#WeMetOnTwitter"
+  ],  
+  "preheader" : "Happy Valentine's Day, {{user_name}}!",
+  "alt_hero" : "They found each other with Twitter. Hear their stories. #WeMetOnTwitter",
+  "cta" : "Go to Moment",  
+  "headline" : [  
+    "It's Valentine's Day. Share in the amazing connections."
+  ],  
+  "body" : [  
+    "Happy Valentine's Day! Couples, business partners, bandmates, and besties everywhere have been posting the stories of how they met on Twitter. Check out these sweet Tweets of people sharing their journeys together. Join the conversation and share your story around #WeMetOnTwitter."
+  ],
+  "tweet" : [
+    {
+      "user_name" : "Twitter",
+      "screen_name" : "Twitter",
+      "title" : "Connections That Started on Twitter: #WeMetOnTwitter💙",
+      "time" : "Twitter • February 14, 2018",
+      "text" : "Friendships, marriages, and more that started via Twitter.",
+      "reply" : "",
+      "retweet" : "",
+      "like" : "34"
+    },
+    {
+      "user_name" : "Twitter",
+      "screen_name" : "Twitter",
+      "text" : "A #WeMetOnTwitter kind of connection. 
+
+Today, we're highlighting the meaningful relationships you've built through Twitter. 
+
+Read the Tweets. Find #ValentinesDay inspiration. Shoot your shot. 👇",
+      "reply" : "36",
+      "retweet" : "70",
+      "like" : "316"
+    },
+    {
+      "user_name" : "Twitter",
+      "screen_name" : "Twitter",
+      "text" : "Have you met one of the following on Twitter? 
+
+🤝 Friend
+💙 Significant Other
+💼 Business Partner
+👋 Other
+
+We want to celebrate your connections this Valentine's Day. Tweet your story using #WeMetOnTwitter and we may feature your Tweet in a special Moment.",
+      "reply" : "461",
+      "retweet" : "830",
+      "like" : "3.6K"
+    }
+  ],
+  "social" : [
+    "Reply",
+    "Retweet",
+    "Like"
+  ],  
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],  
+  "disclaimer" : "This email was meant for @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}  
+
+Subject: {{ i10n(pt(copy.subject[0])) }}
+
+{{ i10n(pt(copy.preheader)) }}
+
+{{ i10n(pt(copy.alt_hero)) }}
+{{ "> " + link.hero }}
+
+=
+
+{{ i10n(pt(copy.headline[0])) }}
+
+{{ i10n(pt(copy.body[0])) }}
+
+{{ i10n(pt(copy.cta)) }}
+{{ "> " + link.cta }}
+
+=
+
+{{ copy.tweet[0].title }}
+{{ copy.tweet[0].time }}
+{{ copy.tweet[0].text }}
+
+
+{{ i10n(pt(copy.cta)) }}
+{{ "> " + link.tweet[0] }}
+
+=
+
+{{ copy.tweet[1].user_name }}
+@{{ copy.tweet[1].screen_name }}
+
+{{ copy.tweet[1].text }}
+
+{% if copy.tweet[1].reply != "" %}{{ i10n(copy.social[0]) }}: {{ copy.tweet[1].reply }}{% endif %}
+{% if copy.tweet[1].retweet != "" %}{{ i10n(copy.social[1]) }}: {{ copy.tweet[1].retweet }}{% endif %}
+{% if copy.tweet[1].like != "" %}{{ i10n(copy.social[2]) }}: {{ copy.tweet[1].like }}{% endif %}
+
+{{ "> " + link.tweet[1] }}
+
+=
+
+{{ copy.tweet[2].user_name }}
+@{{ copy.tweet[2].screen_name }}
+
+{{ copy.tweet[2].text }}
+
+{% if copy.tweet[2].reply != "" %}{{ i10n(copy.social[0]) }}: {{ copy.tweet[2].reply }}{% endif %}
+{% if copy.tweet[2].retweet != "" %}{{ i10n(copy.social[1]) }}: {{ copy.tweet[2].retweet }}{% endif %}
+{% if copy.tweet[2].like != "" %}{{ i10n(copy.social[2]) }}: {{ copy.tweet[2].like }}{% endif %}
+
+{{ "> " + link.tweet[2] }}
+
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }}
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

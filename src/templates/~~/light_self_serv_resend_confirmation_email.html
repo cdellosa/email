@@ -1,0 +1,241 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros_notifications.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis_2 = true %}
+
+{# COPY #}
+{% set copy = {
+  "subject_line" : "{{_i}}Confirm your Twitter account, {{full_name}}{{/i}}",
+  "alt_logo" : "Twitter",
+  "headline" : "Final step...",
+  "body" : "Confirm your email address to complete your Twitter account @{{#recipient}}{{screen_name}}{{/recipient}}. It's easy &mdash; just click the button below.",
+  "cta" : "Confirm now",
+  "footer" : ["Settings", "Help", "Unsubscribe", "Not my account"],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# COLOR LOGIC #}
+{% set color_hex = colors[color].hex %}
+{% set color_css = colors[color].css %}
+{% set color_icon = colors[color].icons[icon_type] %}
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "logo_twitter" : prefix_img + "icon_twitter_blue.png"
+} %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "cta" : "{{confirm_code_button}}",
+  "settings" : "https://twitter.com/settings",
+  "help" : "https://support.twitter.com/",
+  "not_my_account" : "{{not_my_account}}"
+} %}
+
+{# CSS #}
+{% block style %}
+    a {
+      color: #1DA1F2;
+      text-decoration: none;
+    }
+
+    td.button {
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      line-height: 18px;
+    }
+
+    a.button {
+      font-size: 16px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 4px; 
+      -moz-border-radius: 4px; 
+      border-radius: 4px; 
+      padding: 11px 30px; 
+      border: 1px solid #1DA1F2;
+      display: inline-block; 
+      font-weight: bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .button img {
+      display: inline;
+      vertical-align: top;
+    }
+
+    .body {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 16px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 22px;
+    }
+{% endblock %} 
+
+{% block media_query %}
+        .hide {
+          display: none !important;
+        }
+
+        .width_full {
+          width: 100% !important;
+          min-width: 360px !important;
+        }
+
+        .height_30 {
+          height: 30px !important;
+        }
+{% endblock %} 
+
+{% block body %}
+  <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#F5F8FA" width="100%" class="width_full" dir="{{ dir('ltr') }}">
+    <tr>
+      <td class="empty">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="450" class="width_full">
+          <tr>
+            <td class="empty width_20" width="24">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table cellpadding="0" cellspacing="0" border="0" align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="image empty" align="{{ align('right') }}">
+                    <a href="{{ trackm(link.logo,1) }}">
+                      <img src="{{ img.logo_twitter }}" width="32" alt="{{ copy.alt_logo }}" title="{{ copy.alt_logo }}" />
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="h2 black" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.headline) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body black" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" align="{{ align('left') }}">
+                    <table border="0" cellspacing="0" cellpadding="0" align="{{ align('left') }}">
+                      <tr>
+                        <td align="center" class="button center" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
+                          <a href="{{ track(link.cta,2) }}" target="_blank" class="button">
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                            {{ i10n(copy.cta) }}
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="24">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center">
+          <tr>
+            <td class="empty" height="1">
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" width="450" class="width_full" bgcolor="#ffffff">
+          <tr>
+            <td class="empty width_20" width="24">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer strong deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    <a href="{{ track(link.settings,3) }}" class="blue">
+                      {{ i10n(copy.footer[0]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ track(link.help,4) }}" class="blue">
+                      {{ i10n(copy.footer[1]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ '{{unsubscribe}}' }}" class="blue">
+                      {{ i10n(copy.footer[2]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ track(link.not_my_account,5) }}" class="blue nowrap">
+                      {{ i10n(copy.footer[3]) }}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer deep_grey center" align="center">
+                    <span class="addressLink">{{ fixAddress(copy.address) }}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="24">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    {#<tr class="hide">
+      <td class="empty hide" height="32">
+        &nbsp;
+      </td>
+    </tr>#}
+  </table>
+{% endblock %} 

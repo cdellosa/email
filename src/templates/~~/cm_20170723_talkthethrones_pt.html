@@ -1,0 +1,95 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {   
+  "hero" : "https://twitter.com/i/live/882731015457751040?ref_src=twsrc%5Eemail%7Ctwcamp%5Etheringertalkthethrones",  
+  "body" : [  
+    "https://twitter.com/ringer",
+    "https://twitter.com/ringer",
+    "https://twitter.com/search?q=%23TalktheThrones&src=tyah"
+  ],  
+  "alt" : [ 
+    "https://twitter.com/ringer",
+    "https://twitter.com/"
+  ],  
+  "logo_twitter_large" : "https://twitter.com/",  
+  "about" : "https://about.twitter.com",  
+  "help" : "https://support.twitter.com/",  
+  "download" : "https://twitter.com/download" 
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [ 
+    "@{{screen_name}}, winter is here."
+  ],  
+  "preheader" : "Twitter and The Ringer present Talk the Thrones, Sundays at 10:15pm ET", 
+  "alt_hero" : "#AHH! #EEE!EWW! #WTF? #WOW! #NO! #YES #OMG!", 
+  "cta" : "Watch LIVE on",  
+  "headline" : [  
+    "Streaming LIVE on Twitter, Talk the Thrones"
+  ],  
+  "body" : [  
+    "Come down from the shock, amazement and adrenaline with The Ringer's Jason Concepcion, Andy Greenwald, Mallory Rubin, Chris Ryan, celebrity fans and millions around the world. Get answers to all your questions. Hear their takes on who's winning the throne and who's losing their head. Participate in the debates in real time. Indulge as much as you can. Because you have to wait seven l-o-n-g days before you get to put yourself through it again.",
+    "Sundays | 10PM PT",
+    "@ringer",
+    "#talkthethrones",
+    "Watch it. Talk about it."
+  ],  
+  "alt_logo" : [  
+    "The Ringer",
+    "Twitter"
+  ],  
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],  
+  "disclaimer" : "This email was meant for @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}  
+
+Subject: {{ i10n(pt(copy.subject[0])) }}
+
+{{ i10n(pt(copy.alt_hero)) }}
+{{ "> " + link.hero }}
+
+=
+
+{{ i10n(pt(copy.headline[0])) }}
+
+{{ i10n(pt(copy.body[0])) }}
+
+{{ i10n(pt(copy.body[1])) }}
+
+{{ i10n(pt(copy.cta)) }}
+{{ "> " + link.hero }}
+
+{{ i10n(pt(copy.body[2])) }}
+{{ "> " + link.body[1] }}
+
+{{ i10n(pt(copy.body[3])) }}
+{{ "> " + link.body[2] }}
+
+=
+
+{{ i10n(pt(copy.alt_logo[0])) }}
+{{ "> " + link.alt[0] }}
+
+{{ i10n(pt(copy.alt_logo[1])) }}
+{{ "> " + link.alt[1] }}
+
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }}
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

@@ -1,0 +1,120 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/live/912775884523765760?ref_src=twsrc%5Eemail%7Ctwcamp%5EIEMOakland",
+  "cta" : "https://twitter.com/i/live/912775884523765760?ref_src=twsrc%5Eemail%7Ctwcamp%5EIEMOakland",
+  "text" : [
+    "",
+    "https://twitter.com/IEM",
+    "https://twitter.com/search?q=%23IEM&src=typd",
+    "https://twitter.com/i/live/912775884523765760?ref_src=twsrc%5Eemail%7Ctwcamp%5EIEMOakland"
+  ],
+  "icon" : "https://twitter.com/i/live/912775884523765760?ref_src=twsrc%5Eemail%7Ctwcamp%5EIEMOakland",
+  "logo_twitter_large" : "https://twitter.com/twitterlive",
+  "schedule" : "https://twitter.com/i/live/895009395917991936?ref_src=twsrc%5Eemail%7Ctwcamp%5EDreamHackMastersMalmo",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [ 
+    "@{{screen_name}}, watch IEM Oakland, LIVE on Twitter, Nov. 18-19"
+  ],  
+  "preheader" : "The clicks heard round the world.",
+  "alt_hero" : "Eat. Sleep. Game. Repeat.",
+  "cta" : "Watch LIVE on", 
+  "headline" : [  
+    "IEM Oakland, streaming LIVE on Twitter, Nov. 18-19",
+    "Watch it. Talk about it."
+  ],  
+  "body" : [  
+    "Players are gonna play. And play. And play. And when you're not playing, you might want to do some watching. Why? Because the world's best CS:GO gamers are coming to Oakland for the next stop on the Intel Extreme Masters series. Follow the battles as they happen. Take part in the conversations in real time. Then down an energy drink or two and stream some more.",
+    "@IEM",
+    "#IEM",
+    "iem.twitter.com",
+    "Watch it. Talk about it.",
+    "Download Twitter and watch live video on the following devices:"
+  ],
+  "schedule" : "IEM Oakland 2017 | Counter-Strike: Global Offensive | Saturday, November 18 - 3:15pm ET / 12:15pm PT | Sunday, November 19 - 4:15pm ET / 1:15pm PT | Streaming LIVE on Twitter",
+  "alt" : [  
+    "Intel Extreme Masters",
+    "Twitter"
+  ], 
+  "apps" : [
+    "Apple TV",
+    "Google Play",
+    "Roku",
+    "Xbox One",
+    "Windows 10",
+    "Amazon Fire TV"
+  ], 
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],  
+  "disclaimer" : "This email was meant for @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}   
+
+Subject: {{ i10n(pt(copy.subject[0])) }}
+
+{{ i10n(pt(copy.alt_hero)) }}
+{{ "> " + link.hero }}
+
+=
+
+{{ i10n(pt(copy.headline[0])) }}
+
+{{ i10n(pt(copy.body[0])) }}
+{{ "> " + link.text[0] }}
+
+{{ i10n(pt(copy.cta + " Twitter")) }}
+{{ "> " + link.cta }}
+
+{{ i10n(pt(copy.headline[1])) }}
+
+{{ i10n(pt(copy.body[1])) }}
+{{ "> " + link.text[1] }}
+
+{{ i10n(pt(copy.body[2])) }}
+{{ "> " + link.text[2] }}
+
+{{ i10n(pt(copy.body[3])) }}
+{{ "> " + link.text[3] }}
+
+=
+
+{{ i10n(pt(copy.schedule)) }}
+{{ "> " + link.schedule }}
+
+=
+
+{{ i10n(pt(copy.alt[0])) }}
+{{ "> " + link.icon }}
+
+{{ i10n(pt(copy.alt[1])) }}
+{{ "> " + link.logo_twitter_large }}
+
+=
+
+{{ i10n(pt(copy.body[5])) }}
+{{ copy.apps[0] }} | {{ copy.apps[1] }} | {{ copy.apps[2] }} | {{ copy.apps[3] }} | {{ copy.apps[4] }} | {{ copy.apps[5] }}
+
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }}
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

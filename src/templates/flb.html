@@ -1,0 +1,491 @@
+{# OBJECT #}
+{% set links = {
+  "wwmmd" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "https://www.beatport.com/release/wwmmd/2187620",
+    "traxsource" : "https://www.traxsource.com/title/911161/wwmmd",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/funk-leblanc/funk-leblanc-wwmmd",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "pyt-pretty-thing" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/funk-leblanc-remixes/michael-jackson-pyt-pretty-young-thing-funk-leblanc-remix",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "fleetwood-mac-dreams" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/funk-leblanc-remixes/dreams-funk-leblanc-remix",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "middle-dj-snake-cover" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/funk-leblanc/middle-dj-snake-cover",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "flume-never-be-like-you" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/funk-leblanc/never-be-like-you-funk-leblanc-remix",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "sequential-circuits-prophet" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/funk-leblanc/sequential-circuits-prophet-6-drumtraks-demonstration",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "jessi-malay-summer-love" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/funk-leblanc/jessi-malay-summer-love-funk-leblanc-remix",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "calvin-harris-feat-ellie-goulding-outside" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/funk-leblanc/calvin-harris-feat-ellie-goulding-outside-funk-leblanc-remix",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "ed-sheeran-dont" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/funk-leblanc-remixes/dont-funk-leblanc-remix",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "theme-to-interstellar" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/funk-leblanc/theme-to-interstellar",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "the-knocks-ft-st-lucia-modern-hearts" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/funk-leblanc/modern-hearts-funk-leblanc",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "me-and-you-face-to-face" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/funk-leblanc/me-and-you-face-to-face-funk",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "chromeo-jealous" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/funk-leblanc/chromeo-jealous-funk-leblanc-remix",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "neptune-safari-morning-sun-ft-clara-la-san" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/yunizon-records/neptune-safari-morning-sun-2",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "the-victorias-lamour-en-voilier" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/funk-leblanc/lamour-en-voilier-funk-leblanc",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "the-chain-gang-of-1974-sleepwalking" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/funk-leblanc/the-chain-gang-of",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "waves-rollergirl-bootleg-remix" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/rollergirl/funk-leblanc-waves-rollergirl",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "waves" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/funk-leblanc/waves",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "work-your-body-mogul-remix" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/officialmogul/funk-le-blanc-work-your-body",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "work-your-body-proux-remix" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/mrprouxdomine/funk-leblanc-work-your-body",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "hold-on-were-going-home-drake-cover-feat-tmar" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/funk-leblanc/hold-on-were-going-home-drake",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "michael-jackson-remember-the-time" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/funk-leblanc-remixes/remember-the-time-funk-leblanc-remix",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "work-your-body" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/officialmogul/funk-le-blanc-work-your-body",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "dare-a-fleur-de-vous" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/funk-leblanc/dare-a-fleur-de-vous-funk",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "the-victorias-concorde" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/funk-leblanc/victorias-concorde-funk",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "jade-every-day-of-the-week" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/funk-leblanc/jade-every-day-of-the-week",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "fire-in-the-sky" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/funk-leblanc/fire-in-the-sky",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "jose-james-trouble" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/funk-leblanc/jose-james-trouble-funk",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  },
+  "blondfire-where-the-kids-are" : {
+    "spotify" : "",
+    "apple_music" : "",
+    "itunes" : "",
+    "beatport" : "",
+    "traxsource" : "",
+    "deezer" : "",
+    "amazon" : "",
+    "google_play" : "",
+    "soundcloud" : "https://soundcloud.com/funk-leblanc/blondfire-where-the-kids-are",
+    "napster" : "",
+    "pandora" : "",
+    "youtube" : ""
+  }
+} %}
+
+{% set prefix = "http://funkleblanc.com/wp-content/uploads/2018/01/" %}
+{% set images = {
+  "spotify" : "icon_spotify",
+  "apple_music" : "icon_apple_music",
+  "itunes" : "icon_itunes",
+  "deezer" : "icon_deezer",
+  "amazon" : "icon_amazon",
+  "google_play" : "icon_google_play",
+  "soundcloud" : "icon_soundcloud",
+  "napster" : "icon_napster",
+  "pandora" : "icon_pandora",
+  "youtube" : "icon_youtube",
+  "beatport" : "icon_beatport",
+  "traxsource" : "icon_traxsource"
+} %}
+
+<style>
+.table_music {
+  display: table;
+  width: 100%;
+  max-width: 430px;
+}
+
+a.music {
+  display: inline-block;
+  padding: 0px;
+  text-decoration: none;
+  margin-bottom: 4px;
+  margin-right: 4px;
+}
+
+div.music_icon {
+  display: table-cell;
+  width: 100px;
+  height: 75px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.music {
+  display: inline-block;
+  background-color: #ECEBF3;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.music:hover {
+  background-color: #ffffff;
+  -webkit-transition: background-color 200ms; /* Safari */
+  transition: background-color 200ms;
+}
+
+.music_icon img {
+  max-height: 50px;
+  max-width: 80px;
+  width: auto;
+  display: inline;
+  vertical-align: middle;
+}
+
+.music_link {
+  border-left: 2px solid #dedede;
+  display: table-cell;
+  width: 100px;
+  height: 75px;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+  font-weight: bold;
+}
+</style>
+
+{% for songs, link in links -%}<hr>
+##### {{songs | upper}} #####
+
+<code><div class="table_music">{% for service, url in links[songs] -%}{% if url != "" -%}<a class="music" href="{{url}}"><div class="music"><div class="music_icon"><img src="{{prefix}}{{images[service]}}.png" alt="{{service}}" title="{{service}}"></div><div class="music_link">{% if service in ["spotify","apple_music","deezer","soundcloud"] %}Listen Now{% else %}Buy Now{% endif %}</div></div></a>{%- endif %}{%- endfor %}</div></code>
+
+##### {{songs | upper}} END #####
+{%- endfor %}

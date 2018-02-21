@@ -1,0 +1,97 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# BODY COPY MACRO / AUTO COUNTER #}
+{% set count_body = 0 %}
+{% macro cb() -%}
+  {{ count_body|float }}
+  {% set count_body = count_body + 1 %}
+{%- endmacro %}
+
+{# COPY #}
+{% set copy = {   
+  "subject_line" : [  
+    "Fullname, Twitter on Xbox. Get more."
+  ],  
+  "preheader" : "Log in to the Twitter app on your Xbox to experience next-level features.", 
+  "alt_hero" : "Unlock the power of the Twitter app on your Xbox. Get the app.", 
+  "headline" : "Get the latest update for the full experience.", 
+  "body" : [ 
+    "When you log in, you'll be instantly wowed by these next-level bonus features:",
+    "See multiple perspectives",
+    "When you log in to watch videos, you'll see your timeline as wella s a wide range of perspectives and commentary from a variety of accounts.",
+    "Watch two videos at once",
+    "Ready to multi-task? Watch two side-by-side videos—and even toggle between them—so you never miss a thing.",
+    "Live video from your fave places",
+    "Buenos Aires? Calcutta? Honolulu? Click anywhere on our spinning globe to watch live video from that location.",
+    "When it happens,",
+    "it happens on Twitter.",
+    "Get the app"
+  ],  
+  "cta" : "Learn more",  
+  "blue" : [  
+    "See every side of what’s happening",
+    "in Moments.",
+    "See what you’ve been missing",
+    "on Twitter."
+  ],  
+  "black" : "See what’s happening.",  
+  "footer" : ["About", "Help", "Unsubscribe", "Download app"],  
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}
+
+{% set link = {   
+  "hero" : "http://twitter.com", 
+  "cta" : "http://twitter.com",  
+  "about" : "https://about.twitter.com",  
+  "help" : "https://support.twitter.com/",  
+  "download" : "https://twitter.com/download" 
+} %} 
+Subject: {{ i10n(pt(copy.subject_line[0])) }}
+
+{{ copy.alt_hero }}
+
+{{ i10n(copy.cta) }} 
+{{ "> " + link.cta }}
+
+=
+
+{{ i10n(copy.headline) }} 
+
+{{ i10n(copy.body[cb()|float]) }} 
+
+=
+
+{{ i10n(copy.body[cb()|float]) }}
+
+{{ i10n(copy.body[cb()|float]) }} 
+
+=
+
+{{ i10n(copy.body[cb()|float]) }} 
+
+{{ i10n(copy.body[cb()|float]) }} 
+
+=
+
+{{ i10n(copy.body[cb()|float]) }} 
+
+{{ i10n(copy.body[cb()|float]) }} 
+
+=
+
+{{ i10n(copy.footer[0]) }} 
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }} 
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }} 
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }} 
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

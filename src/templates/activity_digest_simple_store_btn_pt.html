@@ -1,0 +1,77 @@
+{% include "includes/macros_notifications.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis_2 = true %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "cta" : "https://twitter.com/i/notifications",
+  "icon" : {
+    "follow" : "https://twitter.com/i/notifications",
+    "like" : "https://twitter.com/i/notifications",
+    "mention" : "https://twitter.com/i/notifications",
+    "reply" : "https://twitter.com/i/notifications",
+    "retweet" : "https://twitter.com/i/notifications"
+  },
+  "text" : "http://twitter.com",
+  "help" : "https://support.twitter.com/",
+  "settings" : "https://twitter.com/settings",
+  "unsubscribe" : "{{unsubscribe}}"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject" : "@{{#recipient}}{{screen_name}}{{/recipient}}, check out the notification you have on Twitter",
+  "subject_p" : "@{{#recipient}}{{screen_name}}{{/recipient}}, check out the notifications you have on Twitter",
+  "alt_logo" : "Twitter",
+  "title" : "See the 1 notification ready and waiting just for you",
+  "title_p" : "See the {{total_count}} notifications ready and waiting just for you",
+  "cta" : "Take a look",
+  "header" : "Likes, Retweets, new followers, and more — you’ll find them all in your Notifications. Here’s a glimpse.",
+  "body" : "When someone likes your Tweet, mentions you, or follows you, you can view all the activity in Notifications.",
+  "body_2" : "See how others have interacted with you on Twitter.",
+  "icon" : ["new follower", "like", "reply", "Retweet", "mention", "contact joined"],
+  "icon_p" : ["new followers", "likes", "replies", "Retweets", "mentions", "contacts joined"],
+  "icon_cta" : ["See it","See them"],
+  "education" : [
+    "Download on the App Store",
+    "Get it on Google Play"
+  ],
+  "footer" : ["Help", "Settings", "Unsubscribe"],
+  "disclaimer" : "This email was generated for @" + mustache("{{#recipient}}{{screen_name}}{{/recipient}}","Somebody") + ".",
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+Subject:
+{{ mustache("{{#total_count_one}}") }}{{ i10n(copy.subject) }}{{ mustache("{{/total_count_one}}") }}{{ mustache("{{^total_count_one}}") }}{{ mustache(i10n(copy.subject_p)) }}{{ mustache("{{/total_count_one}}") }}
+ 
+Twitter 
+{{ "> " + link.logo }}
+
+{{ mustache("{{#total_count_one}}") }}{{ i10n(pt(copy.title)) }}{{ mustache("{{/total_count_one}}") }}{{ mustache("{{^total_count_one}}") }}{{ mustache(i10n(pt(copy.title_p))) }}{{ mustache("{{/total_count_one}}") }}
+  
+{{ i10n(pt(copy.cta)) }} 
+{{ "> " + link.cta }}
+
+=
+
+{{ i10n(pt(copy.education[0])) }}
+> https://itunes.apple.com/us/app/twitter/id333903271?mt=8
+
+{{ i10n(pt(copy.education[1])) }}
+> https://play.google.com/store/apps/details?id=com.twitter.android&hl=en
+
+=
+
+{{ i10n(pt(copy.footer[0])) }} 
+{{ "> " + link.help }}
+
+{{ i10n(pt(copy.footer[1])) }} 
+{{ "> " + link.settings }}
+
+{{ i10n(pt(copy.footer[2])) }} 
+{{ "> " + link.unsubscribe }}
+
+{{ i10n(pt(copy.disclaimer)) }}
+
+{{ copy.address }}

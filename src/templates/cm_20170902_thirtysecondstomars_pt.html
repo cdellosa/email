@@ -1,0 +1,116 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/live/900091918020886529?ref_src=twsrc%5Eemail%7Ctwcamp%5EThirtySecondstoMars",  
+  "text" : [  
+    "https://twitter.com/magentamusik360",
+    "https://twitter.com/search?q=%23MagentaMusik360&src=typd",
+    "https://twitter.com/i/live/900091918020886529?ref_src=twsrc%5Eemail%7Ctwcamp%5EThirtySecondstoMars"
+  ],  
+  "alt" : [  
+    "https://twitter.com/magentamusik360",
+    "https://twitter.com/twitterlive"
+  ],  
+  "cta" : "https://twitter.com/i/live/900091918020886529?ref_src=twsrc%5Eemail%7Ctwcamp%5EThirtySecondstoMars",
+  "logo_twitter_large" : "https://twitter.com/",  
+  "about" : "https://about.twitter.com",  
+  "help" : "https://support.twitter.com/",  
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [  
+    "{{user_name}}, Watch Thirty Seconds to Mars LIVE on Twitter"
+  ],  
+  "alt_hero" : "Mars is coming. Mars is here. Watch LIVE on Twitter",  
+  "cta" : "Watch LIVE on",  
+  "headline" : [  
+    "Thirty Seconds to Mars LIVE on Twitter",
+    "Saturday, September 2 | 3PM ET",
+    "Watch it. Talk about it."
+  ],  
+  "body" : [  
+    "Get ready to Walk On Water with Thirty Seconds to Mars, as they perform live from the IFA—Internationale Funkausstellung—at the Telekom Street Gigs in Berlin. The celebration is going to be as colossal as their newest single so don’t miss out on one whoa-oh-oh or guitar riff. Join in Saturday, Sept. 2 streaming LIVE on Twitter.",
+    "Saturday, September 2 | 3PM ET",
+    "@MagentaMusik360",
+    "#MagentaMusik360",
+    "30secondstomars.twitter.com",
+    "Download Twitter and watch live video on the&nbsp;following&nbsp;devices:"
+  ],  
+  "alt" : [  
+  "MagentaMusik360",
+  "Twitter LIVE"
+  ],   
+  "apps" : [
+    "Apple TV",
+    "Google Play",
+    "Roku",
+    "Xbox One",
+    "Windows 10",
+    "Amazon Fire TV"
+  ], 
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],  
+  "disclaimer" : "This email was meant for @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}  
+
+Subject: {{"{{^email_thirtysecondstomars_6797}}{{_i}}{{user_name}}, Thirty Seconds to Mars, and counting{{/i}}{{/email_thirtysecondstomars_6797}}{{#email_thirtysecondstomars_6797}}{{#control}}{{_i}}{{user_name}}, Thirty Seconds to Mars, and counting{{/i}}{{/control}}{{#treatment}}{{_i}}Watch Thirty Seconds to Mars LIVE on Twitter{{/i}}{{/treatment}}{{/email_thirtysecondstomars_6797}}"}}
+
+{{ i10n(pt(copy.alt_hero)) }}
+{{ "> " + link.hero }}
+
+=
+
+{{ i10n(pt(copy.headline[0])) }}
+
+{{ i10n(pt(copy.body[0])) }}
+
+{{ i10n(pt(copy.headline[1])) }}
+
+{{ i10n(pt(copy.body[2])) }}
+{{ "> " + link.text[0] }}
+
+{{ i10n(pt(copy.body[3])) }}
+{{ "> " + link.text[1] }}
+
+{{ i10n(pt(copy.body[4])) }}
+{{ "> " + link.text[2] }}
+
+{{ i10n(pt(copy.cta)) }}
+{{ "> " + link.cta }}
+
+{{ i10n(pt(copy.headline[2])) }}
+
+=
+
+{{ i10n(pt(copy.alt[0])) }}
+{{ "> " + link.alt[0] }}
+
+{{ i10n(pt(copy.alt[1])) }}
+{{ "> " + link.alt[1] }}
+
+=
+
+{{ i10n(pt(copy.body[5])) }}
+{{ copy.apps[0] }} | {{ copy.apps[1] }} | {{ copy.apps[2] }} | {{ copy.apps[3] }} | {{ copy.apps[4] }} | {{ copy.apps[5] }}
+
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }}
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

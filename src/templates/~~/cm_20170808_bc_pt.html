@@ -1,0 +1,132 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# BODY COPY MACRO / AUTO COUNTER #}
+{% set count_body = 0 %}
+{% macro cb() -%}
+  {{ count_body|float }}
+  {% set count_body = count_body + 1 %}
+{%- endmacro %}
+
+{# COPY #}
+{% set copy = {   
+  "subject_line" : [  
+    "{{user_name}}, Was the GOAT born to be the GOAT?"
+  ],  
+  "preheader" : "{{user_name}}, Was the GOAT born GOAT?", 
+  "alt_hero" : "GOAT is happening. Watch video.", 
+  "alt_hero_2" : "GOAT is happening. Don't Miss Out", 
+  "headline" : "Join the greatest conversation of all time", 
+  "body" : [  
+    "Does the drive to be the greatest go beyond field of play? Like, is the GOAT the greatest tooth brusher of all time? The greatest at making grilled cheeses? Bird watching? Can they be ordinary at anything? There’s no shortage of opinion on what truly motivates the GOAT. Come back to Twitter and #SeeEverySide",
+    "See every side of what’s happening",
+    "in sports Moments.",
+    "Russ is the real MVP of dancing",
+    "💰 Trick shots 💰",
+    "Priceless NBA player reactions to the free agency",
+    "See what you've been missing",
+    "on Twitter.",
+    "See what’s happening."
+  ],  
+  "cta" : [ 
+    "Watch Video",
+    "View Moment",
+    "View Moment",
+    "View Moment",
+    "Explore",
+    "Explore Twitter",
+    "Don't Miss Out"
+  ],  
+  "blue" : [  
+    "See every side of what’s happening",
+    "in Moments.",
+    "See what you’ve been missing",
+    "on Twitter."
+  ],  
+  "black" : "See what’s happening.",  
+  "footer" : ["About", "Help", "Unsubscribe", "Download app"],  
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}
+
+{# LINKS #}
+{% set link = {   
+  "hero" : "https://twitter.com/Twitter/status/879338487505465348", 
+  "cta" : [ 
+    "https://twitter.com/Twitter/status/879338487505465348",
+    "https://twitter.com/i/moments/879486918223814656",
+    "https://twitter.com/i/moments/884455769973735426",
+    "https://twitter.com/i/moments/884498055231295488",
+    "https://twitter.com/i/moments",
+    "https://mobile.twitter.com/search",
+    "https://twitter.com"
+  ],  
+  "about" : "https://about.twitter.com",  
+  "help" : "https://support.twitter.com/",  
+  "download" : "https://twitter.com/download" 
+} %}
+Subject: {{ i10n(pt(copy.subject_line[0])) }}
+
+{{'{{^email_brand8_6637}}'}}{{ copy.alt_hero }}{{'{{/email_brand8_6637}}{{#email_brand8_6637}}{{#control}}'}}{{ copy.alt_hero }}{{'{{/control}}{{#treatment}}'}}{{ copy.alt_hero_2 }}{{'{{/treatment}}{{/email_brand8_6637}}'}}
+
+{{ i10n(copy.headline) }} 
+
+{{ i10n(copy.body[cb()|float]) }} 
+
+=
+
+{{ i10n(copy.body[cb()|float]) }} 
+{{ i10n(copy.body[cb()|float]) }} 
+
+=
+
+{{ i10n(copy.body[cb()|float]) }} 
+
+{{ i10n(copy.cta[1]) }} 
+{{ "> " + link.cta[1] }}
+
+=
+
+{{ i10n(copy.body[cb()|float]) }} 
+
+{{ i10n(copy.cta[2]) }} 
+{{ "> " + link.cta[2] }}
+
+=
+
+{{ i10n(copy.body[cb()|float]) }} 
+
+{{ i10n(copy.cta[3]) }} 
+{{ "> " + link.cta[3] }}
+
+=
+
+{{ i10n(copy.body[cb()|float]) }} 
+{{ i10n(copy.body[cb()|float]) }} 
+
+{{ i10n(copy.cta[4]) }} 
+{{ "> " + link.cta[4] }}
+
+=
+
+{{ i10n(pt(copy.body[cb()|float])) }} 
+
+{{ i10n(copy.cta[5]) }} 
+{{ "> " + link.cta[6] }}
+
+=
+
+{{ i10n(copy.footer[0]) }} 
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }} 
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }} 
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }} 
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

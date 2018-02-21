@@ -1,0 +1,117 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/live/927621997386858496?ref_src=twsrc%5Eemail%7Ctwcamp%5EAMAs",  
+  "text" : [  
+    "https://twitter.com/AMAs",
+    "https://twitter.com/search?q=%23AMAs&src=typd",
+    "https://twitter.com/amas"
+  ],  
+  "alt" : [  
+    "https://twitter.com/AMAs",
+    "https://twitter.com/twitterlive"
+  ],  
+  "cta" : "https://twitter.com/i/live/927621997386858496?ref_src=twsrc%5Eemail%7Ctwcamp%5EAMAs",
+  "logo_twitter_large" : "https://twitter.com/",  
+  "about" : "https://about.twitter.com",  
+  "help" : "https://support.twitter.com/",  
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [  
+    "@{{screen_name}}, and the red carpet award goes to..."
+  ],  
+  "preheader" : "Watch the American Music Awards biggest stars, LIVE and lit",
+  "alt_hero" : "Lit. Legendary. LIVE.",  
+  "cta" : "Watch LIVE on",  
+  "headline" : [  
+    "Watch the American Music Awards biggest stars, LIVE and lit",
+    "Sunday, November 19 | 6pm ET / 3pm PT",
+    "Watch it. Talk about it."
+  ],  
+  "body" : [  
+    "Demi will sing her heart out. Your favorite artists will win big. But who will steal the AMAs Red Carpet Live? Find out LIVE, streaming exclusively on Twitter, and tap into the night's most star-studded interviews, unforgettable looks and juicy moments. Hit the red carpet at 6pm ET. And don't be fashionably late.",
+    "",
+    "@AMAs",
+    "#AMAs",
+    "live.twitter.com/amas",
+    "Download Twitter and watch live video on the following devices:"
+  ],  
+  "alt" : [  
+    "American Music Awards - Red Carpet Live",
+    "Twitter LIVE"
+  ],   
+  "apps" : [
+    "Apple TV",
+    "Google Play",
+    "Roku",
+    "Xbox One",
+    "Windows 10",
+    "Amazon Fire TV"
+  ], 
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],  
+  "disclaimer" : "This email was meant for @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}  
+
+Subject: {{ i10n(pt(copy.subject[0])) }}
+
+{{ i10n(pt(copy.alt_hero)) }}
+{{ "> " + link.hero }}
+
+=
+
+{{ i10n(pt(copy.headline[0])) }}
+
+{{ i10n(pt(copy.body[0])) }}
+
+{{ i10n(pt(copy.headline[1])) }}
+
+{{ i10n(pt(copy.body[2])) }}
+{{ "> " + link.text[0] }}
+
+{{ i10n(pt(copy.body[3])) }}
+{{ "> " + link.text[1] }}
+
+{{ i10n(pt(copy.body[4])) }}
+{{ "> " + link.text[2] }}
+
+{{ i10n(pt(copy.cta)) }}
+{{ "> " + link.cta }}
+
+{{ i10n(pt(copy.headline[2])) }}
+
+=
+
+{{ i10n(pt(copy.alt[0])) }}
+{{ "> " + link.alt[0] }}
+
+{{ i10n(pt(copy.alt[1])) }}
+{{ "> " + link.alt[1] }}
+
+=
+
+{{ i10n(pt(copy.body[5])) }}
+{{ copy.apps[0] }} | {{ copy.apps[1] }} | {{ copy.apps[2] }} | {{ copy.apps[3] }} | {{ copy.apps[4] }} | {{ copy.apps[5] }}
+
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }}
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

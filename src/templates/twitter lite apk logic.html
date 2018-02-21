@@ -1,0 +1,57 @@
+{% set languages = [
+  ["lang_ar","ar"],
+  ["lang_bg","bg"],
+  ["lang_bn","en"],
+  ["lang_ca","ca"],
+  ["lang_cs","cs"],
+  ["lang_da","da"],
+  ["lang_de","de"],
+  ["lang_el","el"],
+  ["lang_en","en"],
+  ["lang_en-gb","en-gb"],
+  ["lang_es","es-419"],
+  ["lang_fa","fa"],
+  ["lang_fil","fil"],
+  ["lang_fr","fr"],
+  ["lang_gu","gu"],
+  ["lang_he","en"],
+  ["lang_hi","hi"],
+  ["lang_hr","hr"],
+  ["lang_hu","hu"],
+  ["lang_id","id"],
+  ["lang_it","it"],
+  ["lang_ja","ja"],
+  ["lang_kn","kn"],
+  ["lang_ko","ko"],
+  ["lang_mr","mr"],
+  ["lang_msa","en"],
+  ["lang_nl","nl"],
+  ["lang_no","no"],
+  ["lang_pl","pl"],
+  ["lang_pt","pt"],
+  ["lang_ro","ro"],
+  ["lang_ru","ru"],
+  ["lang_sk","sk"],
+  ["lang_sr","sr"],
+  ["lang_sv","sv"],
+  ["lang_ta","en"],
+  ["lang_th","th"],
+  ["lang_tr","tr"],
+  ["lang_uk","uk"],
+  ["lang_ur","en"],
+  ["lang_vi","vi"],
+  ["lang_zh-cn","zh-cn"],
+  ["lang_zh-tw","zh-tw"]
+] %}
+
+{% set url = "https://play.google.com/store/apps/details?id=com.twitter.android.lite" %}
+
+{% for language in languages %}{{ "{{#" + language[0] + "}}" + url + "&hl=" + language[1] + "{{/" + language[0] + "}}" }}
+{% endfor %}
+{% for language in languages %}{{ "{{^" + language[0] + "}}" }}
+{% endfor %}    {{ url }}
+{% for language in languages | reverse %}{{ "{{/" + language[0] + "}}" }}
+{% endfor %}
+
+
+{% for language in languages %}{{ "{{#" + language[0] + "}}" + language[1] + "{{/" + language[0] + "}}" }}{% endfor %}

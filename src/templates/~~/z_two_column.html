@@ -1,0 +1,423 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# HERO COPY IMAGE HEIGHT #}
+{% set hero_copy_height = 150 %}
+{# THIS IS AUTO SET BY ABOVE #}
+{% set hero_spacer_height = 366 - hero_copy_height - 119 %}
+{% set hero_copy_height_mobile = (hero_copy_height * 0.65)|round %}
+{% set hero_spacer_height_mobile = (hero_spacer_height * 0.65)|round %}
+
+{# MAIN COLOR #}
+{% set main_color = "#1DA1F2" %}
+
+{# MOBILE FIX REMOVE SWITCH #}
+{% set mobile_fix_remove = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+  "cta" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+  "text" : [
+    "https://twitter.com/mlb",
+    "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+    "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB"
+  ],
+  "schedule" : "https://twitter.com/i/live/839923263773921280?ref_src=twsrc%5Eemail%7Ctwcamp%5EMLB",
+  "icon" : "https://twitter.com/mlb",
+  "logo_twitter_large" : "https://twitter.com/",
+  "mlb" : "https://mlb.twitter.com",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "preheader" : "See the Yanks take on the Rays in not-to-miss MLB action",
+  "subject_line" : "Yankees and Rays in MLB Live action!",
+  "alt_hero" : "Catch every pitch, fly ball, line drive, and double play. | Streaming Live on Twitter | May 19| 7:10PM ET | ",
+  "headline" : "Twitter Presents Friday Night Baseball,&nbsp;Live!",
+  "body" : [
+    "When you watch the Red Sox take on the Devil Rays on Twitter, you’ll get more than just the play-by-play. You get every side of the action, as it’s happening, live. Join the crowd, talk some smack, show your team spirit. Just add some hot dogs and the smell of fresh-cut grass and it’s like you’re there! Catch it this Thursday. And get inside baseball with all the latest rumors, analysis, and more on The Dugout, hosted by Alexas Datt - a Twitter exclusive. ",
+    "Thursday, July 6 | 7:10pm ET",
+    "Watch it. Talk About it.",
+    "Watch and Tweet along with your favorite <a href=\"" + tl(link.mlb) + "\" class=\"blue\">@MLB</a> teams and players all season long! Visit <a href=\"" + tl(link.mlb) + "\" class=\"blue\">mlb.twitter.com</a>",
+    "*Major League Baseball trademarks and copyrights are used with permission of MLB Advanced Media, L.P. All rights reserved."
+  ],
+  "cta" : "Watch LIVE on",
+  "schedule" : [
+    "Coming up in&nbsp;July...",
+    "Red Sox vs Tampa Bay",
+    "Thursday, July 6 | 7:10PM ET",
+    "No Game/All Star Week",
+    "Tuesday, July 11",
+    "Dodgers vs White Sox",
+    "Tuesday, July 18 | 8:10PM ET",
+    "Reds vs Yankees",
+    "Tuesday, July 25 | 7:05PM ET"
+  ],
+  "alt_icon" : "MLB",
+  "alt_logo" : "Twitter",
+  "footer" : ["About", "Help", "Unsubscribe", "Download app"],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "logo_twitter" : prefix_img + "logo-1475170569504.png",
+  "hero" : prefix_img + "cm_20170706_mlb_hero-1498696803780.jpg",
+  "hero_m" : prefix_img + "cm_20170706_mlb_hero_m-1498696803791.jpg",
+  "spacer" : prefix_img + "spacer_640x265-1481056487262.png",
+  "spacer_1" : prefix_img + "spacer_640x1-1481059174655.png",
+  "logo_twitter_large" : prefix_img + "dm_logo_twitter-1489534651038.png",
+  "icon" : prefix_img + "20170505_mlb_launch_logo_mlb-1493836110453.png",
+  "schedule" : prefix_img + "cm_20170706_mlb_schedule-1498865348187.jpg",
+  "spacer_2" : prefix_img + "spacer_3_x_1-1493416213665.png"
+} %}
+
+{# CSS #}
+{% block style %}
+    .h3 {
+      font-size: 22px;
+      line-height: 26px;
+    }
+
+    td.button {
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      line-height: 18px;
+    }
+
+    a.button {
+      font-size: 16px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      padding: 11px 30px; 
+      border: 1px solid #1DA1F2;
+      display: inline-block; 
+      font-weight:600; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .button img {
+      display: inline;
+      vertical-align: top;
+    }
+
+    .body {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 16px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 22px;
+    }
+
+    .body_3 {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 20px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 24px;
+    }
+
+    .justify {
+      text-align: justify;
+    }
+{% endblock %}
+
+{% block media_query %}
+        .hide {
+          display: none !important;
+        }
+
+        .show {
+          overflow: visible !important;
+          float: none !important;
+          display: table !important;
+          line-height:100% !important;
+        }
+
+        .iosBlue a {
+          text-decoration: underline;
+          } 
+
+        .width_full {
+          width: 100% !important;
+        }
+
+        .width_90p {
+          width: 90% !important;
+        }
+
+        .height_1 {
+          height: 1px !important;
+        }
+
+        .height_30 {
+          height: 30px !important;
+        }
+
+        .h3 {
+          font-size: 16px !important;
+          line-height: 20px !important;
+        }
+
+        .body_3 {
+          font-size: 16px !important;
+          line-height: 20px !important;
+        }
+{% endblock %}
+
+{% block body %}
+  <style inline="false">
+    .appleLinksWhite a {
+      color: #ffffff !important; 
+      text-decoration: none;
+    } 
+  </style>
+  <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full" dir="{{ dir('ltr') }}">
+    <tr>
+      <td class="empty" height="24" colspan="3">
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td class="empty" width="24">
+        &nbsp;
+      </td>
+      <td class="h1 blue" align="center">
+      Desktop: AB / Mobile: AB - No&nbsp;Stack
+      </td>
+      <td class="empty" width="24">
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td class="empty" height="24" colspan="3">
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td class="empty" width="24">
+        &nbsp;
+      </td>
+      <td class="empty">
+        <table cellpadding="0" cellspacing="0" border="0" align="left" dir="{{ dir('ltr') }}" width="100%" height="289" class="width_full">
+          <tr>
+            <td class="h1 white center" valign="middle" align="center" bgcolor="#ff0000">
+             A
+            </td>
+            <td class="empty" width="14">
+              &nbsp;
+            </td>
+            <td class="h1 white center" valign="middle" align="center" bgcolor="#00ff00">
+             B
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td class="empty" width="24">
+        &nbsp;
+      </td>
+    </tr>
+  </table>
+  <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full" dir="{{ dir('ltr') }}">
+    <tr>
+      <td class="empty" height="24" colspan="3">
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td class="empty" width="24">
+        &nbsp;
+      </td>
+      <td class="h1 blue" align="center">
+      Desktop:&nbsp;ABCD / Mobile:&nbsp;ABCD
+      </td>
+      <td class="empty" width="24">
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td class="empty" height="24" colspan="3">
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td class="empty" width="24">
+        &nbsp;
+      </td>
+      <td class="empty">
+        <table cellpadding="0" cellspacing="0" border="0" align="left" dir="{{ dir('ltr') }}" width="289" height="289" bgcolor="#ff0000" class="width_full">
+          <tr>
+            <td class="h1 white center" valign="middle" align="center">
+             A
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="right" dir="{{ dir('ltr') }}" width="289" height="289" bgcolor="#00FF00" class="width_full">
+          <tr>
+            <td class="h1 white center" valign="middle" align="center">
+             B
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td class="empty" width="24">
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td class="empty" width="24">
+        &nbsp;
+      </td>
+      <td class="empty">
+        <table cellpadding="0" cellspacing="0" border="0" align="left" dir="{{ dir('ltr') }}" width="289" height="289" bgcolor="#0000FF" class="width_full">
+          <tr>
+            <td class="h1 white center" valign="middle" align="center">
+             C
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="right" dir="{{ dir('ltr') }}" width="289" height="289" bgcolor="#FFFF00" class="width_full">
+          <tr>
+            <td class="h1 white center" valign="middle" align="center">
+             D
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td class="empty" width="24">
+        &nbsp;
+      </td>
+    </tr>
+  </table>
+  <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full" dir="{{ dir('ltr') }}">
+    <tr>
+      <td class="empty" height="24" colspan="3">
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td class="empty" width="24">
+        &nbsp;
+      </td>
+      <td class="h1 blue" align="center">
+      Desktop:&nbsp;ABDC / Mobile:&nbsp;ABCD
+      </td>
+      <td class="empty" width="24">
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td class="empty" height="24" colspan="3">
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td class="empty" width="24">
+        &nbsp;
+      </td>
+      <td class="empty">
+        <table cellpadding="0" cellspacing="0" border="0" align="left" dir="{{ dir('ltr') }}" width="289" height="289" bgcolor="#ff0000" class="width_full">
+          <tr>
+            <td class="h1 white center" valign="middle" align="center">
+             A
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="right" dir="{{ dir('ltr') }}" width="289" height="289" bgcolor="#00FF00" class="width_full">
+          <tr>
+            <td class="h1 white center" valign="middle" align="center">
+             B
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td class="empty" width="24">
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td class="empty" width="24">
+        &nbsp;
+      </td>
+      <td class="empty">
+        <table cellpadding="0" cellspacing="0" border="0" align="right" dir="{{ dir('ltr') }}" width="289" height="289" bgcolor="#0000FF" class="width_full">
+          <tr>
+            <td class="h1 white center" valign="middle" align="center">
+             C
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="left" dir="{{ dir('ltr') }}" width="289" height="289" bgcolor="#FFFF00" class="width_full">
+          <tr>
+            <td class="h1 white center" valign="middle" align="center">
+             D
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td class="empty" width="24">
+        &nbsp;
+      </td>
+    </tr>
+  </table>
+  <table align="center" class="center" dir="{{ dir('ltr') }}">
+    <tr>
+      <td class="empty" height="72">
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td class="footer strong deep_grey center" align="center" dir="{{ dir('ltr') }}">
+        <a href="{{ tl(link.about,7) }}" class="blue">
+          {{ i10n(copy.footer[0]) }}
+        </a>
+        &nbsp;|&nbsp;
+        <a href="{{ tl(link.help,8) }}" class="blue">
+          {{ i10n(copy.footer[1]) }}
+        </a>
+        &nbsp;|&nbsp;
+        <a href="{{ '{{ unsubscribe }}' }}" class="blue">
+          {{ i10n(copy.footer[2]) }}
+        </a>
+        &nbsp;|&nbsp;
+        <a href="{{ tl(link.download,9) }}" class="blue">
+          {{ i10n(copy.footer[3]) }}
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td class="empty" height="12">
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td class="footer deep_grey center" align="center">
+        <span class="addressLink">{{"{{>manhattan:static:address_twitter/html_content}}"}}</span>
+      </td>
+    </tr>
+    <tr>
+      <td class="empty" height="72">
+        &nbsp;
+      </td>
+    </tr>
+  </table>
+{% endblock %}

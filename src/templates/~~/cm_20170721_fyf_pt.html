@@ -1,0 +1,95 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {   
+  "hero" : "https://twitter.com/i/live/869676951618834433?ref_src=twsrc%5Eemail%7Ctwcamp%5Efyffest",  
+  "body" : [  
+    "https://twitter.com/fyffest",
+    "https://twitter.com/fyffest",
+    "https://twitter.com/fyffest",
+    "https://twitter.com/search?q=%23FYFFest&src=typd"
+  ],  
+  "alt" : [ 
+    "https://twitter.com/"
+  ],  
+  "logo_twitter_large" : "https://twitter.com/",
+  "about" : "https://about.twitter.com",  
+  "help" : "https://support.twitter.com/",  
+  "download" : "https://twitter.com/download" 
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [ 
+    "@{{screen_name}}, FYF Fest LIVE music this weekend"
+  ],  
+  "preheader" : "Watch band sets, interviews, animations and more",  
+  "alt_hero" : "Get in the pit at LA's hottest festival", 
+  "cta" : "Watch LIVE on",  
+  "headline" : [  
+    "All Access to FYF Fest LIVE Streaming on Twitter"
+  ],  
+  "body" : [  
+    "See what's happening at FYF Fest Live 2017 LIVE on Twitter. It's the first-ever FYF Fest livestream, featuring artist performances, backstage interviews, mini documentaries, animations and more. Catch full sets from headliners like Frank Ocean, A Tribe Called Quest, Run the Jewels, and Iggy Pop while discover your favorite new act on the side stages. Downtown LA is the place to be this weekend, so let Twitter take you there for all the action.",
+    "Saturday, July 22—Sunday, July 23 | 6PM PT",
+    "@FYFFEST",
+    "#FYFFest",
+    "fyffest.twitter.com",
+    "Watch it. Talk about it."
+  ],  
+  "alt" : [  
+    "Twitter"
+  ],  
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],  
+  "disclaimer" : "This email was meant for @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}  
+
+Subject: {{ i10n(pt(copy.subject[0])) }}
+
+{{ i10n(pt(copy.alt_hero)) }}
+{{ "> " + link.hero }}
+
+=
+
+{{ i10n(pt(copy.headline[0])) }}
+
+{{ i10n(pt(copy.body[0])) }}
+
+{{ i10n(pt(copy.body[1])) }}
+
+{{ i10n(pt(copy.cta)) }}
+{{ "> " + link.hero }}
+
+{{ i10n(pt(copy.body[2])) }}
+{{ "> " + link.body[1] }}
+
+{{ i10n(pt(copy.body[3])) }}
+{{ "> " + link.body[2] }}
+
+{{ i10n(pt(copy.body[4])) }}
+{{ "> " + link.body[3] }}
+
+=
+
+{{ i10n(pt(copy.alt[0])) }}
+{{ "> " + link.alt[0] }}
+
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }}
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

@@ -1,0 +1,119 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/live/913509107788689409?ref_src=twsrc%5Eemail%7Ctwcamp%5EGameAwards2017",  
+  "text" : [  
+    "https://twitter.com/thegameawards",
+    "https://twitter.com/search?q=%23TheGameAwards&src=typd",
+    "https://twitter.com/i/live/913509107788689409?ref_src=twsrc%5Eemail%7Ctwcamp%5EGameAwards2017"
+  ],  
+  "alt" : [  
+    "https://twitter.com/thegameawards",
+    "https://twitter.com/twitterlive"
+  ],  
+  "cta" : "https://twitter.com/i/live/913509107788689409?ref_src=twsrc%5Eemail%7Ctwcamp%5EGameAwards2017",
+  "logo_twitter_large" : "https://twitter.com/",  
+  "about" : "https://about.twitter.com",  
+  "help" : "https://support.twitter.com/",  
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [  
+    "{{user_name}}, watch The Game Awards, Thursday, Dec 7 @ 8:30pm ET"
+  ],  
+  "preheader" : "Tonight, play is serious business.",
+  "alt_hero" : "Gaming's biggest night is here.",  
+  "cta" : "Watch LIVE on",  
+  "headline" : [  
+    "The Game Awards 2017, streaming LIVE on Twitter",
+    "Thursday, December 7 | 8:30pm ET / 5:30pm PT",
+    "Watch it. Talk about it."
+  ],  
+  "body" : [  
+    "You might want to pause your game and watch others pick up some hardware for once. It's The Game Awards featuring a live performance by Phoenix with appearances by Norman Reedus, Felicia Day, Dwayne Johnson and more. Celebrate with the community as we honor creative and technical excellence. Find out who will win the coveted Game of the Year award. And get a sneak preview of upcoming releases. It's all here. And it's all LIVE. So take part in the conversation as it happens.",
+    "",
+    "@thegameawards",
+    "#thegameawards",
+    "live.twitter.com/thegameawards",
+    "Download Twitter and watch live video on the following devices:"
+  ],  
+  "alt" : [  
+    "The Game Awards",
+    "Twitter LIVE"
+  ],   
+  "apps" : [
+    "Apple TV",
+    "Google Play",
+    "Roku",
+    "Xbox One",
+    "Windows 10",
+    "Amazon Fire TV"
+  ], 
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],  
+  "disclaimer" : "This email was meant for @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}   
+
+Subject: {{ i10n(pt(copy.subject[0])) }}
+
+{{ i10n(pt(copy.preheader)) }}
+
+{{ i10n(pt(copy.alt_hero)) }}
+{{ "> " + link.hero }}
+
+=
+
+{{ i10n(pt(copy.headline[0])) }}
+
+{{ i10n(pt(copy.body[0])) }}
+
+{{ i10n(pt(copy.headline[1])) }}
+
+{{ i10n(pt(copy.body[2])) }}
+{{ "> " + link.text[0] }}
+
+{{ i10n(pt(copy.body[3])) }}
+{{ "> " + link.text[1] }}
+
+{{ i10n(pt(copy.body[4])) }}
+{{ "> " + link.text[2] }}
+
+{{ i10n(pt(copy.cta)) }}
+{{ "> " + link.cta }}
+
+{{ i10n(pt(copy.headline[2])) }}
+
+=
+
+{{ i10n(pt(copy.alt[0])) }}
+{{ "> " + link.alt[0] }}
+
+{{ i10n(pt(copy.alt[1])) }}
+{{ "> " + link.alt[1] }}
+
+=
+
+{{ i10n(pt(copy.body[5])) }}
+{{ copy.apps[0] }} | {{ copy.apps[1] }} | {{ copy.apps[2] }} | {{ copy.apps[3] }} | {{ copy.apps[4] }} | {{ copy.apps[5] }}
+
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }}
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

@@ -1,0 +1,552 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# HERO COPY IMAGE HEIGHT #}
+{% set hero_copy_height = 120 %}
+{# THIS IS AUTO SET BY ABOVE #}
+{% set hero_spacer_height = 366 - hero_copy_height - 119 %}
+{% set hero_copy_height_mobile = (hero_copy_height * 0.65)|round %}
+{% set hero_spacer_height_mobile = (hero_spacer_height * 0.65)|round %}
+
+{# MAIN COLOR #}
+{% set main_color = "#1DA1F2" %}
+
+{# MOBILE FIX REMOVE SWITCH #}
+{% set mobile_fix_remove = false %}
+
+{# COPY #}
+{% set copy = {
+  "preheader" : "World’s biggest CS:GO tourney is LIVE on Twitter.",
+  "subject_line" : "@{{screen_name}}, ESL One Cologne. LIVE this week",
+  "alt_hero" : "ESL One Cologne. No tickets? No problem.",
+  "headline" : "ESL One Cologne Live&nbsp;on&nbsp;Twitter",
+  "body" : "Twelve-thousand fans from all over the world are converging on Germany’s largest indoor arena for ESL One Cologne - the world’s biggest Counter-Strike: Global Offensive Tournament. Can’t make it? No worries. Follow all 5 days of news, rumors and game-action while watching 16 world-class teams battle for the championship trophy and $250,000. It’s CS:GO history in the making. And it’s all here live on Twitter.",
+  "body_2" : [
+    "@ESL",
+    "#ESLOne",
+    "esl.twitter.com",
+    "Watch it. Talk about it."
+  ],
+  "schedule" : [
+    "ESL One Cologne&nbsp;2017",
+    "Wednesday, July 5",
+    "11AM – 3:15PM ET",
+    "Thursday, July 6",
+    "12:45PM – 4:45PM ET",
+    "Friday, July 7",
+    "3:45PM – 6PM ET",
+    "Saturday, July 8",
+    "9:40AM – 5:15PM ET",
+    "Sunday, July 9",
+    "9:40AM – 3:55PM ET"
+  ],
+  "cta" : "Watch LIVE on",
+  "alt_icon" : "ESL One",
+  "alt_logo" : "Twitter",
+  "footer" : ["About", "Help", "Unsubscribe", "Download app"],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "logo_twitter" : prefix_img + "logo-1475170569504.png",
+  "hero" : prefix_img + "cm_20170705_eslcologne_hero-1498867791988.gif",
+  "hero_m" : prefix_img + "cm_20170705_eslcologne_hero-1498867791988.gif",
+  "spacer" : prefix_img + "spacer-1497649689465.png",
+  "spacer_1" : prefix_img + "spacer_640_x_1-1497634066349.png",
+  "logo_twitter_large" : prefix_img + "dm_logo_twitter-1489534651038.png",
+  "icon" : prefix_img + "cm_20170705_eslcologne_icon-1498688901224.png",
+  "schedule" : prefix_img + "cm_20170705_eslcologne_schedule-1498686860703.jpg",
+  "spacer_2" : prefix_img + "spacer_3_x_1-1493416213665.png"
+} %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/live/869687361600344064?ref_src=twsrc%5Eemail%7Ctwcamp%5EESLCologne",
+  "cta" : "https://twitter.com/i/live/869687361600344064?ref_src=twsrc%5Eemail%7Ctwcamp%5EESLCologne",
+  "text" : "https://twitter.com/i/live/869687361600344064?ref_src=twsrc%5Eemail%7Ctwcamp%5EESLCologne",
+  "body_2" : [
+    "https://twitter.com/esl",
+    "https://twitter.com/search?q=%23ESLOne&src=tyah",
+    "https://twitter.com/i/live/869687361600344064?ref_src=twsrc%5Eemail%7Ctwcamp%5EESLCologne"
+  ],
+  "schedule" : "https://twitter.com/i/live/869687361600344064?ref_src=twsrc%5Eemail%7Ctwcamp%5EESLCologne",
+  "icon" : "https://twitter.com/esl",
+  "logo_twitter_large" : "https://twitter.com/",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# CSS #}
+{% block style %}
+    .h3 {
+      font-size: 22px;
+      line-height: 26px;
+    }
+
+    td.button {
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      line-height: 18px;
+    }
+
+    a.button {
+      font-size: 16px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      padding: 11px 30px; 
+      border: 1px solid #1DA1F2;
+      display: inline-block; 
+      font-weight:600; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .button img {
+      display: inline;
+      vertical-align: top;
+    }
+
+    .body {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 16px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 22px;
+    }
+
+    .justify {
+      text-align: justify;
+    }
+
+    .h1 {
+      font-size: 28px !important;
+      line-height: 32px !important;
+    }
+{% endblock %}
+
+{% block media_query %}
+        .hide {
+          display: none !important;
+        }
+
+        .show {
+          overflow: visible !important;
+          float: none !important;
+          display: table !important;
+          line-height:100% !important;
+        }
+
+        .iosBlue a {
+          text-decoration: underline;
+          } 
+
+        .width_full {
+          width: 100% !important;
+        }
+
+        .width_90p {
+          width: 90% !important;
+        }
+
+        .height_1 {
+          height: 1px !important;
+        }
+
+
+        .height_30 {
+          height: 30px !important;
+        }
+
+        #hero {
+          background-image: url({{ img.hero_m }}) !important;
+        }
+
+        .hero_copy {
+          height: {{ hero_copy_height_mobile }}px !important;
+        }
+
+        .m_top {
+          height: 70px !important;
+        }
+
+        .width_368 {
+          width: 368px !important;
+        }
+
+        .width_416 {
+          width: 416px !important;
+          height: 1px !important;
+        }
+
+        #schedule {
+          font-size: 22px !important;
+          line-height: 26px !important;
+        }
+{% endblock %}
+
+{% block body %}
+  <style inline="false">
+    .appleLinksWhite a {
+      color: #ffffff !important; 
+      text-decoration: none;
+    } 
+  </style>
+  <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full" dir="{{ dir('ltr') }}">
+    <tr>
+      <td id="hero" bgcolor="#ffffff" width="640" valign="top" colspan="3">
+        <a href="{{ tl(link.hero) }}" class="hide">
+          <img src="{{ img.hero }}" class="hide" alt="{{ copy.alt_hero }}" title="{{ copy.alt_hero }}" width="100%" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
+        </a>
+      </td>
+    </tr>
+    <!--[if !gte mso 9]><!---->
+    <tr>
+      <td class="empty">
+        <div class="show" style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+          <a href="{{ tl(link.hero) }}">
+            <img src="{{ img.hero_m }}" class="width_full" alt="{{ copy.alt_hero }}" title="{{ copy.alt_hero }}" width="100%" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
+          </a>
+        </div>
+      </td>
+    </tr>
+    <!--<![endif]-->
+    <tr>
+      <td class="empty">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" width="640" class="width_full">
+          <tr>
+            <td class="empty width_20" width="90">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table cellpadding="0" cellspacing="0" border="0" align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="h3 deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.headline) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" align="center">
+                    <table border="0" cellspacing="0" cellpadding="0" align="center">
+                      <tr>
+                        <td align="center" class="button center" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
+                          <a href="{{ tl(link.cta) }}" target="_blank" class="button nowrap">
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                            {{ i10n(copy.cta) }}&nbsp;<img src="{{ img.logo_twitter }}" height="16" />
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    <a href="{{ tl(link.body_2[0]) }}" class="deep_grey">
+                      {{ i10n(copy.body_2[0]) }}
+                    </a>&nbsp;|&nbsp;
+                    <a href="{{ tl(link.body_2[1]) }}" class="deep_grey">
+                      {{ i10n(copy.body_2[1]) }}
+                    </a>&nbsp;|&nbsp;
+                    <a href="{{ tl(link.body_2[2]) }}" class="deep_grey">
+                      {{ i10n(copy.body_2[2]) }}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>                
+                <tr>
+                  <td class="h2 deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body_2[3]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr> 
+                <tr>
+                  <td class="empty center" align="center">
+                    <a href="{{ link.schedule }}">
+                      <table border="0" cellspacing="0" cellpadding="0" align="center" width="400" class="width_full"> 
+                        <tr>
+                          <td background="{{ img.schedule }}" bgcolor="#02658b" width="400" valign="top">
+                            <!--[if gte mso 9]>
+                            <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:400px;height:368px;">
+                              <v:fill type="tile" src="{{ img.schedule }}" color="#02658b" />
+                              <v:textbox inset="0,0,0,0">
+                            <![endif]-->
+                            <div>
+                              <table border="0" cellspacing="0" cellpadding="0" align="center">
+                                <tr>
+                                  <td class="empty" height="24" colspan="3">
+                                    &nbsp;
+                                  </td>
+                                </tr>
+                                <tr> 
+                                  <td width="24">
+                                    &nbsp;
+                                  </td>
+                                  <td class="empty">
+                                    <table border="0" cellspacing="0" cellpadding="0" align="center">
+                                      <tr>
+                                        <td class="h1 white center" id="schedule" align="center">
+                                          <span class="appleLinksWhite">{{ copy.schedule[0] }}</span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="empty" height="10">
+                                          &nbsp;
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="empty" height="1" bgcolor="#ffffff">
+                                          &nbsp;
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="empty" height="10">
+                                          &nbsp;
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="h4 white center" align="center">
+                                          <span class="appleLinksWhite">{{ copy.schedule[1] }}</span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="body white center" align="center">
+                                          <span class="appleLinksWhite">{{ copy.schedule[2] }}</span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="empty" height="12">
+                                          &nbsp;
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="h4 white center" align="center">
+                                          <span class="appleLinksWhite">{{ copy.schedule[3] }}</span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="body white center" align="center">
+                                          <span class="appleLinksWhite">{{ copy.schedule[4] }}</span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="empty" height="12">
+                                          &nbsp;
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="h4 white center" align="center">
+                                          <span class="appleLinksWhite">{{ copy.schedule[5] }}</span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="body white center" align="center">
+                                          <span class="appleLinksWhite">{{ copy.schedule[6] }}</span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="empty" height="12">
+                                          &nbsp;
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="h4 white center" align="center">
+                                          <span class="appleLinksWhite">{{ copy.schedule[7] }}</span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="body white center" align="center">
+                                          <span class="appleLinksWhite">{{ copy.schedule[8] }}</span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="empty" height="12">
+                                          &nbsp;
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="h4 white center" align="center">
+                                          <span class="appleLinksWhite">{{ copy.schedule[9] }}</span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="body white center" align="center">
+                                          <span class="appleLinksWhite">{{ copy.schedule[10] }}</span>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                  <td width="24">
+                                    &nbsp;
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="empty" height="24" colspan="3">
+                                    &nbsp;
+                                  </td>
+                                </tr>
+                              </table>
+                            </div>
+                            <!--[if gte mso 9]>
+                              </v:textbox>
+                            </v:rect>
+                            <![endif]-->
+                          </td>
+                        </tr>
+                      </table>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr> 
+                <tr>
+                  <td class="empty center">
+                    <table align="center" class="center">
+                      <tr>
+                        <td class="empty center" align="center">
+                          <a href="{{ tl(link.icon) }}" class="blue">
+                            <img src="{{ img.icon }}" height="36" title="{{ i10n(copy.alt_icon) }}" alt="{{ i10n(copy.alt_icon) }}"/>
+                          </a>
+                        </td>
+                        <td class="empty" width="20">
+                          &nbsp;
+                        </td>
+                        <td class="empty" width="2" bgcolor="#bec9d1">
+                          <img src="{{ img.spacer }}" height="1" width="2" />
+                        </td>
+                        <td class="empty" width="20">
+                          &nbsp;
+                        </td>
+                        <td class="empty center" align="center">
+                          <a href="{{ tl(link.logo_twitter_large) }}" class="blue">
+                          <img src="{{ img.logo_twitter_large }}" height="36" title="{{ i10n(copy.alt_logo) }}" alt="{{ i10n(copy.alt_logo) }}"/>
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="90">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#f5f8fa" width="640" class="width_full">
+          <!--[if gte mso 9]>
+          <tr>
+            <td colspan="3" align="center">
+              <img src="{{ img.spacer_1 }}" width="640" />
+            </td>
+          </tr>
+          <![endif]-->
+          <tr>
+            <td class="empty width_20" width="90">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer strong deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    <a href="{{ tl(link.about,7) }}" class="blue">
+                      {{ i10n(copy.footer[0]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ tl(link.help,8) }}" class="blue">
+                      {{ i10n(copy.footer[1]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ '{{ unsubscribe }}' }}" class="blue">
+                      {{ i10n(copy.footer[2]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ tl(link.download,9) }}" class="blue">
+                      {{ i10n(copy.footer[3]) }}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer deep_grey center" align="center">
+                    <span class="addressLink">{{"{{>manhattan:static:address_twitter/html_content}}"}}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="90">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+{% endblock %}

@@ -1,0 +1,131 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# BODY COPY MACRO / AUTO COUNTER #}
+{% set count_body = 0 %}
+{% macro cb() -%}
+  {{ count_body|float }}
+  {% set count_body = count_body + 1 %}
+{%- endmacro %}
+
+{# COPY #}
+{# COPY #}
+{% set copy = {   
+  "subject_line" : [  
+    "{{user_name}}, the time is right for dancing in the heat."
+  ],  
+  "preheader" : "Summer’s here and music is trending. Join the conversation.",  
+  "alt_hero" : "Music is happening. Watch video", 
+  "headline" : "It’s getting loud in here.",  
+  "body" : [  
+    "Summer’s here and the music is hot. Whether you shake it in the street, kick it at a festival, or raise the roof at home, there's never been a better time to connect with your sound and dance 'til you can't dance no more. Turn up the volume on Twitter. Tell us what moves you. <strong>#SeeEverySide</strong>",
+    "See every side of what’s happening",
+    "in music Moments.",
+    "5 pop stars making 🌊 🌊 🌊",
+    "🔥  Music memes of 2017 😂",
+    "Emerging acts to keep your 👀 out for at Lollapalooza",
+    "See what you’ve been missing",
+    "on Twitter.",
+    "See what’s happening."
+  ],  
+  "cta" : [ 
+    "Watch Video",
+    "View Moment",
+    "View Moment",
+    "View Moment",
+    "Explore",
+    "Explore Twitter"
+  ],  
+  "blue" : [  
+    "See every side of what’s happening",
+    "in Moments.",
+    "See what you’ve been missing",
+    "on Twitter."
+  ],  
+  "black" : "See what’s happening.",  
+  "footer" : ["About", "Help", "Unsubscribe", "Download app"],  
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}
+
+{# LINKS #}
+{% set link = {   
+  "hero" : "https://twitter.com/Twitter/status/876758738975195136", 
+  "cta" : [ 
+    "",
+    "https://twitter.com/i/moments/884468985751756800",
+    "https://twitter.com/i/moments/884469982129668097",
+    "https://twitter.com/i/moments/889547870847643648",
+    "https://twitter.com/i/moments",
+    "https://mobile.twitter.com/search",
+    "https://twitter.com"
+  ],  
+  "about" : "https://about.twitter.com",  
+  "help" : "https://support.twitter.com/",  
+  "download" : "https://twitter.com/download" 
+} %}
+Subject: {{ i10n(pt(copy.subject_line[0])) }}
+
+{{ i10n(copy.alt_hero) }} 
+
+{{ i10n(copy.headline) }} 
+
+{{ i10n(copy.body[cb()|float]) }} 
+
+=
+
+{{ i10n(copy.body[cb()|float]) }} 
+{{ i10n(copy.body[cb()|float]) }} 
+
+=
+
+{{ i10n(copy.body[cb()|float]) }} 
+
+{{ i10n(copy.cta[1]) }} 
+{{ "> " + link.cta[1] }}
+
+=
+
+{{ i10n(copy.body[cb()|float]) }} 
+
+{{ i10n(copy.cta[2]) }} 
+{{ "> " + link.cta[2] }}
+
+=
+
+{{ i10n(copy.body[cb()|float]) }} 
+
+{{ i10n(copy.cta[3]) }} 
+{{ "> " + link.cta[3] }}
+
+=
+
+{{ i10n(copy.body[cb()|float]) }} 
+{{ i10n(copy.body[cb()|float]) }} 
+
+{{ i10n(copy.cta[4]) }} 
+{{ "> " + link.cta[4] }}
+
+=
+
+{{ i10n(pt(copy.body[cb()|float])) }} 
+
+{{ i10n(copy.cta[5]) }} 
+{{ "> " + link.cta[6] }}
+
+=
+
+{{ i10n(copy.footer[0]) }} 
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }} 
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }} 
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }} 
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

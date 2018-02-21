@@ -1,0 +1,887 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# IBIS ALIGN / RTL MUSTACHE #}
+{%- macro align(direction) -%}
+  {#- IBIS RTL MUSTACHE -#}
+  {%- set ibis_rtl = "{{^lang_ur}}{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}{{/lang_ur}}{{#lang_ur}}{{^is_rtl}}right{{/is_rtl}}{{#is_rtl}}left{{/is_rtl}}{{/lang_ur}}" -%}
+  {%- set ibis_rtl_switch = "{{^lang_ur}}{{^is_rtl}}right{{/is_rtl}}{{#is_rtl}}left{{/is_rtl}}{{/lang_ur}}{{#lang_ur}}{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}{{/lang_ur}}" -%}
+  {%- set align_left = mustache(ibis_rtl,'left') -%}
+  {%- set align_right = mustache(ibis_rtl_switch,'right') -%}
+  {% if direction == "left" -%}
+    {{ align_left }}
+  {%- else -%}
+    {{ align_right }}
+  {%- endif %}
+{%- endmacro -%}
+
+{%- macro dir(direction) -%}
+  {#- IBIS RTL MUSTACHE -#}
+  {%- set ibis_rtl = "{{^lang_ur}}{{^is_rtl}}ltr{{/is_rtl}}{{#is_rtl}}rtl{{/is_rtl}}{{/lang_ur}}{{#lang_ur}}{{^is_rtl}}rtl{{/is_rtl}}{{#is_rtl}}ltr{{/is_rtl}}{{/lang_ur}}" -%}
+  {%- set ibis_rtl_switch = "{{^lang_ur}}{{^is_rtl}}rtl{{/is_rtl}}{{#is_rtl}}ltr{{/is_rtl}}{{/lang_ur}}{{#lang_ur}}{{^is_rtl}}ltr{{/is_rtl}}{{#is_rtl}}rtl{{/is_rtl}}{{/lang_ur}}" -%}
+  {%- set dir_left = mustache(ibis_rtl,'ltr') -%}
+  {%- set dir_right = mustache(ibis_rtl_switch,'rtl') -%}
+  {% if direction == "ltr" -%}
+    {{ dir_left }}
+  {%- else -%}
+    {{ dir_right }}
+  {%- endif %}
+{%- endmacro -%}
+
+{# BGCOLOR MAIN #}
+{% set bgcolor_main = "#f5f8fa" %}
+
+{# MAIN COLOR #}
+{% set main_color = "#1DA1F2" %}
+
+{# MOBILE FIX REMOVE SWITCH #}
+{% set mobile_fix_remove = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/",  
+  "alt" : [  
+    "https://twitter.com/twitter",
+    "https://twitter.com/twitter"
+  ],  
+  "cta" : "https://twitter.com/i/live/912774471122960385?ref_src=twsrc%5Eemail%7Ctwcamp%5EBET",
+  "logo_twitter_large" : "https://twitter.com/",  
+  "about" : "https://about.twitter.com",  
+  "help" : "https://support.twitter.com/",  
+  "download" : "https://twitter.com/download",
+  "apps" : [
+    "https://twitter.tlnk.io/serve?action=click&publisher_id=360136&site_id=64980",
+    "https://twitter.tlnk.io/serve?action=click&publisher_id=360136&site_id=64602"
+  ]
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [  
+    "The fastest way to see every side." 
+  ],  
+  "preheader" : "The fastest way to see every side. From breaking news and entertainment to sports, politics and everyday interests, when it happens in the world...",
+  "alt_hero" : "Rap kings, breakout queens and green carpet bling.",  
+  "cta" : "Watch LIVE on",  
+  "headline" : [  
+    "Get more from your Twitter.",
+    "Download the app today!",
+    "The fastest way to see every side."
+  ],  
+  "body" : [  
+    "The fastest way to see every side. From breaking news and entertainment to sports, politics and everyday interests, when it happens in the world...",
+    "Get more from your Twitter.",
+    "Download the app today!",
+    "The fastest way to see every side.",
+    "From breaking news and entertainment to sports, politics, and everyday interests, when it happens in the world, it happens on Twitter first.",
+    "See all sides of the story.",
+    "Join the conversation.",
+    "Watch live streaming events.",
+    "Twitter is what's happening in the world and what people are talking about right now.",
+    "Download the Twitter App on the App Store",
+    "Get the Twitter App on Google Play"
+  ],  
+  "alt" : [  
+    "BET",
+    "Twitter LIVE"
+  ],   
+  "apps" : [
+    "Apple TV",
+    "Google Play",
+    "Roku",
+    "Xbox One",
+    "Windows 10",
+    "Amazon Fire TV"
+  ], 
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],  
+  "disclaimer" : "This email was meant for @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}  
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "logo_twitter" : prefix_img + "logo-1475170569504.png",
+  "hero_en" : prefix_img + "cm_20171011_download_app_hero-1508963062990.gif",
+  "hero_en_m" : prefix_img + "cm_20171011_download_app_hero_m-1508963062963.gif",
+  "hero" : prefix_img + "cm_20171011_download_app_hero_static-1508963818395.jpg",
+  "hero_m" : prefix_img + "cm_20171011_download_app_m_hero_static-1508801229110.jpg",
+  "spacer" : prefix_img + "spacer.png",
+  "spacer_1" : prefix_img + "spacer_640x1-1481059174655.png",
+  "schedule" : prefix_img + "cm_20170830_esports_schedule-1503957952626.jpg",
+  "logo_twitter_large" : prefix_img + "dm_logo_twitter-1489534651038.png",
+  "icon" : prefix_img + "cm_20171006_bet_logo-1507152495706.png",
+  "spacer_2" : prefix_img + "spacer_3_x_1-1493416213665.png",
+  "apps" : [
+    prefix_img + "apps_line-1501197126309.png",
+    prefix_img + "apps_apple-1501204946130.png",
+    prefix_img + "apps_google-1501197126312.png",
+    prefix_img + "apps_roku-1501204946153.png",
+    prefix_img + "apps_xbox_one-1501197126317.png",
+    prefix_img + "apps_windows-1501197126311.png",
+    prefix_img + "apps_amazon-1501204946080.png"
+  ]
+} %}
+
+{# CSS #}
+{% block style %}
+    .h3 {
+      font-size: 22px;
+      line-height: 26px;
+    }
+
+    .download {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 12px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: 600;
+      line-height: 16px;
+    }
+
+    td.button {
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      line-height: 18px;
+    }
+
+    a.button {
+      font-size: 16px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      padding: 11px 30px; 
+      border: 1px solid #1DA1F2;
+      display: inline-block; 
+      font-weight:600; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .button img {
+      display: inline;
+      vertical-align: top;
+    }
+
+    .title {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 42px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: bold;
+      line-height: 42px;
+    }
+
+    .title_2 {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 24px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: bold;
+      line-height: 26px;
+    }
+
+    .title_3 {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 32px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: bold;
+      line-height: 34px;
+    }
+
+    .title_2x {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 18px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: bold;
+      line-height: 22px;
+    }
+
+    .title_3x {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 32px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: bold;
+      line-height: 36px;
+    }
+
+    .greek {
+      font-size: 22px;
+      line-height: 26px;
+    }
+
+    .indonesian {
+      font-size: 28px;
+      line-height: 32px;
+    }
+
+    .polish {
+      font-size: 28px;
+      line-height: 32px;
+    }
+
+    .russian {
+      font-size: 28px;
+      line-height: 32px;
+    }
+
+    .tamil {
+      font-size: 28px;
+      line-height: 32px;
+    }
+
+    .filipino {
+      font-size: 26px;
+      line-height: 30px;
+    }
+
+    .body {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 16px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 22px;
+    }
+
+    .body_3 {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 20px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 24px;
+    }
+
+    .justify {
+      text-align: justify;
+    }
+
+    .apps img {
+      white-space: nowrap;
+      display: inline;
+    }
+  }
+{% endblock %}
+
+{% block media_query %}
+        .wrapper {
+          background-color: #ffffff !important;
+        }
+
+        .show {
+          overflow: visible !important;
+          float: none !important;
+          display: table !important;
+          line-height: 100% !important;
+        }
+
+        .show_br {
+          overflow: visible !important;
+          float: none !important;
+          display: inline !important;
+        }
+
+        .iosBlue a {
+          text-decoration: underline;
+          } 
+
+        .width_full {
+          width: 100% !important;
+        }
+
+        .width_90p {
+          width: 90% !important;
+        }
+
+        .height_1 {
+          height: 1px !important;
+        }
+
+        .height_24 {
+          height: 30px !important;
+        }
+
+        .height_30 {
+          height: 20px !important;
+        }
+
+        .h3 {
+          font-size: 16px !important;
+          line-height: 20px !important;
+        }
+
+        .body_3 {
+          font-size: 16px !important;
+          line-height: 20px !important;
+        }
+
+        .schedule {
+          width: 100% !important;
+          max-width: 350px !important;
+        }
+
+        .download {
+          padding: 0px 24px !important;
+        }
+
+        .hide {
+          display: none !important;
+        }
+
+        .hero {
+          background: url("{{ img.hero_m }}") !important;
+          width: 420px !important;
+        }
+
+        .hero_en {
+          background: url("{{ img.hero_en_m }}") !important;
+          width: 420px !important;
+        }
+
+        .width_10 {
+          width: 10px !important;
+        }
+
+        .width_24 {
+          width: 24px !important;
+        }
+
+        .width_240 {
+          width: 240px !important;
+        }
+
+        .width_420 {
+          width: 420px !important;
+        }
+
+        .title {
+          font-size: 28px !important;
+          line-height: 28px !important;
+        }
+
+        .title_2 {
+          font-size: 16px !important;
+          line-height: 18px !important;
+        }
+
+        .title_2x {
+          font-size: 13px !important;
+          line-height: 15px !important;
+        }
+
+        .title_3x {
+          font-size: 22px !important;
+          line-height: 24px !important;
+        }
+
+        .greek {
+          font-size: 13px !important;
+          line-height: 15px !important;
+        }
+
+        .indonesian {
+          font-size: 18px !important;
+          line-height: 22px !important;
+        }
+
+        .polish {
+          font-size: 18px !important;
+          line-height: 22px !important;
+        }
+
+        .russian {
+          font-size: 18px !important;
+          line-height: 22px !important;
+        }
+
+        .tamil {
+          font-size: 18px !important;
+          line-height: 22px !important;
+        }
+
+        .filipino {
+          font-size: 16px !important;
+          line-height: 20px !important;
+        }
+{% endblock %}
+
+{% block body %}
+  <style inline="false">
+    .appleLinksWhite a {
+      color: #ffffff !important; 
+      text-decoration: none;
+    } 
+  </style>
+  <table cellpadding="0" cellspacing="0" border="0" align="center" width="640" dir="{{ dir('ltr') }}" class="width_420">
+    {{"{{#lang_en}}"}}
+    <tr>
+      <td background="{{ img.hero_en }}" bgcolor="#11232F" valign="top" class="hero_en">
+        <!--[if gte mso 9]>
+        <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:640px;height:300px;">
+          <v:fill type="tile" src="{{ img.hero_en }}" color="#e0c0ab" />
+          <v:textbox inset="0,0,0,0">
+        <![endif]-->
+        <div>
+          <table align="left">
+            <tr>
+              <td width="50" class="empty width_24">
+                &nbsp;
+              </td>
+              <td class="empty">
+                <table width="350" class="width_240" align="left">
+                  <tr>
+                    <td class="height_30 empty" height="50">
+                      &nbsp;
+                    </td>
+                  </tr>                  
+                  <tr>
+                    <td class="title white">
+                      {{ i10n(copy.headline[0]) }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="4">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td class="title_2 white">
+                      {{ i10n(copy.headline[1]) }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="12">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td class="empty">
+                      <table border="0" align="{{ align('left') }}">
+                        <tr>
+                          <td class="empty">
+                            <a href="{{ tl(link.apps[0]) }}">
+                              <img src="https://ea.twimg.com/email/self_serve/media/app-store-badge-en-1494357031109.png" height="36" alt="{{ i10n(copy.body[9]) }}" title="{{ i10n(copy.body[9]) }}" style="font-size: 10px; line-height: 14px; color: #8899a6;" class="height_24"/>
+                            </a>
+                          </td>
+                          <td class="empty width_10" width="24">
+                            &nbsp;
+                          </td>
+                          <td class="empty">
+                            <a href="{{ tl(link.apps[1]) }}">
+                              <img src="https://ea.twimg.com/email/self_serve/media/google-play-badge-en-1494357239463.png" height="36" alt="{{ i10n(copy.body[10]) }}" title="{{ i10n(copy.body[10]) }}" style="font-size: 10px; line-height: 14px; color: #8899a6;" class="height_24"/>
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="height_30 empty" height="50">
+                      &nbsp;
+                    </td>
+                  </tr>                
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <!--[if gte mso 9]>
+          </v:textbox>
+        </v:rect>
+        <![endif]-->
+      </td>
+    </tr>
+    {{"{{/lang_en}}"}}
+    {{"{{#lang_ur}}"}}
+    <tr>
+      <td background="{{ img.hero_en }}" bgcolor="#11232F" valign="top" class="hero_en">
+        <!--[if gte mso 9]>
+        <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:640px;height:300px;">
+          <v:fill type="tile" src="{{ img.hero_en }}" color="#e0c0ab" />
+          <v:textbox inset="0,0,0,0">
+        <![endif]-->
+        <div>
+          <table align="left">
+            <tr>
+              <td width="50" class="empty width_24">
+                &nbsp;
+              </td>
+              <td class="empty">
+                <table width="350" class="width_240" align="left">
+                  <tr>
+                    <td class="height_30 empty" height="50">
+                      &nbsp;
+                    </td>
+                  </tr>                  
+                  <tr>
+                    <td class="title white">
+                      {{ i10n(copy.headline[0]) }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="4">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td class="title_2 white">
+                      {{ i10n(copy.headline[1]) }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="12">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td class="empty">
+                      <table border="0" align="{{ align('left') }}">
+                        <tr>
+                          <td class="empty">
+                            <a href="{{ tl(link.apps[0]) }}">
+                              <img src="https://ea.twimg.com/email/self_serve/media/app-store-badge-en-1494357031109.png" height="36" alt="{{ i10n(copy.body[9]) }}" title="{{ i10n(copy.body[9]) }}" style="font-size: 10px; line-height: 14px; color: #8899a6;" class="height_24"/>
+                            </a>
+                          </td>
+                          <td class="empty width_10" width="24">
+                            &nbsp;
+                          </td>
+                          <td class="empty">
+                            <a href="{{ tl(link.apps[1]) }}">
+                              <img src="https://ea.twimg.com/email/self_serve/media/google-play-badge-en-1494357239463.png" height="36" alt="{{ i10n(copy.body[10]) }}" title="{{ i10n(copy.body[10]) }}" style="font-size: 10px; line-height: 14px; color: #8899a6;" class="height_24"/>
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="height_30 empty" height="50">
+                      &nbsp;
+                    </td>
+                  </tr>                
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <!--[if gte mso 9]>
+          </v:textbox>
+        </v:rect>
+        <![endif]-->
+      </td>
+    </tr>
+    {{"{{/lang_ur}}"}}
+    {{"{{#lang_en-gb}}"}}
+    <tr>
+      <td background="{{ img.hero_en }}" bgcolor="#11232F" valign="top" class="hero_en">
+        <!--[if gte mso 9]>
+        <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:640px;height:300px;">
+          <v:fill type="tile" src="{{ img.hero_en }}" color="#e0c0ab" />
+          <v:textbox inset="0,0,0,0">
+        <![endif]-->
+        <div>
+          <table align="left">
+            <tr>
+              <td width="50" class="empty width_24">
+                &nbsp;
+              </td>
+              <td class="empty">
+                <table width="350" class="width_240" align="left">
+                  <tr>
+                    <td class="height_30 empty" height="50">
+                      &nbsp;
+                    </td>
+                  </tr>                  
+                  <tr>
+                    <td class="title white">
+                      {{ i10n(copy.headline[0]) }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="4">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td class="title_2 white">
+                      {{ i10n(copy.headline[1]) }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="12">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td class="empty">
+                      <table border="0" align="{{ align('left') }}">
+                        <tr>
+                          <td class="empty">
+                            <a href="{{ tl(link.apps[0]) }}">
+                              <img src="https://ea.twimg.com/email/self_serve/media/app-store-badge-en-1494357031109.png" height="36" alt="{{ i10n(copy.body[9]) }}" title="{{ i10n(copy.body[9]) }}" style="font-size: 10px; line-height: 14px; color: #8899a6;" class="height_24"/>
+                            </a>
+                          </td>
+                          <td class="empty width_10" width="24">
+                            &nbsp;
+                          </td>
+                          <td class="empty">
+                            <a href="{{ tl(link.apps[1]) }}">
+                              <img src="https://ea.twimg.com/email/self_serve/media/google-play-badge-en-1494357239463.png" height="36" alt="{{ i10n(copy.body[10]) }}" title="{{ i10n(copy.body[10]) }}" style="font-size: 10px; line-height: 14px; color: #8899a6;" class="height_24"/>
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="height_30 empty" height="50">
+                      &nbsp;
+                    </td>
+                  </tr>                
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <!--[if gte mso 9]>
+          </v:textbox>
+        </v:rect>
+        <![endif]-->
+      </td>
+    </tr>
+    {{"{{/lang_en-gb}}"}}
+    {{"{{^lang_en}}{{^lang_en-gb}}{{^lang_ur}}"}}
+    <tr>
+      <td background="{{ img.hero }}" bgcolor="#e0c0ab" valign="top" class="hero">
+        <!--[if gte mso 9]>
+        <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:640px;height:300px;">
+          <v:fill type="tile" src="{{ img.hero }}" color="#e0c0ab" />
+          <v:textbox inset="0,0,0,0">
+        <![endif]-->
+        <div>
+          <table align="left">
+            <tr>
+              <td width="50" class="empty width_24">
+                &nbsp;
+              </td>
+              <td class="empty">
+                <table width="350" class="width_240" align="left">
+                  <tr>
+                    <td class="height_30 empty" height="50">
+                      &nbsp;
+                    </td>
+                  </tr>                  
+                  <tr>
+                    <td class="title_3x white {{'{{#lang_el}}'}}greek{{'{{/lang_el}}'}}{{'{{#lang_id}}'}}indonesian{{'{{/lang_id}}'}}{{'{{#lang_pl}}'}}polish{{'{{/lang_pl}}'}}{{'{{#lang_fil}}'}}filipino{{'{{/lang_fil}}'}}{{'{{#lang_ru}}'}}russian{{'{{/lang_ru}}'}}{{'{{#lang_ta}}'}}tamil{{'{{/lang_ta}}'}}">
+                      {{ i10n(copy.headline[0]) }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="4">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td class="title_2x white">
+                      {{ i10n(copy.headline[1]) }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="empty" height="12">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td class="empty">
+                      <table border="0" align="{{ align('left') }}">
+                        <tr>
+                          <td class="empty">
+                            <a href="{{ tl(link.apps[0]) }}">
+                              <img src="https://ea.twimg.com/email/self_serve/media/app-store-badge-en-1494357031109.png" height="36" alt="{{ i10n(copy.body[9]) }}" title="{{ i10n(copy.body[9]) }}" style="font-size: 10px; line-height: 14px; color: #8899a6;" class="height_24"/>
+                            </a>
+                          </td>
+                          <td class="empty width_10" width="24">
+                            &nbsp;
+                          </td>
+                          <td class="empty">
+                            <a href="{{ tl(link.apps[1]) }}">
+                              <img src="https://ea.twimg.com/email/self_serve/media/google-play-badge-en-1494357239463.png" height="36" alt="{{ i10n(copy.body[10]) }}" title="{{ i10n(copy.body[10]) }}" style="font-size: 10px; line-height: 14px; color: #8899a6;" class="height_24"/>
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="height_30 empty" height="50">
+                      &nbsp;
+                    </td>
+                  </tr>                
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <!--[if gte mso 9]>
+          </v:textbox>
+        </v:rect>
+        <![endif]-->
+      </td>
+    </tr>
+    {{"{{/lang_ur}}{{/lang_en-gb}}{{/lang_en}}"}}
+    <tr>
+      <td class="empty">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full">
+          <tr>
+            <td class="empty width_20" width="80">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table cellpadding="0" cellspacing="0" border="0" align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="h3 deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.headline[2]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[4]) }}
+                    {{ i10n(copy.body[5]) }}
+                    {{ i10n(copy.body[6]) }}
+                    {{ i10n(copy.body[7]) }}
+                    {{ i10n(copy.body[8]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty center">
+                    <table border="0" align="center">
+                      <tr>
+                        <td class="empty">
+                          <a href="{{ tl(link.apps[0]) }}">
+                            <img src="https://ea.twimg.com/email/self_serve/media/app-store-badge-en-1494357031109.png" height="36" alt="{{ i10n(copy.body[9]) }}" title="{{ i10n(copy.body[9]) }}" style="font-size: 10px; line-height: 14px; color: #8899a6;" class="height_24"/>
+                          </a>
+                        </td>
+                        <td class="empty width_10" width="24">
+                          &nbsp;
+                        </td>
+                        <td width="2" bgcolor="#dbdbdb">
+                          &nbsp;
+                        </td>
+                        <td class="empty width_10" width="24">
+                          &nbsp;
+                        </td>
+                        <td class="empty">
+                          <a href="{{ tl(link.apps[1]) }}">
+                            <img src="https://ea.twimg.com/email/self_serve/media/google-play-badge-en-1494357239463.png" height="36" alt="{{ i10n(copy.body[10]) }}" title="{{ i10n(copy.body[10]) }}" style="font-size: 10px; line-height: 14px; color: #8899a6;" class="height_24"/>
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="38">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty center">
+                    <a href="{{ tl(link.alt[1]) }}" class="blue">
+                      <img src="{{ img.logo_twitter_large }}" height="36" title="{{ i10n(copy.alt[1]) }}" alt="{{ i10n(copy.alt[1]) }}"/>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="80">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#f5f8fa" width="640" class="width_full">
+          <tr>
+            <td class="empty width_20" width="80">
+              &nbsp;
+            </td>
+            <td class="empty center">
+              <table align="center" class="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer strong deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    <a href="{{ tl(link.about,7) }}" class="blue">
+                      {{"{{^lang_ur}}"}}{{ i10n(copy.footer[0]) }}{{"{{/lang_ur}}"}}{{"{{#lang_ur}}"}}{{ copy.footer[0] }}{{"{{/lang_ur}}"}}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ tl(link.help,8) }}" class="blue">
+                      {{"{{^lang_ur}}"}}{{ i10n(copy.footer[1]) }}{{"{{/lang_ur}}"}}{{"{{#lang_ur}}"}}{{ copy.footer[1] }}{{"{{/lang_ur}}"}}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ '{{ unsubscribe }}' }}" class="blue">
+                      {{"{{^lang_ur}}"}}{{ i10n(copy.footer[2]) }}{{"{{/lang_ur}}"}}{{"{{#lang_ur}}"}}{{ copy.footer[2] }}{{"{{/lang_ur}}"}}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ tl(link.download,9) }}" class="blue">
+                      {{"{{^lang_ur}}"}}{{ i10n(copy.footer[3]) }}{{"{{/lang_ur}}"}}{{"{{#lang_ur}}"}}{{ copy.footer[3] }}{{"{{/lang_ur}}"}}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer deep_grey center" align="center">
+                    <span class="addressLink">{{"{{>manhattan:static:address_twitter/html_content}}"}}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="80">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+{% endblock %}

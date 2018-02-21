@@ -1,0 +1,159 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "cta" : [
+    "https://about.twitter.com/en_us/safety.html",
+    "https://about.twitter.com/en_us/safety/safety-tools.html#mute-words",
+    "https://about.twitter.com/en_us/safety/safety-tools.html#mute-words",
+    "https://about.twitter.com/en_us/safety/safety-tools.html#mute-words",
+    "https://about.twitter.com/en_us/safety/safety-tools.html#mute-conversations",
+    "https://about.twitter.com/en_us/safety/safety-tools.html#mute-conversations",
+    "https://about.twitter.com/en_us/safety/safety-tools.html#mute-conversations",
+    "https://about.twitter.com/en_us/safety/safety-tools.html#notifications",
+    "https://about.twitter.com/en_us/safety/safety-tools.html#notifications",
+    "https://about.twitter.com/en_us/safety/safety-tools.html#notifications",
+    "https://about.twitter.com/en_us/safety/safety-tools.html#block",
+    "https://about.twitter.com/en_us/safety/safety-tools.html#block",
+    "https://about.twitter.com/en_us/safety/safety-tools.html#block",
+    "https://about.twitter.com/en_us/safety.html",
+    "https://about.twitter.com/en_us/safety.html",
+    "https://about.twitter.com/en_us/safety.html"
+  ],
+  "settings" : "https://twitter.com/settings",
+  "unsubscribe" : "{{unsubscribe}}",
+  "help" : "https://support.twitter.com/",
+  "not_my_account" : "{{not_my_account}}"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject_line" : "{{user_name}}, have you heard about the Twitter Safety Center?",
+  "preheader" : "Learn how to take control",
+  "alt_logo" : "Twitter",
+  "body" : [
+    "Twitter Safety Tools",
+    "give you control.",
+    "You decide what you see and how you interact.",
+    "Mute Words",
+    "Clean up your timeline with Mute Words.",
+    "Mute Conversations",
+    "Conversations can get noisy. Silence the chatter with Mute Conversations.",
+    "Notification Filters",
+    "Control your alerts with Notification Filters.",
+    "Block",
+    "Block abusive people from your timeline.",
+    "Check out the rest of our Safety Tools at the Twitter Safety Center.",
+    "Clicking on any of the links above will confirm {{email}} on Twitter.",
+    "If you haven't created this Twitter account, please <a href=\"{{not_my_account}}\" class=\"click_here\">click here</a> to report this.",
+    "If you haven't created this Twitter account, please <a href=\"{{not_my_account}}\" class=\"click_here\">click here</a> to report it."
+  ],
+  "cta" : [
+    "Visit the Twitter Safety Center",
+    "Learn More",
+    "Learn More",
+    "Learn More",
+    "Learn More",
+    "Learn More",
+    "Learn More",
+    "Learn More",
+    "Learn More",
+    "Learn More",
+    "Learn More"
+    ],
+  "footer" : ["Help", "Unsubscribe", "Settings", "Not my account"],
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# BODY COPY MACRO / AUTO COUNTER #}
+{% set count_body = 0 %}
+{% macro cb() -%}
+  {{ count_body|float }}
+  {% set count_body = count_body + 1 %}
+{%- endmacro %}
+
+{# LINK CTA MACRO / AUTO COUNTER #}
+{% set count_cta = 0 %}
+{% macro cc() -%}
+  {{ count_cta|float }}
+  {% set count_cta = count_cta + 1 %}
+{%- endmacro %}
+
+{# LINK CTA MACRO / AUTO COUNTER #}
+{% set count_cta_link = 0 %}
+{% macro ccl() -%}
+  {{ count_cta_link|float }}
+  {% set count_cta_link = count_cta_link + 1 %}
+{%- endmacro %}
+
+Subject: {{ i10n(pt(copy.subject_line)) }}
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+{{ i10n(pt(copy.body[cb()|float])) }}
+
+{{ i10n(pt(copy.cta[cc()|float])) }}
+{{ "> " + link.cta[ccl()|float] }}
+
+=
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+{{ "> " + link.cta[ccl()|float] }}
+
+=
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+
+{{ i10n(pt(copy.cta[cc()|float])) }}
+{{ "> " + link.cta[ccl()|float] }}
+
+=
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+
+{{ i10n(pt(copy.cta[cc()|float])) }}
+{{ "> " + link.cta[ccl()|float] }}
+
+=
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+
+{{ i10n(pt(copy.cta[cc()|float])) }}
+{{ "> " + link.cta[ccl()|float] }}
+
+=
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+
+{{ i10n(pt(copy.cta[cc()|float])) }}
+{{ "> " + link.cta[ccl()|float] }}
+
+=
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+{{ "> " + link.cta[0] }}
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> " + link.settings }}
+
+{{ i10n(copy.footer[3]) }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

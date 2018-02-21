@@ -1,0 +1,117 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/live/912774471122960385?ref_src=twsrc%5Eemail%7Ctwcamp%5EBET",  
+  "text" : [  
+    "https://twitter.com/BET",
+    "https://twitter.com/search?q=%23HipHopAwards&src=typd",
+    "https://bet.twitter.com"
+  ],  
+  "alt" : [  
+    "https://twitter.com/BET",
+    "https://twitter.com/twitterlive"
+  ],  
+  "cta" : "https://twitter.com/i/live/912774471122960385?ref_src=twsrc%5Eemail%7Ctwcamp%5EBET",
+  "logo_twitter_large" : "https://twitter.com/",  
+  "about" : "https://about.twitter.com",  
+  "help" : "https://support.twitter.com/",  
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [  
+    "{{user_name}}, watch the #HipHopAwards pre-show LIVE on Twitter"
+  ],  
+  "preheader" : "We the best green carpet show",
+  "alt_hero" : "Rap kings, breakout queens and green carpet bling.",  
+  "cta" : "Watch LIVE on",  
+  "headline" : [  
+    "BET #HipHopAwards pre-show is Live, Lit + Trending on Twitter",
+    "Friday, October 6 | 6:30PM ET",
+    "Watch it. Talk about it."
+  ],  
+  "body" : [  
+    "The BET Hip Hop Awards are back in Miami. Before all the lights, camera, action hit the stage, get Live, Lit + Trending on the green carpet with your hosts James Davis and Amanda Booz. Watch behind-the-scenes interviews with this year’s hottest artists, get the scoop on nominees, and don’t miss a beat this Oct. 6 at 6:30PM -- streaming LIVE on Twitter.",
+    "Saturday, September 2 | 3PM ET",
+    "@BET",
+    "#HipHopAwards",
+    "bet.twitter.com",
+    "Download Twitter and watch live video on the following devices:"
+  ],  
+  "alt" : [  
+    "BET",
+    "Twitter LIVE"
+  ],   
+  "apps" : [
+    "Apple TV",
+    "Google Play",
+    "Roku",
+    "Xbox One",
+    "Windows 10",
+    "Amazon Fire TV"
+  ], 
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],  
+  "disclaimer" : "This email was meant for @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}   
+
+Subject: {{ i10n(pt(copy.subject[0])) }}
+
+{{ i10n(pt(copy.alt_hero)) }}
+{{ "> " + link.hero }}
+
+=
+
+{{ i10n(pt(copy.headline[0])) }}
+
+{{ i10n(pt(copy.body[0])) }}
+
+{{ i10n(pt(copy.headline[1])) }}
+
+{{ i10n(pt(copy.body[2])) }}
+{{ "> " + link.text[0] }}
+
+{{ i10n(pt(copy.body[3])) }}
+{{ "> " + link.text[1] }}
+
+{{ i10n(pt(copy.body[4])) }}
+{{ "> " + link.text[2] }}
+
+{{ i10n(pt(copy.cta)) }}
+{{ "> " + link.cta }}
+
+{{ i10n(pt(copy.headline[2])) }}
+
+=
+
+{{ i10n(pt(copy.alt[0])) }}
+{{ "> " + link.alt[0] }}
+
+{{ i10n(pt(copy.alt[1])) }}
+{{ "> " + link.alt[1] }}
+
+=
+
+{{ i10n(pt(copy.body[5])) }}
+{{ copy.apps[0] }} | {{ copy.apps[1] }} | {{ copy.apps[2] }} | {{ copy.apps[3] }} | {{ copy.apps[4] }} | {{ copy.apps[5] }}
+
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }}
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

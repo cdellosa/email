@@ -1,0 +1,133 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "avatar" : "https://twitter.com/{{screen_name}}",
+  "hero" : "https://twitter.com",  
+  "text" : [  
+    "https://twitter.com",
+    "https://twitter.com",
+    "https://twitter.com"
+  ],  
+  "alt" : [  
+    "https://twitter.com/thegameawards",
+    "https://twitter.com/twitterlive"
+  ],  
+  "cta" : [
+    "",
+    "",
+    "",
+    "https://twitter.com/CaseyD/status/827656905556242433",
+    "https://twitter.com/CaseyD/status/696505216003215360",
+    "https://twitter.com/CaseyD/status/827393628301512706"
+  ],
+  "logo_twitter_large" : "https://twitter.com/",  
+  "about" : "https://about.twitter.com",  
+  "help" : "https://support.twitter.com/",  
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [  
+    "Check out your #TBT-worthy Tweets"
+  ],  
+  "alt_hero" : "#TBT",  
+  "cta" : [
+    "See more on Twitter",
+    "Second CTA",
+    "See Tweets from 2016"
+  ],  
+  "headline" : [  
+    "{{#contentRecModuleViews.head}}{{#timeTravelView}}{{start_date}} - {{end_date}}{{/timeTravelView}}{{/contentRecModuleViews.head}}",
+    "Now you're ready for #ThrowbackThursday",
+    "We've compiled your Tweets from this week, from the years past"
+  ],  
+  "body" : [  
+    "Take a look at your 🔥 Tweets from {{#is_last_year}}last year{{/is_last_year}}{{^is_last_year}}{{year_of_module}}{{/is_last_year}}.",
+    "Remember when 140 was a thing?",
+    "Tweets shorter than 140 characters are so {{#is_last_year}}last year{{/is_last_year}}{{^is_last_year}}{{year_of_module}}{{/is_last_year}}",
+    "These Tweets from {{#is_last_year}}last year{{/is_last_year}}{{^is_last_year}}{{year_of_module}}{{/is_last_year}} are #TBT-worthy",
+    "Take a look at your 🔥 Tweet from {{#is_last_year}}last year{{/is_last_year}}{{^is_last_year}}{{year_of_module}}{{/is_last_year}}.",
+    "Remember when 140 was a thing?",
+    "Tweets shorter than 140 characters are so {{#is_last_year}}last year{{/is_last_year}}{{^is_last_year}}{{year_of_module}}{{/is_last_year}}",
+    "This pic from {{#is_last_year}}last year{{/is_last_year}}{{^is_last_year}}{{year_of_module}}{{/is_last_year}} / year are #TBT-worthy"
+  ],  
+  "social" : [
+    "reply",
+    "Retweet",
+    "like"
+  ],  
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],  
+  "disclaimer" : "This email was meant for @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}   
+
+Subject: {{ i10n(pt(copy.subject[0])) }}
+
+{{ "{{#contentRecsView}}{{#contentRecCollectionViews.head}}" }}
+#TBT
+
+{{ i10n(copy.headline[0]) }}
+
+{{ i10n(copy.headline[1]) }}
+
+{{ "{{#contentRecModuleViews}}{{#timeTravelView}}{{^module_design_key_reserved7}}{{#hot_tweets_module}}" }}=
+
+{{ i10n(copy.body[0]) }}
+
+{{ i10n(copy.cta[0]) }}
+
+{{ "{{/hot_tweets_module}}{{#one_forty_module}}" }}=
+
+{{ i10n(copy.body[1]) }}
+
+{{ i10n(copy.body[2]) }}
+
+{{ i10n(copy.cta[0]) }}
+
+{{ "{{/one_forty_module}}{{#tbt_worthy_module}}" }}=
+
+{{ i10n(copy.body[3]) }}
+
+{{ i10n(copy.cta[0]) }}
+
+{{ "{{/tbt_worthy_module}}{{/module_design_key_reserved7}}{{#module_design_key_reserved7}}{{#hot_tweets_module}}" }}=
+
+{{ i10n(copy.body[4]) }}
+
+{{ i10n(copy.cta[0]) }}
+
+{{ "{{/hot_tweets_module}}{{#one_forty_module}}" }}=
+
+{{ i10n(copy.body[5]) }}
+
+{{ i10n(copy.body[6]) }}
+
+{{ i10n(copy.cta[0]) }}
+
+{{ "{{/one_forty_module}}{{#tbt_worthy_module}}" }}=
+
+{{ i10n(copy.body[7]) }}
+
+{{ i10n(copy.cta[0]) }}
+
+{{ "{{/tbt_worthy_module}}{{/module_design_key_reserved7}}{{/timeTravelView}}{{/contentRecModuleViews}}" }}=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }}
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}
+{{ "{{/contentRecCollectionViews.head}}{{/contentRecsView}}" }}

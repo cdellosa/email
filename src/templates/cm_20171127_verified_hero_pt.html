@@ -1,0 +1,122 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/events/928319216343646209?ref_src=twsrc%5Eemail%7Ctwcamp%5EPlayersTribune",  
+  "text" : [  
+    "https://twitter.com/playerstribune",
+    "https://twitter.com/search?f=tweets&q=%23VerifiedTPT&src=typd",
+    "https://twitter.com/i/events/928319216343646209?ref_src=twsrc%5Eemail%7Ctwcamp%5EPlayersTribune"
+  ],  
+  "alt" : [  
+    "https://twitter.com/playerstribune",
+    "https://twitter.com/twitterlive",
+    "https://twitter.com/amfam"
+  ],  
+  "cta" : "https://twitter.com/i/events/928319216343646209?ref_src=twsrc%5Eemail%7Ctwcamp%5EPlayersTribune",
+  "logo_twitter_large" : "https://twitter.com/",  
+  "about" : "https://about.twitter.com",  
+  "help" : "https://support.twitter.com/",  
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [  
+    "@{{screen_name}}, Watch The Players' Tribune: Verified on Twitter"
+  ],  
+  "preheader" : "Watch & connect with athletes and fans in real-time",
+  "alt_hero" : "Get in the game",  
+  "cta" : "Watch LIVE on",  
+  "headline" : [  
+    "Watch Verified by The Players' Tribune only on Twitter",
+    "Monday | 7:30pm ET",
+    "Watch it. Talk about it."
+  ],  
+  "body" : [  
+    "See what's happening on Verified, the new streaming sports show premiering this month on Twitter. Follow top athletes like Richard Sherman, Karl Anthony Towns and A.J. Green as they answer your questions live and in-person on these all-access episodes from The Players' Tribune. Featuring exclusive off-the-field content, next generation press conferences, and direct fan-to-star interaction, this is how athletes want you to hear them: in their own words. See it streaming only on Twitter and get in the game by Tweeting your questions with #VerifiedTPT.",
+    "",
+    "@PlayersTribune",
+    "#VerifiedTPT",
+    "live.twitter.com/playerstribune",
+    "Download Twitter and watch live video on the following devices:"
+  ],  
+  "alt" : [  
+    "The Players Tribune",
+    "Twitter LIVE",
+    "American Family Insurance"
+  ],   
+  "apps" : [
+    "Apple TV",
+    "Google Play",
+    "Roku",
+    "Xbox One",
+    "Windows 10",
+    "Amazon Fire TV"
+  ], 
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],  
+  "disclaimer" : "This email was meant for @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %} 
+
+Subject: {{ i10n(pt(copy.subject[0])) }}
+
+{{ i10n(pt(copy.alt_hero)) }}
+{{ "> " + link.hero }}
+
+=
+
+{{ i10n(pt(copy.headline[0])) }}
+
+{{ i10n(pt(copy.body[0])) }}
+
+{{ i10n(pt(copy.headline[1])) }}
+
+{{ i10n(pt(copy.body[2])) }}
+{{ "> " + link.text[0] }}
+
+{{ i10n(pt(copy.body[3])) }}
+{{ "> " + link.text[1] }}
+
+{{ i10n(pt(copy.body[4])) }}
+{{ "> " + link.text[2] }}
+
+{{ i10n(pt(copy.cta)) }}
+{{ "> " + link.cta }}
+
+{{ i10n(pt(copy.headline[2])) }}
+
+=
+
+{{ i10n(pt(copy.alt[0])) }}
+{{ "> " + link.alt[0] }}
+
+{{ i10n(pt(copy.alt[1])) }}
+{{ "> " + link.alt[1] }}
+
+{{ i10n(pt(copy.alt[2])) }}
+{{ "> " + link.alt[2] }}
+
+=
+
+{{ i10n(pt(copy.body[5])) }}
+{{ copy.apps[0] }} | {{ copy.apps[1] }} | {{ copy.apps[2] }} | {{ copy.apps[3] }} | {{ copy.apps[4] }} | {{ copy.apps[5] }}
+
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }}
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

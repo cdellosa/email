@@ -1,0 +1,554 @@
+{# COPY #}
+{% set info =  [
+	"Campaign Name",
+	"Description",
+	"Optional",
+	"Campaign status",
+	"Module type",
+	"Controller",
+	"From name",
+	"From address",
+	"Enable Languages",
+	"Unsubscribe type",
+	"Subject"
+] %}
+
+{% set send =  [
+	"Email",
+	"Languages",
+	"Recipient ID",
+	"Use Latest Translation",
+	"Setup Test DDG",
+	"Custom Data",
+	"Template JSON Data"
+] %}
+
+{% set send =  [
+	"Email",
+	"Languages",
+	"Recipient ID",
+	"Use Latest Translation",
+	"Setup Test DDG",
+	"Custom Data",
+	"Template JSON Data"
+] %}
+
+<html>
+	<head>
+		<link rel="stylesheet" href="http://esironal.github.io/cmtouch/lib/codemirror.css">
+		<link rel="stylesheet" href="http://esironal.github.io/cmtouch/addon/hint/show-hint.css">
+		<script src="http://esironal.github.io/cmtouch/lib/codemirror.js"></script>
+		<script src="http://esironal.github.io/cmtouch/addon/hint/show-hint.js"></script>
+		<script src="http://esironal.github.io/cmtouch/addon/hint/xml-hint.js"></script>
+		<script src="http://esironal.github.io/cmtouch/addon/hint/html-hint.js"></script>
+		<script src="http://esironal.github.io/cmtouch/mode/xml/xml.js"></script>
+		<script src="http://esironal.github.io/cmtouch/mode/javascript/javascript.js"></script>
+		<script src="http://esironal.github.io/cmtouch/mode/css/css.js"></script>
+		<script src="http://esironal.github.io/cmtouch/mode/htmlmixed/htmlmixed.js"></script>
+		<script src="http://esironal.github.io/cmtouch/addon/selection/active-line.js"></script>
+		<script src="http://esironal.github.io/cmtouch/addon/edit/matchbrackets.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.33.0/theme/ambiance.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.33.0/theme/ambiance.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.33.0/theme/ambiance.min.css.map">
+
+		<style>
+			body {
+				margin: 0px;
+				padding: 0px;
+				background-color: #E6ECF0;
+			}
+
+			.wrapper_top {
+				width: 100%;
+				background-color: #1DA1F2;
+				display: block;
+			}
+
+			.wrapper_bottom {
+				width: 100%;
+				background-color: #E6ECF0;
+				display: block;
+			}
+
+			.wrapper_bottom > div {
+				padding: 12px 24px;
+			}
+
+			.logo {
+				padding: 12px 0px 12px 24px;
+				font-size: 16px;
+				font-family: Helvetica, Arial, san-serif;
+				vertical-align: middle;
+				color: #ffffff;
+				display: table-cell;
+			}
+
+			.nav_title {
+				padding: 12px 0px 12px 12px;
+				font-size: 16px;
+				font-family: Helvetica, Arial, san-serif;
+				vertical-align: middle;
+				color: #ffffff;
+				display: table-cell;
+				font-weight: 100;
+				white-space: nowrap;
+			}
+
+			.nav_menu {
+				padding: 12px 0px 12px 24px;
+				font-size: 16px;
+				font-family: Helvetica, Arial, san-serif;
+				vertical-align: middle;
+				color: #ffffff;
+				display: table-cell;
+				font-weight: 100;
+				white-space: nowrap;
+			}
+
+			.nav_serach {
+				padding: 12px 0px 12px 24px;
+				font-size: 16px;
+				font-family: Helvetica, Arial, san-serif;
+				vertical-align: middle;
+				color: #ffffff;
+				display: table-cell;
+				font-weight: 100;
+				white-space: nowrap;
+			}
+
+			.nav_serach input {
+				width: 250px;
+			}
+
+			.tabs {
+				padding: 0px;
+				margin-bottom: 6px;
+			}
+
+			.tabs .active {
+				color: #1DA1F2;
+				background-color: #ffffff;
+				font-weight: bold;
+			}
+
+			.tabs li {
+				margin-right: 2px;
+				list-style-type: none;
+				display: inline;
+				padding: 6px 12px 6px 12px;
+				border-radius: 6px 6px 0px 0px;
+				font-size: 12px;
+				font-family: Helvetica, Arial, san-serif;
+				vertical-align: middle;
+				color: #AAB8C2;
+				background-color: #ebf6ff;
+				text-transform: uppercase;
+				cursor: pointer;
+			}
+
+			.main {
+				background-color: #ffffff;
+				border-radius: 0px 6px 6px 6px;
+				padding: 24px;
+			}
+
+			.param {
+				margin: 0px;
+				display: block;
+			}
+
+			.param div {
+				padding: 6px;
+			}
+
+			.param:nth-child(even) {
+				background-color: #e9f6ff;
+				border-radius: 4px;
+			}
+
+			.param .left {
+				display: table-cell;
+				font-size: 12px;
+				font-family: Helvetica, Arial, san-serif;
+				vertical-align: middle;
+				color: #14171A;
+				text-transform: uppercase;
+				text-align: right;
+				font-weight: bold;
+				min-width: 140px;
+			}
+
+			.param .right {
+				margin: 0px;
+				display: table-cell;
+				width: 100%;
+			}
+
+			input {
+				padding: 2px;
+				border-radius: 4px;
+			}
+
+	    .button {
+	    	background-color: #1DA1F2;
+	      font-size: 14px; 
+	      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+	      color: #ffffff; 
+	      text-decoration: none;
+	      -webkit-border-radius: 4px; 
+	      -moz-border-radius: 4px; 
+	      border-radius: 25px; 
+	      padding: 5px 20px; 
+	      border: 1px solid #1DA1F2;
+	      display: block; 
+	      font-weight: bold; 
+	      -webkit-font-smoothing: antialiased;
+    	}
+
+    	.wrapper_button {
+    		padding-top: 12px;
+    		height: 24px;
+    	}
+
+    	.form-control {
+    		display: block;
+    		width: 100%;
+    	}
+
+    	/*#html, #plain {
+    		display: none;
+    	}*/
+
+			.wrapper_html {
+				white-space: nowrap;
+			}
+
+    	.wrapper_html .module_html {
+				display: inline-block;
+				width: 33%;
+				overflow-x: hidden;
+    	}
+
+    	.wrapper_html .module_plain {
+				display: inline-block;
+				width: 66%;
+				overflow-x: hidden;
+    	}
+
+    	.wrapper_html .module_plain_copy {
+				display: inline-block;
+				width: 33%;
+				overflow-x: hidden;
+    	}
+
+    	 .editor_html {
+    	 	height: 300px;
+    	 	background-color: #14171A;
+    		padding: 12px;
+				font-size: 12px;
+				font-family: monospace;
+				color: #ffffff;
+    	}
+
+    	.title_html {
+	      font-size: 12px;
+	      font-weight: bold;
+	      text-transform: uppercase; 
+	      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+	      color: #14171A;
+	      padding: 6px 0px;
+    	}
+
+    	.module_preview {
+    		width: 100%;
+    	}
+
+    	.module_preview > iframe {
+    		width: 100%;
+    		height: 500px;
+    	}
+
+			.advanced_bg {
+				background-color: #ffd3d3 !important;
+			}
+
+			.advanced_bg .active {
+				background-color: #ffffff !important;
+				color: #590202;
+			}
+
+			#advanced > div {
+		    width: calc(50% - 2px);
+		    min-width: 350px;
+		    display: inline-block;
+		   }
+
+    	#advanced .module_advanced {
+		    border: 1px solid #fafafa;
+		    border-radius: 4px;
+		    padding: 24px;
+		    background-color: #e9f6ff;
+    	}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper_top">
+			<div class="logo">
+				<img src="https://ea.twimg.com/email/self_serve/media/logo_twitter_128-1515020639718.png" height="22">
+			</div>
+			<div class="nav_title">
+				<strong>Ibis Self-Serve</strong>
+			</div>
+			<div class="nav_serach">
+				<input type="text" class="form-control" id="name" placeholder="Search Campaign" disabled="">
+			</div>
+			<div class="nav_menu">
+				Campaign &nbsp;&nbsp; Audience Targeting &nbsp;&nbsp; Job &nbsp;&nbsp; Reports &nbsp;&nbsp;
+			</div>
+		</div>
+		<div class="wrapper_bottom">
+			<div>
+				<ul class="tabs">
+					<li class="tablinks active" onclick="openTab(event, 'info')">
+						Info
+					</li>
+					<li class="tablinks" onclick="openTab(event, 'html')">
+						HTML
+					</li>
+					<li class="tablinks" onclick="openTab(event, 'plain')">
+						Plain Text
+					</li>
+					<li class="tablinks" onclick="openTab(event, 'send')">
+						Send
+					</li>
+					<li class="tablinks advanced_bg" onclick="openTab(event, 'advanced')">
+						Advanced
+					</li>
+				</ul>
+				<div class="main tabcontent" id="info">
+					{% for word in info %}
+					<div class="param">
+						<div class="left">
+							{{ word }}
+						</div>
+						<div class="right">
+							<input type="text" class="form-control" id="name" placeholder="Enter Name" disabled="">
+						</div>
+					</div>
+					{% endfor %}
+					<div class="wrapper_button">
+						<button class="button" type="button" style="float: right;" onclick="javascript: toggleEditSection('info', true);">
+							Edit
+						</button>
+					</div>
+				</div>
+
+				<div class="main tabcontent" id="html">
+					<div class="wrapper_html">
+						<div class="module_html">
+							<div class="title_html">
+								HTML
+							</div>
+							<div id="editor_html"></div>
+						</div>
+						<div class="module_html">
+							<div class="title_html">
+								CSS
+							</div>
+							<div id="editor_css"></div>
+						</div>
+						<div class="module_html">
+							<div class="title_html">
+								COPY VARIABLES
+							</div>
+							<div id="editor_copy"></div>
+						</div>
+					</div>
+					<div class="wrapper_html">
+						<div class="title_html">
+							PREVIEW
+						</div>
+						<div class="module_preview">
+							<iframe src="special_event.html"></iframe>
+						</div>
+					</div>
+					<div class="wrapper_button">
+						<button class="button" type="button" style="float: right;" onclick="javascript: toggleEditSection('info', true);">
+							Preview
+						</button>
+					</div>
+				</div>
+
+				<div class="main tabcontent" id="plain">
+					<div class="wrapper_html">
+						<div class="module_plain">
+							<div class="title_html">
+								PLAIN TEXT
+							</div>
+							<div id="editor_plain"></div>
+						</div>
+						<div class="module_plain_copy">
+							<div class="title_html">
+								COPY VARIABLES
+							</div>
+							<div id="editor_plain_copy"></div>
+						</div>
+					</div>
+					<div class="wrapper_html">
+						<div class="title_html">
+							PREVIEW
+						</div>
+						<div class="module_preview">
+							PLAIN TEXT
+						</div>
+					</div>
+					<div class="wrapper_button">
+						<button class="button" type="button" style="float: right;" onclick="javascript: toggleEditSection('info', true);">
+							Preview
+						</button>
+					</div>
+				</div>
+
+				<div class="main tabcontent" id="send">
+					{% for word in send %}
+					<div class="param">
+						<div class="left">
+							{{ word }}
+						</div>
+						<div class="right">
+							<input type="text" class="form-control" id="name" placeholder="Enter Name" disabled="">
+						</div>
+					</div>
+					{% endfor %}
+					<div class="wrapper_button">
+						<button class="button" type="button" style="float: right;" onclick="javascript: toggleEditSection('info', true);">
+							Send Test
+						</button>
+					</div>
+				</div>
+
+				<div class="main tabcontent" id="advanced">
+					<div>
+						<div class="title_html">
+							TRANSLATIONS
+						</div>
+						<div class="module_advanced">
+							<div class="param">
+								<div class="left">
+									Languages
+								</div>
+								<div class="right">
+									<input type="text" class="form-control" id="name" placeholder="Enter Name" disabled="">
+								</div>
+							</div>
+							<div class="wrapper_button">
+								<button class="button" type="button" style="float: right;" onclick="javascript: toggleEditSection('info', true);">
+									Submit Translation
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<div>
+						<div class="title_html">
+							DEPLOYMENT
+						</div>
+						<div class="module_advanced">
+							<div class="param">
+								<div class="left">
+									QPM
+								</div>
+								<div class="right">
+									<input type="text" class="form-control" id="name" placeholder="Enter Name" disabled="">
+								</div>
+							</div>
+							<div class="param">
+								<div class="left">
+									Priority
+								</div>
+								<div class="right">
+									<input type="text" class="form-control" id="name" placeholder="Enter Name" disabled="">
+								</div>
+							</div>
+							<div class="param">
+								<div class="left">
+									Deploy to
+								</div>
+								<div class="right">
+									<input type="text" class="form-control" id="name" placeholder="Enter Name" disabled="">
+								</div>
+							</div>
+							<div class="wrapper_button">
+								<button class="button" type="button" style="float: right;" onclick="javascript: toggleEditSection('info', true);">
+									Deploy
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			function openTab(evt, pageType) {
+			    var i, tabcontent, tablinks;
+			    tabcontent = document.getElementsByClassName("tabcontent");
+			    for (i = 0; i < tabcontent.length; i++) {
+			        tabcontent[i].style.display = "none";
+			    }
+			    tablinks = document.getElementsByClassName("tablinks");
+			    for (i = 0; i < tablinks.length; i++) {
+			        tablinks[i].className = tablinks[i].className.replace(" active", "");
+			    }
+			    document.getElementById(pageType).style.display = "block";
+			    evt.currentTarget.className += " active";
+			}
+
+			var editor_html = CodeMirror(document.getElementById("editor_html"),{
+				value: "<html>",
+				mode: "htmlmixed",
+				theme: "ambiance",
+				tabSize: 2,
+				lineNumbers: true,
+				firstLineNumber: 1,
+				extraKeys: {"Ctrl-Space": "autocomplete"}
+			});
+			var editor_css = CodeMirror(document.getElementById("editor_css"),{
+				value: ".empty { font-size: 0; }",
+				mode: "htmlmixed",
+				theme: "ambiance",
+				tabSize: 2,
+				lineNumbers: true,
+				firstLineNumber: 1
+			});
+			var editor_copy = CodeMirror(document.getElementById("editor_copy"),{
+				value: " { 'headline' : 'This is the headline.' }",
+				mode: "htmlmixed",
+				theme: "ambiance",
+				tabSize: 2,
+				lineNumbers: true,
+				firstLineNumber: 1
+			});
+			var editor_copy = CodeMirror(document.getElementById("editor_plain"),{
+				value: " { 'headline' : 'This is the headline.' }",
+				mode: "htmlmixed",
+				theme: "ambiance",
+				tabSize: 2,
+				lineNumbers: true,
+				firstLineNumber: 1
+			});
+			var editor_copy = CodeMirror(document.getElementById("editor_plain_copy"),{
+				value: " { 'headline' : 'This is the headline.' }",
+				mode: "htmlmixed",
+				theme: "ambiance",
+				tabSize: 2,
+				lineNumbers: true,
+				firstLineNumber: 1
+			});
+
+			document.getElementById("html").style.display = "none";
+			document.getElementById("plain").style.display = "none";
+			document.getElementById("send").style.display = "none";
+			document.getElementById("advanced").style.display = "none";
+		</script>
+	</body>
+</html>

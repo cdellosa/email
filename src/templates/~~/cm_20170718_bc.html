@@ -1,0 +1,755 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# HERO COPY IMAGE HEIGHT #}
+{% set hero_copy_height = 120 %}
+
+{# BGCOLOR MAIN #}
+{% set bgcolor_main = "#f5f8fa" %}
+
+{# MAIN COLOR #}
+{% set main_color = "#1da1f2" %}
+{% set main_color_2 = "#77c7f7" %}
+
+794ac
+
+{# MOBILE FIX REMOVE SWITCH #}
+{% set mobile_fix_remove = false %}
+
+{# COPY #}
+{% set copy = {  
+  "subject_line" : [  
+    "@{{screen_name}}, Who is the Greatest Of All Time? "
+  ],  
+  "preheader" : "What does it take to be the GOAT? See every side of the heated debate on Twitter.",  
+  "alt_hero" : "GOAT is happening. Watch Video",  
+  "headline" : "Great &#60; Greatest &#60; GOAT",  
+  "body" : [  
+    "Some say the great ones are born great. But to be the GOAT? That’s a whole other level. Next. Level. Greatness. Grit, determination, talent, sacrifice and undeniable will. Few havewhat it takes. But that’s okay. There’s only one GOAT. But, there are a lot of people with an opinion on who the #GOAT is. #SeeEverySide on Twitter."
+  ],  
+  "cta" : [  
+    "GOAT is happening. Watch Video",
+    "Image: Roger Federer",
+    "Image: Lindsey Vonn",
+    "Image: Simone Biles",
+    "Explore",
+    "Explore Twitter"
+  ],  
+  "blue" : [  
+    "Hear new voices and",
+    "discover new ideas.",
+    "When it happens,",
+    "it happens on Twitter."
+  ],  
+  "white" : "See what’s happening.",  
+  "footer" : ["About", "Help", "Unsubscribe", "Download app"],  
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"  
+} %} 
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "logo_twitter" : prefix_img + "logo-1475170569504.png",
+  "logo_twitter_white" : prefix_img + "cm_20170618_twitter_white-1497637848946.png",
+  "hero" : prefix_img + "cm_20170718_bc_hero-1499796071003.jpg",
+  "hero_m" : prefix_img + "cm_20170718_bc_hero_m-1499796070993.jpg",
+  "icon_play" : prefix_img + "cm_20170618_icon_play-1497637465718.png",
+  "photo_1" : prefix_img + "cm_20170718_bc_slate1-1499796071022.jpg",
+  "photo_1_m" : prefix_img + "cm_20170718_bc_slate1_m-1499796071022.jpg",
+  "photo_2" : prefix_img + "cm_20170718_bc_slate3-1499796071073.jpg",
+  "photo_2_m" : prefix_img + "cm_20170718_bc_slate3_m-1499796071113.jpg",
+  "photo_3" : prefix_img + "cm_20170718_bc_slate2-1499796071071.jpg",
+  "photo_3_m" : prefix_img + "cm_20170718_bc_slate2_m-1499796071039.jpg",
+  "spacer" : prefix_img + "spacer_640x265-1481056487262.png",
+  "spacer_1" : prefix_img + "spacer_640_x_1-1497634066349.png",
+  "logo_twitter_large" : prefix_img + "dm_logo_twitter-1489534651038.png",
+  "blue" : prefix_img + "cm_20170718_bc_bg-1499796070977.gif",
+  "blue_m" : prefix_img + "cm_20170718_bc_bg_m-1499796070968.gif",
+  "spacer_2" : prefix_img + "spacer_3_x_1-1493416213665.png"
+} %}
+
+{# LINKS #}
+{% set link = {  
+  "hero" : "https://twitter.com/Twitter/status/879338487505465348",  
+  "cta" : [  
+    "https://twitter.com/i/moments",
+    "https://twitter.com/intent/follow?screen_name=rogerfederer",
+    "https://twitter.com/intent/follow?screen_name=lindseyvonn",
+    "https://twitter.com/intent/follow?screen_name=Simone_Biles",
+    "https://twitter.com/i/moments",
+    "https://mobile.twitter.com/search",
+    "https://twitter.com"
+  ],  
+  "about" : "https://about.twitter.com",  
+  "help" : "https://support.twitter.com/",  
+  "download" : "https://twitter.com/download"  
+} %}
+
+{# CSS #}
+{% block style %}
+    .title {
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 42px;
+      line-height: 46px;
+    }
+
+    .subheader {
+      color: #808080;
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 26px;
+      line-height: 30px;
+      font-weight: 600;
+    }
+
+    .blue_sub {
+      color: #ffffff;
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 22px;
+      line-height: 26px;
+      font-weight: 600;
+    }
+
+    .blue_header {
+      color: #ffffff;
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 42px;
+      line-height: 42px;
+      font-weight: 600;
+    }
+
+    .blue_header_2 {
+      color: #ffffff;
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 42px;
+      line-height: 42px;
+      font-weight: 600;
+    }
+
+    .white_header {
+      color: #000000;
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 34px;
+      line-height: 34px;
+      font-weight: 600;
+    }
+
+    .body_module {
+      color: #14171a;
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 18px;
+      line-height: 22px;
+      font-weight: 100;
+    }
+
+    .body_main {
+      color: #808080;
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 20px;
+      line-height: 26px;
+      font-weight: 100;
+    }
+
+    .h3 {
+      font-size: 22px;
+      line-height: 26px;
+    }
+
+    td.button {
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      line-height: 18px;
+    }
+
+    a.button {
+      font-size: 12px; 
+      line-height: 18px;
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      padding: 5px 18px; 
+      border: 1px solid {{ main_color }};
+      display: inline-block; 
+      font-weight: 600; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a.button_blue {
+      font-size: 12px; 
+      line-height: 18px;
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      padding: 5px 18px; 
+      border: 1px solid #1DA1F2;
+      display: inline-block; 
+      font-weight: 600; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a.button_white {
+      font-size: 12px; 
+      line-height: 18px;
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      padding: 8px 15px; 
+      border: 1px solid #ffffff;
+      display: inline-block; 
+      font-weight: 600; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a.button_white_2 {
+      font-size: 12px; 
+      line-height: 18px;
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: {{ main_color }}; 
+      text-decoration: none;
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      padding: 5px 18px; 
+      border: 1px solid #ffffff;
+      display: inline-block; 
+      font-weight: 600; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .button img {
+      display: inline;
+      vertical-align: top;
+    }
+
+    .body {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 16px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 22px;
+    }
+
+    .justify {
+      text-align: justify;
+    }
+{% endblock %}
+
+{% block media_query %}
+        .iosBlue a {
+          text-decoration: underline;
+          } 
+
+        .width_full {
+          width: 100% !important;
+        }
+
+        #hero {
+          background-image: url({{ img.hero_m }}) !important;
+        }
+
+        #blue_m {
+          background-image: url({{ img.blue_m }}) !important;
+        }
+
+        .hide {
+          display: none !important;
+        }
+
+        .show {
+          overflow: visible !important;
+          float: none !important;
+          display: table !important;
+          line-height:100% !important;
+        }
+
+        .title {
+          font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif !important;
+          font-weight: 600 !important;
+          font-size: 24px !important;
+          line-height: 24px !important;
+        }
+
+        .subheader {
+          font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif !important;
+          font-weight: 600 !important;
+          font-size: 14px !important;
+          line-height: 18px !important;
+        }
+
+        .body_main {
+          font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif !important;
+          font-weight: 100 !important;
+          font-size: 12px !important;
+          line-height: 16px !important;
+        }
+
+        .blue_sub {
+          font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif !important;
+          font-weight: 600 !important;
+          font-size: 14px !important;
+        }
+
+        .blue_header {
+          font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif !important;
+          font-weight: 600 !important;
+          font-size: 28px !important;
+          line-height: 28px !important;
+        }
+
+        .blue_header_2 {
+          font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif !important;
+          font-weight: 600 !important;
+          font-size: 22px !important;
+          line-height: 22px !important;
+        }
+
+        .white_header {
+          font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif !important;
+          font-weight: 600 !important;
+          font-size: 22px !important;
+          line-height: 22px !important;
+        }
+
+        .v_high {
+          height: 26px !important;
+        }
+
+        .v_middle {
+          height: 15px !important;
+        }
+
+        .v_low {
+          height: 3px !important;
+        }
+{% endblock %}
+
+{% block body %}
+  <style inline="false">
+    .appleLinksWhite a {
+      color: #ffffff !important; 
+      text-decoration: none;
+    } 
+  </style>
+  <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full" dir="{{ dir('ltr') }}">
+    <tr>
+      <td id="hero" bgcolor="#ffffff" width="640" valign="top" colspan="3">
+        <a href="{{ tl(link.hero) }}" class="hide">
+          <img src="{{ img.hero }}" class="hide" alt="{{ copy.alt_hero }}" title="{{ copy.alt_hero }}" width="100%" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
+        </a>
+      </td>
+    </tr>
+    <!--[if !gte mso 9]><!---->
+    <tr>
+      <td class="empty">
+        <div class="show" style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+          <a href="{{ tl(link.hero) }}">
+            <img src="{{ img.hero_m }}" class="width_full" alt="{{ copy.alt_hero }}" title="{{ copy.alt_hero }}" width="100%" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
+          </a>
+        </div>
+      </td>
+    </tr>
+    <!--<![endif]-->
+    <tr>
+      <td class="empty">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full">
+          <tr>
+            <td class="empty width_20" width="36">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table cellpadding="0" cellspacing="0" border="0" align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty v_high" height="43">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="subheader nowrap center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.headline) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty v_middle" height="29">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body_main center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[0]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty v_high" height="55">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="36">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td id="hero" bgcolor="#ffffff" width="640" valign="top" colspan="3">
+        <a href="{{ tl(link.cta[1]) }}" class="hide">
+          <img src="{{ img.photo_1 }}" class="hide" alt="{{ copy.cta[1] }}" title="{{ copy.cta[1] }}" width="100%" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
+        </a>
+      </td>
+    </tr>
+    <!--[if !gte mso 9]><!---->
+    <tr>
+      <td class="empty">
+        <div class="show" style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+          <a href="{{ tl(link.cta[1]) }}">
+            <img src="{{ img.photo_1 }}" class="width_full" alt="{{ copy.cta[1] }}" title="{{ copy.cta[1] }}" width="100%" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
+          </a>
+        </div>
+      </td>
+    </tr>
+    <!--<![endif]-->
+    <tr>
+      <td class="empty">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="{{ main_color }}" width="640" class="width_full">
+          <!--[if gte mso 9]>
+          <tr>
+            <td colspan="3" align="center">
+              <img src="{{ img.spacer_1 }}" width="640" />
+            </td>
+          </tr>
+          <![endif]-->
+          <tr>
+            <td class="empty v_high" height="47" colspan="3">
+              &nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td class="empty" width="28">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table  cellpadding="0" cellspacing="0" border="0" align="{{ align('left') }}">
+                <tr>
+                  <td class="blue_sub" align="align('left')">
+                   {{ i10n(copy.blue[0]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty v_low" height="6">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="blue_header" align="align('left')">
+                    {{ i10n(copy.blue[1]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="26">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty">
+                    <table cellpadding="0" cellspacing="0" border="0" align="{{ align('left') }}" bgcolor="{{ main_color_2 }}" width="36" height="3">
+                      <tr>
+                        <td>
+                          &nbsp;
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty" width="28">
+              &nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td class="empty v_high" height="32" colspan="3">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td class="empty">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full">
+          <tr>
+            <td class="empty image">
+              <a href="{{ tl(link.cta[2]) }}">
+                <img src="{{ img.photo_2 }}" class="width_full" alt="{{ copy.cta[2] }}" title="{{ copy.cta[2] }}" width="320" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
+              </a>
+            </td>
+            <td class="empty image">
+              <a href="{{ tl(link.cta[3]) }}">
+                <img src="{{ img.photo_3 }}" class="width_full" alt="{{ copy.cta[3] }}" title="{{ copy.cta[3] }}" width="320" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
+              </a>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td class="empty">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="{{ main_color }}" width="640" class="width_full">
+          <tr>
+            <td id="blue_m" background="{{ img.blue }}" bgcolor="{{ main_color }}" width="640" valign="top">
+              <!--[if gte mso 9]>
+              <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:640px;">
+                <v:fill type="tile" src="{{ img.blue }}" color="{{ main_color }}" />
+                <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
+              <![endif]-->
+              <table>
+                <tr>
+                  <td class="empty v_high" height="57" colspan="3">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" width="28">
+                    &nbsp;
+                  </td>
+                  <td class="empty">
+                    <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
+                      <!--[if gte mso 9]>
+                      <tr>
+                        <td colspan="3" align="center">
+                          <img src="{{ img.spacer_1 }}" width="585" />
+                        </td>
+                      </tr>
+                      <![endif]-->
+                      <tr>
+                        <td class="blue_sub" align="center">
+                          {{ i10n(copy.blue[2]) }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="empty v_low" height="10">
+                          &nbsp;
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="blue_header_2" align="center">
+                         {{ i10n(copy.blue[3]) }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="empty" height="16">
+                          &nbsp;
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="empty">
+                          <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="{{ main_color_2}}" width="36" height="3">
+                            <tr>
+                              <td>
+                                &nbsp;
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="empty v_mid" height="24">
+                          &nbsp;
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="empty" align="center">
+                          <table border="0" cellspacing="0" cellpadding="0" align="center" class="hide">
+                            <tr>
+                              <td align="center" class="button center" bgcolor="#ffffff" dir="{{ dir('ltr') }}">
+                                <a href="{{ tl(link.cta[4]) }}" target="_blank" class="button_white_2 nowrap">
+                                  <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                  {{ i10n(copy.cta[4]) }}
+                                  <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                </a>
+                              </td>
+                            </tr>
+                          </table>
+                          <!--[if !gte mso 9]><!---->
+                          <div class="show" style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+                            <table border="0" cellspacing="0" cellpadding="0" align="center" class="center">
+                              <tr>
+                                <td align="center" class="button center" bgcolor="#ffffff" dir="{{ dir('ltr') }}">
+                                  <a href="{{ tl(link.cta[5]) }}" target="_blank" class="button_white_2 nowrap">
+                                    <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                    {{ i10n(copy.cta[4]) }}
+                                    <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                  </a>
+                                </td>
+                              </tr>
+                            </table>
+                          </div>
+                          <!--<![endif]-->
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td class="empty" width="28">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty v_high" height="48" colspan="3">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+              <!--[if gte mso 9]>
+                </v:textbox>
+              </v:rect>
+              <![endif]-->
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" width="640" class="width_full">
+          <!--[if gte mso 9]>
+          <tr>
+            <td colspan="3" align="center">
+              <img src="{{ img.spacer_1 }}" width="640" />
+            </td>
+          </tr>
+          <![endif]-->
+          <tr>
+            <td class="empty v_high" height="42" colspan="3">
+              &nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td class="empty" width="28">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table  cellpadding="0" cellspacing="0" border="0" align="{{ align('left') }}">
+                <tr>
+                  <td class="empty image" align="{{ align('left') }}">
+                    <img src="{{ img.logo_twitter_large }}" height="24" alt="Twitter" title="Twitter" />
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="18">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="white_header" align="align('left')">
+                    {{ i10n(copy.white) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="18">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty">
+                    <table border="0" cellspacing="0" cellpadding="0" align="{{ align('left') }}">
+                      <tr>
+                        <td align="center" class="button center" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
+                          <a href="{{ tl(link.cta[6]) }}" target="_blank" class="button_blue nowrap">
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                            {{ i10n(copy.cta[5]) }}
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty" width="28">
+              &nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td class="empty v_high" height="52" colspan="3">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#f5f8fa" width="640" class="width_full">
+          <!--[if gte mso 9]>
+          <tr>
+            <td colspan="3" align="center">
+              <img src="{{ img.spacer_1 }}" width="640" />
+            </td>
+          </tr>
+          <![endif]-->
+          <tr>
+            <td class="empty width_20" width="90">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer strong deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    <a href="{{ tl(link.about,7) }}" class="blue">
+                      {{ i10n(copy.footer[0]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ tl(link.help,8) }}" class="blue">
+                      {{ i10n(copy.footer[1]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ '{{ unsubscribe }}' }}" class="blue">
+                      {{ i10n(copy.footer[2]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ tl(link.download,9) }}" class="blue">
+                      {{ i10n(copy.footer[3]) }}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer deep_grey center" align="center">
+                    <span class="addressLink">{{"{{>manhattan:static:address_twitter/html_content}}"}}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="90">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+{% endblock %}

@@ -1,0 +1,160 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {   
+  "hero" : "https://twitter.com/i/live/882704766052192256?ref_src=twsrc%5Eemail%7Ctwcamp%5EComicCon", 
+  "body" : [  
+    "https://twitter.com/i/live/882704766052192256?ref_src=twsrc%5Eemail%7Ctwcamp%5EComicCon",
+    "https://twitter.com/ign",
+    "https://twitter.com/i/live/882704766052192256?ref_src=twsrc%5Eemail%7Ctwcamp%5EComicCon",
+    "https://twitter.com/search?q=%23SDCC17&src=tyah"
+  ],  
+  "hero_2" : "https://twitter.com/i/live/882709374480691200?ref_src=twsrc%5Eemail%7Ctwcamp%5EIMDb", 
+  "body_2" : [  
+    "https://twitter.com/imdb",
+    "https://twitter.com/imdb",
+    "https://twitter.com/i/live/882709374480691200?ref_src=twsrc%5Eemail%7Ctwcamp%5EIMDb",
+    "https://twitter.com/search?src=typd&q=%23IMDboat"
+  ],  
+  "alt" : [ 
+    "https://twitter.com/ign",
+    "https://twitter.com/",
+    "https://twitter.com/imdb"
+  ],  
+  "logo_twitter_large" : "https://twitter.com/",  
+  "about" : "https://about.twitter.com",  
+  "help" : "https://support.twitter.com/",  
+  "download" : "https://twitter.com/download" 
+} %} 
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [ 
+    "@{{screen_name}}, superheroes, assemble!"
+  ],  
+  "preheader" : "Twitter, IGN and IMDb bring you LIVE coverage of Comic-Con, July 19-22.",  
+  "alt_hero" : "Comic-Con: The Complete Digital Omnibus", 
+  "cta" : "Watch LIVE on Twitter",  
+  "headline" : [  
+    "San Diego Comic-Con, LIVE on Twitter, July 19-22",
+    "IMDb LIVE at San Diego Comic-Con"
+  ],  
+  "body" : [  
+    "Superheroes, Supervillains, Super coverage. This is as in-depth as it gets. Fifteen hours of IGN's coverage featuring exclusive trailers, behind-the-scenes footage and insider interviews with the biggest names in comics, television and motion picture entertainment. Plus pre- and post-show commentary from IGN hosts and special guests.",
+    "@IGN",
+    "comiccon.twitter.com",
+    "Watch it. Talk about it.",
+    "Comic-Con Streaming LIVE Schedule | Wednesday, July 19 | 8-9PM PT - Comic-Con Preview Show | Thursday, July 20 | 3-7PM PT - Show Floor First Look & Celebrity Interviews | Friday, July 21 | 3-7PM PT - Cast of Marvel's Defenders and More | Saturday, July 22 | 12:30-3:30PM PT - Cast of Walking Dead | 5:30-8:30PM PT - Huge Marvel and DC Reveals",
+    "And don't miss...",
+    "#SDCC17"
+  ],  
+  "alt_hero_2" : "Kevin Smith on a motherf@ckin boat... nuff said.",  
+  "body_2" : [  
+    "If that weren't enough, legendary writer, director and comic super-fan Kevin Smith will be hosting original celebrity interviews and convention coverage aboard the #IMDboat. It's all LIVE. It's everything you need to know. And you can do it all right from the comfort of your home, hidden fortress or underground cave.",
+    "Saturday, July 22, 3:30PM PT",
+    "@IMDb",
+    "imdb.twitter.com",
+    "Watch it. Talk about it.",
+    "#IMDboat"
+  ],  
+  "alt" : [  
+    "IGN",
+    "Twitter",
+    "IMDb"
+  ],  
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],  
+  "disclaimer" : "This email was meant for @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+Subject: {{ i10n(pt(copy.subject[0])) }}
+
+{{ i10n(pt(copy.alt_hero)) }}
+{{ "> " + link.hero }}
+
+=
+
+{{ i10n(pt(copy.headline[0])) }}
+
+{{ i10n(copy.body[0]) }}
+
+=
+
+{{ i10n(pt(copy.body[1])) }}
+{{ "> " + link.body[1] }}
+
+{{ i10n(pt(copy.body[2])) }}
+{{ "> " + link.body[2] }}
+
+{{ i10n(pt(copy.body[6])) }}
+{{ "> " + link.body[3] }}
+
+=
+
+{{ i10n(pt(copy.cta)) }}
+{{ "> " + link.hero }}
+
+{{ i10n(pt(copy.body[3])) }}
+
+=
+
+{{ i10n(pt(copy.body[4])) }}
+
+{{ i10n(pt(copy.body[5])) }}
+
+=
+
+{{ i10n(pt(copy.alt_hero_2)) }}
+{{ "> " + link.hero_2 }}
+
+=
+
+{{ i10n(pt(copy.headline[1])) }}
+
+{{ i10n(copy.body_2[0]) }}
+
+{{ i10n(copy.body_2[1]) }}
+
+{{ i10n(pt(copy.body_2[2])) }}
+{{ "> " + link.body_2[1] }}
+
+{{ i10n(pt(copy.body_2[5])) }}
+{{ "> " + link.body_2[3] }}
+
+{{ i10n(pt(copy.body_2[3])) }}
+{{ "> " + link.body_2[2] }}
+
+=
+
+{{ i10n(pt(copy.cta)) }}
+{{ "> " + link.hero_2 }}
+
+{{ i10n(pt(copy.body[3])) }}
+
+{{ i10n(pt(copy.alt[0])) }}
+{{ "> " + link.alt[0] }}
+
+{{ i10n(pt(copy.alt[1])) }}
+{{ "> " + link.alt[1] }}
+
+{{ i10n(pt(copy.alt[2])) }}
+{{ "> " + link.alt[2] }}
+
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }}
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}
