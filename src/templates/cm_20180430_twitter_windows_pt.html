@@ -1,0 +1,62 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://www.microsoft.com/store/p/twitter/9wzdncrfj140",  
+  "cta" : "https://www.microsoft.com/store/p/twitter/9wzdncrfj140", 
+  "about" : "https://about.twitter.com",  
+  "help" : "https://support.twitter.com/",  
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [  
+    "Say \"hello\" to the new Twitter for Windows app."
+  ],  
+  "preheader" : "Redesigned with you in mind.",
+  "alt_hero" : "Twitter for Windows",  
+  "cta" : "Download the new app",  
+  "headline" : [  
+    "Redesigned to give you the best Twitter for Windows yet."
+  ],  
+  "body" : [  
+    "We're replacing the former desktop and mobile apps with a new and enhanced Twitter app for Windows. The totally redesigned experience lets you express yourself in 280 characters, discover interesting content in Explore, bookmark Tweets, and more. We will no longer continue to support previous versions of the app beginning June 1st, so download the new app today."
+  ],  
+  "footer" : ["About", "Help", "Unsubscribe", "Download App"],  
+  "disclaimer" : "We sent this to  @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}    
+
+Subject: {{ i10n(pt(copy.subject[0])) }}
+
+{{ i10n(pt(copy.alt_hero)) }}
+{{ "> " + link.hero }}
+
+=
+
+{{ i10n(pt(copy.headline[0])) }}
+
+{{ i10n(pt(copy.body[0])) }}
+
+{{ i10n(pt(copy.cta)) }}
+{{ "> " + link.cta }}
+
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }}
+{{ "> " + link.download }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

@@ -1,0 +1,491 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# HERO COPY IMAGE HEIGHT #}
+{% set hero_copy_height = 150 %}
+{# THIS IS AUTO SET BY ABOVE #}
+{% set hero_spacer_height = 366 - hero_copy_height - 119 %}
+{% set hero_copy_height_mobile = (hero_copy_height * 0.65)|round %}
+{% set hero_spacer_height_mobile = (hero_spacer_height * 0.65)|round %}
+
+{# BGCOLOR MAIN #}
+{% set bgcolor_main = "#f5f8fa" %}
+
+{# MAIN COLOR #}
+{% set main_color = "#1DA1F2" %}
+
+{# MOBILE FIX REMOVE SWITCH #}
+{% set mobile_fix_remove = false %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/jfa_samuraiblue/lists/samurai-blue-worldcup2018/members",  
+  "text" : [  
+    "https://twitter.com/jfa",
+    "https://twitter.com/search?q=%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%82%AB%E3%83%83%E3%83%97&src=typeahead_click",
+    "https://twitter.com/TwitterSportsJP"
+  ],  
+  "alt" : [  
+    "https://twitter.com"
+  ],  
+  "cta" : "https://twitter.com/jfa_samuraiblue/lists/samurai-blue-worldcup2018/members",
+  "logo_twitter_large" : "https://twitter.com/",  
+  "about" : "https://twitter.com/about",
+  "help" : "https://support.twitter.com/",  
+  "reset" : "https://twitter.com/account/begin_password_reset?account_identifier={{screen_name}}",  
+  "download" : "https://twitter.com/download",
+  "unsubscribe" : "{{unsubscribe}}"
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [  
+    "@{{screen_name}}さん、#ワールドカップ フォローパックを作りましょう"
+  ],  
+  "preheader" : "チームがそろいました。自分だけのチームを作りましょう。",
+  "alt_hero" : "#サッカー の今がある。 #熱狂 の今がある。 #ワールドカップ の今がある。",  
+  "cta" : "フォローパックをチェック",  
+  "headline" : [  
+    "出場チームが出揃いました。<br>注目している選手をフォローしましょう。",
+    "#ワールドカップの今がある。"
+  ],  
+  "body" : [  
+    "誰をフォローしたらよいか迷っている場合は、<a href=\"" + tl(link.text[0]) + "\" class=\"blue\">@JFA</a> フォローパックを使うとお気に入りの選手だけを選んでフォローできます。 選手全員をチェックしましょう。好きな選手だけを追加できます。 <a href=\"" + tl(link.text[1]) + "\" class=\"blue\">#ワールドカップ</a>の今がある。お見逃しなく。",
+    "",
+    "@TwitterJP",
+    "#ワールドカップ",
+    "以下の端末でTwitterをダウンロードしてライブ放送を視聴できます。"
+  ],  
+  "alt" : [  
+    "Twitter"
+  ],   
+  "apps" : [
+    "Apple TV",
+    "Google Play",
+    "Xbox One",
+    "Windows 10",
+    "Amazon Fire TV"
+  ], 
+  "footer" : ["ヘルプ", "パスワードをリセット", "アプリをダウンロード", "メール配信停止"], 
+  "disclaimer" : "これが@" + signal("screen_name","Somebody") + " さんに送信されました。", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}  
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "logo_twitter" : prefix_img + "logo-1475170569504.png",
+  "hero" : prefix_img + "cm_20180607_world_cup_hero_ja_2-1528328312407.gif",
+  "hero_m" : prefix_img + "cm_20180607_world_cup_hero_ja_2-1528328312407.gif",
+  "spacer" : prefix_img + "spacer.png",
+  "spacer_1" : prefix_img + "spacer_640x1-1481059174655.png",
+  "phones" : prefix_img + "cm_20180607_world_cup_phones_ja_2-1528328312227.jpg",
+  "logo_twitter_large" : prefix_img + "dm_logo_twitter-1489534651038.png",
+  "icon" : prefix_img + "cm_20171207_gameawards_icon-1512166633227.png",
+  "spacer_2" : prefix_img + "spacer_3_x_1-1493416213665.png",
+  "apps" : [
+    prefix_img + "apps_line-1501197126309.png",
+    prefix_img + "apps_apple-1501204946130.png",
+    prefix_img + "apps_google-1501197126312.png",
+    prefix_img + "apps_roku-1501204946153.png",
+    prefix_img + "apps_xbox_one-1501197126317.png",
+    prefix_img + "apps_windows-1501197126311.png",
+    prefix_img + "apps_amazon-1501204946080.png"
+  ]
+} %}
+
+{# CSS #}
+{% block style %}
+    .h3 {
+      font-size: 22px;
+      line-height: 26px;
+    }
+
+    .download {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 12px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: 600;
+      line-height: 16px;
+    }
+
+    td.button {
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      line-height: 18px;
+    }
+
+    a.button {
+      font-size: 16px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      padding: 11px 30px; 
+      border: 1px solid #1DA1F2;
+      display: inline-block; 
+      font-weight:600; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .button img {
+      display: inline;
+      vertical-align: top;
+    }
+
+    .body {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 16px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 22px;
+    }
+
+    .body_3 {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 20px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 24px;
+    }
+
+    .justify {
+      text-align: justify;
+    }
+
+    .apps img {
+      white-space: nowrap;
+      display: inline;
+    }
+
+    .footer_grey {
+      color: #8899a6;
+    }
+
+    .link_deep_grey {
+      color: #8899a6;
+      text-decoration: underline;
+    }
+{% endblock %}
+
+{% block media_query %}
+        .show {
+          overflow: visible !important;
+          float: none !important;
+          display: table !important;
+          line-height: 100% !important;
+        }
+
+        .show_br {
+          overflow: visible !important;
+          float: none !important;
+          display: inline !important;
+        }
+
+        .iosBlue a {
+          text-decoration: underline;
+          } 
+
+        .width_full {
+          width: 100% !important;
+        }
+
+        .width_90p {
+          width: 90% !important;
+        }
+
+        .height_1 {
+          height: 1px !important;
+        }
+
+        .height_30 {
+          height: 30px !important;
+        }
+
+        .h3 {
+          font-size: 16px !important;
+          line-height: 20px !important;
+        }
+
+        .body_3 {
+          font-size: 16px !important;
+          line-height: 20px !important;
+        }
+
+        .schedule {
+          width: 100% !important;
+          max-width: 350px !important;
+        }
+
+        .download {
+          padding: 0px 24px !important;
+        }
+
+        .hide {
+          display: none !important;
+        }
+{% endblock %}
+
+{% block body %}
+  <style inline="false">
+    .appleLinksWhite a {
+      color: #ffffff !important; 
+      text-decoration: none;
+    } 
+  </style>
+  <table cellpadding="0" cellspacing="0" border="0" align="center" width="640" class="width_full" dir="{{ dir('ltr') }}">
+    <tr>
+      <td id="hero" bgcolor="{{ main_color }}" width="640" valign="top" colspan="3">
+        <a href="{{ tl(link.hero) }}" class="hide">
+          <img src="{{ img.hero }}" class="hide" alt="{{ copy.alt_hero }}" title="{{ copy.alt_hero }}" width="640" style="color: #ffffff; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none; text-align: center; "/>
+        </a>
+      </td>
+    </tr>
+    <!--[if !gte mso 9]><!---->
+    <tr>
+      <td class="empty">
+        <div class="show" style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+          <a href="{{ tl(link.hero) }}">
+            <img src="{{ img.hero_m }}" class="width_full" alt="{{ copy.alt_hero }}" title="{{ copy.alt_hero }}" width="100%" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
+          </a>
+        </div>
+      </td>
+    </tr>
+    <!--<![endif]-->
+    <tr>
+      <td class="empty" bgcolor="#ffffff">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full">
+          <tr>
+            <td class="empty width_20" width="45">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table cellpadding="0" cellspacing="0" border="0" align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="h3 deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    {{ copy.headline[0] }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    {{ copy.body[0] }} {{ copy.body[1] }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty center" align="center">
+                    <table align="center">
+                      <tr>
+                        <td class="empty" width="24">&nbsp;</td>
+                        <td>
+                          <a href="{{ tl(link.hero) }}">
+                            <img src="{{ img.phones }}" width="381" class="width_full" />
+                          </a>
+                        </td>
+                        <td class="empty" width="24">&nbsp;</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" align="center">
+                    <table border="0" cellspacing="0" cellpadding="0" align="center">
+                      <tr>
+                        <td align="center" class="button center" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
+                          <a href="{{ tl(link.cta) }}" target="_blank" class="button nowrap">
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                            {{ copy.cta }}
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="h3 deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    {{ copy.headline[1] }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="6">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    <a href="{{ tl(link.text[2]) }}" class="deep_grey">{{ copy.body[2] }}</a> | 
+                    <a href="{{ tl(link.text[1]) }}" class="deep_grey">{{ copy.body[3] }}</a>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty center">
+                    <table align="center" class="center">
+                      <tr>
+                        <td class="empty center" align="center">
+                          <a href="{{ tl(link.alt[0]) }}" class="blue">
+                            <img src="{{ img.logo_twitter_large }}" height="36" title="{{ copy.alt[1] }}" alt="{{ copy.alt[1] }}"/>
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="45">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%" bgcolor="#ffffff">
+          <tr>
+            <td class="empty" bgcolor="#d3d3d3" height="2">
+              &nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td class="empty" height="23">
+              &nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td class="download deep_grey center" align="center" dir="{{ dir('ltr') }}">
+              {{ copy.body[4] }}
+            </td>
+          </tr>
+          <tr>
+            <td class="empty" height="8">
+              &nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td class="empty center apps" align="center" dir="{{ dir('ltr') }}" style="line-height: 20px;">
+              <img src="{{ img.apps[1] }}" alt="{{ copy.apps[1] }}" title="{{ copy.apps[0] }}" height="20"/>
+              <img src="{{ img.apps[0] }}" title="" height="20"/>
+              <img src="{{ img.apps[2] }}" alt="{{ copy.apps[1] }}" title="{{ copy.apps[1] }}" height="20"/>
+              <img src="{{ img.apps[0] }}" title="" height="20"/>
+              <span style="white-space: nowrap;">
+                <img src="{{ img.apps[5] }}" alt="{{ copy.apps[4] }}" title="{{ copy.apps[4] }}" height="20"/>
+                <img src="{{ img.apps[0] }}" title="" height="20"/>
+                <img src="{{ img.apps[6] }}" alt="{{ copy.apps[5] }}" title="{{ copy.apps[5] }}" height="20"/>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td class="empty" height="21">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#f5f8fa" width="640" class="width_full">
+          <tr>
+            <td class="empty width_20" width="45">
+              &nbsp;
+            </td>
+            <td class="empty center">
+              <table align="center" class="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer strong deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    <a href="{{ tl(link.help,3) }}" class="footer_grey">
+                      {{ copy.footer[0] }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ tl(link.reset,2) }}" class="footer_grey">
+                      {{ copy.footer[1] }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ link.download }}" class="footer_grey nowrap">
+                      {{ copy.footer[2] }}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer footer_grey center" align="center">
+                    {{ copy.disclaimer }} <a href="{{ link.unsubscribe }}" class="link_deep_grey"><u>{{ copy.footer[3] }}</u></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer footer_grey center" align="center">
+                    <span class="addressLink">{{ "{{>manhattan:static:address_twitter/html_content}}" }}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="45">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+{% endblock %}

@@ -1,0 +1,140 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set uid = "" %}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "hero" : "https://twitter.com",
+  "cta" : "https://twitter.com",
+  "blue" : [
+    "https://twitter.com"
+  ],
+  "alt" : [
+    "https://twitter.com"
+  ],
+  "about" : "https://twitter.com/about",
+  "help" : "https://support.twitter.com/",  
+  "reset" : "https://twitter.com/account/begin_password_reset?account_identifier={{screen_name}}",  
+  "download" : "https://twitter.com/download",
+  "unsubscribe" : "{{unsubscribe}}"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject_line" : "Subject line varies",
+  "preheader" : "Get upgraded to the new Twitter for Windows",
+  "alt_logo" : "Twitter",
+  "alt_hero" : "Get upgraded to the new Twitter for Windows",
+  "body" : [
+    "Up your Tweet game with the new Twitter for Windows",
+    "We built a new Twitter for Windows to provide you with a simpler and more powerful experience.",
+    "Discover what's happening with Explore",
+    "See what Tweets, videos, and Moments are making waves, or search Twitter for whatever's on your mind.",
+    "Savor Tweets longer with Bookmarks",
+    "Some Tweets are too good to let pass by. Bookmarks lets you save those important Tweets for later."
+  ],
+  "cta" : [
+    "Download",
+    "Download",
+    "Download",
+    "Download",
+    "Download"
+  ],
+  "blue" : [
+    "Twitter for Windows"
+  ],
+  "download_app" : "Download Twitter and watch live video on the&nbsp;following&nbsp;devices:",
+  "alt" : [  
+    "TicToc by Bloomberg",
+    "Twitter LIVE"
+  ],
+  "apps" : [
+    "Apple TV",
+    "Google Play",
+    "Roku",
+    "Xbox One",
+    "Windows 10",
+    "Amazon Fire TV"
+  ],
+  "footer" : ["Help", "Reset Password", "Download App", "Unsubscribe"], 
+  "disclaimer" : "We sent this to @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# BODY COPY MACRO / AUTO COUNTER #}
+{% set count_body = 0 %}
+{% macro cb() -%}
+  {{ count_body|float }}
+  {% set count_body = count_body + 1 %}
+{%- endmacro %}
+
+{# LINK CTA MACRO / AUTO COUNTER #}
+{% set count_cta = 0 %}
+{% macro cc() -%}
+  {{ count_cta|float }}
+  {% set count_cta = count_cta + 1 %}
+{%- endmacro %}
+
+{# LINK CTA MACRO / AUTO COUNTER #}
+{% set count_cta_link = 0 %}
+{% macro ccl() -%}
+  {{ count_cta_link|float }}
+  {% set count_cta_link = count_cta_link + 1 %}
+{%- endmacro %}
+
+Subject: {{ i10n(pt(copy.subject_line)) }}
+
+{{ i10n(pt(copy.alt_hero)) }}
+{{ "> " + link.hero }}
+
+=
+
+{{ i10n(copy.body[0]) }}
+
+{{ i10n(copy.body[1]) }}
+
+=
+
+{{ i10n(copy.body[2]) }}
+
+{{ i10n(copy.body[3]) }}
+
+{{ i10n(copy.cta[0]) }}
+{{ "> " + link.cta }}
+
+=
+
+{{ i10n(copy.body[4]) }}
+
+{{ i10n(copy.body[5]) }}
+
+{{ i10n(copy.cta[0]) }}
+{{ "> " + link.cta }}
+
+=
+
+{{ i10n(copy.blue[0]) }}
+
+{{ i10n(copy.cta[0]) }}
+{{ "> " + link.cta }}
+
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.reset }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> " + link.download }}
+
+
+{{ i10n(pt(copy.disclaimer)) }}
+{{ i10n(copy.footer[3]) }}
+{{ "> " + link.unsubscribe }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

@@ -1,0 +1,20 @@
+{{#content_recs_subject_line_key_default}}
+	{{_i}}Check out your #TBT-worthy Tweets{{/i}}
+{{/content_recs_subject_line_key_default}}
+{{#content_recs_subject_line_key_reserved1}}
+	{{_i}}{{/i}}
+{{/content_recs_subject_line_key_reserved1}}
+{{#content_recs_subject_line_key_reserved2}}
+	{{_i}}{{/i}}
+{{/content_recs_subject_line_key_reserved2}}
+{{#content_recs_subject_line_key_reserved3}}
+	{{_i}}{{/i}}{{/content_recs_subject_line_key_reserved3}}
+{{^content_recs_subject_line_key_default}}
+	{{^content_recs_subject_line_key_reserved1}}
+		{{^content_recs_subject_line_key_reserved2}}
+			{{^content_recs_subject_line_key_reserved3}}
+				{{_i}}{{/i}}
+			{{/content_recs_subject_line_key_reserved3}}
+		{{/content_recs_subject_line_key_reserved2}}
+	{{/content_recs_subject_line_key_reserved1}}
+{{/content_recs_subject_line_key_default}}

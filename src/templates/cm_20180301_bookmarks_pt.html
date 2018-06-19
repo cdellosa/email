@@ -1,0 +1,92 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# COPY #}
+{% set copy = {
+  "preheader" : "You asked for it, you got it. Bookmarks are here.",
+  "subject_line" : "{{user_name}}, Bookmarks are now available on Twitter",
+  "alt_hero" : "Save a Tweet for later with Bookmarks",
+  "headline" : "Save a Tweet for later with Bookmarks",
+  "body" : "An easy and private way to hold on to important Tweets for future viewing, Bookmarks lets you enjoy Tweets you've saved whenever you want",
+  "cta" : "Explore Bookmarks",
+  "cta_2" : "Explore Bookmarks",
+  "body_2" : [
+    "Tap the to privately save a Tweet",
+    "Brighter headings and simpler designs make it easy to focus on what's important to you."
+  ],
+  "body_3" : [
+    "Tap \"Add Tweet to Bookmarks\" from menu list",
+    "See likes, replies, and Retweets as they happen. Know what's popular and join the conversation."
+  ],
+  "body_4" : [
+    "Tap your avatar to access Bookmarks",
+    "New, intuitive icons allow you to join the action on Twitter with ease."
+  ],
+  "body_5" : [
+    "Improved Navigation",
+    "Manage your profile, settings, privacy, and more, all in one place."
+  ],
+  "alt_logo" : "Twitter",
+  "footer" : ["About", "Help", "Unsubscribe", "Download app"],
+  "disclaimer" : "We sent this to @" + signal("screen_name","Somebody"),
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "http://twitter.com",
+  "cta" : "http://twitter.com",
+  "cta_footer" : "http://twitter.com",
+  "text" : "http://twitter.com",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+Subject: {{ i10n(pt(copy.subject_line)) }}
+
+{{ i10n(copy.headline) }} 
+
+{{ i10n(copy.body) }} 
+
+{{ i10n(copy.cta) }} 
+{{ "> " + link.cta }}
+
+=
+
+{{ i10n(copy.body_2[0]) }} 
+
+{{ i10n(copy.body_2[1]) }} 
+
+=
+
+{{ i10n(copy.body_3[0]) }} 
+
+=
+
+{{ i10n(copy.body_4[0]) }} 
+
+=
+
+{{ i10n(copy.cta_2) }} 
+{{ "> " + link.cta }}
+
+=
+
+{{ i10n(copy.footer[0]) }} 
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }} 
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }} 
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }} 
+{{ "> " + link.download }}
+
+{{ i10n(copy.disclaimer) }} 
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

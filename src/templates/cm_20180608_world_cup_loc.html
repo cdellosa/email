@@ -1,0 +1,39 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# COPY #}
+{% set copy = {
+  "body" : [
+    "@{{screen_name}}, follow the #WorldCup on Twitter.",
+    "@{{screen_name}}, don't miss the #WorldCup on Twitter",
+    "32 teams. 64 matches. Don't miss a thing.",
+    "All the World Cup. All in one place.",
+    "#GroupStage is happening. #32Dreams is happening. #WorldCup is happening.",
+    "See more on",
+    "32 teams. 64 matches. 1 dream. Don't miss a moment.",
+    "The wait is over - #WorldCup is here! It's easy to stay on top of the action and reactions, all in one place. Find the latest World Cup results, highlights and important moments. Hear directly from players, pundits, and fans all around the world. Make Twitter your home for World Cup and never miss a Moment.",
+    "#WorldCup is happening.",
+    "@TwitterSports",
+    "#WorldCup",
+    "Download Twitter and watch live video on the following devices:"
+  ]
+} %}
+
+{# BODY COPY MACRO / AUTO COUNTER #}
+{% set count_body = 0 %}
+{% macro cb() -%}
+  {{ count_body|float }}
+  {% set count_body = count_body + 1 %}
+{%- endmacro %}
+
+{{ i10n(pt(copy.body[cb()|float])) }}
+{{ i10n(pt(copy.body[cb()|float])) }}
+{{ i10n(pt(copy.body[cb()|float])) }}
+{{ i10n(pt(copy.body[cb()|float])) }}
+{{ i10n(pt(copy.body[cb()|float])) }}
+{{ i10n(pt(copy.body[cb()|float])) }}
+{{ i10n(pt(copy.body[cb()|float])) }}
+{{ i10n(pt(copy.body[cb()|float])) }}
+{{ i10n(pt(copy.body[cb()|float])) }}

@@ -5,13 +5,14 @@
 {% set bgcolor_main = "#ffffff" %}
 
 {# IBIS SWITCH #}
-{% set ibis_2 = true %}
+{% set ibis_2 = false %}
 
 {% set mobile_fix_remove = true %}
 
 {# LINKS #}
 {% set link = {
   "logo" : "https://twitter.com",
+  "avatar" : "http://twitter.com/{{#recipient}}{{screen_name}}{{/recipient}}",
   "cta" : "https://twitter.com/i/notifications",
   "cta_m" : "https://twitter.com/download",
   "icon" : {
@@ -47,7 +48,7 @@
     "All your mentions, follows, replies, likes, and Retweets are consolidated into this convenient new digest. Now you’ll know exactly what’s happening with your Tweets without cluttering up your inbox."
   ],
   "footer" : ["Help", "Settings", "Unsubscribe"],
-  "disclaimer" : "This email was generated for @" + mustache("{{#recipient}}{{screen_name}}{{/recipient}}","Somebody") + ".",
+  "disclaimer" : "We sent this to @" + mustache("{{#recipient}}{{screen_name}}{{/recipient}}","Somebody") + ".",
   "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
 } %}
 
@@ -55,6 +56,7 @@
 {% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
 {% set img = {
   "spacer_3_1" : prefix_img + "spacer_3_x_1-1480718996570.png",
+  "avatar" : "{{{recipient.userWrapper.profile.get.profileImageUrls.get.reasonablySmall.httpsUrl}}}",
   "logo" : prefix_img + "logo_twitter-1497383721365.png",
   "icon" : {
     "follow" : prefix_img + "edge_follow-1498066923149.png",
@@ -184,20 +186,6 @@
       .text_black a {
         color: #292F33 !important;
       }
-
-      @media only screen and (max-width: 768px) {
-        .hide {
-          display: none !important;
-        }
-
-        .show {
-          overflow: visible !important;
-          float: none !important;
-          display: table !important;
-          line-height: 100% !important;
-          width: 100% !important;
-        }
-      }
     </style>
     <!--[if IE]>
     <style type="text/css" inline="false">
@@ -212,14 +200,35 @@
 {% block body %}
   {{ header_begin(mustache("#ffffff","#ffffff")) }}
   {{ header_spacer(24) }}
-  {{ header_icon(img.logo, tl(link.logo,1), 28, align("left"), "Twitter") }}
+  <tr>
+    <td>
+      <table align="{{ align('left') }}">
+        <tr>
+          <td class="image empty" align="{{ align('left') }}">
+            <a href="{{ tl(link.avatar) }}">
+              <img src="{{ img.avatar }}" width="32" class="avatar" />
+            </a>
+          </td>
+        </tr>
+      </table>
+      <table align="{{ align('right') }}">
+        <tr>
+          <td class="image empty" align="{{ align('right') }}">
+            <a href="{{ tl(link.logo) }}">
+              <img src="{{ img.logo }}" width="32" alt="{{ copy.alt_logo }}" title="{{ copy.alt_logo }}" />
+            </a>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
   {{ header_spacer(12) }}
   {{ header_title( mustache("{{#total_count_one}}") + i10n(pt(copy.title)) + mustache("{{/total_count_one}}") + mustache("{{^total_count_one}}") + mustache(i10n(pt(copy.title_p))) + mustache("{{/total_count_one}}"), align("left")) }}
   {{ header_spacer(18) }}
   <!-- BUTTON -->
   <tr>
     <td class="empty" align="{{ align('left') }}">
-      <table border="0" cellspacing="0" cellpadding="0" align="{{ align('left') }}" class="hide">
+      <table border="0" cellspacing="0" cellpadding="0" align="{{ align('left') }}">
         <tr>
           <td align="center" class="button" bgcolor="{{ mustache('#{{randomBgColor}}','#1DA1F2') }}">
             <a href="{{ tl(link.cta,2) }}" target="_blank" class="button">
@@ -230,21 +239,6 @@
           </td>
         </tr>
       </table>
-      <!--[if !gte mso 9]><!---->
-        <div class="show" style="display: none; max-height: 0; overflow: hidden;mso-hide: all;margin: auto;">
-          <table border="0" cellspacing="0" cellpadding="0" align="{{ align('left') }}">
-            <tr>
-              <td align="center" class="button" bgcolor="{{ mustache('#{{randomBgColor}}','#1DA1F2') }}">
-                <a href="{{ tl(link.cta_m,2) }}" target="_blank" class="button">
-                  <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                  {{ i10n(copy.cta_m) }}
-                  <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                </a>
-              </td>
-            </tr>
-          </table>
-        </div>
-      <!--<![endif]-->
     </td>
   </tr>
   {{ header_end() }}

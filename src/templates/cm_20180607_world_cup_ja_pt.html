@@ -1,0 +1,106 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/jfa_samuraiblue/lists/samurai-blue-worldcup2018/members",  
+  "text" : [  
+    "https://twitter.com/jfa",
+    "https://twitter.com/search?q=%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%82%AB%E3%83%83%E3%83%97&src=typeahead_click",
+    "https://twitter.com/TwitterSportsJP"
+  ],  
+  "alt" : [  
+    "https://twitter.com"
+  ],  
+  "cta" : "https://twitter.com/",
+  "logo_twitter_large" : "https://twitter.com/",  
+  "about" : "https://twitter.com/about",
+  "help" : "https://support.twitter.com/",  
+  "reset" : "https://twitter.com/account/begin_password_reset?account_identifier={{screen_name}}",  
+  "download" : "https://twitter.com/download",
+  "unsubscribe" : "{{unsubscribe}}"
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [  
+    "@{{screen_name}}さん、#ワールドカップ フォローパックを作りましょう"
+  ],  
+  "preheader" : "チームがそろいました。自分だけのチームを作りましょう。",
+  "alt_hero" : "#サッカー の今がある。 #熱狂 の今がある。 #ワールドカップ の今がある。",  
+  "cta" : "フォローパックをチェック",  
+  "headline" : [  
+    "出場チームが出揃いました。注目している選手をフォローしましょう。",
+    "#ワールドカップの今がある。"
+  ],  
+  "body" : [  
+    "誰をフォローしたらよいか迷っている場合は、@JFA フォローパックを使うとお気に入りの選手だけを選んでフォローできます。 選手全員をチェックしましょう。好きな選手だけを追加できます。 #ワールドカップの今がある。お見逃しなく。",
+    "",
+    "@TwitterJP",
+    "#ワールドカップ",
+    "以下の端末でTwitterをダウンロードしてライブ放送を視聴できます。"
+  ],  
+  "alt" : [  
+    "Twitter"
+  ],   
+  "apps" : [
+    "Apple TV",
+    "Google Play",
+    "Xbox One",
+    "Windows 10",
+    "Amazon Fire TV"
+  ], 
+  "footer" : ["ヘルプ", "パスワードをリセット", "アプリをダウンロード", "メール配信停止"], 
+  "disclaimer" : "これが@" + signal("screen_name","Somebody") + " さんに送信されました。", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}    
+
+Subject: {{ copy.subject[0] }}
+
+{{ copy.alt_hero }}
+{{ "> " + link.hero }}
+
+=
+
+{{ copy.headline[0] }}
+
+{{ copy.body[0] }} {{ copy.body[1] }}
+
+{{ copy.cta }}
+{{ "> " + link.cta }}
+
+{{ copy.headline[1] }}
+
+{{ copy.body[2] }}
+{{ "> " + link.text[2] }}
+
+{{ copy.body[3] }}
+{{ "> " + link.text[1] }}
+
+=
+
+{{ copy.alt[0] }}
+{{ "> " + link.alt[0] }}
+
+=
+
+{{ copy.body[4] }}
+{{ copy.apps[0] }} | {{ copy.apps[1] }} | {{ copy.apps[2] }} | {{ copy.apps[3] }}
+
+=
+
+{{ copy.footer[0] }}
+{{ "> " + link.about }}
+
+{{ copy.footer[1] }}
+{{ "> " + link.help }}
+
+{{ copy.footer[2] }}
+{{ "> " + link.download }}
+
+{{ copy.disclaimer }} {{ copy.footer[3] }}
+{{ "> {{ unsubscribe }}" }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

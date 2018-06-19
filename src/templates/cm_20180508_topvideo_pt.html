@@ -1,0 +1,99 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/moments/992148742055739393",   
+  "cta" : "https://twitter.com/i/moments/992148742055739393",
+  "tweet" : [  
+    "https://twitter.com/i/moments/992148742055739393"
+  ],  
+  "help" : "https://support.twitter.com/",  
+  "reset" : "https://twitter.com/account/begin_password_reset?account_identifier={{screen_name}}",  
+  "download" : "https://twitter.com/download",
+  "unsubscribe" : "{{unsubscribe}}"
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [  
+    "@{{user_name}}, this week in Twitter Videos: Puns and penguins"
+  ],  
+  "preheader" : "This Week in Twitter Videos",
+  "alt_hero" : "Twitter Videos of the Week",
+  "cta" : "Go to Moment",  
+  "headline" : [  
+    "Catch up on some of the must-see videos shared on Twitter this week.",
+    "Thursday, December 7<br>8:30pm&nbsp;ET&nbsp;/&nbsp;5:30pm&nbsp;PT",
+    "Watch it. Talk about it."
+  ],  
+  "body" : [  
+    "The Twitter Video Recap of the Week has precious pets and double take moments that you simply cannot miss. Take a look, and hit Retweet on some of your favorites. Want to join in the fun? Share your videos on Twitter, and who knows... they could be featured here as well!"
+  ],
+  "tweet" : [
+    {
+      "user_name" : "Twitter",
+      "screen_name" : "Twitter",
+      "title" : "This Week in Twitter Videos: Puns and penguins 🐧",
+      "time" : "Twitter - May 4, 2018",
+      "text" : "Choose wisely… you can LOL at @ThomasSanders making wizard puns, @AmazingPhil making toast, or a penguin chasing a butterfly.",
+      "reply" : "",
+      "retweet" : "",
+      "like" : "115"
+    }
+  ],
+  "social" : [
+    "Reply",
+    "Retweet",
+    "Like"
+  ],  
+  "footer" : ["Help", "Reset Password", "Download App", "Unsubscribe"],  
+  "disclaimer" : "We sent this to @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %} 
+
+Subject: {{ i10n(pt(copy.subject[0])) }}
+
+{{ i10n(pt(copy.preheader)) }}
+
+{{ i10n(pt(copy.alt_hero)) }}
+{{ "> " + link.hero }}
+
+=
+
+{{ i10n(pt(copy.headline[0])) }}
+
+{{ i10n(pt(copy.body[0])) }}
+
+{{ i10n(pt(copy.cta)) }}
+{{ "> " + link.cta }}
+
+=
+
+{{ copy.tweet[0].title }}
+{{ copy.tweet[0].time }}
+{{ copy.tweet[0].text }}
+
+
+{{ i10n(pt(copy.cta)) }}
+{{ "> " + link.tweet[0] }}
+
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.reset }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> " + link.download }}
+
+
+{{ i10n(pt(copy.disclaimer)) }}
+{{ i10n(copy.footer[3]) }}
+{{ "> " + link.unsubscribe }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

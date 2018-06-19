@@ -1,0 +1,105 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/equipedefrance/status/1000364353869307905?s=21",  
+  "text" : [  
+    "https://twitter.com/equipedefrance/status/1000364353869307905?s=21",
+    "https://twitter.com/search?q=%23CoupeDuMonde&src=typeahead_click",
+    "https://twitter.com/TwitterFrance"
+  ],  
+  "alt" : [  
+    "https://twitter.com"
+  ],  
+  "cta" : "https://twitter.com/equipedefrance/status/1000364353869307905?s=21",
+  "logo_twitter_large" : "https://twitter.com/",  
+  "about" : "https://twitter.com/about",
+  "help" : "https://support.twitter.com/",  
+  "reset" : "https://twitter.com/account/begin_password_reset?account_identifier={{screen_name}}",  
+  "download" : "https://twitter.com/download",
+  "unsubscribe" : "{{unsubscribe}}"
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [  
+    "@{{screen_name}}, créez votre kit de suivi #CoupeDuMonde"
+  ],  
+  "preheader" : "Les équipes sont constituées. Maintenant, créez la vôtre.",
+  "alt_hero" : "#FiersdetreBleus c'est maintenant. La #CoupeDuMonde c'est maintenant. Suivre maintenant",  
+  "cta" : "C'est parti",  
+  "headline" : [  
+    "Les équipes sont constituées. Maintenant, créez la vôtre.",
+    "La #CoupeDuMonde, c'est maintenant."
+  ],  
+  "body" : [  
+    "Qui allez-vous suivre ? Le kit de suivi @Equipedefrance vous permet de sélectionner votre propre équipe de héros à suivre sur Twitter. Découvrez tous les joueurs. Ajoutez ceux que vous aimez, et c'est tout. La #CoupeDuMonde, c'est maintenant. Ne manquez rien.",
+    "",
+    "@TwitterFrance",
+    "#CoupeDuMonde",
+    "Téléchargez Twitter et regardez des vidéos en direct sur les appareils suivants:"
+  ],  
+  "alt" : [  
+    "Twitter"
+  ],   
+  "apps" : [
+    "Apple TV",
+    "Google Play",
+    "Xbox One",
+    "Windows 10"
+  ], 
+  "footer" : ["Aide", "Réinitialiser le mot de passe", "Télécharger l'application", "Se désinscrire"], 
+  "disclaimer" : "Nous avons envoyé cet email à @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}    
+
+Subject: {{ copy.subject[0] }}
+
+{{ copy.alt_hero }}
+{{ "> " + link.hero }}
+
+=
+
+{{ copy.headline[0] }}
+
+{{ copy.body[0] }} {{ copy.body[1] }}
+
+{{ copy.cta }}
+{{ "> " + link.cta }}
+
+{{ copy.headline[1] }}
+
+{{ copy.body[2] }}
+{{ "> " + link.text[2] }}
+
+{{ copy.body[3] }}
+{{ "> " + link.text[1] }}
+
+=
+
+{{ copy.alt[0] }}
+{{ "> " + link.alt[0] }}
+
+=
+
+{{ copy.body[4] }}
+{{ copy.apps[0] }} | {{ copy.apps[1] }} | {{ copy.apps[2] }}
+
+=
+
+{{ copy.footer[0] }}
+{{ "> " + link.about }}
+
+{{ copy.footer[1] }}
+{{ "> " + link.help }}
+
+{{ copy.footer[2] }}
+{{ "> " + link.download }}
+
+{{ copy.disclaimer }} {{ copy.footer[3] }}
+{{ "> {{ unsubscribe }}" }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

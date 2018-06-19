@@ -1,0 +1,1286 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set uid = "" %}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "hero" : "https://twitter.com",
+  "cta" : "https://twitter.com",
+  "blue" : [
+    "https://twitter.com"
+  ],
+  "alt" : [
+    "https://twitter.com"
+  ],
+  "about" : "https://twitter.com/about",
+  "help" : "https://support.twitter.com/",  
+  "reset" : "https://twitter.com/account/begin_password_reset?account_identifier={{screen_name}}",  
+  "download" : "https://twitter.com/download",
+  "unsubscribe" : "{{unsubscribe}}"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject_line" : "Subject line varies",
+  "preheader" : "Get upgraded to the new Twitter for Windows",
+  "alt_logo" : "Twitter",
+  "alt_hero" : "Get upgraded to the new Twitter for Windows",
+  "body" : [
+    "Up your Tweet game with the new Twitter for Windows",
+    "We built a new Twitter for Windows to provide you with a simpler and more powerful experience.",
+    "Discover what's happening with Explore",
+    "See what Tweets, videos, and Moments are making waves, or search Twitter for whatever's on your mind.",
+    "Savor Tweets longer with Bookmarks",
+    "Some Tweets are too good to let pass by. Bookmarks lets you save those important Tweets for later."
+  ],
+  "cta" : [
+    "Download",
+    "Download",
+    "Download",
+    "Download",
+    "Download"
+  ],
+  "blue" : [
+    "Twitter for Windows"
+  ],
+  "download_app" : "Download Twitter and watch live video on the&nbsp;following&nbsp;devices:",
+  "alt" : [  
+    "TicToc by Bloomberg",
+    "Twitter LIVE"
+  ],
+  "apps" : [
+    "Apple TV",
+    "Google Play",
+    "Roku",
+    "Xbox One",
+    "Windows 10",
+    "Amazon Fire TV"
+  ],
+  "footer" : ["Help", "Reset Password", "Download App", "Unsubscribe"], 
+  "disclaimer" : "We sent this to @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# BODY COPY MACRO / AUTO COUNTER #}
+{% set count_body = 0 %}
+{% macro cb() -%}
+  {{ count_body|float }}
+  {% set count_body = count_body + 1 %}
+{%- endmacro %}
+
+{# LINK CTA MACRO / AUTO COUNTER #}
+{% set count_cta = 0 %}
+{% macro cc() -%}
+  {{ count_cta|float }}
+  {% set count_cta = count_cta + 1 %}
+{%- endmacro %}
+
+{# LINK CTA MACRO / AUTO COUNTER #}
+{% set count_cta_link = 0 %}
+{% macro ccl() -%}
+  {{ count_cta_link|float }}
+  {% set count_cta_link = count_cta_link + 1 %}
+{%- endmacro %}
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "logo_twitter" : prefix_img + "icon_twitter_blue.png",
+  "alt" : [
+    prefix_img + "cm_20180104_btt_icon_tictoc-1515189710842.png",
+    prefix_img + "logo-1475170569504.png"
+  ],
+  "hero" : prefix_img + "cm_20180514_twitter_windows_hero-1525886706534.jpg",
+  "hero_mso" : prefix_img + "cm_20180514_twitter_windows_hero-1525886706534.jpg",
+  "photo_1" : prefix_img + "cm_20180514_twitter_windows_photo_1-1525886706545.jpg",
+  "photo_2" : prefix_img + "cm_20180514_twitter_windows_photo_2-1525886706569.jpg",
+  "photo_3" : prefix_img + "cm_20180104_btt_photo_03-1515192880426.jpg",
+  "photo_4" : prefix_img + "email_confirm_init_v2_photo_3-1508970978253.jpg",
+  "photo_5" : prefix_img + "email_confirm_init_v2_photo_4-1508970978278.jpg",
+  "apps" : [
+    prefix_img + "apps_line-1501197126309.png",
+    prefix_img + "apps_apple-1501204946130.png",
+    prefix_img + "apps_google-1501197126312.png",
+    prefix_img + "apps_roku-1501204946153.png",
+    prefix_img + "apps_xbox_one-1501197126317.png",
+    prefix_img + "apps_windows-1501197126311.png",
+    prefix_img + "apps_amazon-1501204946080.png"
+  ]
+} %}
+
+{# CSS #}
+{% block style %}
+    .no-link a {
+      color: #8899A6;
+      text-decoration: none;
+    }
+
+    a {
+      color: #1DA1F2;
+      text-decoration: none;
+    }
+
+    td.button {
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      line-height: 18px;
+    }
+
+    a.button {
+      font-size: 16px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #1DA1F2; 
+      text-decoration: none;
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      padding: 6px 20px; 
+      border: 1px solid #ffffff;
+      display: inline-block; 
+      font-weight: bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a.button_yellow {
+      font-size: 16px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      padding: 7px 24px; 
+      border: 1px solid #1DA1F2;
+      display: inline-block; 
+      font-weight: bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .button img {
+      display: inline;
+      vertical-align: top;
+    }
+
+    .headline {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 66px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: bold;
+      line-height: 66px;
+      color: #14171a;
+    }
+
+    .subheadline {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 26px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: bold;
+      line-height: 30px;
+      color: #657786;
+    }
+
+    .headline_2 {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 21px;
+      line-height: 25px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: bold;
+    }
+
+    .body {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 18px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 22px;
+      color: #657786;
+    }
+
+    .m_pad_footer {
+      padding: 0px 15px;
+    }
+
+    .text_black {
+      color: #292F33 !important;
+    }
+
+    .white {
+      color: #ffffff;
+    }
+
+    .show {
+      width: 0px;
+      display: none;
+    }
+
+    .show_ios {
+      width: 0px;
+      display: none;
+    }
+
+    .download {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 13px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: 600;
+      line-height: 16px;
+    }
+
+    .footer_grey {
+      color: #8899a6;
+    }
+
+    .link_deep_grey {
+      color: #8899a6;
+      text-decoration: underline;
+    }
+{% endblock %}
+
+{% block media_query %}
+        .hide {
+          display: none !important;
+        }
+
+        .show {
+          overflow: visible !important;
+          float: none !important;
+          display: table !important;
+          line-height: 100% !important;
+          width: 100% !important;
+        }
+
+        .width_full {
+          width: 100% !important;
+          min-width: 360px !important;
+        }
+
+        .width_zero {
+          width: 0px !important;
+        }
+
+        .height_zero {
+          height: 0px !important;
+        }
+
+        .height_12 {
+          height: 12px !important;
+        }
+
+        .height_40 {
+          height: 40px !important;
+        }
+
+        .height_50 {
+          height: 50px !important;
+        }
+
+        .height_65 {
+          height: 65px !important;
+        }
+
+        .module_height {
+          height: auto !important;
+        }
+
+        .m_center {
+          text-align: center !important;
+        }
+
+        .m_pad_footer {
+          padding-left: 30px !important;
+          padding-right: 30px !important;
+        }
+
+        .headline {
+          font-size: 36px !important;
+          line-height: 36px !important;
+        }
+
+        .subheadline {
+          font-size: 24px !important;
+          line-height: 28px !important;
+        }
+
+        .bg_white {
+          background-color: #ffffff !important;
+        }
+
+        .bg_grey {
+          background-color: #f5f8fa !important;
+        }
+
+        .download {
+          padding: 0px 24px !important;
+        }        
+{% endblock %}
+
+{% block style_custom %}{% endblock %}
+
+{% block body %}
+  <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#f5f8fa" width="100%" class="width_full" dir="{{ dir('ltr') }}">
+    <tr>
+      <td class="empty">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full">
+          <tr>
+            <td class="width_full">
+              <!--[if !gte mso 9]><!---->
+              <a href="{{ tl(link.hero) }}">
+                <img src="{{'
+                  {{#lang_ar}}
+                    https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero_ar-1526513751835.jpg
+                  {{/lang_ar}}
+                  {{#lang_en}}
+                    https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero-1525886706534.jpg
+                  {{/lang_en}}
+                  {{#lang_en-gb}}
+                    https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero_en_gb-1526513751835.jpg
+                  {{/lang_en-gb}}
+                  {{#lang_es}}
+                    {{#region_es}}
+                      https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero_es_es-1526513751835.jpg
+                    {{/region_es}}
+                    {{^region_es}}
+                      https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero_es_lx-1526513751835.jpg
+                    {{/region_es}}
+                  {{/lang_es}}
+                  {{#lang_fr}}
+                    https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero_fr-1526513751835.jpg
+                  {{/lang_fr}}
+                  {{#lang_hi}}
+                    https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero_hi-1526513751872.jpg
+                  {{/lang_hi}}
+                  {{#lang_it}}
+                    https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero_it-1526513752070.jpg
+                  {{/lang_it}}
+                  {{#lang_ja}}
+                    https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_explore_ja-1526513752192.jpg
+                  {{/lang_ja}}
+                  {{#lang_ko}}
+                    https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero_ko-1526513752040.jpg
+                  {{/lang_ko}}
+                  {{#lang_pt}}
+                    https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero_pt-1526513752044.jpg
+                  {{/lang_pt}}
+                  {{#lang_ru}}
+                    https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero_ru-1526513752078.jpg
+                  {{/lang_ru}}
+                  {{#lang_tr}}
+                    https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero_tr-1526513752070.jpg
+                  {{/lang_tr}}
+                  {{^lang_ar}}
+                    {{^lang_en}}
+                      {{^lang_en-gb}}
+                        {{^lang_es}}
+                          {{^lang_fr}}
+                            {{^lang_hi}}
+                              {{^lang_it}}
+                                {{^lang_ja}}
+                                  {{^lang_ko}}
+                                    {{^lang_pt}}
+                                      {{^lang_ru}}
+                                        {{^lang_tr}}
+                                          https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero-1525886706534.jpg
+                                        {{/lang_tr}}
+                                      {{/lang_ru}}
+                                    {{/lang_pt}}
+                                  {{/lang_ko}}
+                                {{/lang_ja}}
+                              {{/lang_it}}
+                            {{/lang_hi}}
+                          {{/lang_fr}}
+                        {{/lang_es}}
+                      {{/lang_en-gb}}
+                    {{/lang_en}}
+                  {{/lang_ar}}
+                '}}" width="640" class="width_full" alt="{{ copy.alt_hero }}" title="{{ copy.alt_hero }}"/>
+              </a>
+              <!--<![endif]-->
+              <!--[if gte mso 9]>
+              <a href="{{ tl(link.hero) }}">
+                <img src="{{'
+                  {{#lang_ar}}
+                    https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero_ar-1526513751835.jpg
+                  {{/lang_ar}}
+                  {{#lang_en}}
+                    https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero-1525886706534.jpg
+                  {{/lang_en}}
+                  {{#lang_en-gb}}
+                    https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero_en_gb-1526513751835.jpg
+                  {{/lang_en-gb}}
+                  {{#lang_es}}
+                    {{#region_es}}
+                      https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero_es_es-1526513751835.jpg
+                    {{/region_es}}
+                    {{^region_es}}
+                      https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero_es_lx-1526513751835.jpg
+                    {{/region_es}}
+                  {{/lang_es}}
+                  {{#lang_fr}}
+                    https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero_fr-1526513751835.jpg
+                  {{/lang_fr}}
+                  {{#lang_hi}}
+                    https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero_hi-1526513751872.jpg
+                  {{/lang_hi}}
+                  {{#lang_it}}
+                    https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero_it-1526513752070.jpg
+                  {{/lang_it}}
+                  {{#lang_ja}}
+                    https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_explore_ja-1526513752192.jpg
+                  {{/lang_ja}}
+                  {{#lang_ko}}
+                    https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero_ko-1526513752040.jpg
+                  {{/lang_ko}}
+                  {{#lang_pt}}
+                    https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero_pt-1526513752044.jpg
+                  {{/lang_pt}}
+                  {{#lang_ru}}
+                    https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero_ru-1526513752078.jpg
+                  {{/lang_ru}}
+                  {{#lang_tr}}
+                    https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero_tr-1526513752070.jpg
+                  {{/lang_tr}}
+                  {{^lang_ar}}
+                    {{^lang_en}}
+                      {{^lang_en-gb}}
+                        {{^lang_es}}
+                          {{^lang_fr}}
+                            {{^lang_hi}}
+                              {{^lang_it}}
+                                {{^lang_ja}}
+                                  {{^lang_ko}}
+                                    {{^lang_pt}}
+                                      {{^lang_ru}}
+                                        {{^lang_tr}}
+                                          https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero-1525886706534.jpg
+                                        {{/lang_tr}}
+                                      {{/lang_ru}}
+                                    {{/lang_pt}}
+                                  {{/lang_ko}}
+                                {{/lang_ja}}
+                              {{/lang_it}}
+                            {{/lang_hi}}
+                          {{/lang_fr}}
+                        {{/lang_es}}
+                      {{/lang_en-gb}}
+                    {{/lang_en}}
+                  {{/lang_ar}}
+                '}}" width="640" class="width_full" alt="{{ copy.alt_hero }}" title="{{ copy.alt_hero }}"/>
+              </a>
+              <![endif]-->
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full">
+          <tr>
+            <td class="empty width_20" width="34">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table cellpadding="0" cellspacing="0" border="0" align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="40">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="headline_2 center" align="center" dir="{{ dir('ltr') }}"> 
+                    {{ i10n(copy.body[cb()|float]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td height="12" class="empty"></td>
+                </tr>
+                <tr>
+                  <td class="body black center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[cb()|float]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="40">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="1" bgcolor="#b7b7b7"></td>
+                </tr>
+                <tr>
+                  <td class="empty" height="35">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="34">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        {# MODULE - WHITE #}
+        <table cellpadding="0" cellspacing="0" border="0" align="center" width="640" class="width_full bg_white"  bgcolor="#ffffff">
+          <tr>
+            <td class="empty height_zero" height="34" colspan="3">
+              &nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td class="empty width_zero" width="34">
+              &nbsp;
+            </td>
+            <td class="empty" valign="top">
+              <!--[if gte mso 9]>
+              <table dir="rtl"><tr><td>
+              <![endif]-->
+              <table cellpadding="0" cellspacing="0" border="0" align="{{ align('right') }}" width="270" class="width_full hide">
+                <tr>
+                  <td class="empty image m_center">
+                    <a href="{{ tl(link.cta[ccl()|float]) }}">
+                      <img src="{{'
+                        {{#lang_ar}}
+                          https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_explore_ar-1526513752110.jpg
+                        {{/lang_ar}}
+                        {{#lang_en}}
+                          https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_1-1525886706545.jpg
+                        {{/lang_en}}
+                        {{#lang_en-gb}}
+                          https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_explore_en_gb-1526513752107.jpg
+                        {{/lang_en-gb}}
+                        {{#lang_es}}
+                          {{#region_es}}
+                            https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_explore_es_es-1526513752139.jpg
+                          {{/region_es}}
+                          {{^region_es}}
+                            https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_explore_es_lx-1526513752140.jpg
+                          {{/region_es}}
+                        {{/lang_es}}
+                        {{#lang_fr}}
+                          https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_explore_fr-1526513752151.jpg
+                        {{/lang_fr}}
+                        {{#lang_hi}}
+                          https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_explore_hi-1526513752160.jpg
+                        {{/lang_hi}}
+                        {{#lang_it}}
+                          https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_explore_it-1526513752176.jpg
+                        {{/lang_it}}
+                        {{#lang_ja}}
+                          https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_hero_ja-1526515327840.jpg
+                        {{/lang_ja}}
+                        {{#lang_ko}}
+                          https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_explore_ko-1526513752201.jpg
+                        {{/lang_ko}}
+                        {{#lang_pt}}
+                          https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_explore_pt-1526513752218.jpg
+                        {{/lang_pt}}
+                        {{#lang_ru}}
+                          https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_explore_ru-1526513752210.jpg
+                        {{/lang_ru}}
+                        {{#lang_tr}}
+                          https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_explore_tr-1526513752235.jpg
+                        {{/lang_tr}}
+                        {{^lang_ar}}
+                          {{^lang_en}}
+                            {{^lang_en-gb}}
+                              {{^lang_es}}
+                                {{^lang_fr}}
+                                  {{^lang_hi}}
+                                    {{^lang_it}}
+                                      {{^lang_ja}}
+                                        {{^lang_ko}}
+                                          {{^lang_pt}}
+                                            {{^lang_ru}}
+                                              {{^lang_tr}}
+                                                https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_1-1525886706545.jpg
+                                              {{/lang_tr}}
+                                            {{/lang_ru}}
+                                          {{/lang_pt}}
+                                        {{/lang_ko}}
+                                      {{/lang_ja}}
+                                    {{/lang_it}}
+                                  {{/lang_hi}}
+                                {{/lang_fr}}
+                              {{/lang_es}}
+                            {{/lang_en-gb}}
+                          {{/lang_en}}
+                        {{/lang_ar}}
+                      '}}" width="270" class="width_full">
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty height_40" height="0"></td>
+                </tr>
+              </table>
+              <!--[if !gte mso 9]><!---->
+                <div class="show" style="display: none; max-height: 0; overflow: hidden;mso-hide: all; margin: auto; width: 100%;">
+                  <table cellpadding="0" cellspacing="0" border="0" align="{{ align('left') }}" width="100%">
+                    <tr>
+                      <td class="empty image m_center">
+                        <a href="{{ tl(link.cta[ccl()|float]) }}">
+                          <img src="{{'
+                            {{#lang_ar}}
+                              https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_explore_ar-1526513752110.jpg
+                            {{/lang_ar}}
+                            {{#lang_en}}
+                              https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_1-1525886706545.jpg
+                            {{/lang_en}}
+                            {{#lang_en-gb}}
+                              https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_explore_en_gb-1526513752107.jpg
+                            {{/lang_en-gb}}
+                            {{#lang_es}}
+                              {{#region_es}}
+                                https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_explore_es_es-1526513752139.jpg
+                              {{/region_es}}
+                              {{^region_es}}
+                                https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_explore_es_lx-1526513752140.jpg
+                              {{/region_es}}
+                            {{/lang_es}}
+                            {{#lang_fr}}
+                              https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_explore_fr-1526513752151.jpg
+                            {{/lang_fr}}
+                            {{#lang_hi}}
+                              https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_explore_hi-1526513752160.jpg
+                            {{/lang_hi}}
+                            {{#lang_it}}
+                              https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_explore_it-1526513752176.jpg
+                            {{/lang_it}}
+                            {{#lang_ja}}
+                              https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_explore_ja-1526513752192.jpg
+                            {{/lang_ja}}
+                            {{#lang_ko}}
+                              https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_explore_ko-1526513752201.jpg
+                            {{/lang_ko}}
+                            {{#lang_pt}}
+                              https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_explore_pt-1526513752218.jpg
+                            {{/lang_pt}}
+                            {{#lang_ru}}
+                              https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_explore_ru-1526513752210.jpg
+                            {{/lang_ru}}
+                            {{#lang_tr}}
+                              https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_explore_tr-1526513752235.jpg
+                            {{/lang_tr}}
+                            {{^lang_ar}}
+                              {{^lang_en}}
+                                {{^lang_en-gb}}
+                                  {{^lang_es}}
+                                    {{^lang_fr}}
+                                      {{^lang_hi}}
+                                        {{^lang_it}}
+                                          {{^lang_ja}}
+                                            {{^lang_ko}}
+                                              {{^lang_pt}}
+                                                {{^lang_ru}}
+                                                  {{^lang_tr}}
+                                                    https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_1-1525886706545.jpg
+                                                  {{/lang_tr}}
+                                                {{/lang_ru}}
+                                              {{/lang_pt}}
+                                            {{/lang_ko}}
+                                          {{/lang_ja}}
+                                        {{/lang_it}}
+                                      {{/lang_hi}}
+                                    {{/lang_fr}}
+                                  {{/lang_es}}
+                                {{/lang_en-gb}}
+                              {{/lang_en}}
+                            {{/lang_ar}}
+                          '}}" width="100%">
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="empty height_40" height="0"></td>
+                    </tr>
+                  </table>
+                </div>
+              <!--<![endif]-->
+              <!--[if gte mso 9]>
+              </td><td width="34"></td><td>
+              <![endif]-->
+              <table cellpadding="0" cellspacing="0" border="0" align="{{ align('left') }}" width="270" class="width_full">
+                <tr>
+                  <td class="empty image">
+                    <table cellpadding="0" cellspacing="0" border="0" align="center" dir="{{ dir('ltr') }}" width="270" height="236" class="module_height">
+                      <tr>
+                        <td class="headline_2 black m_center" align="{{ align('left') }}" height="20" valign="top">
+                          {{ i10n(copy.body[cb()|float]) }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="empty" height="20">
+                          &nbsp;
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="empty" height="5">
+                          <table cellpadding="0" cellspacing="0" border="0" bgcolor="#1DA1F2" align="{{ align('left') }}" class="hide">
+                            <tr>
+                              <td height="5" width="40" class="empty"></td>
+                            </tr>
+                          </table>
+                          <!--[if !gte mso 9]><!---->
+                            <div class="show show_ios" style="display: none; max-height: 0; overflow: hidden;mso-hide: all;margin: auto;">
+                              <table cellpadding="0" cellspacing="0" border="0" bgcolor="#1DA1F2" align="center">
+                                <tr>
+                                  <td height="5" width="40" class="empty"></td>
+                                </tr>
+                              </table>
+                            </div>
+                          <!--<![endif]-->
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="empty" height="20">
+                          &nbsp;
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="body m_center" align="{{ align('left') }}" valign="top">
+                          {{ i10n(copy.body[cb()|float]) }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="empty height_50" height="20"></td>
+                      </tr>
+                    </table>
+                    <table border="0" cellspacing="0" cellpadding="0" align="{{ align('left') }}" class="hide">
+                      <tr>
+                        <td align="center" class="button center" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
+                          <a href="{{ tl(link.cta[ccl()|float]) }}" target="_blank" class="button_yellow">
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                            {{ i10n(copy.cta[0]) }}
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                    <!--[if !gte mso 9]><!---->
+                      <div class="show" style="display: none; max-height: 0; overflow: hidden;mso-hide: all;margin: auto;">
+                        <table border="0" cellspacing="0" cellpadding="0" align="center">
+                          <tr>
+                            <td align="center" class="button center" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
+                              <a href="{{ tl(link.cta[ccl()|float]) }}" target="_blank" class="button_yellow">
+                                <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                {{ i10n(copy.cta[0]) }}
+                                <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                      <div class="show_ios" style="display: none; max-height: 0; overflow: hidden;mso-hide: all;margin: auto;">
+                        <table border="0" cellspacing="0" cellpadding="0" align="center">
+                          <tr>
+                            <td align="center" class="button center" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
+                              <a href="{{tl(link.m_cta[1])}}" target="_blank" class="button_yellow">
+                                <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                {{ i10n(copy.cta[0]) }}
+                                <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    <!--<![endif]-->
+                  </td>
+                </tr>
+              </table>
+              <!--[if gte mso 9]>
+              </td></tr></table>
+              <![endif]-->
+            </td>
+            <td class="empty width_zero" width="34">
+              &nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td class="empty" height="34" colspan="3">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        {# MODULE - GREY #}
+        <table cellpadding="0" cellspacing="0" border="0" align="center" width="640" class="width_full bg_white" bgcolor="#ffffff">
+          <tr>
+            <td class="empty height_zero" height="34" colspan="3">
+              &nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td class="empty width_zero" width="34">
+              &nbsp;
+            </td>
+            <td class="empty" valign="top">
+              <!--[if gte mso 9]>
+              <table><tr><td>
+              <![endif]-->
+              <table cellpadding="0" cellspacing="0" border="0" align="{{ align('left') }}" width="270" class="width_full hide">
+                <tr>
+                  <td class="empty image m_center">
+                    <a href="{{ tl(link.cta[ccl()|float]) }}">
+                      <img src="{{'
+                        {{#lang_ar}}
+                          https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2_ar-1527286317390.jpg
+                        {{/lang_ar}}
+                        {{#lang_en}}
+                          https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2-1525886706569.jpg
+                        {{/lang_en}}
+                        {{#lang_en-gb}}
+                          https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2_en_gb-1527286317426.jpg
+                        {{/lang_en-gb}}
+                        {{#lang_es}}
+                          {{#region_es}}
+                            https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2_es_es-1527286317390.jpg
+                          {{/region_es}}
+                          {{^region_es}}
+                            https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2_es_lx-1527286317390.jpg
+                          {{/region_es}}
+                        {{/lang_es}}
+                        {{#lang_fr}}
+                          https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2_fr-1527286317390.jpg
+                        {{/lang_fr}}
+                        {{#lang_hi}}
+                          https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2_hi-1527286317392.jpg
+                        {{/lang_hi}}
+                        {{#lang_it}}
+                          https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2_it-1527286317595.jpg
+                        {{/lang_it}}
+                        {{#lang_ja}}
+                          https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2_ja-1527286317597.jpg
+                        {{/lang_ja}}
+                        {{#lang_ko}}
+                          https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2_ko-1527286317607.jpg
+                        {{/lang_ko}}
+                        {{#lang_pt}}
+                          https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2_pt-1527286317641.jpg
+                        {{/lang_pt}}
+                        {{#lang_ru}}
+                          https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2_ru-1527286317642.jpg
+                        {{/lang_ru}}
+                        {{#lang_tr}}
+                          https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2_tr-1527286317673.jpg
+                        {{/lang_tr}}
+                        {{^lang_ar}}
+                          {{^lang_en}}
+                            {{^lang_en-gb}}
+                              {{^lang_es}}
+                                {{^lang_fr}}
+                                  {{^lang_hi}}
+                                    {{^lang_it}}
+                                      {{^lang_ja}}
+                                        {{^lang_ko}}
+                                          {{^lang_pt}}
+                                            {{^lang_ru}}
+                                              {{^lang_tr}}
+                                                https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2-1525886706569.jpg
+                                              {{/lang_tr}}
+                                            {{/lang_ru}}
+                                          {{/lang_pt}}
+                                        {{/lang_ko}}
+                                      {{/lang_ja}}
+                                    {{/lang_it}}
+                                  {{/lang_hi}}
+                                {{/lang_fr}}
+                              {{/lang_es}}
+                            {{/lang_en-gb}}
+                          {{/lang_en}}
+                        {{/lang_ar}}
+                      '}}" width="270" class="width_full">
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty height_40" height="0"></td>
+                </tr>
+              </table>
+              <!--[if !gte mso 9]><!---->
+                <div class="show" style="display: none; max-height: 0; overflow: hidden;mso-hide: all; margin: auto; width: 100%;">
+                  <table cellpadding="0" cellspacing="0" border="0" align="{{ align('left') }}" width="100%">
+                    <tr>
+                      <td class="empty image m_center">
+                        <a href="{{ tl(link.cta[ccl()|float]) }}">
+                          <img src="{{'
+                            {{#lang_ar}}
+                              https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2_ar-1527286317390.jpg
+                            {{/lang_ar}}
+                            {{#lang_en}}
+                              https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2-1525886706569.jpg
+                            {{/lang_en}}
+                            {{#lang_en-gb}}
+                              https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2_en_gb-1527286317426.jpg
+                            {{/lang_en-gb}}
+                            {{#lang_es}}
+                              {{#region_es}}
+                                https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2_es_es-1527286317390.jpg
+                              {{/region_es}}
+                              {{^region_es}}
+                                https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2_es_lx-1527286317390.jpg
+                              {{/region_es}}
+                            {{/lang_es}}
+                            {{#lang_fr}}
+                              https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2_fr-1527286317390.jpg
+                            {{/lang_fr}}
+                            {{#lang_hi}}
+                              https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2_hi-1527286317392.jpg
+                            {{/lang_hi}}
+                            {{#lang_it}}
+                              https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2_it-1527286317595.jpg
+                            {{/lang_it}}
+                            {{#lang_ja}}
+                              https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2_ja-1527286317597.jpg
+                            {{/lang_ja}}
+                            {{#lang_ko}}
+                              https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2_ko-1527286317607.jpg
+                            {{/lang_ko}}
+                            {{#lang_pt}}
+                              https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2_pt-1527286317641.jpg
+                            {{/lang_pt}}
+                            {{#lang_ru}}
+                              https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2_ru-1527286317642.jpg
+                            {{/lang_ru}}
+                            {{#lang_tr}}
+                              https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2_tr-1527286317673.jpg
+                            {{/lang_tr}}
+                            {{^lang_ar}}
+                              {{^lang_en}}
+                                {{^lang_en-gb}}
+                                  {{^lang_es}}
+                                    {{^lang_fr}}
+                                      {{^lang_hi}}
+                                        {{^lang_it}}
+                                          {{^lang_ja}}
+                                            {{^lang_ko}}
+                                              {{^lang_pt}}
+                                                {{^lang_ru}}
+                                                  {{^lang_tr}}
+                                                    https://ea.twimg.com/email/self_serve/media/cm_20180514_twitter_windows_photo_2-1525886706569.jpg
+                                                  {{/lang_tr}}
+                                                {{/lang_ru}}
+                                              {{/lang_pt}}
+                                            {{/lang_ko}}
+                                          {{/lang_ja}}
+                                        {{/lang_it}}
+                                      {{/lang_hi}}
+                                    {{/lang_fr}}
+                                  {{/lang_es}}
+                                {{/lang_en-gb}}
+                              {{/lang_en}}
+                            {{/lang_ar}}
+                          '}}" width="100%">
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="empty height_40" height="0"></td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="show_ios" style="display: none; max-height: 0; overflow: hidden;mso-hide: all; margin: auto; width: 100%;">
+                  <table cellpadding="0" cellspacing="0" border="0" align="{{ align('left') }}" width="100%">
+                    <tr>
+                      <td class="empty image m_center">
+                        <a href="{{ tl(link.m_cta[0]) }}">
+                          <img src="{{ img.photo_2 }}" width="100%">
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="empty height_40" height="0"></td>
+                    </tr>
+                  </table>
+                </div>
+              <!--<![endif]-->
+              <!--[if gte mso 9]>
+              </td><td width="34"></td><td>
+              <![endif]-->
+              <table cellpadding="0" cellspacing="0" border="0" align="{{ align('right') }}" width="270" class="width_full">
+                <tr>
+                  <td class="empty image">
+                    <table cellpadding="0" cellspacing="0" border="0" align="center" dir="{{ dir('ltr') }}" width="270" height="236" class="module_height">
+                      <tr>
+                        <td class="headline_2 black m_center" align="{{ align('left') }}" height="20" valign="top">
+                          {{ i10n(copy.body[cb()|float]) }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="empty" height="20">
+                          &nbsp;
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="empty" height="5">
+                          <table cellpadding="0" cellspacing="0" border="0" bgcolor="#1DA1F2" align="{{ align('left') }}" class="hide">
+                            <tr>
+                              <td height="5" width="40" class="empty"></td>
+                            </tr>
+                          </table>
+                          <!--[if !gte mso 9]><!---->
+                            <div class="show show_ios" style="display: none; max-height: 0; overflow: hidden;mso-hide: all;margin: auto;">
+                              <table cellpadding="0" cellspacing="0" border="0" bgcolor="#1DA1F2" align="center">
+                                <tr>
+                                  <td height="5" width="40" class="empty"></td>
+                                </tr>
+                              </table>
+                            </div>
+                          <!--<![endif]-->
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="empty" height="20">
+                          &nbsp;
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="body m_center" align="{{ align('left') }}" valign="top">
+                          {{ i10n(copy.body[cb()|float]) }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="empty height_50" height="20"></td>
+                      </tr>
+                    </table>
+                    <table border="0" cellspacing="0" cellpadding="0" align="{{ align('left') }}" class="hide">
+                      <tr>
+                        <td align="center" class="button center" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
+                          <a href="{{ tl(link.cta[ccl()|float]) }}" target="_blank" class="button_yellow">
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                            {{ i10n(copy.cta[0]) }}
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                    <!--[if !gte mso 9]><!---->
+                      <div class="show" style="display: none; max-height: 0; overflow: hidden;mso-hide: all;margin: auto;">
+                        <table border="0" cellspacing="0" cellpadding="0" align="center">
+                          <tr>
+                            <td align="center" class="button center" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
+                              <a href="{{ tl(link.cta[ccl()|float]) }}" target="_blank" class="button_yellow">
+                                <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                {{ i10n(copy.cta[0]) }}
+                                <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                      <div class="show_ios" style="display: none; max-height: 0; overflow: hidden;mso-hide: all;margin: auto;">
+                        <table border="0" cellspacing="0" cellpadding="0" align="center">
+                          <tr>
+                            <td align="center" class="button center" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
+                              <a href="{{tl(link.m_cta[1])}}" target="_blank" class="button_yellow">
+                                <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                {{ i10n(copy.cta[0]) }}
+                                <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    <!--<![endif]-->
+                  </td>
+                </tr>
+              </table>
+              <!--[if gte mso 9]>
+              </td></tr></table>
+              <![endif]-->
+            </td>
+            <td class="empty width_zero" width="34">
+              &nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td class="empty" height="34" colspan="3">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        {# MODULE - BLUE #}
+        <table cellpadding="0" cellspacing="0" border="0" align="center" width="640" class="width_full" bgcolor="#1DA1F2">
+          <tr>
+            <td height="32" class="empty">
+              &nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td class="h2 white center" align="center">
+              {{ i10n(copy.blue[0]) }}
+            </td>
+          </tr>
+          <tr>
+            <td height="12" class="empty">
+              &nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td class="empty center">
+              <table border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr>
+                  <td align="center" class="button" bgcolor="#ffffff" dir="{{ dir('ltr') }}">
+                    <a href="{{ tl(link.cta) }}" target="_blank" class="button nowrap">
+                      <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                      {{ i10n(copy.cta[0]) }}
+                      <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td height="12" class="empty">
+              &nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td class="empty center" align="center">
+              <a href="{{ tl(link.alt[1]) }}" class="white"><img src="{{ img.alt[1] }}" height="25" title="{{ copy.alt[1] }}" alt="{{ copy.alt[1] }}" />
+            </td>
+          </tr>
+          <tr>
+            <td height="32" class="empty">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        {# MODULE - DOWNLOAD #}{#
+        <table cellpadding="0" cellspacing="0" border="0" align="center" width="640" class="width_full center" bgcolor="#ffffff">
+          <tr>
+            <td class="empty" height="65">
+              &nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td class="download deep_grey center" align="center" dir="{{ dir('ltr') }}">
+              {{ i10n(copy.download_app) }}
+            </td>
+          </tr>
+          <tr>
+            <td class="empty" height="8">
+              &nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td class="empty center apps" align="center" dir="{{ dir('ltr') }}" style="line-height: 20px;">
+              <img src="{{ img.apps[1] }}" alt="{{ copy.apps[1] }}" title="{{ copy.apps[0] }}" height="20"/>
+              <img src="{{ img.apps[0] }}" title="" height="20"/>
+              <img src="{{ img.apps[2] }}" alt="{{ copy.apps[1] }}" title="{{ copy.apps[1] }}" height="20"/>
+              <img src="{{ img.apps[0] }}" title="" height="20"/>
+              <img src="{{ img.apps[3] }}" alt="{{ copy.apps[2] }}" title="{{ copy.apps[2] }}" height="20"/>
+              <img src="{{ img.apps[0] }}" title="" height="20"/>
+              <img src="{{ img.apps[4] }}" alt="{{ copy.apps[3] }}" title="{{ copy.apps[3] }}" height="20"/>
+              <img src="{{ img.apps[0] }}" title="" height="20" class="hide"/>
+              <span style="white-space: nowrap;">
+                <img src="{{ img.apps[5] }}" alt="{{ copy.apps[4] }}" title="{{ copy.apps[4] }}" height="20"/>
+                <img src="{{ img.apps[0] }}" title="" height="20"/>
+                <img src="{{ img.apps[6] }}" alt="{{ copy.apps[5] }}" title="{{ copy.apps[5] }}" height="20"/>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td class="empty height_65" height="21">
+              &nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td class="empty">
+              <table cellpadding="0" cellspacing="0" border="0" class="center hide" align="center" width="80%">
+                <tr>
+                  <td class="empty" bgcolor="#d3d3d3" height="2"></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>#}
+        {# MODULE - FOOTER #}
+        <table cellpadding="0" cellspacing="0" border="0" align="center" width="640" class="width_full bg_grey" bgcolor="#ffffff">
+          <tr>
+            <td class="empty width_20" width="34">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+                {#<tr>
+                  <td class="footer text_black center m_pad_footer" align="center">
+                    {{ i10n(copy.body[cb()|float]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty height_12" height="45">
+                    &nbsp;
+                  </td>
+                </tr>#}
+                <tr>
+                  <td class="footer strong deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    <a href="{{ tl(link.help,3) }}" class="footer_grey">
+                      {{ i10n(copy.footer[0]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ tl(link.reset,2) }}" class="footer_grey">
+                      {{ i10n(copy.footer[1]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ link.download }}" class="footer_grey nowrap">
+                      {{ i10n(copy.footer[2]) }}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer footer_grey center" align="center">
+                    {{ i10n(copy.disclaimer) }} <a href="{{ link.unsubscribe }}" class="link_deep_grey"><u>{{ i10n(copy.footer[3]) }}</u></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer footer_grey center" align="center">
+                    <span class="addressLink">{{ "{{>manhattan:static:address_twitter/html_content}}" }}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="34">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+{% endblock %}

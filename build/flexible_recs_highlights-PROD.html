@@ -1,0 +1,1649 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <style type="text/css">
+      body {
+        margin: 0px;
+        padding: 0px;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+
+      table {
+        padding: 0px;
+      }
+
+      td {
+        padding: 0px;
+      }
+
+      img {
+        border: none;
+      }
+
+      a {
+        text-decoration: none;
+      }
+      
+      .wrapper {
+        width: 
+          {{#contentRecCollectionViews.head}}
+            {{#collection_type_tweets_1}}
+              {{#content_recs_email_design_key_edge_with_pivot}}
+                550px;
+              {{/content_recs_email_design_key_edge_with_pivot}}
+              {{^content_recs_email_design_key_edge_with_pivot}}
+                448px;
+              {{/content_recs_email_design_key_edge_with_pivot}}
+            {{/collection_type_tweets_1}}
+            {{^collection_type_tweets_1}}
+              448px;
+            {{/collection_type_tweets_1}}
+          {{/contentRecCollectionViews.head}}
+      }
+
+      .empty {
+        font-size: 0px;
+        line-height: 1px;
+        padding: 0px;
+      }
+
+      .header {
+        font-family: Helvetica, Arial, sans-serif;
+        font-weight: 600;
+        color: #292F33;
+        font-size: 32px;
+        line-height: 36px;
+        padding: 0px;
+      }
+
+      .footer_type {
+        font-family: Helvetica, Arial, sans-serif;
+        color: #8899a6;
+        font-size: 12px;
+        padding: 0px;
+        font-weight: normal;
+        line-height: 12px;
+      }
+
+      .module_margin_lr {
+        width: 24px;
+        min-width: 12px;
+      }
+
+      .module_margin_tb {
+        height: 24px;
+      }
+
+      .module_space {
+        height: 20px;
+      }
+
+      .full_tweet_margin_lr {
+        width: 24px;
+        min-width: 12px;
+      }
+
+      .full_tweet_margin_tb {
+        height: 24px;
+      }
+
+      .moment_card_margin_lr {
+        width: 16px;
+      }
+
+      .moment_card_margin_tb {
+        height: 16px;
+      }
+
+      .full_tweet_box {
+        border: 1px solid #AAB8C2;
+        background-color: #FFFFFF;
+        border-radius: 4px;
+      }
+
+      .border_full_width {
+        border: 1px solid #AAB8C2;
+        background-color: #FFFFFF;
+        border-radius: 4px;
+        min-width: 100%;
+        width: 100%;
+      }
+
+      .border_top_grey {
+        min-width: 100%;
+        width: 100%;
+        border-top: 1px solid #AAB8C2;
+      }
+      
+      .border_bottom_grey {
+        min-width: 100%;
+        width: 100%;
+        border-bottom: 1px solid #AAB8C2;
+      }
+
+      .full_tweet_text {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 18px;
+        color: #31373B;
+        padding: 0px;
+      }
+
+      .card_box {
+        border: 1px solid #AAB8C2;
+        border-radius: 4px;
+      }
+
+      .user_avatar_img {
+        padding: 0px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+      }
+
+      .user_name, .user_name_truncate {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 18px;
+        font-weight: bold;
+        color: #292F33;
+        padding: 0px;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        {{#content_recs_email_design_key_edge_with_pivot}}
+          white-space: normal;
+        {{/content_recs_email_design_key_edge_with_pivot}}
+        {{^content_recs_email_design_key_edge_with_pivot}}
+          white-space: nowrap;
+        {{/content_recs_email_design_key_edge_with_pivot}}
+      }
+
+      .inline_img {
+        display: inline-block;
+      }
+
+      .user_handle, .user_handle_truncate {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 16px;
+        color: #657786;
+        padding: 0px;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .poll_option_box {
+        border: 1px solid #AAB8C2;
+        border-radius: 4px;
+      }
+
+      .poll_option_text {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 16px;
+        color: #69B9EA;
+        text-align: center;
+      }
+
+      .quote_tweet_text {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 18px;
+        color: #292F33;
+      }
+
+      .quote_tweet_identity_truncate {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 18px;
+        padding: 0px;
+        width: 250px;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .quote_tweet_name {
+        color: #292f33;
+        font-weight: bold;
+      }
+
+      .quote_tweet_handle {
+        color: #8899a6;
+      }
+
+      .link_card_title {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: bold;
+        color: #292F33;
+      }
+
+      .link_card_description {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 18px;
+        color: #292F33;
+      }
+
+      .link_card_description a {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 18px;
+        color: #657786;
+        text-decoration: underline;
+      }
+
+      .link_card_source {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 18px;
+        color: #657786;
+      }
+
+      .playable {
+        padding: 0px;
+        background-color: #ffffff;
+        background-repeat: no-repeat;
+        background-size: 100%;
+      }
+
+      .view_more_button_text_fill {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 12px;
+        line-height: 12px;
+        font-weight: bold;
+        color: #ffffff;
+        white-space: nowrap;
+      }
+
+      .primary_button_text_fill {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 16px;
+        font-weight: bold;
+        color: #ffffff;
+        white-space: nowrap;
+      }
+
+      .social_proof_title {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 12px;
+        line-height: 16px;
+        color: #14171A;
+      }
+
+      .social_proof_title_embedded_tweet {
+        font-family: Helvetica, Arial, sans-serif;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 16px;
+        color: #14171A;
+      }
+
+      .social_proof_detail {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 12px;
+        line-height: 16px;
+        color: #14171A;
+      }
+
+      .social_proof_margin_lr {
+        width: 24px;
+      }
+
+      .news_button_box {
+        border: 1px solid #1B95E0;
+        border-radius: 100px;
+      }
+
+      .news_button_text {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 16px;
+        color: #1B95E0;
+      }
+
+      .news_margin_bottom {
+        height: 24px;
+      }
+
+      .reference_tweet_social_proof {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 18px;
+        color: #8899a6;
+        padding: 0px;
+      }
+
+      .tweet_social_proof, .tweet_social_proof a {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 16px;
+        color: #8899a6;
+        padding: 0px;
+      }
+
+      .people_card_user_name {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 18px;
+        line-height: 20px;
+        font-weight: bold;
+        color: #292F33;
+        padding: 0px;
+        width: 200px;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .people_card_user_handle {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 18px;
+        color: #657786;
+        padding: 0px;
+        width: 200px;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .people_card_user_avatar_img {
+        padding: 0px;
+        width: 72px;
+        height:72px;
+        border-radius: 50%;
+      }
+
+      .follow_button {
+        font-family: Helvetica, Arial, sans-serif;
+        border-radius: 100px;
+        border: 1px solid #{{randomColor}};
+      }
+
+      .follow_button_text {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: bold;
+        color: #{{randomColor}};
+      }
+
+      .people_card_bio {
+        font-family: Helvetica, Arial, sans-serif;
+        color: #292F33;
+        font-size: 14px;
+        line-height: 18px;
+      }
+
+      .people_card_bio a {
+        color: #292F33;
+      }
+
+      .people_card_geo {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 18px;
+        color: #657786;
+      }
+
+      .people_card_follow {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 13px;
+        line-height: 16px;
+        color: #657786;
+      }
+
+      .social_count {
+        font-family: Helvetica,Arial, sans-serif;
+        font-size: 12px;
+        line-height: 16px;
+        color: #657786;
+        vertical-align: middle;
+      }
+
+      .trends_hashtag {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 18px;
+        font-weight: bold;
+        color: #292F33;
+        padding: 0px;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 180px;
+      }
+
+      .trends_tweets_count {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 16px;
+        color: #8899A6;
+        padding: 0px;
+      }
+
+      .bulletproof-btn-white-1 {
+        border-radius: 100px;
+        line-height: 18px;
+        background-color: #ffffff;
+      }
+
+      .button-width-full {
+        width: 90%;
+        min-width: 86%;
+        display: block;
+      }
+
+      .img-inline {
+        display: inline !important;
+      }
+
+      .preheader {
+        display: none;
+        font-size: 1px;
+        color: #ffffff;
+        line-height: 1px;
+        max-height: 0px;
+        max-width: 0px;
+        opacity: 0;
+        overflow: hidden;
+      }
+
+      .height_12 {
+        height: 12px !important;
+      }
+
+      .width_12 {
+        width: 12px !important;
+      }
+
+      .font_activity_pivot {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: bold;
+        color: #{{randomColor}};
+      }
+
+      .font_activity_pivot_actv {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: bold;
+        color: #{{randomColor}};
+      }
+
+      .body_2_trend {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 12px;
+        line-height: 16px;
+        color: #8899A6;
+      }
+
+      .h4_trend {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+        color: #8899A6;
+        width: 20px;
+        min-width: 20px;
+      }
+
+      .trend_educational_q {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: bold;
+        color: #14171A;
+      }
+
+      .trend_educational_a {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 18px;
+        color: #14171A;
+      }
+
+      .trend_module_cta {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: bold;
+        color: #{{randomColor}};
+      }
+
+      .trend_module_cta a {
+        color: #{{randomColor}};
+      }
+
+      .full_tweet_text a {
+        color: #{{randomColor}};
+      }
+
+      .quote_tweet_text a {
+        color: #{{randomColor}};
+      }
+
+      .link_card_read_more a {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 18px;
+        color: #{{randomColor}};
+      }
+
+      .footer_link {
+        font-family: Helvetica, Arial, sans-serif;
+        color: #{{randomColor}};
+        font-size: 12px;
+        padding: 0px;
+        font-weight: 600;
+        line-height: 12px;
+      }
+
+      .view_more_button {
+        font-family: Helvetica, Arial, sans-serif;
+        border-radius: 100px;
+        border: 1px solid #{{randomColor}};
+      }
+
+      .view_more_button_text {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 12px;
+        line-height: 12px;
+        font-weight: bold;
+        color: #{{randomColor}};
+        white-space: nowrap;
+      }
+
+      .view_more_button_fill {
+        font-family: Helvetica, Arial, sans-serif;
+        border-radius: 100px;
+        border: 1px solid #{{randomColor}};
+        background-color: #{{randomColor}};
+      }
+
+      .bulletproof-btn-1 {
+        border-radius: 100px;
+        line-height: 18px;
+        background-color: #{{randomColor}};
+      }
+
+      .bulletproof-btn-2 {
+        font-size: 12px;
+        font-family: Helvetica, Arial, sans-serif;
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 100px;
+        padding: 5px 18px;
+        border: 1px solid #{{randomColor}};
+        display: inline-block;
+        font-weight:bold;
+        white-space: nowrap;
+      }
+
+      .bulletproof-btn-large-1 {
+        border-radius: 100px;
+        line-height: 18px;
+        background-color: #{{randomColor}};
+      }
+
+      .bulletproof-btn-large-2 {
+        font-size: 16px;
+        font-family: Helvetica, Arial, sans-serif;
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 100px;
+        padding: 8px 20px;
+        border: 1px solid #{{randomColor}};
+        display: inline-block;
+        font-weight:bold;
+      }
+
+      .bulletproof-btn-white-2 {
+        font-size: 12px;
+        font-family: Helvetica, Arial, sans-serif;
+        color: #{{randomColor}};
+        text-decoration: none;
+        border-radius: 100px;
+        padding: 5px 18px;
+        border: 1px solid #{{randomColor}};
+        display: inline-block;
+        font-weight:bold;
+        white-space: nowrap;
+      }
+
+      .link_blue {
+        font-size: 14px;
+        font-family: Helvetica, Arial, sans-serif;
+        color: #{{randomColor}};
+        text-decoration: none;
+        font-weight:bold;
+        white-space: nowrap;
+      }
+
+      .h2_trend {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: bold;
+        color: #{{randomColor}};
+      }
+
+      .addressLink {
+        font-family: Helvetica, Arial, sans-serif;  
+        font-size: 12px; 
+        padding: 0px;  
+        font-weight: normal; 
+        line-height: 16px; 
+        color: #8899A6 !important;
+      }
+      
+      .avatar {
+        border-radius: 24px;
+      }
+      
+      .pivot_title {
+        font-family: Helvetica, Arial, sans-serif;
+        color: #292F33;
+        font-size: 14px;
+        line-height: 18px;
+      }
+
+      .pivot_thumb {
+        height: 75px;
+        width: 75px;
+        border-radius: 4px;
+      }
+      
+      .tweet_main {
+        display: table;
+        width: 100%;
+        border-spacing: 0;
+        border-collapse: collapse;
+        {{#is_rtl}}direction: rtl;{{/is_rtl}}
+      }
+
+      .tweet_main_left {
+        display: table-cell;
+        width: 60%;
+        vertical-align: top;
+      }
+
+      .tweet_main_right {
+        display: table-cell;
+        width: 40%;
+        background-color: #E6ECF0;
+        vertical-align: middle;
+        border-radius: 0px 4px 4px 0px;
+      }
+
+      .tweet_avatar {
+        border-radius: 24px;
+      }
+      
+      .rounded_square {
+        border-radius: 4px;
+      }
+      
+      .trends_title {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-size: 16px;
+        line-height: 18px;
+        font-weight: bold;
+        color: #14171a;
+        padding: 0px;
+        margin: 0px;
+      }
+
+      .trends_attribution_small {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-size: 12px;
+        line-height: 14px;
+        font-weight: normal;
+        color: #657786;
+        padding: 0px;
+        margin: 0px;
+      }
+
+      .trends_attribution_large {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: normal;
+        color: #657786;
+        padding: 0px;
+        margin: 0px;
+      }
+
+      .trends_copy {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: normal;
+        color: #31373b;
+        padding: 0px;
+        margin: 0px;
+      }
+
+      .trends_copy a {
+        color: #{{randomColor}};
+      }
+
+      .trends_copy_bold {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: bold;
+        color: #292f33;
+        padding: 0px;
+        margin: 0px;
+      }
+
+      .trends_copy_large {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: normal;
+        color: #31373b;
+        padding: 0px;
+        margin: 0px;
+      }
+
+      .trends_copy_large a {
+        color: #{{randomColor}};
+      }
+
+      .trends_copy_large_bold {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: bold;
+        color: #31373b;
+        padding: 0px;
+        margin: 0px;
+      }
+
+      .trends_user_handle {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: normal;
+        color: #657786;
+        padding: 0px;
+        margin: 0px;
+        -webkit-text-size-adjust: none;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 275px;
+      }
+
+      .trends_user_handle_bold {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: bold;
+        color: #14171a;
+        padding: 0px;
+        margin: 0px;
+      }
+
+      .trends_social_proof {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-size: 12px;
+        line-height: 14px;
+        font-weight: normal;
+        color: #657786;
+        padding: 0px;
+        margin: 0px;
+      }
+
+      .clamp_2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .truncate {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 90px;
+      }
+
+      .border_left_grey {
+        border-left: 1px solid #aab8c2;
+      }
+
+      .trends_user_avatar_img {
+        border-radius: 24px;
+        height: 24px;
+        width: 24px;
+      }
+
+      .trends_image_round_right {
+        border-radius: 0px 4px 4px 0px;
+      }
+      
+      .quote_tweet_user_handle {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: normal;
+        color: #657786;
+        padding: 0px;
+        margin: 0px;
+        -webkit-text-size-adjust: none;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 275px;
+      }
+
+      .quote_tweet_user_handle_bold {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: bold;
+        color: #14171a;
+        padding: 0px;
+        margin: 0px;
+      }
+
+      .quote_tweet_text {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 12px;
+        line-height: 16px;
+        color: #31373b;
+      }
+
+      .moment_card_text_arb {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 12px;
+        line-height: 14px;
+        color: #657786;
+      } 
+      
+      .moment_card_text {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 18px;
+        color: #31373b;
+      }
+      
+      .button-width-full-poll {
+        min-width: fill;
+        min-width: -webkit-fill-available;
+      }
+
+      .white-copy {
+        font-family: courier;
+        font-size: 12px;
+        color: #ffffff;
+        line-height: 1px;
+      }
+      
+      .debug {
+        display: none !important;
+        font-size: 0px;
+        line-height: 0px;
+        mso-hide: all;
+      }
+
+      .avatar_badge {
+        padding: 4px;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 11px;
+        line-height: 12px;
+        color: #ffffff;
+        border-radius: 10px;
+        min-width: 12px;
+        text-align: center;
+      }
+      
+      .topic_border_bottom {
+        border-bottom: 1px solid #aab8c2;
+      }
+
+      .topic_h4 {
+        font-family: Helvetica, Arial, sans-serif;
+        color: #ffffff;
+        font-size: 12px;
+        line-height: 16px;
+      }
+
+      .topic_h3 {
+        font-family: Helvetica, Arial, sans-serif;
+        color: #ffffff;
+        font-size: 14px;
+        line-height: 18px;
+      }
+
+
+      .topic_h2 {
+        font-family: Helvetica, Arial, sans-serif;
+        color: #ffffff;
+        font-size: 16px;
+        line-height: 20px;
+      }
+
+      .topic_h1 {
+        font-family: Helvetica, Arial, sans-serif;
+        color: #ffffff;
+        font-size: 24px;
+        line-height: 28px;
+      }
+
+      .topic_thumb {
+        border-radius: 4px;
+      }
+
+      .debug_topic {
+        display: none !important;
+        font-family: monospace;
+        color: #ffffff;
+        font-size: 0px;
+      }
+
+      .black {
+        color: #31373b;
+      }
+      
+      .deep_grey {
+        color: #657786;
+      }
+      
+      .image_full {
+        width: 260px;
+        height: 260px;
+      }
+
+      .image_half {
+        width: 130px;
+        height: 130px;
+      }
+
+      .image_two_third {
+        width: 172px;
+        height: 172px;
+      }
+
+      .image_third {
+        width: 85px;
+        height: 85px;
+      }
+      
+      .image_num_box {
+        font-family: Helvetica, Arial, sans-serif;
+        background-color: #14171A;
+        padding: 3px;
+        font-size: 9px;
+        font-weight: bold;
+        color: #ffffff;
+        line-height: 12px;
+        border-radius: 4px;
+      }
+      
+      .image_num_bg {
+        width: 246px;
+        height: 226px;
+      }
+    </style>
+    <style type="text/css" inline="false">
+      @media only screen and (max-width: 400px) {
+        .hide {
+          display: none !important;  
+        }
+        
+        .show {
+          overflow: visible !important;
+          float: none !important;
+          display: table !important;
+          line-height: 100% !important;
+          width: 100% !important;
+          margin: 0 auto !important;
+        }
+        
+        .wrapper {
+          width: 100% !important;
+          min-width: 100vw !important;
+        }
+
+        .player {
+          width: 100% !important;
+        }
+
+        .width_full {
+          width: 100% !important;
+        }
+        
+        .width_zero {
+          width: 0px !important;
+        }
+
+        .full_tweet_margin_lr {
+          width: 12px !important;
+        }
+
+        .full_tweet_margin_tb {
+          height: 12px !important;
+        }
+
+        .social_proof_margin_lr {
+          width: 12px !important;
+        }
+
+        .button-width-full {
+          width: 86% !important;
+          min-width: 86% !important;
+          display: block !important;
+        }
+
+        .module_margin_tb {
+          height: 12px !important;
+        }
+
+        .module_margin_lr {
+          width: 12px !important;
+          min-width: 12px !important;
+        }
+
+        .tweet_main_left {
+          display: table !important;
+          width: 100% !important;
+        }
+
+        .tweet_main_right {
+          display: table !important;
+          width: 100% !important;
+          vertical-align: top !important;
+          vertical-align: middle;
+          border-radius: 0px 0px 4px 4px !important;
+        }
+        
+        .image_full {
+          width: 100% !important;
+          height: auto !important;
+        }
+
+        .image_half {
+          width: 100% !important;
+          height: auto !important;
+        }
+
+        .image_two_third {
+          width: 100% !important;
+          height: auto !important;
+        }
+
+        .image_third {
+          width: 100% !important;
+          height: auto !important;
+        }
+
+        .td_image_two_third {
+          width: 66% !important;
+        }
+
+        .td_image_third {
+          width: 33% !important;
+        }
+        
+        .image_num_bg {
+          width: 100%  !important;
+          height: auto !important;
+        }
+
+        .header.updates {
+          font-size: 24px !important;
+          line-height: 28px !important;
+        }
+      }
+      
+      @media only screen and (max-width: 500px) {
+        .hide {
+          display: none !important;
+        }
+        .show {
+          overflow: visible !important;
+          float: none !important;
+          display: table !important;
+          line-height: 100% !important;
+        }
+        .show_500 {
+          overflow: visible !important;
+          float: none !important;
+          display: table !important;
+          line-height: 100% !important;
+        }
+        .trends_user_handle {
+          max-width: 200px !important;
+        }
+      }
+
+      @media only screen and (max-width: 350px) {
+        .hide {
+          display: none !important;
+        }
+        .show {
+          overflow: visible !important;
+          float: none !important;
+          display: table !important;
+          line-height: 100% !important;
+        }
+        .show_500 {
+          display: none !important;
+        }
+        .show_350 {
+          overflow: visible !important;
+          float: none !important;
+          display: table !important;
+          line-height: 100% !important;
+        }
+        .trends_user_handle {
+          max-width: 150px !important;
+        }
+      }
+    </style>
+    <style type="text/css" inline="false">
+      u + #new-gmail-hack {
+        display: block !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!--Preheader-->
+    <div class="preheader">
+    {{^content_recs_subject_line_type_author_tweeted}}
+      {{#contentRecCollectionViews.head}}
+        {{#subjectLineModuleIndex.isEmpty}}
+          {{#has_two_author}}
+            {{_removeEmoji}}
+              {{{second_author.get.name}}} {{_i}}also Tweeted{{/i}}.
+            {{/removeEmoji}}
+          {{/has_two_author}}
+          {{#has_more_than_two_author}}
+            {{_removeEmoji}}
+              {{#distinctModuleViewAuthors.tail.init}}{{{name}}}, {{/distinctModuleViewAuthors.tail.init}}
+              {{#distinctModuleViewAuthors.tail.last}}{{{name}}}{{/distinctModuleViewAuthors.tail.last}} {{_i}}also Tweeted{{/i}}.
+            {{/removeEmoji}}
+          {{/has_more_than_two_author}}
+        {{/subjectLineModuleIndex.isEmpty}}
+        {{^subjectLineModuleIndex.isEmpty}}
+          {{^otherModules.isEmpty}}
+            {{#otherModules.init}}{{#tweetView}}{{user.name}}, {{/tweetView}}{{/otherModules.init}}
+            {{#otherModules.last}}{{#tweetView}}{{user.name}}{{/tweetView}}{{/otherModules.last}} {{_i}}also Tweeted{{/i}}.
+          {{/otherModules.isEmpty}}
+        {{/subjectLineModuleIndex.isEmpty}}
+      {{/contentRecCollectionViews.head}}
+    {{/content_recs_subject_line_type_author_tweeted}}
+    {{#content_recs_subject_line_type_author_tweeted}}
+      {{_i}}The most interesting content on Twitter, tailored just for you.{{/i}}
+    {{/content_recs_subject_line_type_author_tweeted}}
+    </div>
+    <!-- end preheader-->
+    <style type="text/css" inline="false">
+      .addressLink a { color: #8899A6 !important; text-decoration: none !important; }
+        {{#content_recs_email_design_key_edge_with_pivot}}
+          {{#contentRecCollectionViews.head}}
+            {{#collection_type_tweets_1}}
+              @supports (-webkit-overflow-scrolling:touch) and (color:#ffff) {
+                @media only screen and (min-width: 360px) {
+                  .wrapper {
+                    width: 480px !important;
+                  }
+
+                  .tweet_main_left {
+                    display: table-cell !important;
+                    width: 60% !important;
+                    vertical-align: top !important;
+                  }
+
+                  .tweet_main_right {
+                    display: table-cell !important;
+                    width: 40% !important;
+                    background-color: #E6ECF0 !important;
+                    vertical-align: middle !important;
+                    border-radius: 0px 4px 4px 0px !important;
+                  }
+                }
+              }
+            {{/collection_type_tweets_1}}
+          {{/contentRecCollectionViews.head}}
+        {{/content_recs_email_design_key_edge_with_pivot}}
+    </style>
+    <!--[if IE]>
+    <style type="text/css" inline="false">
+        .img_ie {
+            width: 394px !important;
+        }
+
+        .img_2_ie {
+            width: 196px !important;
+        }
+
+        .img_3a_ie {
+            width: 262px !important;
+        }
+
+        .img_3b_ie {
+            width: 130px !important;
+        }
+    </style>
+    <![endif]-->
+    <table border="0" style="width:100%; background-color: #ffffff;" align="center">
+      <tr>
+        <td align="center">
+          <table border="0" align="center">
+            <tr>
+              <td class="empty" width="12" style="min-width: 12px;">
+                &nbsp;
+              </td>
+              <td class="empty">
+                <table border="0" class="wrapper">
+                  <!-- header start -->
+                  <tr>
+                    <td align="center">
+                      <table border="0" style="width:100%;">
+                        <tr>
+                          <td height="24" style="height:24px;">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td align="center">
+                            <table border="0" align="center" width="100%">
+                              <tr>
+                                <td class="empty">
+                                  <table cellpadding="0" cellspacing="0" border="0" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+                                    <tr>
+                                      {{#content_recs_email_design_key_edge_with_avatar}}
+                                        {{^numUnreadNotifications.isDefined}}
+                                          <td>
+                                            <a href="{{_tl7}}https://twitter.com/{{{screen_name}}}{{/tl7}}">
+                                              <img src="{{#profile_image_src}}{{{profile_image_src}}}{{/profile_image_src}}{{^profile_image_src}}https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png{{/profile_image_src}}" height="32" class="avatar">
+                                            </a>
+                                          </td> 
+                                        {{/numUnreadNotifications.isDefined}}
+                                        {{#numUnreadNotifications.isDefined}}
+                                          <td>
+                                            <a href="{{_tl7}}https://twitter.com/i/notifications{{/tl7}}">
+                                              <img src="{{#profile_image_src}}{{{profile_image_src}}}{{/profile_image_src}}{{^profile_image_src}}https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png{{/profile_image_src}}" height="32" class="avatar">
+                                            </a>
+                                          </td>
+                                          <td valign="top">
+                                            <a href="{{_tl10}}https://twitter.com/i/notifications{{/tl10}}">
+                                              <table cellpadding="0" cellspacing="0" border="0">
+                                                <tr>
+                                                  <td class="avatar_badge" bgcolor="#1DA1F2" align="center">
+                                                    {{{numUnreadNotifications}}}
+                                                  </td>
+                                                </tr>
+                                              </table>
+                                            </a>
+                                          </td>
+                                        {{/numUnreadNotifications.isDefined}}
+                                      {{/content_recs_email_design_key_edge_with_avatar}}
+                                      {{#content_recs_email_design_key_edge_with_avatar_badge}}
+                                        {{^numUnreadNotifications.isDefined}}
+                                          <td>
+                                            <a href="{{_tl7}}https://twitter.com/{{{screen_name}}}{{/tl7}}">
+                                              <img src="{{#profile_image_src}}{{{profile_image_src}}}{{/profile_image_src}}{{^profile_image_src}}https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png{{/profile_image_src}}" height="32" class="avatar">
+                                            </a>
+                                          </td> 
+                                        {{/numUnreadNotifications.isDefined}}
+                                        {{#numUnreadNotifications.isDefined}}
+                                          <td>
+                                            <a href="{{_tl7}}https://twitter.com/i/notifications{{/tl7}}">
+                                              <img src="{{#profile_image_src}}{{{profile_image_src}}}{{/profile_image_src}}{{^profile_image_src}}https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png{{/profile_image_src}}" height="32" class="avatar">
+                                            </a>
+                                          </td>
+                                          <td valign="top">
+                                            <a href="{{_tl10}}https://twitter.com/i/notifications{{/tl10}}">
+                                              <table cellpadding="0" cellspacing="0" border="0">
+                                                <tr>
+                                                  <td class="avatar_badge" bgcolor="#E0245E" align="center">
+                                                    {{{numUnreadNotifications}}}
+                                                  </td>
+                                                </tr>
+                                              </table>
+                                            </a>
+                                          </td>
+                                        {{/numUnreadNotifications.isDefined}}
+                                      {{/content_recs_email_design_key_edge_with_avatar_badge}}
+                                      {{^content_recs_email_design_key_edge_with_avatar}}
+                                        {{^content_recs_email_design_key_edge_with_avatar_badge}}
+                                          <td>
+                                            <a href="{{_tl7}}https://twitter.com/{{{screen_name}}}{{/tl7}}">
+                                              <img src="{{#profile_image_src}}{{{profile_image_src}}}{{/profile_image_src}}{{^profile_image_src}}https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png{{/profile_image_src}}" height="32" class="avatar">
+                                            </a>
+                                          </td>
+                                        {{/content_recs_email_design_key_edge_with_avatar_badge}}
+                                      {{/content_recs_email_design_key_edge_with_avatar}}
+                                    </tr>
+                                  </table>
+                                  <table border="0" align="{{^is_rtl}}right{{/is_rtl}}{{#is_rtl}}left{{/is_rtl}}">
+                                    <tr>
+                                      <td align="{{^is_rtl}}right{{/is_rtl}}{{#is_rtl}}left{{/is_rtl}}" valign="top">
+                                        <a href="{{_tl1}}https://twitter.com/{{/tl1}}">
+                                          <img src="https://ea.twimg.com/email/self_serve/media/logo_twitter-1497383721365.png" height="24">
+                                        </a>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td height="12" style="height:12px;"></td>
+                              </tr>
+                              <tr>
+                                <td class="header {{#contentRecCollectionViews.head}}{{#collection_type_users_1}}who_to_follow{{/collection_type_users_1}}{{^collection_type_users_1}}{{#collection_type_whats_happening_1}}whats_happening{{/collection_type_whats_happening_1}}{{^collection_type_whats_happening_1}}{{#collection_type_embedded_tweets_1}}embedded_tweets{{/collection_type_embedded_tweets_1}}{{^collection_type_embedded_tweets_1}}{{#collection_type_strong_tie_activity_1}}updates{{/collection_type_strong_tie_activity_1}}{{^collection_type_strong_tie_activity_1}}{{#collection_type_interest_1}}{{#contentRecModuleViews.head}}{{#topicView}}topics{{/topicView}}{{/contentRecModuleViews.head}}{{/collection_type_interest_1}}{{^collection_type_interest_1}}highlights{{/collection_type_interest_1}}{{/collection_type_strong_tie_activity_1}}{{/collection_type_embedded_tweets_1}}{{/collection_type_whats_happening_1}}{{/collection_type_users_1}}{{/contentRecCollectionViews.head}}" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
+                                  {{#contentRecCollectionViews.head}}
+                                    {{#collection_type_users_1}}
+                                      {{_i}}Who to follow{{/i}}
+                                    {{/collection_type_users_1}}
+                                    {{^collection_type_users_1}}
+                                      {{#collection_type_whats_happening_1}}
+                                        {{#lang_en}}{{_i}}What’s happening{{/i}}{{/lang_en}}
+                                        {{^lang_en}}{{_i}}What's happening{{/i}}{{/lang_en}}
+                                      {{/collection_type_whats_happening_1}}
+                                      {{^collection_type_whats_happening_1}}
+                                      {{#collection_type_embedded_tweets_1}}
+                                        {{_i}}Tweets making headlines{{/i}}
+                                      {{/collection_type_embedded_tweets_1}}
+                                      {{^collection_type_embedded_tweets_1}}
+                                        {{#collection_type_strong_tie_activity_1}}
+                                          {{_i}}Updates you should see{{/i}}
+                                        {{/collection_type_strong_tie_activity_1}}
+                                        {{^collection_type_strong_tie_activity_1}}
+                                          {{#collection_type_interest_1}}
+                                            {{#contentRecModuleViews.head}}
+                                              {{#topicView}}
+                                                {{_i}}Tweets about your top topics{{/i}}
+                                              {{/topicView}}
+                                            {{/contentRecModuleViews.head}}
+                                          {{/collection_type_interest_1}}
+                                          {{^collection_type_interest_1}}
+                                            {{_i}}Your Highlights{{/i}}
+                                          {{/collection_type_interest_1}}
+                                        {{/collection_type_strong_tie_activity_1}}
+                                      {{/collection_type_embedded_tweets_1}}
+                                      {{/collection_type_whats_happening_1}}
+                                    {{/collection_type_users_1}}
+                                  {{/contentRecCollectionViews.head}}
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td height="18" style="height:18px;">
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <!-- header end -->
+                  <tr>
+                    <td class="empty">
+                      <img width="1" height="1" src="{{image_load_scribe}}">
+                    </td>
+                  </tr>
+                  <!-- content start -->
+                  {{#contentRecCollectionViews}}
+                    {{#contentRecModuleViews}}
+                    <tr>
+                      <td align="center">
+                        {{#module_type_tweet}}
+                          {{#content_recs_email_design_key_edge_with_pivot}}
+                            {{>manhattan:static:flexible_recs_hl_tweet_v2/html_content}}
+                          {{/content_recs_email_design_key_edge_with_pivot}}
+                          {{^content_recs_email_design_key_edge_with_pivot}}
+                            {{>manhattan:static:flexible_recs_highlights_tweet/html_content}}
+                          {{/content_recs_email_design_key_edge_with_pivot}}
+                        {{/module_type_tweet}}
+                        {{#module_type_url}}
+                          {{>manhattan:static:flexible_recs_highlights_url/html_content}}
+                        {{/module_type_url}}
+                        {{#module_type_topic}}
+                          {{>manhattan:static:flexible_recs_highlights_topic/html_content}}
+                        {{/module_type_topic}}
+                        {{#module_type_moment}}
+                          {{>manhattan:static:flexible_recs_highlightsmoment/html_content}}
+                        {{/module_type_moment}}
+                        {{#module_type_user}}
+                          {{>manhattan:static:flexible_recs_highlights_user/html_content}}
+                        {{/module_type_user}}
+                        {{#module_type_embedded_tweet}}
+                          {{>manhattan:static:flexible_recs_highlights_tfw/html_content}}
+                        {{/module_type_embedded_tweet}}
+                        {{#module_type_user_activity}}
+                          {{>manhattan:static:flexible_recs_highlights_actv/html_content}}
+                        {{/module_type_user_activity}}
+                        {{#module_type_trend_module}}
+                          {{>manhattan:static:flexible_recs_highlights_trend/html_content}}
+                        {{/module_type_trend_module}}
+                        {{#module_type_user_activity_list_only}}
+                          {{>manhattan:static:flexible_recs_highlights_actv2/html_content}}
+                        {{/module_type_user_activity_list_only}}
+                      </td>
+                    </tr>
+                    {{/contentRecModuleViews}}
+                  {{/contentRecCollectionViews}}
+                  <!-- content end -->
+                  {{#contentRecCollectionViews.head}}
+                    {{#collection_type_embedded_tweets_1}}
+                      <tr>
+                        <td height="10" style="height:10px;"></td>
+                      </tr>
+                      <tr>
+                        <td align="center">
+                          <table border="0" cellspacing="0" cellpadding="0" align="center">
+                            <tr>
+                              <td align="center" class="bulletproof-btn-large-1">
+                                <a href="{{_tl28}}https://twitter.com/{{/tl28}}" target="_blank" class="bulletproof-btn-large-2">
+                                  <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;
+                                  <![endif]-->{{_i}}Go to Twitter{{/i}}
+                                  <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;
+                                  <![endif]-->
+                                </a>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td height="60" style="height:60px;">
+                        </td>
+                      </tr>
+                    {{/collection_type_embedded_tweets_1}}
+                    {{#collection_type_tweets_1}}
+                      <tr>
+                        <td height="10" style="height:10px;">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="center">
+                          <table border="0" cellspacing="0" cellpadding="0" align="center">
+                            <tr>
+                              <td align="center" class="bulletproof-btn-large-1">
+                                <a href="{{_tl28}}https://twitter.com/{{/tl28}}" target="_blank" class="bulletproof-btn-large-2">
+                                  <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;
+                                  <![endif]-->{{_i}}See more on Twitter{{/i}}
+                                  <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;
+                                  <![endif]-->
+                                </a>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td height="60" style="height:60px;">
+                        </td>
+                      </tr>
+                    {{/collection_type_tweets_1}}
+                  {{/contentRecCollectionViews.head}}
+                  {{#content_recs_email_design_key_clickable_text}}
+                    <!-- download app start -->
+                    <tr>
+                      <td>
+                        <table border="0" align="center" style="width:100%;">
+                          <tr>
+                            <td height="44" style="height:44px;">
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="center">
+                              <table border="0" align="center" style="margin: 0 auto;">
+                                <tr>
+                                  <td class="empty">
+                                    <a href="{{_tl22}}https://itunes.apple.com/us/app/twitter/id333903271?mt=8{{/tl22}}">
+                                      <img src="https://ea.twimg.com/email/self_serve/media/app-store-badge-en-1494357031109.png" height="36" width="121" alt="{{_i}}Download on the App Store{{/i}}" title="{{_i}}Download on the App Store{{/i}}" style="font-size: 10px; line-height: 14px; color: #8899a6;"/>
+                                    </a>
+                                  </td>
+                                  <td class="empty" width="24">
+                                    &nbsp;
+                                  </td>
+                                  <td class="empty">
+                                    <a href="{{_tl23}}https://play.google.com/store/apps/details?id=com.twitter.android&hl=en{{/tl23}}">
+                                      <img src="https://ea.twimg.com/email/self_serve/media/google-play-badge-en-1494357239463.png" height="36" width="120" alt="{{_i}}Get it on Google Play{{/i}}" title="{{_i}}Get it on Google Play{{/i}}" style="font-size: 10px; line-height: 14px; color: #8899a6;"/>
+                                    </a>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- download app end -->
+                  {{/content_recs_email_design_key_clickable_text}}
+                  <!-- footer start -->
+                  <tr>
+                    <td>
+                      <table border="0" align="center" style="width:100%;">
+                        <tr>
+                          <td height="20" style="height:20px;">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td align="center">
+                            <span class="footer_type" {{#is_rtl}}dir="rtl"{{/is_rtl}}>
+                              <a href="{{_tl8}}https://twitter.com/settings/notifications{{/tl8}}" class="footer_link">
+                                {{_i}}Settings{{/i}}
+                              </a> &nbsp;&#124;&nbsp;
+                              <a href="{{_tl9}}https://support.twitter.com/{{/tl9}}" class="footer_link">
+                                {{_i}}Help{{/i}}
+                              </a> &nbsp;&#124;&nbsp;
+                              <a href="{{unsubscribe}}" class="footer_link">
+                                {{_i}}Unsubscribe{{/i}}
+                              </a> {{#isEmailStateUnconfirmed}}&emsp;&#124;&emsp;
+                              <a href="{{not_my_account}}" class="footer_link">
+                                {{_i}}Not my account{{/i}}
+                              </a>{{/isEmailStateUnconfirmed}}
+                            </span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td height="10" style="height:10px;">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td align="center" class="footer_type" {{#is_rtl}}dir="rtl"{{/is_rtl}}>{{_i}}We sent this email to @{{screen_name}}{{/i}}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td height="7" style="height:7px;">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td align="center">
+                            <table border="0" align="center" width="100%">
+                              <tr>
+                                <td class="empty" width="48">&nbsp;
+                                </td>
+                                <td align="center">
+                                  <span class="addressLink">{{>manhattan:static:address_twitter/html_content}}</span>
+                                </td>
+                                <td class="empty" width="48">&nbsp;
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td height="26" style="height: 26px;">
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <!-- footer end -->
+                </table>
+              </td>
+              <td class="empty" width="12"  style="min-width: 12px;">
+                &nbsp;
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="hide" align="center">
+          <table align="center" class="hide">
+            <tr>
+              <td width="96" height="1">
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="96"/>
+              </td>
+              <td width="96" height="1">
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="96"/>
+              </td>
+              <td width="96" height="1">
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="96"/>
+              </td>
+              <td width="96" height="1">
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="96"/>
+              </td>
+              <td width="96" height="1">
+                <img src="https://ea.twimg.com/email/self_serve/media/spacer-1476918453497.png" height="1" width="96"/>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <section>
+      <div id="new-gmail-hack" style="white-space: nowrap; font: 15px courier; line-height: 0; display: none;">
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      </div>
+  </section>
+  </body>
+</html>

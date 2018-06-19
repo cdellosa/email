@@ -1,0 +1,304 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros_notifications.html" %}
+
+{# BGCOLOR MAIN #}
+{% set bgcolor_main = "#ffffff" %}
+
+{# IBIS SWITCH #}
+{% set ibis_2 = true %}
+
+{% set mobile_fix_remove = true %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "avatar" : "http://twitter.com/{{#recipient}}{{screen_name}}{{/recipient}}",
+  "cta" : "https://twitter.com/i/notifications",
+  "cta_m" : "https://twitter.com/download",
+  "icon" : {
+    "follow" : "https://twitter.com/i/notifications",
+    "like" : "https://twitter.com/i/notifications",
+    "mention" : "https://twitter.com/i/notifications",
+    "reply" : "https://twitter.com/i/notifications",
+    "retweet" : "https://twitter.com/i/notifications"
+  },
+  "text" : "http://twitter.com",
+  "help" : "https://support.twitter.com/",
+  "settings" : "https://twitter.com/settings",
+  "unsubscribe" : "{{unsubscribe}}"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject" : "@{{#recipient}}{{screen_name}}{{/recipient}}, check out the notification you have on Twitter",
+  "subject_p" : "@{{#recipient}}{{screen_name}}{{/recipient}}, check out the notifications you have on Twitter",
+  "alt_logo" : "Twitter",
+  "title" : "See the 1 notification ready and waiting just for you",
+  "title_p" : "See the {{total_count}} notifications ready and waiting just for you",
+  "cta" : "Take a look",
+  "cta_m" : "Download Twitter",
+  "header" : "Likes, Retweets, new followers, and more — you’ll find them all in your Notifications. Here’s a glimpse.",
+  "body" : "When someone likes your Tweet, mentions you, or follows you, you can view all the activity in Notifications.",
+  "body_2" : "See how others have interacted with you on Twitter.",
+  "icon" : ["new follower", "like", "reply", "Retweet", "mention", "contact joined"],
+  "icon_p" : ["new followers", "likes", "replies", "Retweets", "mentions", "contacts joined"],
+  "icon_cta" : ["See it","See them"],
+  "education" : [
+    "Why did you get this email?",
+    "All your mentions, follows, replies, likes, and Retweets are consolidated into this convenient new digest. Now you’ll know exactly what’s happening with your Tweets without cluttering up your inbox."
+  ],
+  "footer" : ["Help", "Settings", "Unsubscribe"],
+  "disclaimer" : "We sent this to @" + mustache("{{#recipient}}{{screen_name}}{{/recipient}}","Somebody") + ".",
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "spacer_3_1" : prefix_img + "spacer_3_x_1-1480718996570.png",
+  "avatar" : "{{{recipient.userWrapper.profile.get.profileImageUrls.get.reasonablySmall.httpsUrl}}}",
+  "logo" : prefix_img + "logo_twitter-1497383721365.png",
+  "icon" : {
+    "follow" : prefix_img + "edge_follow-1498066923149.png",
+    "like" : prefix_img + "edge_like-1498066923154.png",
+    "mention" : prefix_img + "edge_reply-1498066923157.png",
+    "reply" : prefix_img + "edge_reply-1498066923157.png",
+    "retweet" : prefix_img + "edge_retweet-1498066923163.png"
+  }
+} %}
+
+{# CSS #}
+{% block style %}
+    .wrapper {
+      min-width: 400px;
+    }
+
+    .h3 {
+      line-height: 22px;
+    }
+
+    a {
+      color: {{ mustache("#{{randomBgColor}}","#1DA1F2") }};
+    }
+
+    .white a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .a_deep_grey a {
+      color: #8899A6;
+    }
+
+    .a_text_black a {
+      color: #292F33;
+    }
+
+    .color {
+      color: {{ mustache("#{{randomBgColor}}","#1DA1F2") }};
+    }
+
+    td.button {
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      line-height: 18px;
+    }
+
+    a.button_white {
+      font-size: 14px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: {{ mustache("#{{randomBgColor}}","#1DA1F2") }}; 
+      text-decoration: none;
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      padding: 5px 20px; 
+      border: 1px solid #ffffff;
+      display: inline-block; 
+      font-weight:bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a.button_white_2 {
+      font-size: 14px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: {{ mustache("#{{randomBgColor}}","#1DA1F2") }}; 
+      text-decoration: none;
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      padding: 5px 20px; 
+      border: 1px solid {{ mustache("#{{randomBgColor}}","#1DA1F2") }};
+      display: inline-block; 
+      font-weight:bold; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a.button {
+      font-size: 14px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      padding: 8px 18px; 
+      border: 1px solid {{ mustache("#{{randomBgColor}}","#1DA1F2") }};
+      display: inline-block; 
+      font-weight:bold; 
+      -webkit-font-smoothing: antialiased;
+    }   
+{% endblock %}
+
+{% block media_query %}
+        .hide {
+          display: none !important;
+        }
+
+        .width_full {
+          width: 100% !important;
+          min-width: 360px !important;
+          height: auto !important;
+        }
+
+        .width_24 {
+          width: 12px !important;
+        }
+
+        .height_30 {
+          height: 30px !important;
+        }
+
+        .dots {
+          max-width: 100px !important;
+        }
+{% endblock %}
+
+{% block style_custom %}
+    <style type="text/css" inline="false">
+      /* Windows 10 Mail Fix */
+      a { text-decoration: none; }
+      /* a:visited { color: #8899A6; text-decoration:none; } */
+      .addressLink a { color: #8899A6 !important; text-decoration: none !important; }
+      /* Windows 10 Mail Fix End */
+
+      .text_black a {
+        color: #292F33 !important;
+      }
+    </style>
+    <!--[if IE]>
+    <style type="text/css" inline="false">
+        /* Outlook 2000 - 2003 Canopy Image Fix */
+        .canopy img {
+            height: 154px !important;
+        }
+    </style>
+    <![endif]-->
+{% endblock %}
+
+{% block body %}
+  {{ header_begin(mustache("#ffffff","#ffffff")) }}
+  {{ header_spacer(24) }}
+  <tr>
+    <td>
+      <table align="{{ align('left') }}">
+        <tr>
+          <td class="image empty" align="{{ align('left') }}">
+            <a href="{{ tl(link.avatar) }}">
+              <img src="{{ img.avatar }}" width="32" class="avatar" />
+            </a>
+          </td>
+        </tr>
+      </table>
+      <table align="{{ align('right') }}">
+        <tr>
+          <td class="image empty" align="{{ align('right') }}">
+            <a href="{{ tl(link.logo) }}">
+              <img src="{{ img.logo }}" width="32" alt="{{ copy.alt_logo }}" title="{{ copy.alt_logo }}" />
+            </a>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  {{ header_spacer(12) }}
+  {{ header_title( mustache("{{#total_count_one}}") + i10n(pt(copy.title)) + mustache("{{/total_count_one}}") + mustache("{{^total_count_one}}") + mustache(i10n(pt(copy.title_p))) + mustache("{{/total_count_one}}"), align("left")) }}
+  {{ header_spacer(18) }}
+  <!-- BUTTON -->
+  <tr>
+    <td class="empty" align="{{ align('left') }}">
+      <table border="0" cellspacing="0" cellpadding="0" align="{{ align('left') }}">
+        <tr>
+          <td align="center" class="button" bgcolor="{{ mustache('#{{randomBgColor}}','#1DA1F2') }}">
+            <a href="{{ tl(link.cta,2) }}" target="_blank" class="button">
+              <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+              {{ i10n(copy.cta) }}
+              <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+            </a>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  {{ header_end() }}
+    <!-- FOOTER START -->
+    <table cellpadding="0" cellspacing="0" border="0" align="center" width="472" class="width_full">
+      <tr>
+        <td class="empty" width="12">
+          &nbsp;
+        </td>
+        <td class="empty" align="center">
+          <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%" dir="{{ dir('ltr') }}">
+            <tr>
+              <td class="empty" height="72">
+                &nbsp;
+              </td>
+            </tr>
+            <tr>
+              <td class="supporting deep_grey" align="center">
+                <a href="{{ tl(link.help,9) }}" class="color">
+                  {{ i10n(copy.footer[0]) }}
+                </a> &nbsp;|&nbsp;
+                <a href="{{ track(link.settings,1) }}" class="color">
+                  {{ i10n(copy.footer[1]) }}
+                </a> &nbsp;|&nbsp;
+                <a href="{{ link.unsubscribe }}" class="color">
+                  {{ i10n(copy.footer[2]) }}
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td class="empty" height="12">
+                &nbsp;
+              </td>
+            </tr>
+            <tr>
+              <td class="footer deep_grey" align="center">
+                {{ i10n(copy.disclaimer) }}
+              </td>
+            </tr>
+            <tr>
+              <td class="empty" height="12">
+                &nbsp;
+              </td>
+            </tr>
+            <tr>
+              <td class="footer deep_grey" align="center">
+                <span class="addressLink">{{ fixAddress(copy.address) }}</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="empty" height="72">
+                &nbsp;
+              </td>
+            </tr>
+          </table>
+        </td>
+        <td class="empty" width="12">
+          &nbsp;
+        </td>
+      </tr>
+    </table>
+    <!-- FOOTER END -->
+{% endblock %}

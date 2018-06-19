@@ -113,11 +113,11 @@
     }
 
     .text_black {
-      color: #292F33;
+      color: #14171A;
     }
 
     .deep_grey {
-      color: #8899A6;
+      color: #657786;
     }
 
     .medium_grey {
@@ -298,7 +298,7 @@
     }
 
     a {
-      color: #{{randomBgColor}};
+      color: #1DA1F2;
     }
 
     .white a {
@@ -315,7 +315,7 @@
     }
 
     .color {
-      color: #{{randomBgColor}};
+      color: #1DA1F2;
     }
 
     td.button {
@@ -328,7 +328,7 @@
     a.button_white {
       font-size: 14px; 
       font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
-      color: #{{randomBgColor}}; 
+      color: #1DA1F2; 
       text-decoration: none;
       -webkit-border-radius: 50px; 
       -moz-border-radius: 50px; 
@@ -343,13 +343,13 @@
     a.button_white_2 {
       font-size: 14px; 
       font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
-      color: #{{randomBgColor}}; 
+      color: #1DA1F2; 
       text-decoration: none;
       -webkit-border-radius: 50px; 
       -moz-border-radius: 50px; 
       border-radius: 50px; 
       padding: 5px 20px; 
-      border: 1px solid #{{randomBgColor}};
+      border: 1px solid #1DA1F2;
       display: inline-block; 
       font-weight:bold; 
       -webkit-font-smoothing: antialiased;
@@ -364,7 +364,7 @@
       -moz-border-radius: 50px; 
       border-radius: 50px; 
       padding: 6px 18px; 
-      border: 1px solid #{{randomBgColor}};
+      border: 1px solid #1DA1F2;
       display: inline-block; 
       font-weight:bold; 
       -webkit-font-smoothing: antialiased;
@@ -432,20 +432,6 @@
       .text_black a {
         color: #292F33 !important;
       }
-
-      @media only screen and (max-width: 768px) {
-        .hide {
-          display: none !important;
-        }
-
-        .show {
-          overflow: visible !important;
-          float: none !important;
-          display: table !important;
-          line-height: 100% !important;
-          width: 100% !important;
-        }
-      }
     </style>
     <!--[if IE]>
     <style type="text/css" inline="false">
@@ -465,6 +451,11 @@
         text-decoration: none;
       }
     </style>
+    {{#lang_ja}}<!--[if gte mso 15]>
+    <style type="text/css">
+    table { font-size:1px; line-height:0; mso-margin-top-alt:1px;word-break:break-all }
+    </style>
+    <![endif]-->{{/lang_ja}}
     <table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#ffffff" class="wrapper">
       <tr> 
         <td class="empty" width="100%" align="center">
@@ -499,16 +490,30 @@
                           </td>
                         </tr>
 
-  
-                        <tr>
-                          <td class="empty image" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
-                            <a href="{{#tl1}}https://twitter.com{{/tl1}}
-  " target="blank">
-                              <img src="https://ea.twimg.com/email/self_serve/media/logo_twitter-1497383721365.png" height="28" alt="Twitter" title="Twitter"/>
-                            </a>
-                          </td>
-                        </tr>
-
+  <tr>
+    <td>
+      <table align="left">
+        <tr>
+          <td class="image empty" align="left">
+            <a href="http://twitter.com/{{#recipient}}{{screen_name}}{{/recipient}}
+  ">
+              <img src="{{{recipient.userWrapper.profile.get.profileImageUrls.get.reasonablySmall.httpsUrl}}}" width="32" class="avatar" />
+            </a>
+          </td>
+        </tr>
+      </table>
+      <table align="right">
+        <tr>
+          <td class="image empty" align="right">
+            <a href="https://twitter.com
+  ">
+              <img src="https://ea.twimg.com/email/self_serve/media/logo_twitter-1497383721365.png" width="32" alt="Twitter" title="Twitter" />
+            </a>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
   
                         <tr>
                           <td class="empty" height="12">
@@ -518,9 +523,9 @@
 
   
                         <tr>
-                          <td class="h1 text_black" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
+                          <td class="h1 text_black" align="left">
                             
-                              {{#total_count_one}}{{#i}}See the 1 notification ready and waiting just for you{{/i}}{{/total_count_one}}{{^total_count_one}}{{#i}}See the {{total_count}} notifications ready and waiting just for you{{/i}}{{/total_count_one}}
+                              See the 1 notification ready and waiting just for you
                             
                           </td>
                         </tr>
@@ -534,35 +539,19 @@
 
   <!-- BUTTON -->
   <tr>
-    <td class="empty" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
-      <table border="0" cellspacing="0" cellpadding="0" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}" class="hide">
+    <td class="empty" align="left">
+      <table border="0" cellspacing="0" cellpadding="0" align="left">
         <tr>
-          <td align="center" class="button" bgcolor="#{{randomBgColor}}">
-            <a href="{{#tl2}}https://twitter.com/i/notifications{{/tl2}}
+          <td align="center" class="button" bgcolor="#1DA1F2">
+            <a href="https://twitter.com/i/notifications
   " target="_blank" class="button">
               <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-              {{#i}}Take a look{{/i}}
+              Take a look
               <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
             </a>
           </td>
         </tr>
       </table>
-      <!--[if !gte mso 9]><!---->
-        <div class="show" style="display: none; max-height: 0; overflow: hidden;mso-hide: all;margin: auto;">
-          <table border="0" cellspacing="0" cellpadding="0" align="{{^is_rtl}}left{{/is_rtl}}{{#is_rtl}}right{{/is_rtl}}">
-            <tr>
-              <td align="center" class="button" bgcolor="#{{randomBgColor}}">
-                <a href="{{#tl3}}https://twitter.com/download{{/tl3}}
-  " target="_blank" class="button">
-                  <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                  {{#i}}Download Twitter{{/i}}
-                  <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                </a>
-              </td>
-            </tr>
-          </table>
-        </div>
-      <!--<![endif]-->
     </td>
   </tr>
   
@@ -587,7 +576,7 @@
           &nbsp;
         </td>
         <td class="empty" align="center">
-          <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%" dir="{{^is_rtl}}ltr{{/is_rtl}}{{#is_rtl}}rtl{{/is_rtl}}">
+          <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%" dir="ltr">
             <tr>
               <td class="empty" height="72">
                 &nbsp;
@@ -595,15 +584,15 @@
             </tr>
             <tr>
               <td class="supporting deep_grey" align="center">
-                <a href="{{#tl4}}https://support.twitter.com/{{/tl4}}
+                <a href="https://support.twitter.com/
   " class="color">
-                  {{#i}}Help{{/i}}
+                  Help
                 </a> &nbsp;|&nbsp;
-                <a href="{{#tl1}}https://twitter.com/settings{{/tl1}}" class="color">
-                  {{#i}}Settings{{/i}}
+                <a href="https://twitter.com/settings" class="color">
+                  Settings
                 </a> &nbsp;|&nbsp;
                 <a href="{{unsubscribe}}" class="color">
-                  {{#i}}Unsubscribe{{/i}}
+                  Unsubscribe
                 </a>
               </td>
             </tr>
@@ -614,7 +603,7 @@
             </tr>
             <tr>
               <td class="footer deep_grey" align="center">
-                {{#i}}This email was generated for @{{#recipient}}{{screen_name}}{{/recipient}}.{{/i}}
+                We sent this to @Somebody.
               </td>
             </tr>
             <tr>

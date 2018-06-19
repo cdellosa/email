@@ -1,0 +1,89 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{% set copy = {
+  "preheader" : "You asked for it, you got it. Bookmarks are here.",
+  "subject_line" : "{{user_name}}, 新機能「ブックマーク」が、Twitterで使えるようになりました",
+  "alt_hero" : "ブックマーク機能で、ツイートを保存して後で簡単に読めるようになりました",
+  "headline" : "ブックマーク機能で、ツイートを保存して後で簡単に読めるようになりました",
+  "body" : "気になったツイートをブックマークに保存して、時間がある時にいつでも見ることができます。ブックマークは、ご自分のみが見ることができます。",
+  "cta" : "Twitterをチェックする",
+  "cta_2" : "Twitterをチェックする",
+  "body_2" : [
+    "ツイートの共有アイコン をタップ",
+    "Brighter headings and simpler designs make it easy to focus on what's important to you."
+  ],
+  "body_3" : [
+    "[ブックマークに追加] をタップして、ツイートを保存",
+    "See likes, replies, and Retweets as they happen. Know what's popular and join the conversation."
+  ],
+  "body_4" : [
+    "プロフィールメニューの [ブックマーク] をタップして、保存したツイートを表示",
+    "New, intuitive icons allow you to join the action on Twitter with ease."
+  ],
+  "body_5" : [
+    "Improved Navigation",
+    "Manage your profile, settings, privacy, and more, all in one place."
+  ],
+  "alt_logo" : "Twitter",
+  "footer" : ["Twitterについて", "ヘルプ", "メール配信を停止する", "アプリをダウンロード"],
+  "disclaimer" : "このメールは@" + signal("screen_name","Somebody") + "さんに送信されました",
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "http://twitter.com",
+  "cta" : "http://twitter.com",
+  "cta_footer" : "http://twitter.com",
+  "text" : "http://twitter.com",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+Subject: {{ i10n(pt(copy.subject_line)) }}
+
+{{ i10n(copy.headline) }} 
+
+{{ i10n(copy.body) }} 
+
+{{ i10n(copy.cta) }} 
+{{ "> " + link.cta }}
+
+=
+
+{{ i10n(copy.body_2[0]) }} 
+
+=
+
+{{ i10n(copy.body_3[0]) }} 
+
+=
+
+{{ i10n(copy.body_4[0]) }} 
+
+=
+
+{{ i10n(copy.cta_2) }} 
+{{ "> " + link.cta }}
+
+=
+
+{{ i10n(copy.footer[0]) }} 
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }} 
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }} 
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }} 
+{{ "> " + link.download }}
+
+{{ i10n(copy.disclaimer) }} 
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

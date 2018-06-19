@@ -1,0 +1,96 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# COPY #}
+{% set copy = {
+  "preheader" : "Get the conversation started where it starts",
+  "subject_line" : "{{user_name}}, Timestamps is now available on Twitter",
+  "alt_hero" : "Introducing Timestamps for live video",
+  "headline" : "Introducing Timestamps for live video",
+  "body" : "Share the exact moment of a live video that matters most to you, so you can get the conversation started quickly in real time.",
+  "cta" : "Give it a try",
+  "cta_2" : "Give Timestamps a try now",
+  "body_2" : [
+    "Select the important part",
+    "Choose the precise moment of a live video you want to share."
+  ],
+  "body_3" : [
+    "Discuss instantly",
+    "The video starts where you want it to, and so does the conversation."
+  ],
+  "body_4" : [
+    "Caught up? Skip to real-time",
+    "Once the moment is watched, viewers can jump ahead to watch live."
+  ],
+  "body_5" : [
+    "Improved Navigation",
+    "Manage your profile, settings, privacy, and more, all in one place."
+  ],
+  "alt_logo" : "Twitter",
+  "footer" : ["About", "Help", "Unsubscribe", "Download app"],
+  "disclaimer" : "We sent this to @" + signal("screen_name","Somebody"),
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "http://www.twitter.com/twitterlive",
+  "cta" : "http://www.twitter.com/twitterlive",
+  "cta_footer" : "http://www.twitter.com/twitterlive",
+  "text" : "http://www.twitter.com/twitterlive",
+  "about" : "https://about.twitter.com",
+  "help" : "https://support.twitter.com/",
+  "download" : "https://twitter.com/download"
+} %}
+
+Subject: {{ i10n(pt(copy.subject_line)) }}
+
+{{ i10n(copy.headline) }} 
+
+{{ i10n(copy.body) }} 
+
+{{ i10n(copy.cta) }} 
+{{ "> " + link.cta }}
+
+=
+
+{{ i10n(copy.body_2[0]) }} 
+
+{{ i10n(copy.body_2[1]) }} 
+
+=
+
+{{ i10n(copy.body_3[0]) }} 
+
+{{ i10n(copy.body_3[1]) }} 
+
+=
+
+{{ i10n(copy.body_4[0]) }} 
+
+{{ i10n(copy.body_4[1]) }} 
+
+=
+
+{{ i10n(copy.cta_2) }} 
+{{ "> " + link.cta }}
+
+=
+
+{{ i10n(copy.footer[0]) }} 
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }} 
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }} 
+{{ "> {{ unsubscribe }}" }}
+
+{{ i10n(copy.footer[3]) }} 
+{{ "> " + link.download }}
+
+{{ i10n(copy.disclaimer) }} 
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

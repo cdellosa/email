@@ -22,32 +22,10 @@
 {%- endmacro %}
 
 {# LINK TRACK MACRO / AUTO COUNTER #}
-{% set counter_tl = 1 %}
-{% macro tl(url) -%}
-  {% if ibis_2 == true -%}
-    {{ "{{#tl" + counter_tl + "}}" + url + "{{/tl" + counter_tl + "}}" }}
-  {%- elif ibis == true -%}
-    {{ "{{_tl" + counter_tl + "}}" + url + "{{/tl" + counter_tl + "}}" }}
-  {%- else -%}
-    {{ url }}
-  {%- endif %}
-  {% if counter_tl > 28 %}
-    {% set counter_tl = 29 %}
-  {% else %}
-    {% set counter_tl = counter_tl + 1 %}
-  {% endif %}
-{%- endmacro %}
+{% set counter_tl = 1 %}{%- macro tl(url) -%}{%- if ibis_2 == true -%}{{ "{{#tl" + counter_tl + "}}" + url + "{{/tl" + counter_tl + "}}" }}{%- elif ibis == true -%}{{ "{{_tl" + counter_tl + "}}" + url + "{{/tl" + counter_tl + "}}" }}{%- else -%}{{ url }}{%- endif -%}{%- if counter_tl > 28 -%}{%- set counter_tl = 29 -%}{%- else -%}{%- set counter_tl = counter_tl + 1 -%}{%- endif -%}{%- endmacro -%}
 
 {# LINK TRACK MACRO #}
-{% macro trackm(url,number) -%}
-  {% if ibis_2 == true -%}
-    {{ "{{#tlm" + number + "}}" + url + "{{/tlm" + number + "}}" }}
-  {%- elif ibis == true -%}
-    {{ "{{_tlm" + number + "}}" + url + "{{/tlm" + number + "}}" }}
-  {%- else -%}
-    {{ url }}
-  {%- endif %}
-{%- endmacro %}
+{% macro trackm(url,number) -%}{% if ibis_2 == true -%}{{ "{{#tlm" + number + "}}" + url + "{{/tlm" + number + "}}" }}{%- elif ibis == true -%}{{ "{{_tlm" + number + "}}" + url + "{{/tlm" + number + "}}" }}{%- else -%}{{ url }}{%- endif %}{%- endmacro %}
 
 {# IBIS SIGNAL MACRO #}
 {% macro signal(signal, default="") -%}

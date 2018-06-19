@@ -1,0 +1,106 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/TwitterSports/lists/worldcup-2018/members",  
+  "text" : [  
+    "https://twitter.com/twittersports",
+    "https://twitter.com/twittersports",
+    "https://twitter.com/search?q=%23WorldCup&src=typeahead_click"
+  ],   
+  "alt" : [  
+    "https://twitter.com"
+  ],  
+  "cta" : "https://twitter.com/TwitterSports/lists/worldcup-2018/members",
+  "logo_twitter_large" : "https://twitter.com/",  
+  "about" : "https://twitter.com/about",
+  "help" : "https://support.twitter.com/",  
+  "reset" : "https://twitter.com/account/begin_password_reset?account_identifier={{screen_name}}",  
+  "download" : "https://twitter.com/download",
+  "unsubscribe" : "{{unsubscribe}}"
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [  
+    "@{{screen_name}}, build your #WorldCup Follow Pack"
+  ],  
+  "preheader" : "The teams are set. Now build yours.",
+  "alt_hero" : "#Soccer is happening. #Passion is happening. #WorldCup is happening. Follow Now",  
+  "cta" : "Let's get started",  
+  "headline" : [  
+    "The teams are set. Now build yours.",
+    "#WorldCup is happening."
+  ],  
+  "body" : [  
+    "Who you gonna follow? The @TwitterSports Follow Pack lets you select your own squad to follow on Twitter. Check out all the teams and soccer experts from across the world. Add your faves and find new voices to follow. #WorldCup is happening. Don't miss any of the action.",
+    "",
+    "@TwitterSports",
+    "#WorldCup",
+    "Download Twitter and watch live video on the following devices:"
+  ],  
+  "alt" : [  
+    "Twitter"
+  ],   
+  "apps" : [
+    "Apple TV",
+    "Google Play",
+    "Xbox One",
+    "Windows 10",
+    "Amazon Fire TV"
+  ], 
+  "footer" : ["Help", "Reset password", "Download App", "Unsubscribe"], 
+  "disclaimer" : "We sent this to @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}   
+
+Subject: {{ copy.subject[0] }}
+
+{{ copy.alt_hero }}
+{{ "> " + link.hero }}
+
+=
+
+{{ copy.headline[0] }}
+
+{{ copy.body[0] }} {{ copy.body[1] }}
+
+{{ copy.cta }}
+{{ "> " + link.cta }}
+
+{{ copy.headline[1] }}
+
+{{ copy.body[2] }}
+{{ "> " + link.text[1] }}
+
+{{ copy.body[3] }}
+{{ "> " + link.text[2] }}
+
+=
+
+{{ copy.alt[0] }}
+{{ "> " + link.alt[0] }}
+
+=
+
+{{ copy.body[4] }}
+{{ copy.apps[0] }} | {{ copy.apps[1] }} | {{ copy.apps[2] }} | {{ copy.apps[3] }}
+
+=
+
+{{ copy.footer[0] }}
+{{ "> " + link.about }}
+
+{{ copy.footer[1] }}
+{{ "> " + link.help }}
+
+{{ copy.footer[2] }}
+{{ "> " + link.download }}
+
+{{ copy.disclaimer }} {{ copy.footer[3] }}
+{{ "> {{ unsubscribe }}" }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

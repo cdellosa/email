@@ -1,0 +1,99 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Subject:
+{{#total_count_one}}{{#i}}@{{#recipient}}{{screen_name}}{{/recipient}}, check out the notification you have on Twitter{{/i}}{{/total_count_one}}{{^total_count_one}}{{#i}}@{{#recipient}}{{screen_name}}{{/recipient}}, check out the notifications you have on Twitter{{/i}}{{/total_count_one}}
+ 
+Twitter 
+> https://twitter.com
+
+{{#social_users_count_one}}
+      {{#social_users_has_more}}
+        {{#i}}{{{social_users_one.full_name}}} and {{social_users_more_count}} others liked a photo{{/i}}
+      {{/social_users_has_more}}
+      {{^social_users_has_more}}
+        {{#i}}{{{social_users_one.full_name}}} liked a photo{{/i}}
+      {{/social_users_has_more}}
+    {{/social_users_count_one}}
+    {{#social_users_count_two}}
+      {{#social_users_has_more}}
+        {{#i}}{{{social_users_one.full_name}}}, {{{social_users_two.full_name}}}, and {{social_users_more_count}} others liked a photo{{/i}}
+      {{/social_users_has_more}}
+      {{^social_users_has_more}}
+        {{#i}}{{{social_users_one.full_name}}} and {{{social_users_two.full_name}}} liked a photo{{/i}}
+      {{/social_users_has_more}}
+    {{/social_users_count_two}}
+
+{{#social_users_count_one}}
+{{#social_users_has_more}}{{#i}}{{#notification_count_one}}See {{notification_count}} more notifications{{/notification_count_one}}{{^notification_count_one}}See 1 more notification{{/notification_count_one}}{{/i}} 
+> https://twitter.com/i/notifications{{/social_users_has_more}}
+{{^social_users_has_more}}{{#i}}See more on Twitter{{/i}}
+> https://twitter.com/i/notifications{{/social_users_has_more}}
+{{/social_users_count_one}}
+{{^social_users_count_one}}{{#i}}{{#notification_count_one}}See {{notification_count}} more notifications{{/notification_count_one}}{{^notification_count_one}}See 1 more notification{{/notification_count_one}}{{/i}}
+> https://twitter.com/i/notifications{{/social_users_count_one}}
+
+=
+
+{{#i}}Help{{/i}} 
+> https://support.twitter.com/
+
+{{#i}}Settings{{/i}} 
+> https://twitter.com/settings
+
+{{#i}}Unsubscribe{{/i}} 
+> {{unsubscribe}}
+
+{{#i}}We sent this to @{{#recipient}}{{screen_name}}{{/recipient}}.{{/i}}
+
+Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103

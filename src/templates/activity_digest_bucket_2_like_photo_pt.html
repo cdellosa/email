@@ -1,0 +1,96 @@
+{% include "includes/macros_notifications.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis_2 = true %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "avatar" : "http://twitter.com/{{#recipient}}{{screen_name}}{{/recipient}}",
+  "tweet_detail" : "https://twitter.com/",
+  "cta" : "https://twitter.com/i/notifications",
+  "cta_2" : "https://twitter.com/i/notifications",
+  "icon" : {
+    "follow" : "https://twitter.com/i/notifications",
+    "like" : "https://twitter.com/i/notifications",
+    "mention" : "https://twitter.com/i/notifications",
+    "reply" : "https://twitter.com/i/notifications",
+    "retweet" : "https://twitter.com/i/notifications"
+  },
+  "text" : "http://twitter.com",
+  "help" : "https://support.twitter.com/",
+  "settings" : "https://twitter.com/settings",
+  "unsubscribe" : "{{unsubscribe}}"
+} %}
+
+{% set action = "liked a photo" %}
+
+{# COPY #}
+{% set copy = {
+  "subject" : "@{{#recipient}}{{screen_name}}{{/recipient}}, check out the notification you have on Twitter",
+  "subject_p" : "@{{#recipient}}{{screen_name}}{{/recipient}}, check out the notifications you have on Twitter",
+  "alt_logo" : "Twitter",
+  "title" : "{{#social_users_count_one}}
+      {{#social_users_has_more}}
+        {{#i}}{{{social_users_one.full_name}}} and {{social_users_more_count}} others " + action + "{{/i}}
+      {{/social_users_has_more}}
+      {{^social_users_has_more}}
+        {{#i}}{{{social_users_one.full_name}}} " + action +"{{/i}}
+      {{/social_users_has_more}}
+    {{/social_users_count_one}}
+    {{#social_users_count_two}}
+      {{#social_users_has_more}}
+        {{#i}}{{{social_users_one.full_name}}}, {{{social_users_two.full_name}}}, and {{social_users_more_count}} others " + action +"{{/i}}
+      {{/social_users_has_more}}
+      {{^social_users_has_more}}
+        {{#i}}{{{social_users_one.full_name}}} and {{{social_users_two.full_name}}} " + action +"{{/i}}
+      {{/social_users_has_more}}
+    {{/social_users_count_two}}",
+  "title_p" : "See the {{total_count}} notifications ready and waiting just for you",
+  "cta" : "{{#notification_count_one}}See {{notification_count}} more notifications{{/notification_count_one}}{{^notification_count_one}}See 1 more notification{{/notification_count_one}}",
+  "cta_2" : "See more on Twitter",
+  "header" : "Likes, Retweets, new followers, and more — you’ll find them all in your Notifications. Here’s a glimpse.",
+  "body" : "When someone likes your Tweet, mentions you, or follows you, you can view all the activity in Notifications.",
+  "body_2" : "See how others have interacted with you on Twitter.",
+  "icon" : ["new follower", "like", "reply", "Retweet", "mention", "contact joined"],
+  "icon_p" : ["new followers", "likes", "replies", "Retweets", "mentions", "contacts joined"],
+  "icon_cta" : ["See it","See them"],
+  "education" : [
+    "Why did you get this email?",
+    "All your mentions, follows, replies, likes, and Retweets are consolidated into this convenient new digest. Now you’ll know exactly what’s happening with your Tweets without cluttering up your inbox."
+  ],
+  "footer" : ["Help", "Settings", "Unsubscribe"],
+  "disclaimer" : "We sent this to @" + mustache("{{#recipient}}{{screen_name}}{{/recipient}}","Somebody") + ".",
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+Subject:
+{{ mustache("{{#total_count_one}}") }}{{ i10n(copy.subject) }}{{ mustache("{{/total_count_one}}") }}{{ mustache("{{^total_count_one}}") }}{{ mustache(i10n(copy.subject_p)) }}{{ mustache("{{/total_count_one}}") }}
+ 
+Twitter 
+{{ "> " + link.logo }}
+
+{{ copy.title }}
+
+{{"{{#social_users_count_one}}
+{{#social_users_has_more}}"}}{{ i10n(copy.cta) }} 
+> {{ link.cta }}{{"{{/social_users_has_more}}
+{{^social_users_has_more}}"}}{{ i10n(copy.cta_2) }}
+> {{ link.cta_2 }}{{"{{/social_users_has_more}}
+{{/social_users_count_one}}
+{{^social_users_count_one}}"}}{{ i10n(copy.cta) }}
+> {{ link.cta }}{{"{{/social_users_count_one}}"}}
+
+=
+
+{{ i10n(pt(copy.footer[0])) }} 
+{{ "> " + link.help }}
+
+{{ i10n(pt(copy.footer[1])) }} 
+{{ "> " + link.settings }}
+
+{{ i10n(pt(copy.footer[2])) }} 
+{{ "> " + link.unsubscribe }}
+
+{{ i10n(pt(copy.disclaimer)) }}
+
+{{ copy.address }}

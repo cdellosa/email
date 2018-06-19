@@ -1,0 +1,519 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# HERO COPY IMAGE HEIGHT #}
+{% set hero_copy_height = 150 %}
+{# THIS IS AUTO SET BY ABOVE #}
+{% set hero_spacer_height = 366 - hero_copy_height - 119 %}
+{% set hero_copy_height_mobile = (hero_copy_height * 0.65)|round %}
+{% set hero_spacer_height_mobile = (hero_spacer_height * 0.65)|round %}
+
+{# BGCOLOR MAIN #}
+{% set bgcolor_main = "#f5f8fa" %}
+
+{# MAIN COLOR #}
+{% set main_color = "#E0245E" %}
+
+{# MOBILE FIX REMOVE SWITCH #}
+{% set mobile_fix_remove = false %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/",  
+  "cta" : "https://twitter.com/",
+  "logo_twitter_large" : "https://twitter.com/",  
+  "about" : "https://about.twitter.com",  
+  "help" : "https://support.twitter.com/",  
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [  
+    "{{user_name}}, Twitterは、今年で12周年。満開の桜とともに、日頃の感謝を皆様に。"
+  ],  
+  "preheader" : "抽選で12名様に「Twitterロゴ入りグッズ」をお贈りします。詳細は本文をご覧ください。",
+  "alt_hero" : "Twitterは、今年で12周年。満開の桜とともに、日頃の感謝を皆様に。",  
+  "cta" : "Twitterをチェックする",  
+  "headline" : [  
+    "日本を駆け上がる #桜 とともに <span class='nowrap'>この春、Twitterから感謝の気持ちを利用者の皆様へ。</span>",
+    "Thursday, December 7<br>8:30pm&nbsp;ET&nbsp;/&nbsp;5:30pm&nbsp;PT",
+    "Watch it. Talk about it."
+  ],  
+  "body" : [  
+    "満開の桜の下に人々が集まり、うたかたの美しさを愛でる。それは、古来から変わらない日本の文化。",
+    "数々のツイートのもとに人々が集まり、その一瞬を楽しむ様はいろいろな意見や会話を楽しむことができるTwitterも同じ。",
+    "日本中のみんなから愛される「桜」にTwitterを重ね、この春、Twitterは桜前線とともに、利用者の皆様への日頃の感謝の気持ちをお伝えします。",
+    "指定のハッシュタグをつけてツイートしていただいた利用者の中から抽選で、12名様に「Twitterロゴ入りグッズ」をお贈りします。",
+    "桜やお花見にまつわる投稿をして、タイムラインも桜で満開にしてみませんか？皆様の素敵な投稿をお待ちしてます！",
+    "応募期間：2018年3月21日（祝・水）0:00～同年4月21日（土）24:00",
+    "参加方法：上記期間中に、以下のハッシュタグ (1つまたは複数可) をつけてツイートしてください。",
+    "#桜",
+    "#さくら",
+    "#花見",
+    "#お花見",
+    "注意事項：",
+    "当選者連絡の為、Twitter公式アカウント“@TwitterJP”をフォローしてください。",
+    "当選通知は、@TwitterJPよりDMでご連絡させていただきます。",
+    "DMの受信拒否設定しているなどご連絡ができない場合は、抽選対象外となります。",
+    "当選者の方へのDMでの当選のご通知をもって当選発表に代えさせていただきます。",
+    "Twitterをチェックする"
+  ],  
+  "footer" : ["Twitterについて", "ヘルプ", "メール配信を停止する", "アプリをダウンロード"],
+  "disclaimer" : "このメールは@" + signal("screen_name","Somebody") + "さんに送信されました",
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}  
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "logo_twitter" : prefix_img + "logo-1475170569504.png",
+  "hero" : prefix_img + "cm_20180321_cherryblossom-1520985375943.jpg",
+  "hero_m" : prefix_img + "cm_20180321_cherryblossom-1520985375943.jpg",
+  "spacer" : prefix_img + "spacer.png",
+  "spacer_1" : prefix_img + "spacer_640x1-1481059174655.png",
+  "schedule" : prefix_img + "cm_20171207_gameawards_icon-1512166633227",
+  "logo_twitter_large" : prefix_img + "dm_logo_twitter-1489534651038.png",
+  "icon" : prefix_img + "cm_20171207_gameawards_icon-1512166633227.png",
+  "spacer_2" : prefix_img + "spacer_3_x_1-1493416213665.png",
+  "apps" : [
+    prefix_img + "apps_line-1501197126309.png",
+    prefix_img + "apps_apple-1501204946130.png",
+    prefix_img + "apps_google-1501197126312.png",
+    prefix_img + "apps_roku-1501204946153.png",
+    prefix_img + "apps_xbox_one-1501197126317.png",
+    prefix_img + "apps_windows-1501197126311.png",
+    prefix_img + "apps_amazon-1501204946080.png"
+  ]
+} %}
+
+{# CSS #}
+{% block style %}
+    .h3 {
+      font-size: 22px;
+      line-height: 26px;
+    }
+
+    .download {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 12px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: 600;
+      line-height: 16px;
+    }
+
+    td.button {
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      line-height: 18px;
+    }
+
+    a.button {
+      font-size: 16px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #ffffff; 
+      text-decoration: none;
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      padding: 11px 30px; 
+      border: 1px solid #E0245E;
+      display: inline-block; 
+      font-weight:600; 
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .button img {
+      display: inline;
+      vertical-align: top;
+    }
+
+    .body {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 16px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 22px;
+    }
+
+    .body_3 {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 20px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 24px;
+    }
+
+    .justify {
+      text-align: justify;
+    }
+
+    .apps img {
+      white-space: nowrap;
+      display: inline;
+    }
+
+    .body.deep_grey, .h3.deep_grey {
+      color: #404040;
+    }
+
+    .nowrap {
+      white-space: normal !important;
+    }
+{% endblock %}
+
+{% block media_query %}
+        .show {
+          overflow: visible !important;
+          float: none !important;
+          display: table !important;
+          line-height: 100% !important;
+        }
+
+        .show_br {
+          overflow: visible !important;
+          float: none !important;
+          display: inline !important;
+        }
+
+        .iosBlue a {
+          text-decoration: underline;
+          } 
+
+        .width_full {
+          width: 100% !important;
+        }
+
+        .width_90p {
+          width: 90% !important;
+        }
+
+        .height_1 {
+          height: 1px !important;
+        }
+
+        .height_30 {
+          height: 30px !important;
+        }
+
+        .h3 {
+          font-size: 16px !important;
+          line-height: 20px !important;
+        }
+
+        .body_3 {
+          font-size: 16px !important;
+          line-height: 20px !important;
+        }
+
+        .schedule {
+          width: 100% !important;
+          max-width: 350px !important;
+        }
+
+        .download {
+          padding: 0px 24px !important;
+        }
+
+        .hide {
+          display: none !important;
+        }
+{% endblock %}
+
+{% block body %}
+  <style inline="false">
+    .appleLinksWhite a {
+      color: #ffffff !important; 
+      text-decoration: none;
+    } 
+  </style>
+  <table cellpadding="0" cellspacing="0" border="0" align="center" width="640" class="width_full" dir="{{ dir('ltr') }}">
+    <tr>
+      <td id="hero" bgcolor="{{ main_color }}" width="640" valign="top" colspan="3">
+        <a href="{{ tl(link.hero) }}" class="hide">
+          <img src="{{ img.hero }}" class="hide" alt="{{ copy.alt_hero }}" title="{{ copy.alt_hero }}" width="640" style="color: #ffffff; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none; text-align: center; "/>
+        </a>
+      </td>
+    </tr>
+    <!--[if !gte mso 9]><!---->
+    <tr>
+      <td class="empty">
+        <div class="show" style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+          <a href="{{ tl(link.hero) }}">
+            <img src="{{ img.hero_m }}" class="width_full" alt="{{ copy.alt_hero }}" title="{{ copy.alt_hero }}" width="100%" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
+          </a>
+        </div>
+      </td>
+    </tr>
+    <!--<![endif]-->
+    <tr>
+      <td class="empty" bgcolor="#ffffff">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full">
+          <tr>
+            <td class="empty width_20" width="45">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table cellpadding="0" cellspacing="0" border="0" align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="h3 deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.headline[0]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(noWidow(copy.body[0])) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(noWidow(copy.body[1])) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(noWidow(copy.body[2])) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(noWidow(copy.body[3])) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(noWidow(copy.body[4])) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="1" bgcolor="#404040"></td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(noWidow(copy.body[5])) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(noWidow(copy.body[6])) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty">
+                    <table width="100%" align="{{ align('left') }}">
+                      <tr>
+                        <td width="12">&nbsp;</td>
+                        <td width="12" class="body deep_grey" valign="top" align="{{ align('left') }}">-</td>
+                        <td class="body deep_grey" valign="top" align="{{ align('left') }}">
+                          {{ i10n(noWidow(copy.body[7])) }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="12">&nbsp;</td>
+                        <td width="12" class="body deep_grey" valign="top" align="{{ align('left') }}">-</td>
+                        <td class="body deep_grey" valign="top" align="{{ align('left') }}">
+                          {{ i10n(noWidow(copy.body[8])) }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="12">&nbsp;</td>
+                        <td width="12" class="body deep_grey" valign="top" align="{{ align('left') }}">-</td>
+                        <td class="body deep_grey" valign="top" align="{{ align('left') }}">
+                          {{ i10n(noWidow(copy.body[9])) }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="12">&nbsp;</td>
+                        <td width="12" class="body deep_grey" valign="top" align="{{ align('left') }}">-</td>
+                        <td class="body deep_grey" valign="top" align="{{ align('left') }}">
+                          {{ i10n(noWidow(copy.body[10])) }}
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey" align="{{ align('left') }}" dir="{{ dir('ltr') }}">
+                    {{ i10n(noWidow(copy.body[11])) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty">
+                    <table width="100%" align="{{ align('left') }}">
+                      <tr>
+                        <td width="12">&nbsp;</td>
+                        <td width="12" class="body deep_grey" valign="top" align="{{ align('left') }}">&bull;</td>
+                        <td class="body deep_grey" valign="top" align="{{ align('left') }}">
+                          {{ i10n(noWidow(copy.body[12])) }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="12">&nbsp;</td>
+                        <td width="12" class="body deep_grey" valign="top" align="{{ align('left') }}">&bull;</td>
+                        <td class="body deep_grey" valign="top" align="{{ align('left') }}">
+                          {{ i10n(noWidow(copy.body[13])) }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="12">&nbsp;</td>
+                        <td width="12" class="body deep_grey" valign="top" align="{{ align('left') }}">&bull;</td>
+                        <td class="body deep_grey" valign="top" align="{{ align('left') }}">
+                          {{ i10n(noWidow(copy.body[14])) }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="12">&nbsp;</td>
+                        <td width="12" class="body deep_grey" valign="top" align="{{ align('left') }}">&bull;</td>
+                        <td class="body deep_grey" valign="top" align="{{ align('left') }}">
+                          {{ i10n(noWidow(copy.body[15])) }}
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" align="center">
+                    <table border="0" cellspacing="0" cellpadding="0" align="center">
+                      <tr>
+                        <td align="center" class="button center" bgcolor="#E0245E" dir="{{ dir('ltr') }}">
+                          <a href="{{ tl(link.cta) }}" target="_blank" class="button nowrap">
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                            {{ i10n(copy.cta) }}&nbsp;<img src="{{ img.logo_twitter }}" height="16"/>
+                            <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="45">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="{{ main_color }}" width="640" class="width_full">
+          <tr>
+            <td class="empty width_20" width="45">
+              &nbsp;
+            </td>
+            <td class="empty center">
+              <table align="center" class="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer strong white center" align="center" dir="{{ dir('ltr') }}">
+                    <a href="{{ tl(link.about,7) }}" class="white">
+                      {{ i10n(copy.footer[0]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ tl(link.help,8) }}" class="white">
+                      {{ i10n(copy.footer[1]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ '{{ unsubscribe }}' }}" class="white">
+                      {{ i10n(copy.footer[2]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ tl(link.download,9) }}" class="white">
+                      {{ i10n(copy.footer[3]) }}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer deep_grey center" align="center">
+                    <span class="addressLink">{{'{{#region_us}}
+                        <a href="http://twitter.com" style="color: #ffffff !important; text-decoration: none !important;"><span style="color: #ffffff !important; text-decoration: none !important;">Twitter, Inc. 1355 Market Street, Suite 900 San&nbsp;Francisco,&nbsp;CA&nbsp;94103</span></a>
+                      {{/region_us}}{{^region_us}}
+                        <a href="http://twitter.com" style="color: #ffffff !important; text-decoration: none !important;"><span style="color: #ffffff !important; text-decoration: none !important;">Twitter International Company<br>One&nbsp;Cumberland&nbsp;Place,&nbsp;Fenian&nbsp;Street<br>Dublin&nbsp;2,&nbsp;D02&nbsp;AX07&nbsp;&nbsp;IRELAND</span></a>
+                      {{/region_us}}'}}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="45">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+{% endblock %}

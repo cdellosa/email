@@ -1,0 +1,97 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "logo" : "https://twitter.com",
+  "text_1" : "https://twitter.com/settings/account/./",
+  "text_2" : "https://mobile.twitter.com/settings/password/./",
+  "text_3" : "https://t.co/login-verification",
+  "help" : "https://support.twitter.com",  
+  "reset" : "https://twitter.com/account/begin_password_reset?account_identifier={{screen_name}}",
+  "download" : "https://twitter.com/download"
+} %}
+
+{# COPY #}
+{% set copy = {
+  "subject_line" : "An update on your account security",
+  "alt_logo" : "Twitter",
+  "headline" : "We’d like to hear your thoughts.",
+  "body" : [
+    "Hi @{{screen_name}},",
+    "When you set a password for your Twitter account, we use technology that masks it so no one at the company can see it.",
+    "We recently identified a bug that stored passwords unmasked in an internal log.",
+    "We have fixed the bug, and our investigation shows no indication of breach or misuse by anyone.",
+    "Out of an abundance of caution, we ask that you consider changing your password on all services where you’ve used this password.",
+    "You can change your Twitter password anytime by going to the password <a href=\"" + tl(link.text_2) + "\" class=\"blue\">settings</a> page.",
+    "About The Bug",
+    "We mask passwords through a process called hashing using a function known as bcrypt, which replaces the actual password with a random set of numbers and letters that are stored in Twitter's system.",
+    "This allows our systems to validate your account credentials without revealing your password.",
+    "This is an industry standard.",
+    "Due to a bug, passwords were written to an internal log before completing the hashing process.",
+    "We found this error ourselves, removed the passwords, and are implementing plans to prevent this bug from happening again.",
+    "Tips on Account Security",
+    "Again, although we have no reason to believe password information ever left Twitter's systems or was misused by anyone, there are a few steps you can take to help us keep your account safe:",
+    "Change your password on Twitter and on any other service where you may have used the same password.",
+    "Use a strong password that you don't reuse on other services.",
+    "Enable <a href=\"" + tl(link.text_3) + "\" class=\"blue\">login verification</a>, also known as two factor authentication.",
+    "This is the single best action you can take to increase your account security.",
+    "Use a password manager to make sure you're using strong, unique passwords everywhere.",
+    "We are very sorry this happened.",
+    "We recognize and appreciate the trust you place in us, and are committed to earning that trust every day.",
+    "Team Twitter"
+    ],
+  "footer" : ["Help", "Reset Password", "Download App", "Unsubscribe"],  
+  "disclaimer" : "We sent this to @" + signal("screen_name","Somebody") + ".",
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}
+
+Subject: {{ i10n(copy.subject_line) }}
+
+Twitter 
+{{ "> " + link.logo }}
+
+=
+
+{{ i10n(copy.body[0]) }}
+
+{{ i10n(copy.body[1]) }} {{ i10n(copy.body[2]) }} {{ i10n(copy.body[3]) }}
+
+{{ i10n(copy.body[4]) }} {{ i10n(copy.body[5]) }} 
+
+{{ i10n(copy.body[6]) }} 
+
+{{ i10n(copy.body[7]) }} {{ i10n(copy.body[9]) }} 
+
+{{ i10n(copy.body[10]) }} {{ i10n(copy.body[11]) }} 
+
+{{ i10n(copy.body[12]) }} 
+
+{{ i10n("1.") }} {{ i10n(copy.body[13]) }} 
+
+{{ i10n("2.") }} {{ i10n(copy.body[14]) }} 
+
+{{ i10n("3.") }} {{ i10n(copy.body[15]) }} {{ i10n(copy.body[16]) }} 
+
+{{ i10n("4.") }} {{ i10n(copy.body[17]) }} {{ i10n(copy.body[18]) }} 
+
+{{ i10n(copy.body[19]) }} {{ i10n(copy.body[20]) }} 
+
+{{ i10n(copy.body[21]) }}
+
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.reset }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> " + link.download }}
+
+{{ i10n(pt(copy.disclaimer)) }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

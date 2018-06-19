@@ -1,0 +1,525 @@
+{% extends "includes/layout.html" %}
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# HERO COPY IMAGE HEIGHT #}
+{% set hero_copy_height = 150 %}
+{# THIS IS AUTO SET BY ABOVE #}
+{% set hero_spacer_height = 366 - hero_copy_height - 119 %}
+{% set hero_copy_height_mobile = (hero_copy_height * 0.65)|round %}
+{% set hero_spacer_height_mobile = (hero_spacer_height * 0.65)|round %}
+
+{# BGCOLOR MAIN #}
+{% set bgcolor_main = "#ffffff" %}
+
+{# MAIN COLOR #}
+{% set main_color = "#1DA1F2" %}
+
+{# MOBILE FIX REMOVE SWITCH #}
+{% set mobile_fix_remove = false %}
+
+{# IMAGES #}
+{% set prefix_img = "https://ea.twimg.com/email/self_serve/media/" %}
+{% set img = {
+  "logo_twitter" : prefix_img + "logo-1475170569504.png",
+  "hero" : prefix_img + "cm_20180501_topvideo-1524773888124.jpg",
+  "hero_m" : prefix_img + "cm_20180501_topvideo-1524773888124.jpg",
+  "hero_mso" : prefix_img + "cm_20180501_topvideo-1524773888124.jpg",
+  "spacer" : prefix_img + "spacer.png",
+  "spacer_1" : prefix_img + "spacer_640x1-1481059174655.png",
+  "icon" : prefix_img + "cm_20180214_vday_icon-1518461648337.png",
+  "spacer_2" : prefix_img + "spacer_3_x_1-1493416213665.png",
+  "emoji_buttefly" : prefix_img + "butterfly_1f98b-1525718127752.png",
+  "emoji_stareyes" : prefix_img + "grinning-face-with-star-eyes_1f929-1526337109846.png",
+  "tweet" : [
+    {
+      "avatar" : prefix_img + "tweet_avatar_01-1518635499337.jpg",
+      "photo" : prefix_img + "cm_20180514_top_video-1526332587051.jpg"
+    },
+    {
+      "avatar" : prefix_img + "tweet_avatar_01-1518635499337.jpg",
+      "photo" : prefix_img + "tweet_02-1518635500999.jpg"
+    },
+    {
+      "avatar" : prefix_img + "tweet_avatar_01-1518635499337.jpg",
+      "photo" : ""
+    }
+  ],
+  "social" : [
+    prefix_img + "icon_reply-1497559206779.png",
+    prefix_img + "icon_retweet-1497559206722.png",
+    prefix_img + "icon_like-1497559206788.png"
+    ],
+  "apps" : [
+    prefix_img + "apps_line-1501197126309.png",
+    prefix_img + "apps_apple-1501204946130.png",
+    prefix_img + "apps_google-1501197126312.png",
+    prefix_img + "apps_roku-1501204946153.png",
+    prefix_img + "apps_xbox_one-1501197126317.png",
+    prefix_img + "apps_windows-1501197126311.png",
+    prefix_img + "apps_amazon-1501204946080.png"
+  ]
+} %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/moments/994664322608513024",   
+  "cta" : "https://twitter.com/i/moments/994664322608513024",
+  "tweet" : [  
+    "https://twitter.com/i/moments/994664322608513024"
+  ],  
+  "help" : "https://support.twitter.com/",  
+  "reset" : "https://twitter.com/account/begin_password_reset?account_identifier={{screen_name}}",  
+  "download" : "https://twitter.com/download",
+  "unsubscribe" : "{{unsubscribe}}"
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [  
+    "@{{user_name}}, this week in Twitter Videos: So *that’s* how calendars work?"
+  ],  
+  "preheader" : "Watch must-see videos shared on Twitter this week",
+  "alt_hero" : "Twitter Videos of the Week",
+  "cta" : "Go to Moment",  
+  "headline" : [  
+    "Catch up on some of the must-see videos shared on&nbsp;Twitter&nbsp;this&nbsp;week.",
+    "Thursday, December 7<br>8:30pm&nbsp;ET&nbsp;/&nbsp;5:30pm&nbsp;PT",
+    "Watch it. Talk about it."
+  ],  
+  "body" : [  
+    "The Twitter Video Recap of the Week has precious pets and double take moments that you simply cannot miss. Take a look, and hit Retweet on some of your favorites. Want to join in the fun? Share your videos on Twitter, and who knows... they could be&nbsp;featured&nbsp;here as&nbsp;well!"
+  ],
+  "tweet" : [
+    {
+      "user_name" : "Twitter",
+      "screen_name" : "Twitter",
+      "title" : "This Week in Twitter Videos: So *that’s* how calendars&nbsp;work?&nbsp;🎶",
+      "time" : "Twitter &bull; May 11, 2018",
+      "text" : "We laughed at dogs, swooned over engagements, and questioned everything because of one kid and a calendar.&nbsp;<img src=\"" + img.emoji_stareyes + "\" height=\"16\"/>",
+      "reply" : "",
+      "retweet" : "",
+      "like" : "63"
+    }
+  ],
+  "social" : [
+    "Reply",
+    "Retweet",
+    "Like"
+  ],  
+  "footer" : ["Help", "Reset Password", "Download App", "Unsubscribe"],  
+  "disclaimer" : "We sent this to @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103" 
+} %}  
+
+
+{# CSS #}
+{% block style %}
+    .h3 {
+      font-size: 22px;
+      line-height: 26px;
+    }
+
+    .download {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 12px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: 600;
+      line-height: 16px;
+    }
+
+    td.button {
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      line-height: 18px;
+    }
+
+    a.button {
+      font-size: 12px; 
+      font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+      color: #1DA1F2; 
+      text-decoration: none;
+      -webkit-border-radius: 50px; 
+      -moz-border-radius: 50px; 
+      border-radius: 50px; 
+      padding: 6px 0px; 
+      border: 1px solid #1DA1F2;
+      display: inline-block; 
+      font-weight:600; 
+      -webkit-font-smoothing: antialiased;
+      width: 99%;
+    }
+
+    .button img {
+      display: inline;
+      vertical-align: top;
+    }
+
+    .body {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 16px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 22px;
+    }
+
+    .body_3 {
+      font-family: 'Helvetica Neue Light', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust:none;
+      font-size: 20px;
+      padding: 0px;
+      margin: 0px;
+      font-weight: normal;
+      line-height: 24px;
+    }
+
+    .justify {
+      text-align: justify;
+    }
+
+    .apps img {
+      white-space: nowrap;
+      display: inline;
+    }
+
+    .card {
+      padding: 0px;
+      border: 1px solid #aab8c2;
+      background-color: #ffffff;
+      border-radius: 4px;
+    }
+
+    .avatar {
+      border: none;
+      padding: 0px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+
+    .tweet_username {
+      text-decoration:none;
+      font-family:Helvetica,Arial,sans-serif;
+      font-size:16px;
+      line-height:18px;
+      font-weight:bold;
+      color:#292f33;
+      padding:0px;
+      display:block;
+      overflow:hidden;
+      text-overflow: ellipsis;
+      white-space:nowrap;
+    }
+
+    .tweet_screenname {
+      text-decoration:none;
+      font-family:Helvetica,Arial,sans-serif;
+      font-size:14px;
+      line-height:16px;
+      color:#657786;
+      padding:0px;
+      display:block;
+      overflow:hidden;
+      text-overflow: ellipsis;
+      white-space:nowrap;
+    }
+
+    .tweet_text {
+      font-family: Helvetica,Arial,sans-serif;
+      font-size: 14px;
+      line-height: 18px;
+      color: #31373b;
+      padding: 0px;
+    }
+
+    .tweet_text_grey {
+      font-family: Helvetica,Arial,sans-serif;
+      font-size: 14px;
+      line-height: 18px;
+      color: #657786;
+      padding: 0px;
+    }
+
+    .tweet_social {
+      font-family: Helvetica,Arial,sans-serif;
+      font-size: 12px;
+      line-height: 16px;
+      color: #657786;
+      vertical-align: middle;
+    }
+
+    a .deep_grey {
+      color: #8899a6;
+    }
+
+    .footer_grey {
+      color: #8899a6;
+    }
+
+    .link_deep_grey {
+      color: #8899a6;
+      text-decoration: underline;
+    }
+{% endblock %}
+
+{% block media_query %}
+        .show {
+          overflow: visible !important;
+          float: none !important;
+          display: table !important;
+          line-height: 100% !important;
+        }
+
+        .iosBlue a {
+          text-decoration: underline;
+          } 
+
+        .width_full {
+          width: 100% !important;
+        }
+
+        .hide {
+          display: none !important;
+        }
+
+        .m_height_12 {
+          height: 12px !important;
+        }
+
+        .m_width_12 {
+          width: 12px !important;
+        }
+{% endblock %}
+
+{% block body %}
+  <style inline="false">
+    .appleLinksWhite a {
+      color: #ffffff !important; 
+      text-decoration: none;
+    } 
+  </style>
+  <table cellpadding="0" cellspacing="0" border="0" align="center" width="640" class="width_full" dir="{{ dir('ltr') }}">
+    <tr>
+      <td id="hero" bgcolor="{{ main_color }}" width="480" valign="top" colspan="3">
+        <a href="{{ tl(link.hero) }}" class="hide">
+          <img src="{{ img.hero }}" class="hide" alt="{{ copy.alt_hero }}" title="{{ copy.alt_hero }}" width="640" style="color: #ffffff; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none; text-align: center; "/>
+        </a>
+      </td>
+    </tr>
+    <!--[if !gte mso 9]><!---->
+    <tr>
+      <td class="empty">
+        <div class="show" style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+          <a href="{{ tl(link.hero) }}">
+            <img src="{{ img.hero_m }}" class="width_full" alt="{{ copy.alt_hero }}" title="{{ copy.alt_hero }}" width="100%" style="color: {{ main_color }}; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; font-size: 32px; line-height: 36px; border: none;"/>
+          </a>
+        </div>
+      </td>
+    </tr>
+    <!--<![endif]-->
+    <tr>
+      <td class="empty" bgcolor="#ffffff">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#ffffff" width="640" class="width_full">
+          <tr>
+            <td class="empty width_20" width="45">
+              &nbsp;
+            </td>
+            <td class="empty">
+              <table cellpadding="0" cellspacing="0" border="0" align="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="h3 text_black center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.headline[0]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="24">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="body deep_grey center" align="center" dir="{{ dir('ltr') }}">
+                    {{ i10n(copy.body[0]) }}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="32">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="45">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+        {# TWEET 1 START #}
+        <a href="{{ tl(link.tweet[0]) }}">
+          <table cellpadding="0" cellspacing="0" border="0" align="center">
+            <tr>
+              <td width="0" class="empty m_width_12"></td>
+              <td class="empty" align="center">
+                <table cellpadding="0" cellspacing="0" border="0" align="center" class="card width_full" width="480">
+                  <tr>
+                    <td width="24" class="m_width_12">
+                      &nbsp;
+                    </td>
+                    <td>
+                      <table cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                          <td height="24" class="m_height_12"></td>
+                        </tr>
+                        <tr>
+                          <td class="empty">
+                            <a href="{{ tl(link.tweet[0]) }}">
+                              <img src="{{ img.tweet[0].photo }}" width="432" class="width_full">
+                            </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td height="14" class="m_height_12"></td>
+                        </tr>
+                        <tr>
+                          <td class="tweet_text text_black"  align="{{ align('left') }}">
+                            <strong>{{ copy.tweet[0].title }}</strong>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td height="8"></td>
+                        </tr>
+                        <tr>
+                          <td class="tweet_text_grey" style="color: #657786 !important;" align="{{ align('left') }}">
+                            {{ copy.tweet[0].time }}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td height="8"></td>
+                        </tr>
+                        <tr>
+                          <td class="tweet_text"  align="{{ align('left') }}">
+                            {{ copy.tweet[0].text }}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td height="14" class="m_height_12"></td>
+                        </tr>
+                        <tr>
+                          <td height="14" class="m_height_12"></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <table border="0" cellspacing="0" cellpadding="0" align="center" width="100%">
+                              <tr>
+                                <td align="center" class="button center" bgcolor="#ffffff" dir="{{ dir('ltr') }}">
+                                  <a href="{{ tl(link.tweet[0]) }}" target="_blank" class="button nowrap">
+                                    <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                    {{ i10n(copy.cta) }}
+                                    <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
+                                  </a>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td height="24" class="m_height_12"></td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td width="24" class="m_width_12">
+                      &nbsp;
+                    </td>
+                    <!--[if gte mso 15]>
+                      <td width="1" bgcolor="#aab8c2" class="empty">&nbsp;</td>                    
+                    <![endif]-->
+                  </tr>
+                </table>
+              </td>
+              <td width="0" class="empty m_width_12"></td>
+            </tr>
+          </table>
+        </a>
+        {# TWEET 1 END #}
+        <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
+          <tr>
+            <td class="empty" height="24">&nbsp;</td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" width="480" class="width_full">
+          <tr>
+            <td class="empty width_20" width="45">
+              &nbsp;
+            </td>
+            <td class="empty center">
+              <table align="center" class="center" dir="{{ dir('ltr') }}">
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer strong footer_grey center" align="center" dir="{{ dir('ltr') }}">
+                    <a href="{{ tl(link.help) }}" class="footer_grey">
+                      {{ i10n(copy.footer[0]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ tl(link.reset) }}" class="footer_grey">
+                      {{ i10n(copy.footer[1]) }}
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ tl(link.download) }}" class="footer_grey">
+                      {{ i10n(copy.footer[2]) }}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer footer_grey center" align="center">
+                    {{ i10n(copy.disclaimer) }} <a href="{{ link.unsubscribe }}" class="link_deep_grey"><u>{{ i10n(copy.footer[3]) }}</u></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="12">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer footer_grey center" align="center">
+                    <span class="addressLink">{{"{{>manhattan:static:address_twitter/html_content}}"}}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="empty" height="72">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td class="empty width_20" width="45">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+{% endblock %}

@@ -2,7 +2,7 @@
 {% include "includes/macros.html" %}
 
 {# IBIS SWITCH #}
-{% set ibis = true %}
+{% set ibis = false %}
 
 {# LINKS #}
 {% set uid = "" %}
@@ -655,7 +655,7 @@
                         <td align="center" class="button center" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
                           <a href="{{ tl(link.cta[ccl()|float]) }}" target="_blank" class="button_yellow">
                             <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                            {{ i10n(copy.cta[cc()|float]) }}
+                            {{ i10n(copy.cta[cc()|float]) }} AAA
                             <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
                           </a>
                         </td>
@@ -668,7 +668,7 @@
                             <td align="center" class="button center" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
                               <a href="{{ tl(link.cta[ccl()|float]) }}" target="_blank" class="button_yellow">
                                 <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                                {{ i10n(copy.cta[cc()|float]) }}
+                                {{ i10n(copy.cta[cc()|float]) }} BBB
                                 <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
                               </a>
                             </td>
@@ -681,7 +681,7 @@
                             <td align="center" class="button center" bgcolor="#1DA1F2" dir="{{ dir('ltr') }}">
                               <a href="{{tl(link.m_cta[1])}}" target="_blank" class="button_yellow">
                                 <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
-                                {{ i10n(copy.cta[cc()|float]) }}
+                                {{ i10n(copy.cta[cc()|float]) }} CCC
                                 <!--[if gte mso 11]>&nbsp; &nbsp; &nbsp;<![endif]-->
                               </a>
                             </td>

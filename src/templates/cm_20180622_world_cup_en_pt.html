@@ -1,0 +1,100 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/i/events/731226242301599744",  
+  "text" : [  
+    "https://twitter.com/twittersports",
+    "https://twitter.com/twittersports",
+    "https://twitter.com/search?q=%23WorldCup&src=typeahead_click"
+  ],  
+  "alt" : [  
+    "https://twitter.com"
+  ],  
+  "cta" : "https://twitter.com/i/events/731226242301599744",
+  "logo_twitter_large" : "https://twitter.com/",  
+  "about" : "https://twitter.com/about",
+  "help" : "https://support.twitter.com/",  
+  "reset" : "https://twitter.com/account/begin_password_reset?account_identifier={{screen_name}}",  
+  "download" : "https://twitter.com/download",
+  "unsubscribe" : "{{unsubscribe}}"
+} %}
+
+{% set copy = {   
+  "subject" : [  
+    "@{{screen_name}}, it's easy to enjoy the #WorldCup on Twitter."
+  ],  
+  "preheader" : "How to enjoy the #WorldCup on Twitter.",
+  "alt_hero" : "#Action is happening. #Excitement is happening. #WorldCup is happening.",  
+  "cta" : "Learn more on",  
+  "headline" : [  
+    "Twitter makes it easy to experience the World Cup.",
+    "#WorldCup is happening."
+  ],  
+  "body" : [  
+    "There's nonstop excitement on and off the field. And Twitter makes it easy to enjoy it all. To help you get started, we made a simple guide to help you get your game on. Learn how to find and follow the action and reaction, get the latest results, and even talk the talk with hashtags and emoji. Whether it's your first or your fifth World Cup, your best experience is on Twitter.",
+    "",
+    "@TwitterSports",
+    "#WorldCup",
+    "Download Twitter and watch live video on the following devices:"
+  ],  
+  "alt" : [  
+    "Twitter"
+  ],   
+  "apps" : [
+    "Apple TV",
+    "Google Play",
+    "Xbox One",
+    "Windows 10",
+    "Amazon Fire TV"
+  ], 
+  "footer" : ["Help", "Reset Password", "Download App", "Unsubscribe"], 
+  "disclaimer" : "We sent this to @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}   
+
+Subject: {{ i10n(copy.subject[0]) }}
+
+{{ i10n(copy.alt_hero) }}
+{{ "> " + link.hero }}
+
+=
+
+{{ i10n(copy.headline[0]) }}
+
+{{ i10n(copy.body[0]) }}
+
+{{ i10n(copy.cta) }}
+{{ "> " + link.cta }}
+
+{{ i10n(copy.headline[1]) }}
+
+{{ i10n(copy.body[2]) }}
+{{ "> " + link.text[1] }}
+
+{{ i10n(copy.body[3]) }}
+{{ "> " + link.text[2] }}
+
+=
+
+{{ i10n(copy.alt[0]) }}
+{{ "> " + link.alt[0] }}
+
+=
+
+{{ i10n(copy.footer[0]) }}
+{{ "> " + link.about }}
+
+{{ i10n(copy.footer[1]) }}
+{{ "> " + link.help }}
+
+{{ i10n(copy.footer[2]) }}
+{{ "> " + link.download }}
+
+{{ i10n(copy.disclaimer) }} {{ i10n(copy.footer[3]) }}
+{{ "> {{ unsubscribe }}" }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}

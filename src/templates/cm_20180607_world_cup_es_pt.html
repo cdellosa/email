@@ -1,0 +1,105 @@
+{% include "includes/macros.html" %}
+
+{# IBIS SWITCH #}
+{% set ibis = true %}
+
+{# LINKS #}
+{% set link = {
+  "hero" : "https://twitter.com/miseleccionmx/lists/seleccion-mayor/members",  
+  "text" : [  
+    "https://twitter.com/miseleccionmx",
+    "https://twitter.com/search?q=%23CopadelMundo&src=typeahead_click",
+    "https://twitter.com/TwitterLatAm" 
+    ],  
+  "alt" : [  
+    "https://twitter.com"
+  ],  
+  "cta" : "https://twitter.com/miseleccionmx/lists/seleccion-mayor/members",
+  "logo_twitter_large" : "https://twitter.com/",  
+  "about" : "https://twitter.com/about",
+  "help" : "https://support.twitter.com/",  
+  "reset" : "https://twitter.com/account/begin_password_reset?account_identifier={{screen_name}}",  
+  "download" : "https://twitter.com/download",
+  "unsubscribe" : "{{unsubscribe}}"
+} %}
+
+{# COPY #}
+{% set copy = {   
+  "subject" : [  
+    "@{{screen_name}}, crea tu paquete #CopaDelMundo de cuentas para seguir"
+  ],  
+  "preheader" : "Los equipos están formados. Ahora arma el tuyo.",
+  "alt_hero" : "#SoyMéxico #NadaNosDetiene La #CopaDelMundo está sucediendo.",  
+  "cta" : "No te pierdas nada",  
+  "headline" : [  
+    "Los equipos están formados. Ahora arma el tuyo.",
+    "#CopaDelMundo está sucediendo."
+  ],  
+  "body" : [  
+    "¿A quién vas a seguir? El paquete @miseleccionmx de cuentas para seguir te permite seleccionar tu propio escuadrón de héroes para seguir en Twitter. Echa un vistazo a todos los jugadores. Agrega los que te gustan y omite los que no. La #CopaDelMundo está sucediendo. No te pierdas nada.",
+    "",
+    "@TwitterLatAm",
+    "#CopaDelMundo",
+    "Descarga Twitter y mira videos en directo en los siguientes dispositivos:"
+  ],  
+  "alt" : [  
+    "Twitter"
+  ],   
+  "apps" : [
+    "Apple TV",
+    "Google Play",
+    "Xbox One",
+    "Windows 10"
+  ], 
+  "footer" : ["Ayuda", "Restablecer la contraseña", "Descargar aplicación", "Darse de baja"], 
+  "disclaimer" : "Enviamos esto a @" + signal("screen_name","Somebody") + ".", 
+  "address" : "Twitter, Inc. 1355 Market Street, Suite 900 San Francisco, CA 94103"
+} %}    
+
+Subject: {{ copy.subject[0] }}
+
+{{ copy.alt_hero }}
+{{ "> " + link.hero }}
+
+=
+
+{{ copy.headline[0] }}
+
+{{ copy.body[0] }} {{ copy.body[1] }}
+
+{{ copy.cta }}
+{{ "> " + link.cta }}
+
+{{ copy.headline[1] }}
+
+{{ copy.body[2] }}
+{{ "> " + link.text[1] }}
+
+{{ copy.body[3] }}
+{{ "> " + link.text[2] }}
+
+=
+
+{{ copy.alt[0] }}
+{{ "> " + link.alt[0] }}
+
+=
+
+{{ copy.body[4] }}
+{{ copy.apps[0] }} | {{ copy.apps[1] }} | {{ copy.apps[2] }}
+
+=
+
+{{ copy.footer[0] }}
+{{ "> " + link.about }}
+
+{{ copy.footer[1] }}
+{{ "> " + link.help }}
+
+{{ copy.footer[2] }}
+{{ "> " + link.download }}
+
+{{ copy.disclaimer }} {{ copy.footer[3] }}
+{{ "> {{ unsubscribe }}" }}
+
+{{"{{>manhattan:static:address_twitter/plain_content}}"}}
